@@ -1,0 +1,131 @@
+body
+{
+    overflow-x: hidden;
+}
+.contenedor_iconos
+{
+   background: #cecece;
+   width: 100px;
+   height: 100px;
+   
+}
+.gris_claro
+{
+   background: #E7E7E7; 
+}
+.contenedor_inf
+{
+    width: 100%; height: auto; background: #CFCFCF;
+}
+.centrar{
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.boton_blanco
+{
+    border-radius: 20px;
+    color: white !important; 
+    border-color: white;
+    border-bottom-width: 5px;
+    border-bottom-color: white;
+    font-size: 13px;    
+    font-weight: bold; 
+}
+.boton_blanco:hover
+{
+    transform: scale(1.2);
+    border-color: #ED942D;
+    color: #002752 !important;
+    font-weight: bold;    
+    border-color: white;
+    border-bottom-color: white;
+    background: #ED942D;
+}
+.boton_naranja{
+
+    border-color: #ED942D;
+    color: #002752 !important;
+    font-weight: bold;    
+    border-color: white;
+    border-bottom-width: 5px;
+    border-bottom-color: white;
+    background: #ED942D;
+    border-radius: 20px;
+    font-size: 13px;
+}
+.boton_naranja:hover
+{
+    transform: scale(1.2);
+}
+.erre
+{
+    font-size: 25px; 
+    color: #ED942D;
+    font-family: 'Pacifico', cursive;    
+}
+.complemento
+{
+    font-size: 20px; 
+    font-family: 'Pacifico', cursive;
+}
+.texto_titulos
+{  
+    font-size: 30px;
+    font-weight: bold;
+    -webkit-text-stroke: 2px #0B3049;
+    color: #0B3049;
+}
+.boton_ir
+{
+    border-radius: 20px;
+    color:  #1d3047 !important; 
+    border-color: #0B3049;
+    border-bottom-width: 5px;    
+    font-size: 13px;    
+    font-weight: bold;
+}
+.boton_ir:hover
+{
+    transform: scale(1.2);
+}
+.buscador
+{
+    width: 100%;
+    height: auto;    
+    background:#0B3049; 
+/*    background-image:  url(../imagenes/fondo_buscados.jpg);
+    background-size: cover;    
+    background-repeat: no-repeat;*/
+}
+.img_buscador
+{
+    width: 100%;
+    z-index: 1;
+}
+.txt-buscador{
+    border: 2px solid!important;
+    border-color: #ED942D !important;    
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;    
+    height: 50px;
+    width: 800px;
+}
+.letra
+{
+    color: white;  
+    -webkit-text-stroke: 1px #fff;
+}
+.sub-letras
+{color: white}
+.btn-naranja
+{
+
+    background: #ED942D;
+    font-weight: bold;
+    border-radius: 5px;
+}
