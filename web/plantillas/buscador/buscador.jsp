@@ -2,7 +2,7 @@
             <div class="row justify-content-center text-center">
                 <div class="col-auto p-1 " >                                        
                     <div class="col-lg-12">
-                        <img width="400" height="250" src="recursos/imagenes/logo_principal.png" alt=""/>
+                        <img width="240" height="210" src="recursos/imagenes/Logo_colorido.png" alt=""/>
                     </div>                    
                     <div class="col-lg-12">
                         <h5 class="letra ">BUSCADOR DE DISCAPACIDAD</h5>                     

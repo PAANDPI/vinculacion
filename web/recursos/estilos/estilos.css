@@ -1,21 +1,47 @@
+
+.morado{
+    background:#9A5BCE !important;
+}
+.amarillo{
+    background:#FFDF78 !important;
+}
+.rosado{
+    background:#E26591 !important;
+}
+.verde{
+    background:#57CBAE !important;
+}
+.naranja{
+    background:#EBB575 !important;
+}
+.opacidad{
+    filter: brightness(150%);
+}
+
 body
 {
     overflow-x: hidden;
 }
 .contenedor_iconos
 {
-   background: #cecece;
-   width: 100px;
-   height: 100px;
-   
+
+    width: 100px;
+    height: 100px;
+
 }
 .gris_claro
 {
-   background: #E7E7E7; 
+    background: #E7E7E7;
+    -webkit-box-shadow: -1px 0px 18px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 0px 18px -5px rgba(0,0,0,0.75);
+    box-shadow: -1px 0px 18px -5px rgba(0,0,0,0.75);
 }
 .contenedor_inf
 {
-    width: 100%; height: auto; background: #CFCFCF;
+    height: auto; background: #CFCFCF;
+    -webkit-box-shadow: -1px 0px 18px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 0px 18px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 0px 18px 0px rgba(0,0,0,0.75);
 }
 .centrar{
     position: absolute;
@@ -25,10 +51,13 @@ body
     right: 0;
     bottom: 0;
     margin: auto;
+
+
 }
+
 .boton_blanco
 {
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     color: white !important; 
     border-color: white;
     border-bottom-width: 5px;
@@ -55,7 +84,7 @@ body
     border-bottom-width: 5px;
     border-bottom-color: white;
     background: #ED942D;
-    border-radius: 20px;
+    /*border-radius: 20px;*/
     font-size: 13px;
 }
 .boton_naranja:hover
@@ -98,9 +127,9 @@ body
     width: 100%;
     height: auto;    
     background:#0B3049; 
-/*    background-image:  url(../imagenes/fondo_buscados.jpg);
-    background-size: cover;    
-    background-repeat: no-repeat;*/
+    /*    background-image:  url(../imagenes/fondo_buscados.jpg);
+        background-size: cover;    
+        background-repeat: no-repeat;*/
 }
 .img_buscador
 {
@@ -128,4 +157,81 @@ body
     background: #ED942D;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.caja_login
+{
+    border: 1px solid #fff; 
+    position: absolute;    
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+
+}
+.logo_imgw
+{
+
+}
+.hearder_login
+{
+    height: 200px;
+    background:#0B3049; 
+}
+.blanco
+{
+    color: #fff;
+}
+.grosor
+{
+    -webkit-text-stroke: 1px #fff;   
+}
+.letras
+{    
+    /*font-family: 'Pacifico', cursive;*/ 
+}
+.fondo
+{
+    background:#0B3049; 
+}
+.barra_colores{
+    height: 20px;
+    background: rgb(235,181,117);
+    background: linear-gradient(90deg, rgba(235,181,117,1) 0%, rgba(226,101,145,1) 24%, rgba(255,223,120,1) 50%, rgba(87,203,174,1) 70%, rgba(154,91,206,1) 100%); 
+}
+.fondo_resultado{
+    /*background-image: url(../..//recursos/imagenes/embossed-diamond.png);*/
+}
+.card_recursos
+{
+    border-radius: 0px !important;
+}
+.card_recursos:hover
+{
+    transform: scale(1.5,1.5);
+    z-index: 2;
+    transition:  1s ;
+}
+.login_color {
+    width: 100%;
+    color: #fff ;
+    background: #0B3049;
+    border: 5px solid #fff;
+    border-radius: 10px; 
+
+}
+.login_color:hover
+{
+    border-radius: 10px; 
+    border-bottom: 5px solid #E26591;
+    border-left: 5px solid #FFDF78;
+    border-top: 5px solid #57CBAE;
+    border-right: 5px solid #9A5BCE;
+    color: #fff ;  
+}
+.login_color:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
 }

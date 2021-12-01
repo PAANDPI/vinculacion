@@ -13,7 +13,7 @@
                         <a class="nav-link btn mr-3 boton_blanco " href="../vinculacion/index.jsp">Inicio  <span  class="bi bi-house"></span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link btn  mr-3 boton_blanco "  href="#">Recursos <span class="bi bi-folder"></span></a>
+                        <a class="nav-link btn  mr-3 boton_blanco "  href="../vinculacion/recursos.jsp">Recursos <span class="bi bi-folder"></span></a>
                     </li>                   
                     <li class="nav-item">
                         <a class="nav-link  btn  mr-3 boton_blanco " href="#">Eventos  <span class="bi bi-calendar3-event"></span></a>
@@ -25,7 +25,7 @@
                         <a class="nav-link  btn mr-3 boton_blanco "  href="#">Conócenos  <span class="bi bi-people"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  btn mr-3 boton_naranja "  href="#">Identificate <span class="bi bi-door-open "></span></a>
+                        <a class="nav-link  btn mr-3 boton_naranja "  href="../vinculacion/login.jsp">Identificate <span class="bi bi-door-open "></span></a>
                     </li>
                 </ul>               
             </div>
