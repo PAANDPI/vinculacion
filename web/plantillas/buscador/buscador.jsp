@@ -1,4 +1,4 @@
-<div class="buscador ">            
+<div class="buscador pt-5 ">            
             <div class="row justify-content-center text-center">
                 <div class="col-auto p-1 " >                                        
                     <div class="col-lg-12">

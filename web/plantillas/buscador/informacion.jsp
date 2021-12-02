@@ -9,9 +9,9 @@
                 <div class="row">
                     <p>Es importante saber sobre los tipos de discapacidades que existen</p>
                 </div>                
-                <div class="row rounded gris_claro mb-3" style="border: 7px solid #7A48A3; ">
+                <div class="row rounded gris_claro mb-3" style="border: 7px solid #7A48A3;">
                     <div class="col-2 morado"  style="">
-                        <div class="contenedor_iconos rounded centrar morado opacidad"   >
+                        <div class="contenedor_iconos rounded centrar morado opacidad" >
                             <img src="recursos/iconos/muleta.png" alt=""/>
                         </div>                        
                     </div>
@@ -35,7 +35,8 @@
                             <img  src="recursos/iconos/sign.png" alt=""/>    
                         </div>                        
                     </div>
-                </div>                
+                </div>  
+                
                 <div class="row rounded gris_claro mb-3" style="border: 7px solid #D4B963;">
                     <div class="col-2 amarillo">
                         <div class="contenedor_iconos rounded centrar amarillo opacidad"  >

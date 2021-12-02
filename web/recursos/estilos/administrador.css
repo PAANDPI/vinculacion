@@ -1,0 +1,28 @@
+body
+{
+  
+    overflow: hidden;
+}
+.efecto_cristal
+{    
+    background: rgba(255,255,255,0.3);    
+    backdrop-filter:blur(20px);
+}
+.centrar_objeto
+{
+    position: absolute;        
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    
+}
+.opacidad_oscura
+{    border-top-left-radius: 10px;
+     border-top-right-radius: 10px; 
+}
+.botonh:hover
+{
+     background: rgba(255,255,255,0.1); 
+}

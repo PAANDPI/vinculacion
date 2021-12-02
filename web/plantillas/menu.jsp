@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark " style="background: #0B3049 !important;" >
             <a class="navbar-brand" style="position: relative; left: 10%" href="#">
-                <span class="erre">UTEQ</span>
-                <span class="complemento"> uxilium</span>
+                <img class="p-0" width="55" height="50" src="recursos/imagenes/sin_letras.png" alt=""/>
+                <label class="grosor">F&C</label> 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -10,22 +10,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto ">
                     <li class="nav-item ">
-                        <a class="nav-link btn mr-3 boton_blanco " href="../vinculacion/index.jsp">Inicio  <span  class="bi bi-house"></span></a>
+                        <a class="nav-link btn mr-3 botones p-1" href="../vinculacion/index.jsp"><span  class="bi bi-house"></span>  Inicio  </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link btn  mr-3 boton_blanco "  href="../vinculacion/recursos.jsp">Recursos <span class="bi bi-folder"></span></a>
+                    <li class="nav-item "> 
+                        <a class="nav-link btn mr-3 botones p-1"  href="../vinculacion/recursos.jsp"> <span class="bi bi-folder"></span>  Recursos </a>
                     </li>                   
                     <li class="nav-item">
-                        <a class="nav-link  btn  mr-3 boton_blanco " href="#">Eventos  <span class="bi bi-calendar3-event"></span></a>
+                        <a class="nav-link  btn mr-3 botones p-1" href="#"><span class="bi bi-calendar3-event"></span>  Eventos  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  btn mr-3 boton_blanco "  href="#">Noticias  <span class="bi bi-book-half"></span></a>
+                        <a class="nav-link  btn mr-3 botones p-1"  href="#"><span class="bi bi-book-half"></span>  Noticias  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  btn mr-3 boton_blanco "  href="#">Conócenos  <span class="bi bi-people"></span></a>
+                        <a class="nav-link  btn mr-3 botones p-1"  href="#"><span class="bi bi-people"></span>  Conócenos  </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  btn mr-3 boton_naranja "  href="../vinculacion/login.jsp">Identificate <span class="bi bi-door-open "></span></a>
+                        <a class="nav-link  btn mr-3 botones p-1"  href="../vinculacion/login.jsp"><span class="bi bi-door-open "></span>  Identificate </a>
                     </li>
                 </ul>               
             </div>
