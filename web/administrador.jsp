@@ -17,140 +17,180 @@
         <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
-        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
+        <!--<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">-->   
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
+
         <title>Administrador</title>
     </head>
-    <body class="color_base">        
+    <body class="">        
         <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%> 
 
         <div class="row" >
-            <div class="col-lg-2 pl-5 efecto_cristal " style=" height: 100vh">
-                <div class="row pt-2" >
-                    <img class="m-auto" width="55" height="50" src="recursos/imagenes/Logo_colorido.png" alt=""/>
-                </div>
-                <div class="row" >
 
+            <div class="col-lg-2 color_base  " style=" height: 100vh; ">                
+                <div class="row pt-2 justify-content-center" >
+                    <img class=" mt-5" width="75" height="70" src="recursos/imagenes/Logo_colorido.png" alt=""/>
+                </div>
+                <div class="row pt-2 pb-3 justify-content-center">
+
+                    <h5 class="blanco">Administración</h5>
+                </div>
+                <div class="row pl-4" >
                     <ul class="nav flex-column" >
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">Inicio</a>
+                            <a class="nav-link blanco pb-3  efector_barra bi bi-house " href="#"> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Conceptos</a>
+                            <a class="nav-link blanco pb-3 efector_barra bi bi-journal-bookmark-fill " href="#"> Conceptos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link blanco pb-3 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Ubicaciones</a>
+                            <a class="nav-link blanco pb-3 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sugerencias</a>
+                            <a class="nav-link blanco pb-3 efector_barra bi bi-people " href="#">  Control de usuario</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Control de usuario</a>
+                            <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
+                            <ul class="list-group ml-5">
+                                <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left  ">
+                                    Discapacidades
+                                </a> 
+                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
+                                    Recursos
+                                </a>                               
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Cuenta</a>
+                            <a class="nav-link blanco pb-3 efector_barra  bi bi-gear " href="#">  Cuenta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Salir</a>
+
+                        <li class="nav-item " style="position: absolute; bottom: 20px;right: 5px">
+                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="#">    Salir</a>
                         </li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="col-lg-4 pl-5 p-0" >
+                <div style="width: 100%; height: 600px; " class="mt-4  float-left  sombra ">                    
+                    <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
+                        
+                        <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
+                        
+                        <div  class="row ml-4">
+                            <label class=" font-weight-bold blanco " style="font-size: 20px" >Conceptos</label>    
+                        </div> 
+                         
+                        <div class="row ">
+                            <nav class="nav ml-4">
+                                <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
+                                <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar</a>  
+                                <a class="btn btn-l  bi bi-trash-fill blanco efecto_eliminar "> Eliminar</a>    
+                                <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
+                                
+                            </nav>
+                            
+                        </div> 
+                            
+                    </div>  
+                    <div class="p-4 barra-colores" style="height: 500px;max-height: 500px;overflow-y: auto;">
+                        <form>
+
+                            <div class="form-group">
+                                <label class=" ">Discapacidad</label>
+                                <input  class="form-control" type="text" id="txt-discapcidad" >
+                            </div>                         
+                            <div class="form-group">
+                                <label class=" ">Categoria de Discapacidad</label>
+                                <select  class=" form-control" id="exampleFormControlSelect1">
+                                    <option style="font-size: 16px">Física</option>
+                                    <option style="font-size: 16px">Motriz</option>
+                                    <option style="font-size: 16px">Visión</option>
+                                    <option style="font-size: 16px">Intelectual</option>
+                                    <option style="font-size: 16px">Multiple</option>
+                                    <option style="font-size: 16px">Sordo-Mudos</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class=" ">Descripción</label>
+                                <textarea  style="height: 100px" class="form-control" type="text" id="txt-discapcidad"></textarea>                                                                    
+                            </div>                         
+                            <div class="form-group">
+                                <label class=" ">Discapacidad</label>
+                                <input  class="form-control" type="text" id="txt-discapcidad" >
+                            </div>  
+                        </form>                         
+                    </div>
+
+                </div> 
 
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-6">
 
+                <div class="row mt-4 rounded justify-content-center barra-colores" style="height: 600px; max-height: 600px; overflow-y: auto">
+                    <div class="card mr-2  text-white bg-primary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Primary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card  mr-2 text-white bg-secondary mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Secondary card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 text-white bg-success mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Success card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 text-white bg-danger mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Danger card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 text-white bg-warning mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Warning card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 text-white bg-info mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Info card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 bg-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Light card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                    <div class="card mr-2 text-white bg-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Dark card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>                
             </div>
-        </div>     
+        </div>    
+
     </body>
 </html>
-<!-- <nav class="navbar navbar-expand-lg p-0 pl-3 opacidad_oscura " style="border-bottom: 1px solid white">
-                <a class="navbar-brand blanco " href="#">F&C</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="blanco bi bi-chevron-bar-down"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent"  >
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="btn blanco botonh nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn blanco botonh nav-link "  href="#">Gestión de Buscador</a>
-                        </li>                        
-                        <li class="nav-item">
-                            <a class="btn blanco botonh nav-link " href="#">Gestión de Mapa</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn blanco botonh nav-link " href="#">Control de usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="btn blanco botonh nav-link " href="#">Salir</a>
-                        </li>
-                    </ul>                   
-                </div>
-            </nav>
-            <div class="row">
-                <div class="col-lg-5">
-                    <form>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Example select</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect2">Example multiple select</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-7">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div> -->

@@ -14,7 +14,13 @@
                     </li>
                     <li class="nav-item "> 
                         <a class="nav-link btn mr-3 botones p-1"  href="../vinculacion/recursos.jsp"> <span class="bi bi-folder"></span>  Recursos </a>
-                    </li>                   
+                    </li> 
+                    <li class="nav-item "> 
+                        <a class="nav-link btn mr-3 botones p-1"  href="../vinculacion/mapa.jsp"> <span class="bi bi-compass"></span>  Mapa </a>
+                    </li> 
+                    <li class="nav-item "> 
+                        <a class="nav-link btn mr-3 botones p-1"  href="../vinculacion/buscador.jsp"> <span class="bi bi-search"></span>  Buscador </a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link  btn mr-3 botones p-1" href="#"><span class="bi bi-calendar3-event"></span>  Eventos  </a>
                     </li>
