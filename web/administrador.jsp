@@ -75,121 +75,78 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 pl-5 p-0" >
-                <div style="width: 100%; height: 600px; " class="mt-4  float-left  sombra ">                    
-                    <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
-                        
-                        <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
-                        
-                        <div  class="row ml-4">
-                            <label class=" font-weight-bold blanco " style="font-size: 20px" >Conceptos</label>    
-                        </div> 
-                         
-                        <div class="row ">
-                            <nav class="nav ml-4">
-                                <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
-                                <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar</a>  
-                                <a class="btn btn-l  bi bi-trash-fill blanco efecto_eliminar "> Eliminar</a>    
-                                <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
-                                
-                            </nav>
-                            
-                        </div> 
-                            
-                    </div>  
-                    <div class="p-4 barra-colores" style="height: 500px;max-height: 500px;overflow-y: auto;">
-                        <form>
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-6 pl-4 p-0" >
+                        <!--Fomulario base-->       
+                        <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
+                        <!--                 fin de formulario base -->
+                    </div>
+                    <div class="col-lg-6">
 
-                            <div class="form-group">
-                                <label class=" ">Discapacidad</label>
-                                <input  class="form-control" type="text" id="txt-discapcidad" >
-                            </div>                         
-                            <div class="form-group">
-                                <label class=" ">Categoria de Discapacidad</label>
-                                <select  class=" form-control" id="exampleFormControlSelect1">
-                                    <option style="font-size: 16px">Física</option>
-                                    <option style="font-size: 16px">Motriz</option>
-                                    <option style="font-size: 16px">Visión</option>
-                                    <option style="font-size: 16px">Intelectual</option>
-                                    <option style="font-size: 16px">Multiple</option>
-                                    <option style="font-size: 16px">Sordo-Mudos</option>
-                                </select>
+                        <div class="row mt-4 rounded justify-content-center barra-colores" style="height: 600px; max-height: 600px; overflow-y: auto">
+                            <div class="card mr-2  text-white bg-primary mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Primary card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label class=" ">Descripción</label>
-                                <textarea  style="height: 100px" class="form-control" type="text" id="txt-discapcidad"></textarea>                                                                    
-                            </div>                         
-                            <div class="form-group">
-                                <label class=" ">Discapacidad</label>
-                                <input  class="form-control" type="text" id="txt-discapcidad" >
-                            </div>  
-                        </form>                         
+                            <div class="card  mr-2 text-white bg-secondary mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Secondary card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 text-white bg-success mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Success card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 text-white bg-danger mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Danger card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 text-white bg-warning mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Warning card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 text-white bg-info mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Info card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 bg-light mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Light card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card mr-2 text-white bg-dark mb-3" style="max-width: 18rem;">
+                                <div class="card-header">Header</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">Dark card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                            </div>
+                        </div>                
                     </div>
-
-                </div> 
+                </div>
 
             </div>
-            <div class="col-lg-6">
 
-                <div class="row mt-4 rounded justify-content-center barra-colores" style="height: 600px; max-height: 600px; overflow-y: auto">
-                    <div class="card mr-2  text-white bg-primary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Primary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card  mr-2 text-white bg-secondary mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Secondary card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 text-white bg-success mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Success card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 text-white bg-danger mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Danger card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 text-white bg-warning mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Warning card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 text-white bg-info mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Info card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 bg-light mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Light card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                    <div class="card mr-2 text-white bg-dark mb-3" style="max-width: 18rem;">
-                        <div class="card-header">Header</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Dark card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>                
-            </div>
         </div>    
 
     </body>
