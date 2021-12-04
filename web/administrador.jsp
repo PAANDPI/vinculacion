@@ -77,12 +77,12 @@
 
             <div class="col-lg-10">
                 <div class="row">
-                    <div class="col-lg-6 pl-4 p-0" >
+                    <div class="col-lg-5 pl-4 p-0" >
                         <!--Fomulario base-->       
                         <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
                         <!--                 fin de formulario base -->
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
 
                         <div class="row mt-4 rounded justify-content-center barra-colores" style="height: 600px; max-height: 600px; overflow-y: auto">
                             <div class="card mr-2  text-white bg-primary mb-3" style="max-width: 18rem;">
