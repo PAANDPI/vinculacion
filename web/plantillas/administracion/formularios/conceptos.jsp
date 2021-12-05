@@ -41,7 +41,7 @@
                 <textarea  style="height: 100px" class="form-control" type="text" id="txt-discapcidad"></textarea>                                                                    
             </div>                         
             <div class="form-group">
-                <label class=" ">Discapacidad</label>
+                <label class=" ">Etiqueta</label>
                 <input  class="form-control" type="text" id="txt-discapcidad" >
             </div>  
         </form>                         

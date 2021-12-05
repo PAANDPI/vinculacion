@@ -4,7 +4,7 @@
         <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
 
         <div  class="row ml-4">
-            <label class=" font-weight-bold blanco " style="font-size: 20px" >Conceptos</label>    
+            <label class=" font-weight-bold blanco " style="font-size: 20px" >Lugares</label>    
         </div> 
 
         <div class="row ">
@@ -20,30 +20,39 @@
 
     </div>  
     <div class="p-4 barra-colores" style="height: 500px;max-height: 500px;overflow-y: auto;">
-        <form>
+        <form>                        
             <div class="form-group">
-                <label class=" ">Discapacidad</label>
-                <input  class="form-control" type="text" id="txt-discapcidad" >
-            </div>                         
-            <div class="form-group">
-                <label class=" ">Categoria de Discapacidad</label>
-                <select  class=" form-control" id="exampleFormControlSelect1">
+                <label class=" ">Seleccionar provincia</label>
+                <select  class=" form-control" id="cmb-provincia">
                     <option style="font-size: 16px">Física</option>
-                    <option style="font-size: 16px">Motriz</option>
-                    <option style="font-size: 16px">Visión</option>
-                    <option style="font-size: 16px">Intelectual</option>
-                    <option style="font-size: 16px">Multiple</option>
-                    <option style="font-size: 16px">Sordo-Mudos</option>
                 </select>
             </div>
             <div class="form-group">
+                <label class=" ">Seleccionar cantón</label>
+                <select  class=" form-control" id="cmb-canton">
+                    <option style="font-size: 16px">Física</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label class=" ">Nombre del lugar</label>
+                <input  class="form-control" type="text" id="txt-nombreLugar" >
+            </div>    
+            <div class="form-group">
                 <label class=" ">Descripción</label>
-                <textarea  style="height: 100px" class="form-control" type="text" id="txt-discapcidad"></textarea>                                                                    
+                <textarea  style="height: 100px" class="form-control" type="text" id="txt-descripcionLugar"></textarea>                                                                    
             </div>                         
             <div class="form-group">
-                <label class=" ">Discapacidad</label>
-                <input  class="form-control" type="text" id="txt-discapcidad" >
+                <label class=" ">Coordenada X</label>
+                <input  class="form-control" type="text" id="txt-coordenadaX" >
             </div>  
+            <div class="form-group">
+                <label class=" ">Coordenada Y</label>
+                <input  class="form-control" type="text" id="txt-coordenadaY" >
+            </div>  
+            <div class="form-group">
+                <label class=" ">Etiqueta</label>
+                <input  class="form-control" type="text" id="txt-etiqueta" >
+            </div> 
         </form>                         
     </div>
 

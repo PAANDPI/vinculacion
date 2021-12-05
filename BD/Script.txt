@@ -1,0 +1,252 @@
+
+/*==============================================================*/
+/* Table: _CODE_CATEGORIA                                       */
+/*==============================================================*/
+create table _CODE_CATEGORIA (
+   IDCATEGORIA          SERIAL               not null,
+   CATEGORIA            CHAR(25)             not null,
+   constraint PK__CODE_CATEGORIA primary key (IDCATEGORIA)
+);
+
+/*==============================================================*/
+/* Index: _CODE_CATEGORIA_PK                                    */
+/*==============================================================*/
+create unique index _CODE_CATEGORIA_PK on _CODE_CATEGORIA (
+IDCATEGORIA
+);
+
+/*==============================================================*/
+/* Table: _CODE_CIUDAD                                          */
+/*==============================================================*/
+create table _CODE_CIUDAD (
+   IDCIUDAD             SERIAL               not null,
+   IDPROVINCIA          INT4                 not null,
+   CIUDAD               CHAR(30)             not null,
+   constraint PK__CODE_CIUDAD primary key (IDCIUDAD)
+);
+
+/*==============================================================*/
+/* Index: _CODE_CIUDAD_PK                                       */
+/*==============================================================*/
+create unique index _CODE_CIUDAD_PK on _CODE_CIUDAD (
+IDCIUDAD
+);
+
+/*==============================================================*/
+/* Index: PROVINCIA_CIUDAD_FK                                   */
+/*==============================================================*/
+create  index PROVINCIA_CIUDAD_FK on _CODE_CIUDAD (
+IDPROVINCIA
+);
+
+/*==============================================================*/
+/* Table: _CODE_CONCEPTO                                        */
+/*==============================================================*/
+create table _CODE_CONCEPTO (
+   IDCONCEPTO           SERIAL               not null,
+   IDDISCAPACIDAD       INT4                 null,
+   DESCRIPCION          TEXT                 not null,
+   ETIQUETAS            TEXT                 not null,
+   constraint PK__CODE_CONCEPTO primary key (IDCONCEPTO)
+);
+
+/*==============================================================*/
+/* Index: _CODE_CONCEPTO_PK                                     */
+/*==============================================================*/
+create unique index _CODE_CONCEPTO_PK on _CODE_CONCEPTO (
+IDCONCEPTO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_7_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_7_FK on _CODE_CONCEPTO (
+IDDISCAPACIDAD
+);
+
+/*==============================================================*/
+/* Table: _CODE_DISCAPACIDAD                                    */
+/*==============================================================*/
+create table _CODE_DISCAPACIDAD (
+   IDDISCAPACIDAD       SERIAL               not null,
+   DISCAPACIDAD         CHAR(10)             not null,
+   constraint PK__CODE_DISCAPACIDAD primary key (IDDISCAPACIDAD)
+);
+
+/*==============================================================*/
+/* Index: _CODE_DISCAPACIDAD_PK                                 */
+/*==============================================================*/
+create unique index _CODE_DISCAPACIDAD_PK on _CODE_DISCAPACIDAD (
+IDDISCAPACIDAD
+);
+
+/*==============================================================*/
+/* Table: _CODE_LUGARES                                         */
+/*==============================================================*/
+create table _CODE_LUGARES (
+   IDLUGAR              SERIAL               not null,
+   IDCIUDAD             INT4                 not null,
+   LUGAR                VARCHAR(75)          not null,
+   DESCRIPCION          VARCHAR(75)          not null,
+   COORDENDAX           DECIMAL(10,6)        not null,
+   COORDENDAY           DECIMAL(10,6)        not null,
+   ETIQUETA             TEXT                 null,
+   constraint PK__CODE_LUGARES primary key (IDLUGAR)
+);
+
+/*==============================================================*/
+/* Index: _CODE_LUGARES_PK                                      */
+/*==============================================================*/
+create unique index _CODE_LUGARES_PK on _CODE_LUGARES (
+IDLUGAR
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_4_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_4_FK on _CODE_LUGARES (
+IDCIUDAD
+);
+
+/*==============================================================*/
+/* Table: _CODE_PAIS                                            */
+/*==============================================================*/
+create table _CODE_PAIS (
+   IDPAIS               SERIAL               not null,
+   PAIS                 CHAR(30)             not null,
+   CODIGO               CHAR(4)              not null,
+   constraint PK__CODE_PAIS primary key (IDPAIS)
+);
+
+/*==============================================================*/
+/* Index: _CODE_PAIS_PK                                         */
+/*==============================================================*/
+create unique index _CODE_PAIS_PK on _CODE_PAIS (
+IDPAIS
+);
+
+/*==============================================================*/
+/* Table: _CODE_PERSONA                                         */
+/*==============================================================*/
+create table _CODE_PERSONA (
+   IDPERSONA            SERIAL               not null,
+   IDCIUDAD             INT4                 not null,
+   NOMBRE               CHAR(50)             not null,
+   APELLIDO             CHAR(50)             not null,
+   FECHANACIMIENTO      DATE                 not null,
+   TELEFONO             CHAR(15)             null,
+   GENERO               CHAR(9)              not null,
+   DIRECCION            TEXT                 null,
+   USUARIO              CHAR(25)             not null,
+   CORREO               CHAR(50)             not null,
+   CLAVE                CHAR(80)             not null,
+   ADMINISTRADOR        BOOL                 not null,
+   constraint PK__CODE_PERSONA primary key (IDPERSONA)
+);
+
+/*==============================================================*/
+/* Index: _CODE_PERSONA_PK                                      */
+/*==============================================================*/
+create unique index _CODE_PERSONA_PK on _CODE_PERSONA (
+IDPERSONA
+);
+
+/*==============================================================*/
+/* Index: CIUDAD_TUTOR_FK                                       */
+/*==============================================================*/
+create  index CIUDAD_TUTOR_FK on _CODE_PERSONA (
+IDCIUDAD
+);
+
+/*==============================================================*/
+/* Table: _CODE_PROVINCIA                                       */
+/*==============================================================*/
+create table _CODE_PROVINCIA (
+   IDPROVINCIA          SERIAL               not null,
+   IDPAIS               INT4                 not null,
+   PROVINCIA            CHAR(30)             not null,
+   constraint PK__CODE_PROVINCIA primary key (IDPROVINCIA)
+);
+
+/*==============================================================*/
+/* Index: _CODE_PROVINCIA_PK                                    */
+/*==============================================================*/
+create unique index _CODE_PROVINCIA_PK on _CODE_PROVINCIA (
+IDPROVINCIA
+);
+
+/*==============================================================*/
+/* Index: PAIS_PROVINCIA_FK                                     */
+/*==============================================================*/
+create  index PAIS_PROVINCIA_FK on _CODE_PROVINCIA (
+IDPAIS
+);
+
+/*==============================================================*/
+/* Table: _CODE_RECURSO                                         */
+/*==============================================================*/
+create table _CODE_RECURSO (
+   IDRECURSO            SERIAL               not null,
+   IDCATEGORIA          INT4                 not null,
+   IDDISCAPACIDAD       INT4                 null,
+   RECURSO              VARCHAR(25)          not null,
+   DESCRIPCION          TEXT                 not null,
+   ETIQUETAS            TEXT                 not null,
+   constraint PK__CODE_RECURSO primary key (IDRECURSO)
+);
+
+/*==============================================================*/
+/* Index: _CODE_RECURSO_PK                                      */
+/*==============================================================*/
+create unique index _CODE_RECURSO_PK on _CODE_RECURSO (
+IDRECURSO
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_5_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_5_FK on _CODE_RECURSO (
+IDCATEGORIA
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_6_FK                                     */
+/*==============================================================*/
+create  index RELATIONSHIP_6_FK on _CODE_RECURSO (
+IDDISCAPACIDAD
+);
+
+alter table _CODE_CIUDAD
+   add constraint FK__CODE_CI_PROVINCIA__CODE_PR foreign key (IDPROVINCIA)
+      references _CODE_PROVINCIA (IDPROVINCIA)
+      on delete restrict on update restrict;
+
+alter table _CODE_CONCEPTO
+   add constraint FK__CODE_CO_RELATIONS__CODE_DI foreign key (IDDISCAPACIDAD)
+      references _CODE_DISCAPACIDAD (IDDISCAPACIDAD)
+      on delete restrict on update restrict;
+
+alter table _CODE_LUGARES
+   add constraint FK__CODE_LU_RELATIONS__CODE_CI foreign key (IDCIUDAD)
+      references _CODE_CIUDAD (IDCIUDAD)
+      on delete restrict on update restrict;
+
+alter table _CODE_PERSONA
+   add constraint FK__CODE_PE_CIUDAD_TU__CODE_CI foreign key (IDCIUDAD)
+      references _CODE_CIUDAD (IDCIUDAD)
+      on delete restrict on update restrict;
+
+alter table _CODE_PROVINCIA
+   add constraint FK__CODE_PR_PAIS_PROV__CODE_PA foreign key (IDPAIS)
+      references _CODE_PAIS (IDPAIS)
+      on delete restrict on update restrict;
+
+alter table _CODE_RECURSO
+   add constraint FK__CODE_RE_RELATIONS__CODE_CA foreign key (IDCATEGORIA)
+      references _CODE_CATEGORIA (IDCATEGORIA)
+      on delete restrict on update restrict;
+
+alter table _CODE_RECURSO
+   add constraint FK__CODE_RE_RELATIONS__CODE_DI foreign key (IDDISCAPACIDAD)
+      references _CODE_DISCAPACIDAD (IDDISCAPACIDAD)
+      on delete restrict on update restrict;
