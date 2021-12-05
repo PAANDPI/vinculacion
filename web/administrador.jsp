@@ -79,7 +79,7 @@
                 <div class="row">
                     <div class="col-lg-5 pl-4 p-0" >
                         <!--Fomulario base-->       
-                        <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>
+                        <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
                         <!--                 fin de formulario base -->
                     </div>
                     <div class="col-lg-7">
