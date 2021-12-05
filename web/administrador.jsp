@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/administrador.js" type="text/javascript"></script>
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">        
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
@@ -26,127 +27,148 @@
         <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%> 
 
         <div class="row" >
+            <%@include  file="plantillas/administracion/menu_administracion.jsp" %>
+            <div class="col-lg-10"> 
+                <div class="row p-5">
+                    <div class="col-lg-12 pl-4">
 
-            <div class="col-lg-2 color_base  " style=" height: 100vh; ">                
-                <div class="row pt-2 justify-content-center" >
-                    <img class=" mt-5" width="75" height="70" src="recursos/imagenes/Logo_colorido.png" alt=""/>
-                </div>
-                <div class="row pt-2 pb-3 justify-content-center">
-
-                    <h5 class="blanco">Administración</h5>
-                </div>
-                <div class="row pl-4" >
-                    <ul class="nav flex-column" >
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3  efector_barra bi bi-house " href="#"> Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-journal-bookmark-fill " href="#"> Conceptos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-people " href="#">  Control de usuario</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
-                            <ul class="list-group ml-5">
-                                <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left  ">
-                                    Discapacidades
-                                </a> 
-                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
-                                    Recursos
-                                </a>                               
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra  bi bi-gear " href="#">  Cuenta</a>
-                        </li>
-
-                        <li class="nav-item " style="position: absolute; bottom: 20px;right: 5px">
-                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="#">    Salir</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-lg-10">
-                <div class="row">
-                    <div class="col-lg-5 pl-4 p-0" >
-                        <!--Fomulario base-->       
-                        <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
-                        <!--                 fin de formulario base -->
                     </div>
-                    <div class="col-lg-7">
-
-                        <div class="row mt-4 rounded justify-content-center barra-colores" style="height: 600px; max-height: 600px; overflow-y: auto">
-                            <div class="card mr-2  text-white bg-primary mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Primary card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col-lg-12 pl-2 pr-5 pb-3">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <a class="nav-link btn color_base btn-sm blanco bi bi-folder-plus p-1" href="redactar.jsp"> Nuevo concepto</a>
+                            </div>
+                            <div class="col-lg-10 ">
+                                <div class="input-group mb-3 float-right">
+                                    <input type="text" class="form-control form-control-sm  float-right" placeholder="Nombre de la discapacidad a buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-sm blanco  my-2 my-sm-0 font-weight-bold color_base float-right bi bi-search" type="button"> Buscar</button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card  mr-2 text-white bg-secondary mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Secondary card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 text-white bg-success mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Success card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 text-white bg-danger mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Danger card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 text-white bg-warning mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Warning card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 text-white bg-info mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Info card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 bg-light mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Light card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                            <div class="card mr-2 text-white bg-dark mb-3" style="max-width: 18rem;">
-                                <div class="card-header">Header</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Dark card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                </div>
-                            </div>
-                        </div>                
+                        </div>
                     </div>
+                    <div class="col-lg-12 pl-4 pr-4">
+                        <div class="barra-colores" style="height: 500px; max-height: 500px; overflow-y: auto; border-left: #002752; ">
+                            <table class="table table-fixed">
+                                <thead class="">
+                                    <tr class=" ">
+                                        <th>Titulo</th>
+                                        <th>Resumen</th>
+                                        <th>Categotia</th>
+
+                                    </tr>
+                                </thead>   
+                                <tbody >
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td>
+                                            <p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check ">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn  naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                    <tr>
+                                        <td>Sindrome de down</td>
+                                        <td><p>El síndrome de Down es una afección en la que la persona tiene un cromosoma extra. Los cromosomas son pequeños “paquetes” de genes en el organismo. </p></td>
+                                        <td>Sensorial</td>
+                                        <td>
+                                            <button style="border:1px solid #002752" type="button" class="btn naranja font-weight-bold btn-light bi bi-journal-check">Abrir</button>
+                                        </td>                                 
+                                    </tr>
+                                </tbody>                       
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
 
-            </div>
+                <%--<%@include  file="plantillas/administracion/formularios/inicio.jsp" %>--%>
 
+
+                <!-- <div id="Contenedor-de-formularios" class="row">
+                                        <div class="col-lg-5 pl-4 p-0" >
+                <%--<%@include  file="plantillas/administracion/formularios/persona.jsp" %>--%>
+                <%--<%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>--%>
+            </div>
+        <div class="col-lg-7">
+        </div>
+        </div> -->
+
+            </div>
         </div>    
 
     </body>

@@ -11,7 +11,7 @@
             <nav class="nav ml-4">
                 <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
                 <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar</a>  
-                <a class="btn btn-l  bi bi-trash-fill blanco efecto_eliminar "> Eliminar</a>    
+                <!--<a class="btn btn-l  bi bi-trash-fill blanco efecto_eliminar "> Eliminar</a>-->    
                 <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
 
             </nav>
