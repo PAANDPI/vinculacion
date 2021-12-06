@@ -9,20 +9,20 @@
                 <div class="row pl-4" >
                     <ul class="nav flex-column" >
                         <li class="nav-item">
-                            <a id="btnInicio" class="nav-link blanco pb-3  efector_barra bi bi-house " href="#"> Inicio</a>
+                            <a id="btnInicio" class="nav-link blanco pb-1  efector_barra bi bi-house " href="#"> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-journal-bookmark-fill " href="#"> Conceptos</a>
+                            <a id="btnConceptos" class="nav-link blanco pb-1 efector_barra bi bi-journal-bookmark-fill " href="#"> Conceptos</a>
                         </li>
 
                         <li class="nav-item">
-                            <a id="btnUbicaciones" class="nav-link blanco pb-3 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
+                            <a id="btnUbicaciones" class="nav-link blanco pb-1 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blanco pb-3 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
+                            <a class="nav-link blanco pb-1 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
                         </li>
                         <li class="nav-item">
-                            <a id="btnControl-de-usuarios" class="nav-link blanco pb-3 efector_barra bi bi-people " href="#">  Control de usuario</a>
+                            <a id="btnControl-de-usuarios" class="nav-link blanco pb-1 efector_barra bi bi-people " href="#">  Control de usuario</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
@@ -32,7 +32,10 @@
                                 </a> 
                                 <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
                                     Recursos
-                                </a>                               
+                                </a>
+                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
+                                    Recursos
+                                </a>  
                             </ul>
                         </li>
                         <li class="nav-item">

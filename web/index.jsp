@@ -35,7 +35,12 @@
         }
     </style>
     <body class=>
-        <%@include  file="plantillas/menu.jsp" %>               
+      
+        <%@include  file="plantillas/menu.jsp" %>      
+        <div class="color_base" style="background: ">
+            
+        </div>
+<!--          <img   src="recursos/imagenes/inicio.jpg" alt=""/>-->
         <%@include file="plantillas/principal/servicios.jsp" %> 
 <!--        <img src="recursos/imagenes/FOTO_2.jpg" alt=""/>
         <img src="recursos/imagenes/FOTO_1.png" alt=""/>
