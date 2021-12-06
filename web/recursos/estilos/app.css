@@ -1,0 +1,47 @@
+.tamaño-actual {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.mitexto {
+    text-align: justify;
+}
+
+body {
+    --color-bg: #ddd;
+    --color-texto: #007bff;
+}
+
+body.dark-theme {
+    --color-bg: rgb(47, 47, 47);
+    --color-texto: #f8f9fa;
+}
+
+body.dark-theme img {
+    filter: brightness(.8) contrast(1.2);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color-bg: rgb(47, 47, 47);
+        --color-texto: #f8f9fa;
+    }
+
+    body.light-theme {
+        --color-bg: #ddd;
+        --color-texto: #007bff;
+    }
+
+    img {
+        filter: brightness(.8) contrast(1.2);
+    }
+
+}
+
+body {
+    background-color: var(--color-bg);
+}
+
+h1 {
+    color: var(--color-texto);
+}
