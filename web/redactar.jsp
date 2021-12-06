@@ -36,46 +36,45 @@
             }
         </script>
     </head>
+    <style>
+        *{
+            font-family: 'Inconsolata', monospace;
+        }
+        .bnt_sobre:hover
+        {
+            background: rgba(255,255,255,0.1);            
+        }
+    </style>
     <body>
         <div class="row color_base" style="padding-top: 10px">
-            <ul class="nav nav-pills " style="margin: 0 auto" >
-                <li class="nav-item">
-                    <a style="padding: 10px" class="btn btn-sm  nav-link  blanco" href="#">Guardar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Atras</a>
-                </li>
-            </ul>
-        </div>
-        <div class="container">
-
-
-
-            <div class="row">
-                <div class="col-sm-12">                                            
-                    <div class="form-group" >
-                        <textarea id="txt-content"  name="txt-content"></textarea>
-                    </div>                                    
+            <div class="container">
+                <div class="col-lg-10">
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-archive-fill bnt_sobre" href="#">  Guardar</a>
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-eraser-fill bnt_sobre" href="#">  Limpiar</a>
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-border-all bnt_sobre" href="#">  Plantillas</a>
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atras</a>
                 </div>
-            </div>				              
-            <div class="row mb-5">
-                <div class="col-lg-12">
-                    <input type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">                                            
-                </div>                    
+                <div class="col-lg-2">
+                    <input type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">  
+                </div>
+            </div>          
+        </div>
+
+
+        <h3 class="font-weight-bold text-center">Editor de texto</h3>
+
+        <div class="row">    
+
+            <div class="col-lg-12" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">                                            
+                <textarea id="txt-content" style=" border: 1px solid #999" name="txt-content"></textarea>
             </div>
-            <div class=" row">
-                <div class="col-lg-12 ">                     
-                    <div class="container" style="border: 1px solid #999; min-height: 100px; height: auto">
-                        <div id="resu" style="height:auto;">
-                        </div>    
-                    </div>                                                   
-                </div>                
+            <h3  class="font-weight-bold text-center">Resultado</h3>
+            
+            <div  class="col-lg-12" style="padding-top:15px; padding-left: 100px; padding-right: 100px ">
+                <div  style="border:2px solid #999;border-radius: 10px; min-height: 100px; height: auto">
+                    <div id="resu" style="height:auto;">
+                    </div>    
+                </div> 
             </div>
         </div>         
     </body>
