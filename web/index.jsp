@@ -21,7 +21,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
     </head>
-     <style>
+     
+    <style>
         .sombra
         {
             
@@ -34,12 +35,14 @@
             background: rgba(255,255,255,0.1); 
         }
     </style>
+    
     <body class=>
       
-        <%@include  file="plantillas/menu.jsp" %>      
-        <div class="color_base" style="background: ">
+        <%@include  file="plantillas/menu.jsp" %>     
+        <img src="recursos/portada.png" alt=""/>
+<!--        <div class="color_base" style="background: ">
             
-        </div>
+        </div>-->
 <!--          <img   src="recursos/imagenes/inicio.jpg" alt=""/>-->
         <%@include file="plantillas/principal/servicios.jsp" %> 
 <!--        <img src="recursos/imagenes/FOTO_2.jpg" alt=""/>

@@ -4,7 +4,7 @@
                 <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
 
                 <div  class="row ml-4">
-                    <label class=" font-weight-bold blanco " style="font-size: 20px" >Lugares</label>    
+                    <label class=" font-weight-bold blanco " style="font-size: 20px" >Sugerencia de Lugares</label>    
                 </div> 
 
                 <div class="row ">
