@@ -82,43 +82,82 @@
             </div>
         </div>    
 
-        <!-- Modal -->
+        <!-- Modal de Recursos -->
         <div class="modal fade" id="model_recursos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Discapacidad</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Añadir Recursos</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="form-group">
+                            <label class=" ">Seleccionar categoría</label>
+                            <select  class=" form-control" id="cmb-categoria">
+                                <option style="font-size: 16px">Física</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class=" ">Seleccionar discapacidad</label>
+                            <select  class=" form-control" id="cmb-discapacidad">
+                                <option style="font-size: 16px">Física</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class=" ">Seleccionar tipo de recurso</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Archivo</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Enlace</label>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="exampleFormControlInput1">
+                        </div>
+                        <div class="form-group">
+                            <label class=" ">Descripción</label>
+                            <textarea  style="height: 100px" class="form-control" type="text" id="txt-descripcionRecurso"></textarea>                                                                    
+                        </div>  
+                        <div class="form-group">
+                        <label class=" ">Etiqueta</label>
+                        <input  class="form-control" type="text" id="txt-etiqueta" >
+                    </div> 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Añadir</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal -->
+        <!-- Modal de Discapacidades -->
         <div class="modal fade" id="model_discapacidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Recursos</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Añadir Discapacidad</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="form-group">
+                            <label class=" ">Discapacidad</label>
+                            <input  class="form-control" type="text" id="txt-discapacidad" >
+                        </div>  
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary">Añadir</button>
                     </div>
                 </div>
             </div>
