@@ -1,4 +1,4 @@
-<div class="container p-5">
+<div class="container pl-5 pr-5 pt-0">
     <div class="row justify-content-center">
         <div class="col-lg-12  " >
             <div class="sombra m-auto" style="background-image: url(recursos/imagenes/FOTO_1.png);background-size: cover; width: 1000px; height:400px;">
@@ -14,7 +14,7 @@
         </div>                
     </div> 
 
-    <div class="row mt-5">
+    <div class="row mt-4">
         <div class="col-lg-12  " >
             <div class="sombra m-auto" style="background-image: url(recursos/imagenes/FOTO_2.jpg);background-size: cover; width: 1000px; height:400px;">
                 <h3 style="position: absolute; right: 60px; top: 80px; " class="blanco text-right" >Recursos para personas <br>con discapacidad</h3> 
@@ -29,7 +29,7 @@
         </div>                
     </div> 
 
-    <div class="row mt-5">
+    <div class="row mt-4 mb-5">
         <div class="col-lg-12  " >
             <div class="sombra m-auto" style="background-image: url(recursos/imagenes/FOTO_3.jpg);background-size: cover; width: 1000px; height:400px;">
                 <h3 style="position: relative; left:30px; top: 80px; " class="blanco" >Recursos para personas <br>con discapacidad</h3> 

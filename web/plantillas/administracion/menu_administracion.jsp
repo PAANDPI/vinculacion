@@ -27,15 +27,13 @@
                         <li class="nav-item">
                             <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
                             <ul class="list-group ml-5">
-                                <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left  ">
+                                <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left" data-toggle="modal" data-target="#model_discapacidad">
                                     Discapacidades
                                 </a> 
-                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
+                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left" data-toggle="modal" data-target="#model_recursos" >
                                     Recursos
                                 </a>
-                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left ">
-                                    Recursos
-                                </a>  
+                                 
                             </ul>
                         </li>
                         <li class="nav-item">
