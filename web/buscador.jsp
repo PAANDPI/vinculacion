@@ -15,22 +15,33 @@
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     
+
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
+        <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
-    <body class="fondo_resultado">
-                
-        <%@include file="plantillas/fondo_decoracion_buscador.jsp" %>  
+    <style>
+       #fondo_defuminado
+        {
+            width: 100%;
+            height: auto;    
+            background-image: url("recursos/fondo_difuminado.png");           
+            background-size:auto ;            
+            z-index: 6;
+        }
+    </style>
+    <body> 
+       
+        
         <%@include file="plantillas/menu.jsp" %> 
-        <%@include file="plantillas/buscador/buscador.jsp" %>
-        <div class="row pt-2 barra_colores"></div>
+        <%--<%@include file="plantillas/fondo_decoracion_buscador.jsp" %>--%>     
+        <%@include file="plantillas/buscador/buscador.jsp" %>       
+     
         <%@include file="plantillas/buscador/informacion.jsp" %>  
-        <div class="row mt-3 barra_colores"></div>
+       
         <div class="row " style="background: #0B3049; height: 200px">
-
         </div>
     </body>    
 </html>

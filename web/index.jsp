@@ -37,19 +37,11 @@
     </style>
     
     <body class=>
-      
         <%@include  file="plantillas/menu.jsp" %>     
-        <img src="recursos/portada.png" alt=""/>
-<!--        <div class="color_base" style="background: ">
-            
-        </div>-->
-<!--          <img   src="recursos/imagenes/inicio.jpg" alt=""/>-->
+        <img class="p-0 m-0" style="width: 100%;" src="recursos/portada_2.png" alt=""/>
+        <div  style="width: 100%;height: 50px" class="color_base mb-3"></div>
         <%@include file="plantillas/principal/servicios.jsp" %> 
-<!--        <img src="recursos/imagenes/FOTO_2.jpg" alt=""/>
-        <img src="recursos/imagenes/FOTO_1.png" alt=""/>
-        <img src="recursos/imagenes/FOTO_3.jpg" alt=""/>-->
-        <div class="color_base p-5 " style="height: 300px">
-          
+        <div class="color_base p-5 " style="height: 300px">          
             <h2 class="blanco text-center">Colaboradores</h2>
             <div class="flex-column">
                 <img style="width: 120px; height: 150px" src="recursos/iconos/i_2019.png" alt=""/>
