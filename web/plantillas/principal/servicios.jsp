@@ -32,7 +32,7 @@
                      background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
                     <h2  class="blanco pb-5" >Recursos didacticos</h2> 
                     <p  class="blanco"  >
-                        En esta secciÃ³n se comparte recursos digitales <br> 
+                        En esta sección se comparte recursos digitales <br> 
                         agrupados por cada tipo de discapacidad<br>                                            
                     </p>  
                     <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
@@ -50,10 +50,10 @@
                      background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
                     <h2  class="blanco pb-5" >Mapa informativo</h2> 
                     <p  class="blanco"  >
-                       Brinda referencias de lugares de interÃ©s para<br> 
+                       Brinda referencias de lugares de interés para<br> 
                        personas con discapacidad, puede encontrar <br>
                        recomendaciones de fundaciones, centros <br>
-                       terapÃ©uticos, entre otros <br>               
+                       terapéuticos, entre otros <br>               
                     </p>  
                     <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al mapa <span class="bi bi-arrow-right"></span></a></div>
 

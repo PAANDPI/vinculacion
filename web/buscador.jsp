@@ -31,7 +31,6 @@
      
         <%@include file="plantillas/buscador/informacion.jsp" %>  
        
-        <div class="row " style="background: #0B3049; height: 200px">
-        </div>
+        <%@include  file="plantillas/footer.jsp" %>   
     </body>    
 </html>
