@@ -7,10 +7,8 @@
                      background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
                     <h2  class="blanco pb-5" >Buscador de discapacidades</h2> 
                     <p  class="blanco"  >
-                        Encuentra recursos que pueden ayudar <br> 
-                        su seres queirdos a tener una mejor calidad<br>
-                        de vida. Se encuentran disponibles <br>
-                        videos, audios, conferencias,grupos, <br>                     
+                        Permite explorar contenido de acuerdo <br> 
+                        a cada tipo de discapacidad <br>                                           
                     </p>  
                     <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
 
@@ -32,12 +30,10 @@
 
                 <div class="col-lg-6 p-3 p-md-5" style="background: rgb(11,48,73);
                      background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
-                    <h2  class="blanco pb-5" >Recursos para personas con discapacidad</h2> 
+                    <h2  class="blanco pb-5" >Recursos didacticos</h2> 
                     <p  class="blanco"  >
-                        Encuentra recursos que pueden ayudar <br> 
-                        su seres queirdos a tener una mejor calidad<br>
-                        de vida. Se encuentran disponibles <br>
-                        videos, audios, conferencias,grupos, <br>                     
+                        En esta sección se comparte recursos digitales <br> 
+                        agrupados por cada tipo de discapacidad<br>                                            
                     </p>  
                     <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
                 </div>
@@ -52,14 +48,14 @@
             <div class="row flex-column-reverse flex-lg-row  sombra">
                 <div class="col-lg-6 p-3 p-md-5" style="background: rgb(11,48,73);
                      background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
-                    <h2  class="blanco pb-5" >Mapa interactivo</h2> 
+                    <h2  class="blanco pb-5" >Mapa informativo</h2> 
                     <p  class="blanco"  >
-                        Encuentra recursos que pueden ayudar <br> 
-                        su seres queirdos a tener una mejor calidad<br>
-                        de vida. Se encuentran disponibles <br>
-                        videos, audios, conferencias,grupos, <br>                     
+                       Brinda referencias de lugares de interés para<br> 
+                       personas con discapacidad, puede encontrar <br>
+                       recomendaciones de fundaciones, centros <br>
+                       terapéuticos, entre otros <br>               
                     </p>  
-                    <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
+                    <div><a href="buscador.jsp"  class="btn blanco efec " >  Ir al mapa <span class="bi bi-arrow-right"></span></a></div>
 
                 </div>
                 <div class="col-lg-6 p-0" style="height:400px;">
