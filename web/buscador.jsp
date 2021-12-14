@@ -23,20 +23,10 @@
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <style>
-       #fondo_defuminado
-        {
-            width: 100%;
-            height: auto;    
-            background-image: url("recursos/fondo_difuminado.png");           
-            background-size:auto ;            
-            z-index: 6;
-        }
-    </style>
-    <body> 
        
-        
-        <%@include file="plantillas/menu.jsp" %> 
-        <%--<%@include file="plantillas/fondo_decoracion_buscador.jsp" %>--%>     
+    </style>
+    <body>      
+        <%@include file="plantillas/menu.jsp" %>    
         <%@include file="plantillas/buscador/buscador.jsp" %>       
      
         <%@include file="plantillas/buscador/informacion.jsp" %>  

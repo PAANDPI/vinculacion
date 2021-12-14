@@ -150,7 +150,7 @@ body
     font-weight: bold;
     border-radius: 5px;
 }
- 
+
 .caja_login
 {
     border: 1px solid #fff; 
@@ -232,4 +232,11 @@ body
     border-top: 2px solid #57CBAE;
     border-right: 2px solid #9A5BCE;
     color: #fff ;
+}
+.degradado
+{
+    width: 100%;
+    height: auto;
+    background: rgb(11,48,73);
+    background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
 }
