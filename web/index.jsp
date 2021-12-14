@@ -21,11 +21,11 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
     </head>
-     
+
     <style>
         .sombra
         {
-            
+
             -webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
             -moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
             box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
@@ -34,12 +34,33 @@
         {
             background: rgba(255,255,255,0.1); 
         }
+        .degradado
+        {
+            width: 100%;
+            height: 500px;
+            background: rgb(11,48,73);
+            background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
+        }
     </style>
-    
+
     <body class=>
         <%@include  file="plantillas/menu.jsp" %>     
-        <img class="p-0 m-0" style="width: 100%;" src="recursos/portada_2.png" alt=""/>
-        <div  style="width: 100%;height: 50px" class="color_base mb-3"></div>
+        <div class="degradado mb-5">
+            <div class="container blanco">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 p-5 centrar_objeto">                        
+                        <label class="pt-3" style="font-size: 20px">Conocimiento y buen vivir</label>
+                        <label class="font-weight-bold" style="font-size: 45px" >¿Tiene curiosidad sobre las discapacidades?</label>
+                        <p class="pt-2" style="font-size: 25px">Puede acceder a recursos y conceptos que le pueden ayudar a entender sobre las discapacidades.</p>           
+                    </div>
+                    <div class="col-lg-6 p-5">
+                        <div class="row  flex-column"> 
+                            <img class="m-auto" style="width: 500px; height: 435px" src="recursos/imagenes/Logo_colorido.png" alt=""/>                                                                                                                                 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
         <%@include file="plantillas/principal/servicios.jsp" %> 
         <div class="color_base p-5 " style="height: 300px">          
             <h2 class="blanco text-center">Colaboradores</h2>
@@ -49,6 +70,6 @@
             </div>
         </div> 
     </body>
-   
+
 
 </html>
