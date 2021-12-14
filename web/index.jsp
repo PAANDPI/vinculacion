@@ -70,10 +70,12 @@
         <div class="container mb-5">
             <div class="row container" >
                 <div class="col-lg-12 ">
-                    <label style="font-size: 45px" class="font-weight-bold ">Principales funciones de YUYAPUY </label> 
-                    <p>YUYAPUY cuenta con tres funciones principales en las que destacan un buscador para conocer sobre 
-                        las discapacidades, una sección de recursos para obtener materiales que podrian ser utiles para las discapacidades y
-                        un mapa para buscar lugares que podrian ayudar a las personas con discapacidad.</p>
+                    <label style="font-size: 45px" class="font-weight-bold ">Funciones de YUYAPUY </label> 
+                    <p>YUYAPUY es un proyecto social con el objetivo de mantener informado a grupos de atención 
+                        prioritaria, tiene tres secciones principales: buscador de discapacidades, recursos
+                        didácticos y mapa informativo, acceda a las siguientes opciones para conocer toda la 
+                        información disponible: </p>
+               
                 </div>
             </div>
         </div>
