@@ -1,4 +1,4 @@
-<div class="p-5 degradado" >            
+<div class="pb-4 pt-5 degradado sombra" >            
     <div class="row justify-content-center text-center ">
         <div class="col-lg-12">
             <img width="240" height="210" src="recursos/imagenes/Logo_colorido.png" alt=""/>
@@ -18,9 +18,7 @@
                     </div>   
                 </div>
             </div>            
-            <label   style="font-size: 20px" class="sub-letras" >Sugerencias: siempre consulte con un profesional la información  </label>  
         </div> 
-
-
+        <a href="#" class="blanco"> ¿Cómo funciona rl buscador?</a>                              
     </div> 
 </div>

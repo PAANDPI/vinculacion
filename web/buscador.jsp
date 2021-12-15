@@ -23,12 +23,17 @@
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <style>
-       
+         .sombra
+        {
+
+            -webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+        }
     </style>
     <body>      
         <%@include file="plantillas/menu.jsp" %>    
         <%@include file="plantillas/buscador/buscador.jsp" %>       
-     
         <%@include file="plantillas/buscador/informacion.jsp" %>  
        
         <%@include  file="plantillas/footer.jsp" %>   

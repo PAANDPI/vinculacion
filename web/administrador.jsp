@@ -21,6 +21,7 @@
         <!--<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">-->   
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
 
+
         <title>Administrador</title>
     </head>
     <body class="">        
@@ -28,58 +29,12 @@
 
         <div class="row" >
             <%@include  file="plantillas/administracion/menu_administracion.jsp" %>
-            <div class="col-lg-10"> 
-
-                <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
-                <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
-
-
-                <div id="Contenedor-de-formularios" class="row">
-                    <div class="col-lg-5 pl-4 p-0" >
-                        <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
-                        <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>
-                    </div>
-                    <div class="col-lg-7 ">
-                        <div class="row">
-                            
-                        </div>
-                        
-                        <table class="table mt-4">
-                            <thead>
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        
-                        
-                    </div>
-                </div> 
-
-            </div>
+            <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
+            <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
+            <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
+            <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp"%>
+            <%@include  file="plantillas/administracion/formularios/sugerencia.jsp"%>
+            <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>
         </div>    
 
         <!-- Modal de Recursos -->
@@ -93,43 +48,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label class=" ">Seleccionar categoría</label>
-                            <select  class=" form-control" id="cmb-categoria">
-                                <option style="font-size: 16px">Física</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class=" ">Seleccionar discapacidad</label>
-                            <select  class=" form-control" id="cmb-discapacidad">
-                                <option style="font-size: 16px">Física</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class=" ">Seleccionar tipo de recurso</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
-                            <label class="form-check-label" for="inlineCheckbox1">Archivo</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
-                            <label class="form-check-label" for="inlineCheckbox2">Enlace</label>
-                        </div>
-                        <div class="mb-3">
-                            <input class="form-control" type="file" id="formFile">
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="exampleFormControlInput1">
-                        </div>
-                        <div class="form-group">
-                            <label class=" ">Descripción</label>
-                            <textarea  style="height: 100px" class="form-control" type="text" id="txt-descripcionRecurso"></textarea>                                                                    
-                        </div>  
-                        <div class="form-group">
-                        <label class=" ">Etiqueta</label>
-                        <input  class="form-control" type="text" id="txt-etiqueta" >
-                    </div> 
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -1,4 +1,5 @@
-<div class="mt-5 degradado " >  
+<div class="mt-5 sombra  " style=" background: rgb(11,48,73);
+                     background: linear-gradient(82deg, rgba(11,48,73,1) 10%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;" >  
             <div class="container p-4">
                 <div class="row">              
                     <div class="col-sm-12 col-md-6 blanco">

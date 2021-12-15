@@ -50,8 +50,8 @@
     <body>
 
         <%@include  file="plantillas/menu.jsp" %>     
-
-        <div class="degradado mb-3">
+       
+        <div class="degradado mb-3 sombra">
             <div class="container blanco">
                 <div class="row flex-column-reverse flex-lg-row justify-content-center">
                     <div class="col-lg-6 col-sm-12 col-xm-12 p-5 centrar_objeto ">                        
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-12 col-xm-12 p-5 ">
                         <div class="row  flex-column"> 
-                            <img class="m-auto" style="width: 40vh; height: 40vh" src="recursos/imagenes/Logo_colorido.png" alt=""/>                                                                                                                                 
+                            <img class="m-auto" style="width: 100%; height: 40%" src="recursos/imagenes/ninios_estudiando.png" alt=""/>                                                                                                                                 
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                         prioritaria, tiene tres secciones principales: buscador de discapacidades, recursos
                         didácticos y mapa informativo, acceda a las siguientes opciones para conocer toda la 
                         información disponible: </p>
-               
+
                 </div>
             </div>
         </div>

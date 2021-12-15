@@ -19,29 +19,32 @@
                             <a id="btnUbicaciones" class="nav-link blanco pb-1 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link blanco pb-1 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
+                            <a id="btnSugerencias" class="nav-link blanco pb-1 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
                         </li>
                         <li class="nav-item">
                             <a id="btnControl-de-usuarios" class="nav-link blanco pb-1 efector_barra bi bi-people " href="#">  Control de usuario</a>
                         </li>
                         <li class="nav-item">
+                            <a id="btnRecursos" class="nav-link blanco pb-1 efector_barra  bi bi-archive " href="#">  Recursos </a>
+                        </li>
+<!--                        <li class="nav-item">
                             <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
                             <ul class="list-group ml-5">
                                 <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left" data-toggle="modal" data-target="#model_discapacidad">
                                     Discapacidades
                                 </a> 
-                                <a href="#" style="" class="efector_barra bi bi-archive blanco p-0 btn text-left" data-toggle="modal" data-target="#model_recursos" >
+                                <a href="#" style="" class="efector_barra bi bi-archive-fill blanco p-0 btn text-left" data-toggle="modal" data-target="#model_recursos" >
                                     Recursos
                                 </a>
                                  
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link blanco pb-3 efector_barra  bi bi-gear " href="#">  Cuenta</a>
                         </li>
 
                         <li class="nav-item " style="position: absolute; bottom: 20px;right: 5px">
-                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="#">    Salir</a>
+                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="index.jsp">    Salir</a>
                         </li>
                     </ul>
                 </div>
