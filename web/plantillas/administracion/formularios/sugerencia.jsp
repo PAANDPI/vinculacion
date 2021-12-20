@@ -1,15 +1,15 @@
-<div id="contenedor-sugerencias" class="col-lg-10">
-    <div class="row p-5">
+<div id="contenedor-sugerencias" class="col-lg-10 p-5">
+    <div class="row " style="height: 80vh; max-height: 80vh; overflow: auto">
         <table class="table">
             <thead>
-                <tr>
+                <tr class="blanco color_base">
                     <th scope="col">Nombre</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Opciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="efecto_blanco">
                 <tr>
                     <th>Sugerencia</th>
                     <th>Sugerencia</th>

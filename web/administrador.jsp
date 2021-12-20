@@ -17,8 +17,7 @@
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>
         <!--Iconos-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
-        <!--<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">-->   
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">               
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
 
 
@@ -48,7 +47,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -81,9 +80,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
+        <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
 </html>

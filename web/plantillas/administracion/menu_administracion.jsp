@@ -12,7 +12,7 @@
                             <a id="btnInicio" class="nav-link blanco pb-1  efector_barra bi bi-house " href="#"> Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a id="btnConceptos" class="nav-link blanco pb-1 efector_barra bi bi-journal-bookmark-fill " href="#"> Conceptos</a>
+                            <a id="btnConceptos" class="nav-link blanco pb-1 efector_barra bi bi-journal-bookmark-fill " href="#"> Discapacidades</a>
                         </li>
 
                         <li class="nav-item">

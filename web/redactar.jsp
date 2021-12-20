@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <link href="recursos/estilos/editor.css" rel="stylesheet" type="text/css"/>       
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
+        
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#txt-content').Editor();
@@ -37,14 +38,16 @@
         </script>
     </head>
     <style>
-        *{
-            font-family: 'Inconsolata', monospace;
-        }
+
         .bnt_sobre:hover
         {
             background: rgba(255,255,255,0.1);            
         }
     </style>
+
+    <!-- Modal -->
+
+
     <body>
         <div class="row color_base" style="padding-top: 10px">
             <div class="container">
@@ -62,20 +65,63 @@
 
 
         <h3 class="font-weight-bold text-center">Editor de texto</h3>
+        <div class="row"  style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">
+            <div class=" col-lg-6">
+                <label for="inputState">Nombre de la discapacidad</label>
+                <div class="input-group">                    
+                    <input type="text" class="form-control" placeholder="Nombre de la discapacidad">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default bi bi-plus-circle-fill" type="button" data-toggle="modal" data-target="#exampleModal"></button>
+                    </span>
+                </div>
+            </div>
+            <div class=" col-lg-6">
+                <label for="inputState">Categoria</label>
+                <select id="inputState" class="form-control">
+                    <option>Multiple</option>
+                    <option>Fisica</option>
+                    <option>Sensorial</option>
+                </select>
+            </div>             
+        </div> 
+        <label for="inputState" style="padding-left: 100px;">Etiquetas</label> 
+        <div class="row" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">
 
+            <div class=" col-lg-6">
+                <div class="alert alert-warning" role="alert">
+                    <span class="bi bi-exclamation-triangle-fill">  <strong>  Advertencia:</strong></span>
+                    Sepere cada palabra con un (;) para validarlas como etiquetas.
+                </div>
+            </div>
+            <div class=" col-lg-6">
+                <div class="alert alert-success" role="alert">
+                    <span class="bi bi-check-all"> <strong>  Ejemplo:</strong> </span>
+                    Palabra uno; Palabra dos; Palabra tres; Palabra cuatro;
+                </div>
+            </div>
+            <div class=" col-lg-12">
+
+                <textarea class="form-control"></textarea>
+            </div>         
+        </div>
+        <h3 class="font-weight-bold text-center">Editor de texto</h3>
         <div class="row">    
 
             <div class="col-lg-12" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">                                            
                 <textarea id="txt-content" style=" border: 1px solid #999" name="txt-content"></textarea>
             </div>
             <h3  class="font-weight-bold text-center">Resultado</h3>
-            
+
             <div  class="col-lg-12" style="padding-top:15px; padding-left: 100px; padding-right: 100px ">
                 <div  style="border:2px solid #999;border-radius: 10px; min-height: 100px; height: auto">
                     <div id="resu" style="height:auto;">
                     </div>    
                 </div> 
             </div>
-        </div>         
+        </div>
+
+<!--Modal agregar discapacidad-->
+<%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
+
     </body>
 </html>

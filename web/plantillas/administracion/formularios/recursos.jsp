@@ -1,7 +1,7 @@
 <div id="formulario-recursos" class="col-lg-10"> 
     <div class="row">
     <div class="col-lg-5">
-        <div  style="width: 100%; height: 700px; " class="mt-4  float-left  sombra ">                    
+        <div  style="width: 100%; height: 95vh; " class="mt-4  float-left  sombra ">                    
             <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
                 <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
                 <div  class="row ml-4">
@@ -15,7 +15,7 @@
                     </nav>
                 </div> 
             </div>  
-            <div class="p-4 barra-colores" style="height: 600px;max-height: 600px;overflow-y: auto;">
+            <div class="p-4 barra-colores"  style="height: 75vh;max-height: 75vh;overflow-y: auto;">
                 <form>
                    <div class="form-group">
                             <label class=" ">Seleccionar categoría</label>

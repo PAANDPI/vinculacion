@@ -302,3 +302,18 @@ h1{
 .dropdown-menu>li>a{
   cursor:pointer;
   }
+.barra-colores::-webkit-scrollbar {
+    width: 10px;     
+
+}
+
+.barra-colores::-webkit-scrollbar-track {
+    height: 20px; 
+}
+
+.barra-colores::-webkit-scrollbar-thumb {
+
+    background: #0B3049;     
+       
+
+}
