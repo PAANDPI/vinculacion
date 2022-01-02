@@ -74,7 +74,7 @@
                         <td>23</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="bi bi-circle-fill" style="color: #FFDF78  "></span> Discapacidad visión</td>
+                        <td scope="row"><span class="bi bi-circle-fill" style="color: #FFDF78  "></span> Discapacidad visual</td>
                         <td>11</td>
                         <td>54</td>
                         <td>47</td>
@@ -86,13 +86,13 @@
                         <td>7</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="bi bi-circle-fill" style="color: #57CBAE "></span> Discapacidad fisíca</td>
+                        <td scope="row"><span class="bi bi-circle-fill" style="color: #57CBAE "></span> Discapacidad física</td>
                         <td>14</td>
                         <td>5</td>
                         <td>47</td>
                     </tr>
                     <tr>
-                        <td scope="row"><span class="bi bi-circle-fill" style="color: #EBB575 "></span> Discapacidad Multiple</td>
+                        <td scope="row"><span class="bi bi-circle-fill" style="color: #EBB575 "></span> Discapacidad múltiple</td>
                         <td>7</td>
                         <td>54</td>
                         <td>78</td>

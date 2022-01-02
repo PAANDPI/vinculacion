@@ -30,7 +30,7 @@
 
                 <div class="col-lg-6 p-3 p-md-5" style="background: rgb(11,48,73);
                      background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
-                    <h2  class="blanco pb-5" >Recursos didacticos</h2> 
+                    <h2  class="blanco pb-5" >Recursos didácticos</h2> 
                     <p  class="blanco"  >
                         En esta sección se comparte recursos digitales <br> 
                         agrupados por cada tipo de discapacidad<br>                                            

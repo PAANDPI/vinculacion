@@ -39,7 +39,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                                 </div>
-                                <input type="text" name="" class="form-control input_user" value="" placeholder="Correo electronico">
+                                <input type="text" name="" class="form-control input_user" value="" placeholder="Correo electrónico">
                             </div>
 
 
@@ -64,7 +64,7 @@
                             ¿Quieres ser colaborador? <a href="#" class="ml-2">Solicitar</a>
                         </div>
                         <div class="d-flex justify-content-center links">
-                            <a href="#">Olvidaste tu contraseña?</a>
+                            <a href="#">¿Olvidaste tu contraseña?</a>
                         </div>
                     </div>
                 </div>

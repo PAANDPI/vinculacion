@@ -17,7 +17,7 @@
                             <li><a class="btn p-0 m-0 blanco" href="#">Eventos</a></li>
                             <li><a class="btn p-0 m-0 blanco" href="#">Noticias</a></li>
                             <li><a class="btn p-0 m-0 blanco" href="#">Conócenos</a></li>
-                            <li><a class="btn p-0 m-0 blanco" href="#">Identificate</a></li>
+                            <li><a class="btn p-0 m-0 blanco" href="#">Identifícate</a></li>
                         </ul>
                     </div>
 
