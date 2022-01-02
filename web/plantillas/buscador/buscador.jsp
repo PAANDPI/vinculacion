@@ -19,6 +19,6 @@
                 </div>
             </div>            
         </div> 
-        <a href="#" class="blanco"> ¿Cómo funciona rl buscador?</a>                              
+        <a href="#" class="blanco"> ¿Cómo funciona el buscador?</a>                              
     </div> 
 </div>

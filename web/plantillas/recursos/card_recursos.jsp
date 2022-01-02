@@ -51,7 +51,7 @@
         </svg>
     </div>    
     <div class="col-lg-2 p-0 mr-1  card_recursos" style="width: 100px; height: 150px; border-radius: 10px;background: #4EB59B">
-        <div class="blanco grosor text-center" style="font-size: 24px;">Multiple</div>
+        <div class="blanco grosor text-center" style="font-size: 24px;">Múltiple</div>
         <div class="row justify-content-center">
             <img  style="z-index: 10"  class="m-auto" src="recursos/iconos/multiple.png" alt=""/>            
         </div>

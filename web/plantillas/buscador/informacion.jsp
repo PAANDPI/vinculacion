@@ -74,7 +74,7 @@
                  <div class="contenedor_iconos naranja rounded-circle float-right" style="position: absolute; right:10px; top:35px" >
                     <img width="50" height="50" src="recursos/iconos/boy.png" alt=""/>
                 </div>
-                <h5 class="card-title">DISCAPACIDAD MULTIPLE</h5>
+                <h5 class="card-title">DISCAPACIDAD MÚLTIPLE</h5>
                 <p class="card-text text-justify">Implica una disminución de la movimilidad total o parcial de uno o más miembros del cuerpo, la cual dificulta la relación de actividades motoras convencionales.</p>
                
             </div>
