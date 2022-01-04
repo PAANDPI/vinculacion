@@ -63,5 +63,5 @@ var ob = document.getElementsByTagName("*");
               tamañoLetra();
               ob[i].classList.add("texto");
           }
-          
+         
 

@@ -16,7 +16,7 @@
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
-
+        <link href="recursos/estilos/app.css" rel="stylesheet" type="text/css"/>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
 
@@ -38,13 +38,7 @@
         {
             background: rgba(255,255,255,0.1); 
         }
-        .degradado
-        {
-            width: 100%;
-            height: auto;
-            background: rgb(11,48,73);
-            background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
-        }
+        
     </style>
 
     <body>
@@ -82,7 +76,29 @@
         <%@include file="plantillas/principal/servicios.jsp" %> 
 
         <%@include  file="plantillas/footer.jsp" %>  
-      
+        <link href="recursos/estilos/menuflotante.css" rel="stylesheet" type="text/css"/>
+
+        <div class="nav">
+            <ul class="trigger">
+                <li><div class="menufont p-2" >ONE</div></li>
+                <li>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <input type="button" class="disminuir btn btn-warning btn-sm" value="-"> 
+                        </div>
+                        <div class="col-lg-6">
+                            <input type="button" class="aumentar btn btn-success btn-sm" value="+"> 
+                        </div>
+                    </div>
+                </li>
+                <li><a href="#" class="restablecer menufont ">Restablecer</a></li>
+                <li><a id="boton" href="#" class="menufont" >Contraste</a></li>
+                <li><a href="#" class="menufont">Lupa</a></li>         
+            </ul>
+            <button class="popup">MENU</button>
+        </div>
+        <script src="recursos/javaScript/app.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/menuflotante.js" type="text/javascript"></script>
     </body>
-   
+
 </html>

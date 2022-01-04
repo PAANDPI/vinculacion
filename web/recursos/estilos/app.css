@@ -1,4 +1,4 @@
-/*.tamaño-actual {
+.tamaño-actual {
     font-weight: bold;
     font-size: 20px;
 }
@@ -42,8 +42,10 @@ body {
     background-color: var(--color-bg);
 }
 
-h1,h3,p {
+h1,h2,h3,a,p,label,div {
     color: var(--color-texto);
 
 }
-*/
+
+
+
