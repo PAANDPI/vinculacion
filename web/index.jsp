@@ -50,7 +50,7 @@
     <body>
 
         <%@include  file="plantillas/menu.jsp" %>     
-       
+
         <div class="degradado mb-3 sombra">
             <div class="container blanco">
                 <div class="row flex-column-reverse flex-lg-row justify-content-center">
@@ -82,5 +82,7 @@
         <%@include file="plantillas/principal/servicios.jsp" %> 
 
         <%@include  file="plantillas/footer.jsp" %>  
+      
     </body>
+   
 </html>
