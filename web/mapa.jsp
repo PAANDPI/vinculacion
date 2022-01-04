@@ -14,51 +14,71 @@
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <!--Mapa-->
-
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
               integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-              crossorigin=""/>
+              crossorigin=""/><!--
         <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-        <link rel="stylesheet"  href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+        <link rel="stylesheet"  href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>-->
         <!--Fin de la parte del mapa-->
     </head>
     <body style="overflow: hidden">
         <%@include  file="plantillas/menu.jsp" %>  
         <div class="row">
             <div class="col-lg-3">
-
-                <div class="pl-3 pr-3 pt-5 mt-5 m-3" 
-                     style="border: 3px solid #052C46; 
-                     width: 100%; height: auto; border-radius: 10px">
-                    <form>
-                        <img style="width: 130px; height: 130px; position: absolute; top:-10px"  src="recursos/imagenes/Logo_colorido.png" alt=""/>
-                        <h4>Generador de ruta<h4>
+                <div class=" m-3 mt-5 p-3" style="border: 3px solid #052C46; border-radius: 10px" >
+                    <h5>Generar ruta</h5>
+                    <img style="height: 100px;width: 100px; position: absolute; top: -1px; right: 10px" src="recursos/imagenes/Logo_colorido.png" alt=""/>               
+                    <div class="">                        
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Ubicación</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" a placeholder="Ruta">       
+                            <label >Ubicación</label>
+                            <input type="text" class="form-control form-control-sm" id="exampleInputEmail1"  placeholder="Mi ubicación">       
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Ubicación</label>
-                            <input type="text" class="form-control"  placeholder="Ubicación">
-                        </div>                        
-                        <button style="border: 3px solid #052C46;border-radius: 10px" type="button" class="btn font-weight-bold">Ruta</button>
-                    </form>
-                </div>
-                <div>
-                    Hospital
-                    Fundaciones
-                    ONG
-                    Clinicas
-                    Centro de atencion
-                </div>
-                <div>
-                    Buffer
-                </div>
+                            <label>Destino</label>
+                            <input type="text" class="form-control form-control-sm"  placeholder="Mi destino">
+                        </div> 
+                        <button style="border: 3px solid #052C46;border-radius: 10px; position: relative; right: 1px " 
+                                type="button" class="btn font-weight-bold bi bi-compass "> Ruta</button>
+                    </div>                                               
 
-
+                </div>
+                <h5 class="m-3">Lista de lugares</h5>
+                <div  class="mt-1  m-3 mb-1 barra-colores"  style="height: 250px; max-height: 250px; overflow-y: auto;                     ">
+                   
+                    <ul class="list-group p-1">
+                        <li class="list-group-item d-flex  align-items-center">
+                            <input class="m-1" type="checkbox">Hospital
+                        </li>
+                        <li class="list-group-item d-flex   align-items-center">
+                            <input class="m-1" type="checkbox">Fundaciones                            
+                        </li>
+                        <li class="list-group-item d-flex  align-items-center">
+                            <input class="m-1" type="checkbox">Clinicas   
+                        </li>                    
+                        <li class="list-group-item d-flex   align-items-center">
+                            <input class="m-1" type="checkbox"> Centro de atencion
+                        </li>
+                        <li class="list-group-item d-flex   align-items-center">
+                            <input class="m-1" type="checkbox"> Centros
+                        </li>
+                    </ul>
+                </div>
+                <div class="ml-3 mt-5 mr-3 pl-3 pr-3 pt-3" style="border: 3px solid #052C46; border-radius: 10px">
+                    <div class="row">
+                         
+                        <div class="col-lg-10">
+                            <h5>Area del buffer:</h5>
+                            <input style="width: 90%"  type="range" name="price" id="rango" min="0" max="5000" step="100" value="0">
+                        </div>
+                        <div class="col-lg-2">
+                            <h5 class="bi bi-trash"></h5>
+                        </div>
+                    </div>                                                                          
+                </div>
             </div>
             <div class="col-lg-9">
                 <div id="mapid" style="width: 100%; height: 90vh; z-index: -1" class=" "></div>
