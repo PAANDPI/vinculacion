@@ -37,5 +37,6 @@
         <%@include file="plantillas/buscador/informacion.jsp" %>  
        
         <%@include  file="plantillas/footer.jsp" %>   
+         <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
     </body>    
 </html>

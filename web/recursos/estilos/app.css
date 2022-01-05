@@ -44,14 +44,23 @@ body.dark-theme  .degradado_3
 {
     background: #2F2F2F !important;
 }
+body.dark-theme .infoCar{
+      background: #1c1c1c !important;
+      color: white !important;
+}
 body.dark-theme  .color_base
 {
      background: #2F2F2F !important;
+}
+body.dark-theme .menuRecurso 
+{
+    background: #555555 !important; 
 }
 .modoOscuro
 {
     background: rgb(47, 47, 47); width: 130px; height: 130px; border-radius: 10px;border: 1px solid #CFCFCF;
 }
+
 /*body.dark-theme .modoOscuro
 {
 -webkit-box-shadow: 0px -1px 20px -1px rgba(218,224,54,1);

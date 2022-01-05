@@ -21,7 +21,7 @@
     </head>
 
     <body>
-        
+
         <%@include file="plantillas/fondo_decoracion.jsp"%>
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-
+        <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
         <!--        <div class=" caja_login ">       
                     <div class="row">
                         <div class="col-lg-3">

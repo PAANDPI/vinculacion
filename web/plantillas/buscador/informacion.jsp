@@ -2,7 +2,7 @@
     <div class="row justify-content-center ">
 
 
-        <div class="card m-2" style="width: 15rem;">
+        <div class="card m-2 infoCar" style="width: 15rem;">
             <div class="morado" style="height: 20px">
 
             </div>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="card m-2" style="width: 15rem;">
+        <div class="card m-2 infoCar" style="width: 15rem;">
             <div class="verde" style="height: 20px">
             </div>
 
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <div class="card m-2" style="width: 15rem;">
+        <div class="card m-2 infoCar" style="width: 15rem;">
             <div class="amarillo" style="height: 20px">
             </div>
 
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="card m-2" style="width: 15rem;">
+        <div class="card m-2 infoCar" style="width: 15rem;">
             <div class="rosado" style="height: 20px">
             </div>
 
@@ -66,7 +66,7 @@
             </div>
         </div>
 
-        <div class="card m-2" style="width: 15rem;">
+        <div class="card m-2 infoCar" style="width: 15rem;">
             <div class="naranja" style="height: 20px">      
             </div>
 
