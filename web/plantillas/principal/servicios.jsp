@@ -3,8 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-12 col-xm-12 " >
             <div class="row flex-column-reverse flex-lg-row  sombra">
-                <div class="col-lg-6 p-3 p-md-5 " style=" background: rgb(11,48,73);
-                     background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
+                <div class="col-lg-6 p-3 p-md-5 degradado_2" >
                     <h2  class="blanco pb-5" >Buscador de discapacidades</h2> 
                     <p  class="blanco"  >
                         Permite explorar contenido de acuerdo <br> 
@@ -28,8 +27,7 @@
                     <img style="width: 100%;height: 100% ;object-fit: slice" src="recursos/imagenes/recurso.jpg" alt=""/>
                 </div>
 
-                <div class="col-lg-6 p-3 p-md-5" style="background: rgb(11,48,73);
-                     background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
+                <div class="col-lg-6 p-3 p-md-5 degradado_3" >
                     <h2  class="blanco pb-5" >Recursos didácticos</h2> 
                     <p  class="blanco"  >
                         En esta sección se comparte recursos digitales <br> 
@@ -46,8 +44,7 @@
     <div class="row mt-5 justify-content-center">
         <div class="col-lg-12 col-sm-12 col-xm-12 " >
             <div class="row flex-column-reverse flex-lg-row  sombra">
-                <div class="col-lg-6 p-3 p-md-5" style="background: rgb(11,48,73);
-                     background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);height: auto;">
+                <div class="col-lg-6 p-3 p-md-5 degradado_2" >
                     <h2  class="blanco pb-5" >Mapa informativo</h2> 
                     <p  class="blanco"  >
                        Brinda referencias de lugares de interés para<br> 

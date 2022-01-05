@@ -1,8 +1,8 @@
 
-        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: #0B3049 !important;" >
+        <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1 color_base" >
             <a class="navbar-brand" style="position: relative; left: 10%" href="#">
                 <img class="p-0" width="55" height="50" src="recursos/imagenes/sin_letras.png" alt=""/>
-                <label class="grosor">YUYAPUY</label> 
+                <!--<label class="grosor">YUYAPUY</label>--> 
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>

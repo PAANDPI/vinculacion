@@ -6024,6 +6024,7 @@ a.close.disabled {
   width: 100vw;
   height: 100vh;
   background-color: #000;
+   background-color: rgba(0,0,0,.0001) !important;
 }
 
 .modal-backdrop.fade {

@@ -27,26 +27,15 @@
         {
             overflow-x: hidden;
         }
-        .sombra
-        {
 
-            -webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
-            -moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
-            box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
-        }
-        .efec
-        {
-            background: rgba(255,255,255,0.1); 
-        }
-        
     </style>
 
-    <body>
+    <body >
 
         <%@include  file="plantillas/menu.jsp" %>     
 
         <div class="degradado mb-3 sombra">
-            <div class="container blanco">
+            <div class="container blanco encabezado">
                 <div class="row flex-column-reverse flex-lg-row justify-content-center">
                     <div class="col-lg-6 col-sm-12 col-xm-12 p-5 centrar_objeto ">                        
                         <label class="" style="font-size: 20px">Conocimiento y buen vivir</label>
@@ -78,27 +67,98 @@
         <%@include  file="plantillas/footer.jsp" %>  
         <link href="recursos/estilos/menuflotante.css" rel="stylesheet" type="text/css"/>
 
-        <div class="nav">
-            <ul class="trigger">
-                <li><div class="menufont p-2" >ONE</div></li>
-                <li>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <input type="button" class="disminuir btn btn-warning btn-sm" value="-"> 
+
+
+
+
+        <a type="button"  
+           style=" position: fixed;right: 20px; bottom: 50px ;width: 50px; height: 50px;transition: all 300ms ease 0ms;font-size: 21px" 
+           class="btn btn-info bi bi-gear blanco   rounded-circle " data-toggle="modal" data-target="#exampleModalCenter" ></a>
+
+           <div  class="modal fade " style="position:fixed; top:0px; left:800px;width:600px;" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div  class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content modaConfiguraciones">
+                    <div class="p-4">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Ajuste de pagina</h5>
+
+                    </div>
+                    <div  class="modal-body p-3">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label class="m-1 mb-3 font-weight-bold">Ajuste de visión</label>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button id="plusBtn" onclick="test(1)" type="button" class="btn  btn-secondary bi bi-dash"></button>
+                                    <button id="restBtn" type="button" class="btn  btn-secondary bi bi-fullscreen"></button>
+                                    <button id="minusBtn" onclick="test(0)"  type="button" class="btn  btn-secondary bi bi-plus"></button>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <button type="button" class="btn   btn-secondary bi bi-search"> Lupa</button> 
+                            </div>   
+                            <div class="col-lg-5">    
+                                <!--<input id="ColorTexto" type="color" ><button id="aplicarColor" class="btn btn-sm  btn-secondary" type="button">Restablecer</button>-->
+                                <button id="" class="btn float-right  btn-secondary" type="button">Restablecer</button>
+                            </div> 
+
                         </div>
-                        <div class="col-lg-6">
-                            <input type="button" class="aumentar btn btn-success btn-sm" value="+"> 
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label class="m-1 mb-3 font-weight-bold">Modos de contraste</label>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-lg-4">
+                                <div id="modoOscuro" class="manino modoOscuro">
+                                    <span class="bi bi bi-circle-fill blanco m-1 float-right"></span>
+                                    <label class="blanco" style="font-size: 20px;position:absolute; bottom: 45px; left: 55px">Texto</label>    
+                                </div>    
+
+                            </div> 
+                            <div class="col-lg-4">
+                                <div id="modoGris" class="manino" style="  background: gray; width: 100%;  width: 130px; height: 130px; border-radius: 10px;border: 1px solid #CFCFCF">
+                                    <span class="bi bi bi-circle-fill blanco m-1 float-right"></span>
+                                    <label class="blanco" style="font-size: 20px;position:absolute; bottom: 45px; left: 55px">Texto</label> 
+                                </div>    
+
+
+                            </div> 
+                            <div class="col-lg-4 ">
+                                <div id="modoNormal"class="manino"  style="  background: whitesmoke;  width: 130px; height: 130px; border: 1px solid #CFCFCF; border-radius: 10px">
+                                    <span class="bi bi bi-circle-fill m-1 float-right"></span>
+                                    <label class="negro" style="font-size: 20px;position:absolute; bottom: 45px; left: 55px">Texto</label> 
+                                </div>    
+                            </div>                                                        
+                        </div>  
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <label class="m-1 mt-3 font-weight-bold">Efectos de imagenes
+                            </div>   
+                            <div class="col-lg-12">
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <button id="ByN" type="button" class="btn btn-primary">Blanco y negro</button>
+                                    <button id="Sepia" type="button" class="btn btn-secondary">Sepia</button>
+                                    <button id="BajoBrillo" type="button" class="btn btn-danger">Bajo brillo</button>
+                                    <button id="AltoContraste" type="button" class="btn btn-success">Alto contraste</button>
+                                    <button id="Saturar" type="button" class="btn btn-warning">Saturar</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
                         </div>
                     </div>
-                </li>
-                <li><a href="#" class="restablecer menufont ">Restablecer</a></li>
-                <li><a id="boton" href="#" class="menufont" >Contraste</a></li>
-                <li><a href="#" class="menufont">Lupa</a></li>         
-            </ul>
-            <button class="popup">MENU</button>
+
+                </div> 
+
+            </div>
         </div>
-        <script src="recursos/javaScript/app.js" type="text/javascript"></script>
-        <script src="recursos/javaScript/menuflotante.js" type="text/javascript"></script>
+
+            <script src="recursos/javaScript/app.js" type="text/javascript"></script>
+            <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>   
     </body>
 
 </html>

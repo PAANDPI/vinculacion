@@ -176,6 +176,10 @@ body
 {
     color: #fff !important;
 }
+.negro
+{
+    color: black !important;
+}
 .grosor
 {
     -webkit-text-stroke: 1px #fff;   
@@ -219,9 +223,9 @@ body
 }
 .botones
 {
-    color: #fff !important;
-    border: 2px solid #0B3049 ;
-    /*border-right: 5px solid white !important;*/
+    color: #fff ;
+    margin: 10px;
+    /*border: 2px solid #0B3049 ;*/
 }
 .botones:hover
 {
@@ -233,6 +237,17 @@ body
     border-right: 2px solid #9A5BCE;
     color: #fff ;
 }
+.sombra
+{
+
+    -webkit-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 23px 0px rgba(0,0,0,0.75);
+}
+.efec
+{
+    background: rgba(255,255,255,0.1); 
+}
 .degradado
 {
     width: 100%;
@@ -240,11 +255,16 @@ body
     background: rgb(11,48,73);
     background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
 }
-@media (prefers-color-scheme: dark) {
-    
-.degradado.darckmode{
-    width: 100%;
+
+.degradado_2
+{
+    background: rgb(11,48,73);
+    background: linear-gradient(82deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);
     height: auto;
-   background: red;
 }
+.degradado_3
+{
+    background: rgb(11,48,73);
+    background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);
+    height: auto;
 }
