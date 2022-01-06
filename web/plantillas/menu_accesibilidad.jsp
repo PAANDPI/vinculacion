@@ -4,12 +4,11 @@
    style=" position: fixed;right: 20px; bottom: 50px ;width: 50px; height: 50px;transition: all 300ms ease 0ms;font-size: 21px" 
    class="btn btn-info bi bi-gear blanco   rounded-circle " data-toggle="modal" data-target="#exampleModalCenter" ></a>
 
-<div  class="modal fade " style="position:fixed; top:0px; left:800px;width:600px;" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div  class="modal-dialog modal-dialog-centered" role="document">
+<div  class="modal fade "  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div  class="modal-dialog" role="document">
         <div class="modal-content modaConfiguraciones">
             <div class="p-4">
                 <h5 class="modal-title" id="exampleModalLongTitle">Ajuste de pagina</h5>
-
             </div>
             <div  class="modal-body p-3">
                 <div class="row">
