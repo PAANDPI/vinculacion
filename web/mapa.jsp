@@ -24,7 +24,7 @@
     </head>
     <body style="overflow-y:hidden ">
         <%@include  file="plantillas/menu.jsp" %>    
-        <div class="mt-3" style="position: absolute; left: 10px; bottom: 10px; z-index: 10; width: 400px">
+        <div class="mt-3" style="position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 400px">
             <div style="width: 100%; height: auto; border:  1px solid gray ; border-radius: 10px; background: white">
                 <div  style="width: 100%; height: 50px; border-top-left-radius: 10px; border-top-right-radius: 10px" class="degradado_2 p-3">
                     <h5 class="blanco">Generar ruta</h5>                            
@@ -43,7 +43,7 @@
         </div>
 
         <div id="map" style="width: 100%; height: 91vh;z-index: 1" class=" "></div>  
-        <div style="position: absolute; right:  10px; bottom: 10px; z-index: 9; width: 400px; background: white">
+        <div style="position: absolute; right:  10px; bottom: 5px; z-index: 9; width: 400px; background: white">
             <div class="pl-3 pr-3 pt-3" style="border: 1px solid gray; border-radius: 10px">
                 <h5>Area del buffer:   <a class=" btn bi bi-trash" style="font-size: 20px"></a></h5>
                 <input style="width: 100%"  type="range" name="price" id="rango" min="0" max="5000" step="100" value="0">
