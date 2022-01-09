@@ -34,52 +34,7 @@
             <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp"%>
             <%@include  file="plantillas/administracion/formularios/sugerencia.jsp"%>
             <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>
-        </div>    
-
-        <!-- Modal de Recursos -->
-        <div class="modal fade" id="model_recursos" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Añadir Recursos</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Añadir</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de Discapacidades -->
-        <div class="modal fade" id="model_discapacidad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Añadir Discapacidad</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label class=" ">Discapacidad</label>
-                            <input  class="form-control" type="text" id="txt-discapacidad" >
-                        </div>  
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Añadir</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>       
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
 </html>
