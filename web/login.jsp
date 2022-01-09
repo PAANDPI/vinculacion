@@ -32,14 +32,14 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-center form_container">
-                        <form>
+                        <form action="">
 
 
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                                 </div>
-                                <input type="text" name="" class="form-control input_user" value="" placeholder="Correo electrónico">
+                                <input type="text" name="txtUsuario" class="form-control input_user" value="" placeholder="Correo electrónico">
                             </div>
 
 
@@ -47,7 +47,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
                                 </div>
-                                <input type="password" name="" class="form-control input_pass" value="" placeholder="Contraseña">
+                                <input type="password" name="txtClave" class="form-control input_pass" value="" placeholder="Contraseña">
                             </div>
 
 

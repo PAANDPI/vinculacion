@@ -29,7 +29,8 @@ public class PersonaDAO {
 
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
+        String sql = "SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+                + "'%s');";
 
         System.out.println(sql);
         if (conex.isState()) {
