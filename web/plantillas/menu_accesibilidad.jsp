@@ -8,32 +8,32 @@
     <div  class="modal-dialog" role="document">
         <div class="modal-content modaConfiguraciones">
             <div class="p-4">
-                <h5 class="modal-title" id="exampleModalLongTitle">Ajuste de pagina</h5>
+                <h5 class="modal-title letra_color" id="exampleModalLongTitle">Ajuste de pagina</h5>
             </div>
             <div  class="modal-body p-3">
                 <div class="row">
                     <div class="col-lg-12">
-                        <label class="m-1 mb-3 font-weight-bold">Ajuste de visión</label>
+                        <label class="m-1 mb-3 letra_color font-weight-bold">Ajuste de visión</label>
                     </div>
                     <div class="col-lg-4">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button id="plusBtn" onclick="test(1)" type="button" class="btn  btn-secondary bi bi-dash"></button>
-                            <button id="restBtn" type="button" class="btn  btn-secondary bi bi-fullscreen"></button>
-                            <button id="minusBtn" onclick="test(0)"  type="button" class="btn  btn-secondary bi bi-plus"></button>
+                            <button id="plusBtn" onclick="test(1)" type="button" class="btn btn-sm btn-secondary bi bi-dash"></button>
+                            <button id="restBtn" type="button" class="btn btn-sm btn-secondary bi bi-fullscreen"></button>
+                            <button id="minusBtn" onclick="test(0)"  type="button" class="btn btn-sm btn-secondary bi bi-plus"></button>
                         </div>
                     </div>
                     <div class="col-lg-3">
-                        <button type="button" class="btn   btn-secondary bi bi-search"> Lupa</button> 
+                        <input id="ColorTexto" style="width: 100px; height: 31px" type="color" > 
                     </div>   
                     <div class="col-lg-5">    
-                        <!--<input id="ColorTexto" type="color" ><button id="aplicarColor" class="btn btn-sm  btn-secondary" type="button">Restablecer</button>-->
-                        <button id="" class="btn float-right  btn-secondary" type="button">Restablecer</button>
+                       
+                        <button id="aplicarColor" class="btn btn-sm btn-secondary bi bi-check-square" type="button"> Aplicar color de letra
+                        </button>                       
                     </div> 
-
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <label class="m-1 mb-3 font-weight-bold">Modos de contraste</label>
+                        <label class="m-1 mb-3 letra_color font-weight-bold">Modos de contraste</label>
                     </div>
                 </div>
                 <div class="row">
@@ -62,21 +62,22 @@
                 </div>  
                 <div class="row">
                     <div class="col-lg-12">
-                        <label class="m-1 mt-3 font-weight-bold">Efectos de imagenes
+                        <label class="m-1 mt-3 letra_color font-weight-bold">Efectos de imagenes
                     </div>   
                     <div class="col-lg-12">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button id="ByN" type="button" class="btn btn-primary">Blanco y negro</button>
-                            <button id="Sepia" type="button" class="btn btn-secondary">Sepia</button>
-                            <button id="BajoBrillo" type="button" class="btn btn-danger">Bajo brillo</button>
-                            <button id="AltoContraste" type="button" class="btn btn-success">Alto contraste</button>
-                            <button id="Saturar" type="button" class="btn btn-warning">Saturar</button>
+                            <button id="ByN" type="button" class="btn btn-sm btn-primary">Blanco y negro</button>
+                            <button id="Sepia" type="button" class="btn btn-sm  btn-secondary">Sepia</button>
+                            <button id="BajoBrillo" type="button" class="btn btn-sm  btn-danger">Bajo brillo</button>
+                            <button id="AltoContraste" type="button" class="btn btn-sm  btn-success">Contraste</button>
+                            <button id="Saturar" type="button" class="btn btn-sm  btn-warning">Saturar</button>
+                            <button id="Normal" type="button" class="btn btn-sm  btn-dark">Restaurar</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
+                     <button id="" class="btn float-right  btn-secondary" type="button">Restablecer</button>
                 </div>
             </div>
 

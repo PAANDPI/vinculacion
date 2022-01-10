@@ -13,29 +13,14 @@
         <script src="recursos/javaScript/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <script src="recursos/javaScript/editor.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/editor2.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <link href="recursos/estilos/editor.css" rel="stylesheet" type="text/css"/>       
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
-
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $('#txt-content').Editor();
-                //$('#txt-content').Editor('setText', ['<p style="color:red;">Hola</p>']);
-                $('#btn-enviar').click(function (e) {
-                    e.preventDefault();
-                    $('#txt-content').text($('#txt-content').Editor('getText'));
-                    resultado();
-                });
-            });
-            function resultado()
-            {
-                document.getElementById("resu").innerHTML = document.getElementById("txt-content").innerHTML;
-                var aux = document.getElementById("resu").textContent;
-                document.getElementById("resu").innerHTML = aux;
-            }
-        </script>
+        
+      
     </head>
     <style>
 
@@ -59,11 +44,9 @@
                             Plantillas  <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Plantilla 1</a></li>
-                            <li><a href="#">Plantilla 2</a></li>
-                            <li><a href="#">Plantilla 3</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
+                            <li><a id="btn_plantilla_uno" href="#">Plantilla 1</a></li>
+                            <li><a id="btn_plantilla_dos" href="#">Plantilla 2</a></li>
+                            <li><a id="btn_plantilla_tres" href="#">Plantilla 3</a></li>
                         </ul>
                     </div>                   
                     <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atras</a>

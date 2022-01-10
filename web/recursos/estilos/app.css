@@ -1,48 +1,52 @@
+/*NORMAL*/
+.modaConfiguraciones
+{  border:1px solid #0B3049 !important;
+}
 .manino:hover
 {
     cursor: pointer;
 }
-
-body.dark-theme  .degradado{
-
-    width: 100%;
-    height: auto;
-    background: rgb(11,48,73);
-    background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
-}
-
-
-
 body .encabezado
 {
 
     color: white;
 }
+/*TEMA OSCURO*/
+body.dark-theme  .degradado{
 
+    width: 100%;
+    color: white  !important;
+    height: auto;
+    background: rgb(11,48,73);
+    background: linear-gradient(180deg, rgba(11,48,73,1) 0%, rgba(66,125,164,1) 68%, rgba(65,122,159,1) 100%);
+}
+body.dark-theme .degradado ul li a
+{
+   
+    color: white !important;
+}
 body.dark-theme {
     background: rgb(47, 47, 47);
     color: #f8f9fa;
 }
-
 body.dark-theme .modaConfiguraciones
 {
     background: #2F2F2F;
     border:1px solid white !important;;
 }
-.modaConfiguraciones
-{  border:1px solid #0B3049 !important;
-}
 body.dark-theme .degradado 
 {
     background: #2F2F2F !important;
 }
-body.dark-theme .degradado_2
+body.dark-theme .degradado_2 
 {
     background: #2F2F2F !important;
+    color: white  !important;
 }
-body.dark-theme  .degradado_3
+body.dark-theme .degradado_3 
 {
     background: #2F2F2F !important;
+    color: white  !important;
 }
 body.dark-theme .infoCar{
       background: #1c1c1c !important;
@@ -56,14 +60,144 @@ body.dark-theme .menuRecurso
 {
     background: #555555 !important; 
 }
+
 .modoOscuro
 {
     background: rgb(47, 47, 47); width: 130px; height: 130px; border-radius: 10px;border: 1px solid #CFCFCF;
 }
-
-/*body.dark-theme .modoOscuro
+/*TEMA BLANCO*/
+body.white-theme {
+    background: white;
+    color: black;
+}
+body.white-theme .encabezado
 {
--webkit-box-shadow: 0px -1px 20px -1px rgba(218,224,54,1);
--moz-box-shadow: 0px -1px 20px -1px rgba(218,224,54,1);
-box-shadow: 0px -1px 20px -1px rgba(218,224,54,1);
-}*/
+
+    color: black !important;
+}
+body.white-theme .modaConfiguraciones
+{
+    background: white;
+    border:2px solid black !important;;
+}
+body.white-theme .degradado 
+{
+    background: white !important;
+    color: black !important;
+}
+body.white-theme .degradado ul li a
+{
+   
+    color: black !important;
+}
+body.white-theme  .imgF
+{
+   
+   filter: brightness(50%);
+}
+body.white-theme .degradado_2  a
+{color: black;
+}
+body.white-theme .degradado_2
+{
+    background: white !important;
+    color: black !important;
+} 
+body.white-theme .degradado_3  a
+{color: black;
+}
+body.white-theme .degradado_3
+{
+    background: white !important;
+    color: black !important;
+} 
+body.white-theme .infoCar{
+      background: white !important;
+      color: black !important;
+}
+body.white-theme  .color_base
+{
+     background: white !important;
+    
+}
+body.white-theme  .color_base a
+{
+   color: black !important;
+    
+}
+body.white-theme .menuRecurso 
+{
+    background: #555555 !important; 
+}
+body.white-theme  .letra_color
+{
+  color: black  !important;   
+}
+
+/*TEMA GRISS*/
+body.gray-theme {
+    background: #808080;
+    color: white;
+}
+body.gray-theme .encabezado
+{
+
+    color: white !important;
+}
+body.gray-theme .modaConfiguraciones
+{
+    background: white;
+    border:2px solid black !important;;
+}
+body.gray-theme .degradado 
+{
+    background: #808080 !important;
+    color: white !important;
+}
+body.gray-theme .degradado ul li a
+{
+   
+    color: white !important;
+}
+body.gray-theme .degradado_2  a
+{color: white;
+}
+body.gray-theme .degradado_2
+{
+     background: #808080 !important;
+    color: white !important;
+} 
+body.gray-theme .degradado_3  a
+{color: white;
+}
+body.gray-theme .degradado_3
+{
+    background: #808080 !important;
+    color: white !important;
+} 
+body.gray-theme .infoCar{
+      background: #808080 !important;
+      color: white !important;
+}
+body.gray-theme  .color_base
+{
+     background: #808080 !important;
+    
+}
+body.gray-theme  .color_base a
+{
+   color: white !important;
+    
+}
+body.gray-theme .menuRecurso 
+{
+    background: #555555 !important; 
+}
+body.gray-theme .modaConfiguraciones .letra_color
+{
+  color: black  !important;   
+}
+body.gray-theme  .letra_color
+{
+  color: white  !important;   
+}

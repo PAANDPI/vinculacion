@@ -4,8 +4,8 @@
             <img width="240" height="210" src="recursos/imagenes/Logo_colorido.png" alt=""/>
         </div>                    
         <div class="col-lg-12">
-            <h4 class="blanco ">BUSCADOR DE DISCAPACIDAD</h4>                     
-            <label style="font-size: 20px" class="sub-letras " >Busca información sobre diferentes tipos de discapacidades </label>                                        
+            <h4 class="">BUSCADOR DE DISCAPACIDAD</h4>                     
+            <label style="font-size: 20px" class="sub-letras letra_color " >Busca información sobre diferentes tipos de discapacidades </label>                                        
         </div>
         <div class="col-lg-12">
             <div class="row justify-content-center">
@@ -19,6 +19,6 @@
                 </div>
             </div>            
         </div> 
-        <a href="#" class="blanco"> ¿Cómo funciona el buscador?</a>                              
+                                    
     </div> 
 </div>

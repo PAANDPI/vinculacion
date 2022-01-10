@@ -7,18 +7,24 @@ const localConfig = localStorage.getItem('tema');
 
 
 boton.addEventListener('click', () => {
+    document.body.classList.remove('gray-theme');
+    document.body.classList.remove('white-theme');
     document.body.classList.toggle('dark-theme');
     tema = 'dark-theme';
 });
 
 boton1.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    tema = 'dark-theme';
+     document.body.classList.remove('dark-theme');
+    document.body.classList.remove('white-theme');
+    document.body.classList.toggle('gray-theme');
+    tema = 'gray-theme';
 });
 
 boton2.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
-    tema = 'dark-theme';
+     document.body.classList.remove('dark-theme');
+    document.body.classList.remove('gray-theme');
+    document.body.classList.toggle('white-theme');
+    tema = 'white-theme';
 });
 
 
@@ -48,9 +54,9 @@ $(document).ready(function () {
         for (var i = 0; i < textColor.length; i++)
         {
 //            img[i].style.cssText += filtro;
-            textColor[i].style.cssText += " color: "+ muestrario.value+" !important; ";
+            textColor[i].style.cssText += " color: " + muestrario.value + " !important; ";
         }
-        
+
 
     });
 
@@ -69,6 +75,9 @@ $(document).ready(function () {
     });
     $('#Saturar').on('click', function () {
         aplicar('filter: saturate(250%)');
+    });
+    $('#Normal').on('click', function () {
+        aplicar('filter: none');
     });
 
     function aplicar(filtro) {
