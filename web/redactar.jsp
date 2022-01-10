@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <link href="recursos/estilos/editor.css" rel="stylesheet" type="text/css"/>       
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
-        
+
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#txt-content').Editor();
@@ -54,7 +54,18 @@
                 <div class="col-lg-10">
                     <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-archive-fill bnt_sobre" href="#">  Guardar</a>
                     <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-eraser-fill bnt_sobre" href="#">  Limpiar</a>
-                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-border-all bnt_sobre" href="#">  Plantillas</a>
+                    <div class="btn-group">
+                        <button type="button" class="btn color_base blanco dropdown-toggle bi bi-border-all" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Plantillas  <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Plantilla 1</a></li>
+                            <li><a href="#">Plantilla 2</a></li>
+                            <li><a href="#">Plantilla 3</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </div>                   
                     <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atras</a>
                 </div>
                 <div class="col-lg-2">
@@ -63,30 +74,36 @@
             </div>          
         </div>
 
+        <div class="row " style="padding-left: 110px; padding-right: 100px; padding-top: 25px;padding-bottom: 10px" >
+            <div style="background: #DEDEDE; width: 100%;height: 50px; padding: 10px; border-radius: 5px;font-size: 20px;color: #999999 ">
+                <span class="bi bi-bookmarks"></span>  Editor de texto             
+            </div>
 
-        <h3 class="font-weight-bold text-center">Editor de texto</h3>
+        </div> 
+
         <div class="row"  style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">
             <div class=" col-lg-6">
                 <label for="inputState">Nombre de la discapacidad</label>
-                <div class="input-group">                    
-                    <input type="text" class="form-control" placeholder="Nombre de la discapacidad">
+                <div class="input-group">    
+
+                    <select class="form-control" style="background: #DEDEDE;">
+                        <option value="45">Discapacidad 1</option>
+                        <option value="46">Discapacidad 2</option>
+                        <option value="47">Discapacidad 3</option>
+                        <option value="48">Discapacidad 4</option>
+                        <option value="49">Discapacidad 5</option>
+                        <option value="50">Discapacidad 6</option>
+                    </select>
+
                     <span class="input-group-btn">
-                        <button class="btn btn-default bi bi-plus-circle-fill" type="button" data-toggle="modal" data-target="#exampleModal"></button>
+                        <button class="btn btn-default bi bi-plus-circle-fill" style="background: #DEDEDE;color: #999999"
+                                type="button" data-toggle="modal" data-target="#exampleModal"></button>
                     </span>
                 </div>
-            </div>
-            <div class=" col-lg-6">
-                <label for="inputState">Categoria</label>
-                <select id="inputState" class="form-control">
-                    <option>Multiple</option>
-                    <option>Fisica</option>
-                    <option>Sensorial</option>
-                </select>
-            </div>             
+            </div>      
         </div> 
         <label for="inputState" style="padding-left: 100px;">Etiquetas</label> 
-        <div class="row" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">
-
+        <div class="row" style="padding-left: 100px; padding-right: 100px; padding-bottom: 15px">
             <div class=" col-lg-6">
                 <div class="alert alert-warning" role="alert">
                     <span class="bi bi-exclamation-triangle-fill">  <strong>  Advertencia:</strong></span>
@@ -100,11 +117,10 @@
                 </div>
             </div>
             <div class=" col-lg-12">
-
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control" style="background: #DEDEDE;" ></textarea>
             </div>         
-        </div>
-        <h3 class="font-weight-bold text-center">Editor de texto</h3>
+        </div> 
+        <label for="inputState" style="padding-left: 100px;">Contenido</label> 
         <div class="row">    
 
             <div class="col-lg-12" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">                                            
@@ -120,8 +136,8 @@
             </div>
         </div>
 
-<!--Modal agregar discapacidad-->
-<%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
+        <!--Modal agregar discapacidad-->
+        <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
 
     </body>
 </html>
