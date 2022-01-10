@@ -1,3 +1,4 @@
+
 var cities = L.layerGroup();
 
 var mLittleton = L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities);
