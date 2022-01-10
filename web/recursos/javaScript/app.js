@@ -1,31 +1,53 @@
 const boton = document.querySelector('#modoOscuro');
 const boton1 = document.querySelector('#modoGris');
-const boton2 = document.querySelector('#modoNormal');
+const boton2 = document.querySelector('#modoBlanco');
+const boton3 = document.querySelector('#idNormal');
 
-const configUser = window.matchMedia('(prefers-color-scheme: dark)');
-const localConfig = localStorage.getItem('tema');
-
+var localConfig = localStorage.getItem('tema');
+if(localConfig==="dark-theme")
+{
+    document.body.classList.toggle('dark-theme')
+}else if(localConfig==="gray-theme")
+{
+   document.body.classList.toggle('gray-theme'); 
+}else if(localConfig==="white-theme")
+{
+    document.body.classList.toggle('white-theme');  
+}else if(localConfig==="normal")
+{
+    document.body.classList.remove('dark-theme');
+     document.body.classList.remove('gray-theme');
+    document.body.classList.remove('white-theme');
+}
 
 boton.addEventListener('click', () => {
     document.body.classList.remove('gray-theme');
     document.body.classList.remove('white-theme');
     document.body.classList.toggle('dark-theme');
-    tema = 'dark-theme';
+    tema = 'dark-theme';localStorage.setItem("tema",tema);
+    
 });
 
 boton1.addEventListener('click', () => {
      document.body.classList.remove('dark-theme');
     document.body.classList.remove('white-theme');
     document.body.classList.toggle('gray-theme');
-    tema = 'gray-theme';
+    tema = 'gray-theme';localStorage.setItem("tema",tema);
 });
 
 boton2.addEventListener('click', () => {
      document.body.classList.remove('dark-theme');
     document.body.classList.remove('gray-theme');
     document.body.classList.toggle('white-theme');
-    tema = 'white-theme';
+    tema = 'white-theme';localStorage.setItem("tema",tema);
 });
+boton3.addEventListener('click', () => {
+    document.body.classList.remove('dark-theme');
+     document.body.classList.remove('gray-theme');
+    document.body.classList.remove('white-theme');
+    tema = 'normal';localStorage.setItem("tema",tema);
+});
+
 
 
 $(document).ready(function () {
