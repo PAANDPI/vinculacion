@@ -121,17 +121,17 @@
             
         </div>
     </div>
-    <div class="row p-1">
-        <div class="col-lg-10">
+    <div class="row pl-5 pr.5">
+        <div class="col-lg-9">
             
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-3 pr-5">
             <a class="btn btn-sm color_base rounded bi bi-plus-circle-dotted blanco float-right mr-3">Añadir concepto</a>
         </div>
     </div>
-    <div class="row p-1">
+    <div class="row pl-5 pr-5">
          <div class="barra-colores" style="height: 45vh; max-height: 45vh; overflow-y: auto; border-left: #002752; ">
-                <table class="table table-fixed">
+                <table class="table table-fixed table-sm">
                     <thead >
                         <tr class="color_base blanco">
                             <th>Titulo</th>
@@ -153,7 +153,6 @@
                                     <button type="button" class="btn btn-success btn-sm bi bi-folder-plus"> Añadir recursos</button>
                                 </div></td>                                 
                         </tr>
-
                     </tbody>                       
                 </table>
             </div>
