@@ -414,3 +414,105 @@ ALTER FUNCTION public.insertarprovincia(varidpais integer, varprovincia characte
 CREATE VIEW vwPersona AS
 	SELECT IDPersona, P.IDCiudad, Nombre, Apellido, Genero, Usuario, Correo, Clave, Administrador, P.Estado 
 	FROM Persona P INNER JOIN Ciudad C ON C.IDCiudad = P.IdCiudad; 
+    
+--Funciones editar
+    CREATE OR REPLACE FUNCTION public.editarcategoriarecurso(
+	varidcategoriarecurso integer,
+	varcategoriarecurso character varying(25))
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+	UPDATE public.categoriarecurso
+	SET idcategoriarecurso=varidcategoriarecurso, categoriarecurso=varcategoriarecurso
+	WHERE  idcategoriarecurso=varidcategoriarecurso;
+END;
+$BODY$;
+
+ALTER FUNCTION public.editarcategoriarecurso(integer,character varying)
+    OWNER TO appdist;
+    
+    
+    	CREATE OR REPLACE FUNCTION public.editarcategoriadiscapacidad(
+	varidcategoriadiscapacidad integer,
+	varcategoriadiscapacidad character varying(25))
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+	UPDATE public.categoriadiscapacidad
+		SET idcategoriadiscapacidad=varidcategoriadiscapacidad, categoriadiscapacidad=varcategoriadiscapacidad
+		WHERE idcategoriadiscapacidad=varidcategoriadiscapacidad;
+END;
+$BODY$;
+
+ALTER FUNCTION public.editarcategoriadiscapacidad(integer,character varying)
+    OWNER TO appdist;
+    
+    
+    CREATE OR REPLACE FUNCTION public.editarciudad(
+	varidciudad integer,
+	varidprovincia integer,
+	varciudad character varying(30),
+	varestado boolean)
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+	UPDATE public.ciudad
+	SET idciudad=varidciudad, idprovincia=varidprovincia, ciudad=varciudad, estado=varestado
+	WHERE idciudad=varidciudad;
+END;
+$BODY$;
+
+ALTER FUNCTION public.editarciudad(integer,integer,character varying,boolean)
+    OWNER TO appdist;
+    
+    
+    CREATE OR REPLACE FUNCTION public.editarconcepto(
+	varidconcepto integer,
+	variddiscapacidad integer,
+	vardescripcion text,
+	varetiquetas text)
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+	UPDATE public.concepto
+	SET idconcepto=varidconcepto, iddiscapacidad=variddiscapacidad, descripcion=vardescripcion, etiquetas=varetiquetas
+	WHERE idconcepto=varidconcepto;
+	
+END;
+$BODY$;
+
+ALTER FUNCTION public.editarconcepto(integer,integer,text,text)
+    OWNER TO appdist;
+    
+    
+    	CREATE OR REPLACE FUNCTION public.editardiscapacidad(
+	variddiscapacidad integer,
+	varidcategoriadiscapacidad integer,
+	vardiscapacidad character varying(10))
+    RETURNS void
+    LANGUAGE 'plpgsql'
+    COST 100
+    VOLATILE PARALLEL UNSAFE
+AS $BODY$
+BEGIN
+	UPDATE public.discapacidad
+	SET iddiscapacidad=variddiscapacidad, idcategoriadiscapacidad=varidcategoriadiscapacidad, discapacidad=vardiscapacidad
+	WHERE iddiscapacidad=variddiscapacidad;
+END;
+$BODY$;
+
+ALTER FUNCTION public.editardiscapacidad(integer,integer,character varying)
+    OWNER TO appdist;
+    
