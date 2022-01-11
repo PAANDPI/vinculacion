@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Persona;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -115,35 +116,29 @@ public class PersonaDAO {
                             result.getString(8),
                             result.getBoolean(9), result.getBoolean(10));
                     if (persona.getUsuario().equalsIgnoreCase(personaBD.getCorreo()) || persona.getUsuario().equalsIgnoreCase(personaBD.getUsuario())) {
-                        String pass = DigestUtils.sha1Hex(persona.getPassword());
-                        if (personaBD.getPassword().equals(pass)) {
+                        String pass = DigestUtils.sha1Hex(persona.getClave());
+                        if (personaBD.getClave().equals(pass)) {
                             this.persona = personaBD;
-
                             return true;
                         } else {
-                            MyClass.setSeverity(FacesMessage.SEVERITY_WARN);
-                            MyClass.setStrMessage("Constraseña incorrecta");
+                            conex.setMessage("Constraseña incorrecta");
                         }
                     } else {
-                        MyClass.setSeverity(FacesMessage.SEVERITY_WARN);
-                        MyClass.setStrMessage("Usuario incorrecto");
+                        conex.setMessage("Usuario incorrecto");
                     }
                     result.close();
                     result = null;
                 } else {
-                    MyClass.setSeverity(FacesMessage.SEVERITY_WARN);
-                    MyClass.setStrMessage("No existe usuario");
+                    conex.setMessage("No existe usuario");
                 }
                 conex.closeConnection();
             }
         } catch (SQLException ex) {
-            MyClass.setStrMessage(ex.getMessage());
-            MyClass.setSeverity(FacesMessage.SEVERITY_ERROR);
+            conex.setMessage(ex.getMessage());
         }
         return false;
-
     }
-    
+
     public String getMessage() {
         return conex.getMessage();
     }
