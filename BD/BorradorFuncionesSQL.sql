@@ -516,3 +516,26 @@ $BODY$;
 ALTER FUNCTION public.editardiscapacidad(integer,integer,character varying)
     OWNER TO appdist;
     
+    
+    
+    --VISTAS
+    	CREATE VIEW vwcategoriadiscapacidad AS
+	SELECT idcategoriadiscapacidad, categoriadiscapacidad 
+	FROM categoriadiscapacidad; 
+		
+	CREATE VIEW vwcategoriarecurso AS
+	SELECT idcategoriarecurso,categoriarecurso
+	FROM categoriarecurso; 
+	
+	CREATE VIEW vwciudad AS
+	SELECT idciudad, C.idprovincia, ciudad, C.estado 
+	FROM ciudad C INNER JOIN provincia P ON C.idprovincia = P.idprovincia;
+	
+	CREATE VIEW vwconcepto AS
+	SELECT idconcepto, C.iddiscapacidad, descripcion, etiquetas 
+	FROM concepto C INNER JOIN discapacidad D ON C.iddiscapacidad = D.iddiscapacidad; 
+	
+	CREATE VIEW vwdiscapacidad AS
+	SELECT iddiscapacidad, D.idcategoriadiscapacidad, discapacidad 
+	FROM discapacidad D INNER JOIN categoriadiscapacidad CD ON D.idcategoriadiscapacidad = CD.idcategoriadiscapacidad; 
+	
