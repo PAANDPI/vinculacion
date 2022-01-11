@@ -12,9 +12,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <script src="recursos/javaScript/jquery-2.1.1.min.js" type="text/javascript"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+            <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
         <script src="recursos/javaScript/editor.js" type="text/javascript"></script>
         <script src="recursos/javaScript/editor2.js" type="text/javascript"></script>
-        <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
+        
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -55,7 +56,7 @@
                     <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atras</a>
                 </div>
                 <div class="col-lg-2">
-                    <input type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">  
+                    <input onclick="resultado()" type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">  
                 </div>
             </div>          
         </div>
@@ -72,7 +73,7 @@
                 <label for="inputState">Nombre de la discapacidad</label>
                 <div class="input-group">    
 
-                    <select class="form-control" style="background: #DEDEDE;">
+                    <select id="iDDiscapacidad" class="form-control" style="background: #DEDEDE;">
                         <option value="45">Discapacidad 1</option>
                         <option value="46">Discapacidad 2</option>
                         <option value="47">Discapacidad 3</option>
@@ -103,14 +104,14 @@
                 </div>
             </div>
             <div class=" col-lg-12">
-                <textarea class="form-control" style="background: #DEDEDE;" ></textarea>
+                <textarea id="etiquetas" class="form-control" style="background: #DEDEDE;" ></textarea>
             </div>         
         </div> 
         <label for="inputState" style="padding-left: 100px;">Contenido</label> 
         <div class="row">    
 
             <div class="col-lg-12" style="padding-left: 100px; padding-right: 100px; padding-bottom: 25px">                                            
-                <textarea id="txt-content" style=" border: 1px solid #999" name="txt-content"></textarea>
+                <textarea id="descripcion" style="border: 1px solid #999" name="txt-content"></textarea>
             </div>
             <h3  class="font-weight-bold text-center">Resultado</h3>
 
@@ -126,4 +127,5 @@
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
 
     </body>
+     <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
 </html>

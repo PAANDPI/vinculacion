@@ -1,10 +1,10 @@
 $(document).ready(function () {
 
-    $('#txt-content').Editor();
+    $('#descripcion').Editor();
 
     $('#btn-enviar').click(function (e) {
         e.preventDefault();
-        $('#txt-content').text($('#txt-content').Editor('getText'));
+        $('#descripcion').text($('#descripcion').Editor('getText'));
         resultado();
     });
     $('#inf').click(function (e) {
@@ -24,7 +24,7 @@ $(document).ready(function () {
                 "</div>" +
                 "</div>" +
                 "</div>";
-        $('#txt-content').Editor('setText', [plantillaUno]);
+        $('#descripcion').Editor('setText', [plantillaUno]);
     });
     $('#btn_plantilla_dos').click(function (e) {
         e.preventDefault();
@@ -35,9 +35,3 @@ $(document).ready(function () {
 
     });
 });
-function resultado()
-{
-    document.getElementById("resu").innerHTML = document.getElementById("txt-content").innerHTML;
-    var aux = document.getElementById("resu").textContent;
-    document.getElementById("resu").innerHTML = aux;
-}
