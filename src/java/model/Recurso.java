@@ -11,16 +11,16 @@ package model;
  */
 public class Recurso {
 
-    private int idRecurso, idCategoria, idDiscapacidad;
+    private int idRecurso, idCategoriaRecurso, idDiscapacidad;
     private String recurso, descripcion, etiquetas;
     private boolean estado;
 
     public Recurso() {
     }
 
-    public Recurso(int idRecurso, int idCategoria, int idDiscapacidad, String recurso, String descripcion, String etiquetas, boolean estado) {
+    public Recurso(int idRecurso, int idCategoriaRecurso, int idDiscapacidad, String recurso, String descripcion, String etiquetas, boolean estado) {
         this.idRecurso = idRecurso;
-        this.idCategoria = idCategoria;
+        this.idCategoriaRecurso = idCategoriaRecurso;
         this.idDiscapacidad = idDiscapacidad;
         this.recurso = recurso;
         this.descripcion = descripcion;
@@ -36,12 +36,12 @@ public class Recurso {
         this.idRecurso = idRecurso;
     }
 
-    public int getIdCategoria() {
-        return idCategoria;
+    public int getIdCategoriaRecurso() {
+        return idCategoriaRecurso;
     }
 
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdCategoriaRecurso(int idCategoriaRecurso) {
+        this.idCategoriaRecurso = idCategoriaRecurso;
     }
 
     public int getIdDiscapacidad() {

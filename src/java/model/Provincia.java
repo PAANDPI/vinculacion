@@ -6,15 +6,16 @@ package model;
 public class Provincia {
  
     private int idProvincia, idPais;
-    private String Provincia;
+    private String provincia;
+    private boolean estado;
 
     public Provincia() {
     }
 
-    public Provincia(int idProvincia, int idPais, String Provincia) {
+    public Provincia(int idProvincia, int idPais, String provincia, boolean estado) {
         this.idProvincia = idProvincia;
         this.idPais = idPais;
-        this.Provincia = Provincia;
+        this.provincia = provincia;
     }
 
     public int getIdProvincia() {
@@ -34,11 +35,11 @@ public class Provincia {
     }
 
     public String getProvincia() {
-        return Provincia;
+        return provincia;
     }
 
-    public void setProvincia(String Provincia) {
-        this.Provincia = Provincia;
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
 
 }

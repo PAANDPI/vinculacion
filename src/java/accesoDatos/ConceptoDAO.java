@@ -28,9 +28,9 @@ public class ConceptoDAO {
     }
 
     public int insert() {
-        //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
-
+        String sql = String.format("SELECT insertarConcepto(%d, '%s', '%s');",
+                concepto.getIdDiscapacidad(), concepto.getDescripcion(), 
+                concepto.getEtiquetas());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
@@ -39,15 +39,18 @@ public class ConceptoDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT editarConcepto(%d, %d, '%s', '%s');", 
+                concepto.getIdConcepto(), concepto.getIdDiscapacidad(),
+                concepto.getDescripcion(), concepto.getEtiquetas());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public int enableANDdisable() {
-        String sql = "SELECT ();";
+    public int habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitarDeshabilitarConcepto(%d);", 
+                concepto.getIdConcepto());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
@@ -56,7 +59,8 @@ public class ConceptoDAO {
     }
 
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT eliminarConcepto(%d);", 
+                concepto.getIdConcepto());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -68,7 +72,7 @@ public class ConceptoDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwConcepto;");
                 while (result.next()) {
                     conceptoList.add(new Concepto(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4)));
                 }
@@ -87,7 +91,7 @@ public class ConceptoDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwConcepto;");
                 while (result.next()) {
                     conceptoList.add(new Concepto(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4)));
                 }

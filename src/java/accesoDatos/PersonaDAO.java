@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import model.Persona;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -41,7 +42,7 @@ public class PersonaDAO {
     }
 
     public int update() {
-        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+        String sql = String.format("SELECT editarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
                 + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
                 persona.getClave(), persona.isAdministrador(), persona.isEstado());
@@ -62,7 +63,7 @@ public class PersonaDAO {
     }
 
     public int delete() {
-        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+        String sql = String.format("SELECT eliminarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
                 + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
                 persona.getClave(), persona.isAdministrador(), persona.isEstado());
@@ -77,7 +78,7 @@ public class PersonaDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwPersona;");
                 while (result.next()) {
                     personaList.add(new Persona(result.getInt(1),
                             result.getInt(2), result.getString(3),
@@ -102,9 +103,10 @@ public class PersonaDAO {
                 conex.setMessage("NO");
                 return false;
             } else {
-                String sql = "SELECT * \n"
-                        + "FROM Persona\n"
-                        + "WHERE (Username = '" + persona.getUsuario() + "' or mail = '" + persona.getUsuario() + "') and Estado";
+                String sql = String.format("SELECT * \n"
+                        + "FROM vwPersona\n"
+                        + "WHERE (Usuario ILIKE '%s' or Correo ILIKE '%s') "
+                        + "AND Estado", persona.getUsuario(), persona.getUsuario());
 
                 ResultSet result = conex.returnQuery(sql);
                 if (result != null && result.next()) {

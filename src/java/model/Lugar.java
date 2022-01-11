@@ -1,17 +1,20 @@
 package model;
+
 /**
  *
  * @author Arialdo
  */
 public class Lugar {
+
     private int idLugar, idCiudad;
     private String lugar, descripcion, etiqueta;
     private double coordenadaX, coordenadaY;
+    private boolean estado;
 
     public Lugar() {
     }
 
-    public Lugar(int idLugar, int idCiudad, String lugar, String descripcion, String etiqueta, double coordenadaX, double coordenadaY) {
+    public Lugar(int idLugar, int idCiudad, String lugar, String descripcion, String etiqueta, double coordenadaX, double coordenadaY, boolean estado) {
         this.idLugar = idLugar;
         this.idCiudad = idCiudad;
         this.lugar = lugar;
@@ -19,6 +22,7 @@ public class Lugar {
         this.etiqueta = etiqueta;
         this.coordenadaX = coordenadaX;
         this.coordenadaY = coordenadaY;
+        this.estado = estado;
     }
 
     public int getIdLugar() {
@@ -76,5 +80,13 @@ public class Lugar {
     public void setCoordenadaY(double coordenadaY) {
         this.coordenadaY = coordenadaY;
     }
-    
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
 }
