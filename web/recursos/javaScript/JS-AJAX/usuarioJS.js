@@ -19,7 +19,7 @@ $(document).ready(function () {
                     url: "",
                     data: {},                       
                     success: function (data) {
-                    alerta("Concepto guardado correctamente:", "success");
+                    alerta("Usuario guardado correctamente:", "success");
                     },
                     error: function (error) {
                     alerta("Algo salio mal:"+error, "error");
