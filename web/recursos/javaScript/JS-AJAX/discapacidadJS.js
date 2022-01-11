@@ -86,7 +86,7 @@ $(document).ready(function () {
                            "etiquetas":etiquetas},
                        
                     success: function (data) {
-                    alerta("Concepto guardado correctamente:", "success")
+                    alerta("Concepto guardado correctamente:", "success");
                     },
                     error: function (error) {
                     alerta("Algo salio mal:"+error, "error");
