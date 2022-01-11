@@ -409,3 +409,8 @@ $$;
 
 ALTER FUNCTION public.insertarprovincia(varidpais integer, varprovincia character varying) OWNER TO appdist;
 
+
+--vistas
+CREATE VIEW vwPersona AS
+	SELECT IDPersona, P.IDCiudad, Nombre, Apellido, Genero, Usuario, Correo, Clave, Administrador, P.Estado 
+	FROM Persona P INNER JOIN Ciudad C ON C.IDCiudad = P.IdCiudad; 

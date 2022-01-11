@@ -6,25 +6,23 @@ package model;
 public class Persona {
 
     private int idPersona, idCiudad;
-    private String nombre, apellido, fechaNacimiento, telefono, genero, usuario;
-    private String correo, clave;
-    private boolean administradorY;
+    private String nombre, apellido, genero, usuario, correo, clave;
+    private boolean administrador, estado;
 
     public Persona() {
     }
 
-    public Persona(int idPersona, int idCiudad, String nombre, String apellido, String fechaNacimiento, String telefono, String genero, String usuario, String correo, String clave, boolean administradorY) {
+    public Persona(int idPersona, int idCiudad, String nombre, String apellido, String genero, String usuario, String correo, String clave, boolean administrador, boolean estado) {
         this.idPersona = idPersona;
         this.idCiudad = idCiudad;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.telefono = telefono;
         this.genero = genero;
         this.usuario = usuario;
         this.correo = correo;
         this.clave = clave;
-        this.administradorY = administradorY;
+        this.administrador = administrador;
+        this.estado = estado;
     }
 
     public int getIdPersona() {
@@ -59,22 +57,6 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -107,11 +89,20 @@ public class Persona {
         this.clave = clave;
     }
 
-    public boolean isAdministradorY() {
-        return administradorY;
+    public boolean isAdministrador() {
+        return administrador;
     }
 
-    public void setAdministradorY(boolean administradorY) {
-        this.administradorY = administradorY;
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
 }

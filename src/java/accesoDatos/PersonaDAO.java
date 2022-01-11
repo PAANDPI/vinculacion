@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Persona;
+import org.apache.commons.codec.digest.DigestUtils;
 
 /**
  *
@@ -28,10 +29,10 @@ public class PersonaDAO {
     }
 
     public int insert() {
-        //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
-                + "'%s');";
-
+        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
+                persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
+                persona.getClave(), persona.isAdministrador(), persona.isEstado());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
@@ -40,7 +41,10 @@ public class PersonaDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
+                persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
+                persona.getClave(), persona.isAdministrador(), persona.isEstado());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -48,7 +52,8 @@ public class PersonaDAO {
     }
 
     public int enableANDdisable() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT habilitardeshabilitarpersona(%d);",
+                persona.getIdPersona());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
@@ -57,7 +62,10 @@ public class PersonaDAO {
     }
 
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
+                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
+                persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
+                persona.getClave(), persona.isAdministrador(), persona.isEstado());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -75,8 +83,8 @@ public class PersonaDAO {
                             result.getInt(2), result.getString(3),
                             result.getString(4), result.getString(5),
                             result.getString(6), result.getString(7),
-                            result.getString(8), result.getString(9),
-                            result.getString(10), result.getBoolean(12)));
+                            result.getString(8),
+                            result.getBoolean(9), result.getBoolean(10)));
                 }
                 result.close();
                 conex.closeConnection();
@@ -86,6 +94,49 @@ public class PersonaDAO {
             }
         }
         return null;
+    }
+
+    public boolean login() {
+        try {
+            if (conex.inyeccionSQL(persona.getUsuario(), persona.getClave())) {
+                conex.setMessage("NO");
+                return false;
+            } else {
+                String sql = "SELECT * \n"
+                        + "FROM Persona\n"
+                        + "WHERE (Username = '" + persona.getUsuario() + "' or mail = '" + persona.getUsuario() + "') and Estado";
+
+                ResultSet result = conex.returnQuery(sql);
+                if (result != null && result.next()) {
+
+                    Persona personaBD = new Persona(result.getInt(1),
+                            result.getInt(2), result.getString(3),
+                            result.getString(4), result.getString(5),
+                            result.getString(6), result.getString(7),
+                            result.getString(8),
+                            result.getBoolean(9), result.getBoolean(10));
+                    if (persona.getUsuario().equalsIgnoreCase(personaBD.getCorreo()) || persona.getUsuario().equalsIgnoreCase(personaBD.getUsuario())) {
+                        String pass = DigestUtils.sha1Hex(persona.getClave());
+                        if (personaBD.getClave().equals(pass)) {
+                            this.persona = personaBD;
+                            return true;
+                        } else {
+                            conex.setMessage("Constraseña incorrecta");
+                        }
+                    } else {
+                        conex.setMessage("Usuario incorrecto");
+                    }
+                    result.close();
+                    result = null;
+                } else {
+                    conex.setMessage("No existe usuario");
+                }
+                conex.closeConnection();
+            }
+        } catch (SQLException ex) {
+            conex.setMessage(ex.getMessage());
+        }
+        return false;
     }
 
     public String getMessage() {
