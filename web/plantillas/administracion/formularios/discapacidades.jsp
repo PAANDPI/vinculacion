@@ -6,7 +6,7 @@
                     </div>
                     <div class="modal-body">
                         <label>Categoria</label>
-                        <select selected="selected" id="cmbCategoriDiscapacidad"  class="form-control">
+                        <select selected="selected" id="cmbIdCategoriDiscapacidad"  class="form-control">
                              <option value="" selected disabled hidden></option>
                             <option>CARGAR DATOS DE LA BD</option>
                             <option>Fisica</option>
