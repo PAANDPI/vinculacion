@@ -28,9 +28,8 @@ public class DiscapacidadDAO {
     }
 
     public int insert() {
-        //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
-
+        String sql = String.format("SELECT insertarDiscapacidad('%s');",
+                discapacidad.getDiscapacidad());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
@@ -39,23 +38,18 @@ public class DiscapacidadDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT editarDiscapacidad(%d, '%s');",
+                discapacidad.getIdDiscapacidad(), discapacidad.getDiscapacidad());
+        
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public int disableDevice() {
-        String sql = "SELECT ();";
-        if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return -1;
-    }
-
-    public int enableANDdisableDevice() {
-        String sql = "SELECT ();";
+    public int habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitarDeshabilitarDiscapacidad(%d);", 
+                discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
@@ -64,7 +58,8 @@ public class DiscapacidadDAO {
     }
 
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT eliminarDiscapacidad(%d);", 
+                discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -76,7 +71,7 @@ public class DiscapacidadDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwDiscapacidad;");
                 while (result.next()) {
                     discapacidadList.add(new Discapacidad(result.getInt(1),
                             result.getString(2)));

@@ -10,16 +10,16 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>UsuarioController</servlet-name>
-        <servlet-class>controlador.UsuarioController</servlet-class>
+        <servlet-name>PersonaSrv</servlet-name>
+        <servlet-class>controlador.PersonaSrv</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UsuarioController</servlet-name>
-        <url-pattern>/UsuarioController</url-pattern>
+        <servlet-name>PersonaSrv</servlet-name>
+        <url-pattern>/PersonaSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

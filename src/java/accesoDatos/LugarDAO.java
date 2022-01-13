@@ -76,11 +76,14 @@ public class LugarDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+       //         public Lugar(int idLugar, int idCiudad, String lugar, String descripcion, String etiqueta, double coordenadaX, double coordenadaY, boolean estado) {
+       
                 while (result.next()) {
                     lugarList.add(new Lugar(result.getInt(1), result.getInt(2),
                             result.getString(3), result.getString(4),
-                            result.getString(5), result.getDouble(6), result.getDouble(7)));
+                            result.getString(5), result.getDouble(6), 
+                            result.getDouble(7), result.getBoolean(8)));
                 }
                 result.close();
                 conex.closeConnection();
@@ -101,7 +104,8 @@ public class LugarDAO {
                 while (result.next()) {
                     lugarList.add(new Lugar(result.getInt(1), result.getInt(2),
                             result.getString(3), result.getString(4),
-                            result.getString(5), result.getDouble(6), result.getDouble(7)));
+                            result.getString(5), result.getDouble(6), 
+                            result.getDouble(7), result.getBoolean(8)));
                 }
                 result.close();
                 conex.closeConnection();

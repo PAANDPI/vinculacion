@@ -68,9 +68,10 @@ public class ProvinciaDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwProvincia;");
                 while (result.next()) {
-                    provinciaList.add(new Provincia(result.getInt(1), result.getInt(2), result.getString(3)));
+                    provinciaList.add(new Provincia(result.getInt(1), result.getInt(2), 
+                            result.getString(3), result.getBoolean(4)));
                 }
                 result.close();
                 conex.closeConnection();
