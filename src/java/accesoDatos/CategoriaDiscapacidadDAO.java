@@ -17,6 +17,8 @@ public class CategoriaDiscapacidadDAO {
 
     private Conexion conex;
 
+    private String json;
+
     public CategoriaDiscapacidadDAO() {
         conex = new Conexion();
         categoriaDiscapacidad = new CategoriaDiscapacidad();
@@ -47,7 +49,7 @@ public class CategoriaDiscapacidadDAO {
         return -1;
     }
 
-    public int enableDisable() {
+    public int habilitarDeshabilitar() {
         String sql = String.format("SELECT editarcategoriadiscapacidad(%d);",
                 categoriaDiscapacidad.getIdCategoriaDiscapacidad());
         if (conex.isState()) {
@@ -75,6 +77,7 @@ public class CategoriaDiscapacidadDAO {
                     categoriaDiscapacidadList.add(new CategoriaDiscapacidad(
                             result.getInt(1), result.getString(2)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
                 return categoriaDiscapacidadList;
@@ -85,23 +88,34 @@ public class CategoriaDiscapacidadDAO {
         return null;
     }
 
-    public List<CategoriaDiscapacidad> selectAll(int idProvincia) {
-        categoriaDiscapacidadList = new ArrayList<>();
+    /**
+     * Crea y retorna una cadena en forma de una estructura JSON
+     *
+     */
+    public void lista2JSON() {
+        json = "\"CategoriaDiscapacidad\" : [";
 
-        if (conex.isState()) {
-            try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwCategoriaDiscapacidad;");
-                while (result.next()) {
-                    categoriaDiscapacidadList.add(new CategoriaDiscapacidad(
-                            result.getInt(1), result.getString(2)));
-                }
-                result.close();
-                conex.closeConnection();
-            } catch (SQLException ex) {
-                conex.setMessage(ex.getMessage());
-            }
+        for (int i = 0; i < categoriaDiscapacidadList.size(); i++) {
+            CategoriaDiscapacidad aux = categoriaDiscapacidadList.get(i);
+            json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + aux.getIdCategoriaDiscapacidad() + "\",\n";
+            json += "\t\t\t\"categoriadiscapacidad\" : \"" + aux.getCategoriaDiscapacidad() + "\"\n\t\t},";
         }
-        return null;
+        json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+        json += "]";
+    }
+
+    /**
+     * Crea y retorna una cadena en forma de una estructura JSON
+     *
+     * @return Devuelve un String de una estructura JSON
+     */
+    public String getCategoriaDiscapacidadJSON() {
+        String json = "\"CategoriaDiscapacidad\" : [";
+
+        json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + categoriaDiscapacidad.getIdCategoriaDiscapacidad()+ "\",\n";
+        json += "\t\t\t\"categoriadiscapacidad\" : \"" + categoriaDiscapacidad.getCategoriaDiscapacidad()+ "\"\n\t\t}\n";
+        json += "]";
+        return json;
     }
 
     public String getMessage() {
@@ -114,6 +128,14 @@ public class CategoriaDiscapacidadDAO {
 
     public void setCategoriaDiscapacidad(CategoriaDiscapacidad categoriaDiscapacidad) {
         this.categoriaDiscapacidad = categoriaDiscapacidad;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
     }
 
 }

@@ -17,6 +17,7 @@ public class PersonaDAO {
     private Persona persona;
     private List<Persona> personaList;
 
+    private String json;
     private Conexion conex;
 
     public PersonaDAO() {
@@ -30,6 +31,9 @@ public class PersonaDAO {
     }
 
     public int insert() {
+
+        persona.setClave(DigestUtils.sha1Hex(persona.getClave()));
+
         String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
                 + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
@@ -52,7 +56,7 @@ public class PersonaDAO {
         return -1;
     }
 
-    public int enableANDdisable() {
+    public int habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitardeshabilitarpersona(%d);",
                 persona.getIdPersona());
         if (conex.isState()) {
@@ -87,6 +91,7 @@ public class PersonaDAO {
                             result.getString(8),
                             result.getBoolean(9), result.getBoolean(10)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
                 return personaList;
@@ -141,16 +146,78 @@ public class PersonaDAO {
         return false;
     }
 
+    /**
+     * Crea y retorna una cadena en forma de una estructura JSON
+     *
+     */
+    public void lista2JSON() {
+        json = "\"Persona\" : [";
+
+        for (int i = 0; i < personaList.size(); i++) {
+            Persona aux = personaList.get(i);
+            json += "\n\t\t{\n\t\t\"idpersona\" : \"" + aux.getIdPersona() + "\",\n";
+            json += "\t\t\t\"idciudad\" : \"" + aux.getIdCiudad() + "\",\n";
+            json += "\t\t\t\"nombre\" : \"" + aux.getNombre() + "\",\n";
+            json += "\t\t\t\"apellido\" : \"" + aux.getApellido() + "\",\n";
+            json += "\t\t\t\"genero\" : \"" + aux.getGenero() + "\",\n";
+            json += "\t\t\t\"usuario\" : \"" + aux.getUsuario() + "\",\n";
+            json += "\t\t\t\"correo\" : \"" + aux.getCorreo() + "\",\n";
+            json += "\t\t\t\"clave\" : \"" + aux.getClave() + "\",\n";
+            json += "\t\t\t\"administrador\" : \"" + aux.isAdministrador() + "\",\n";
+            json += "\t\t\t\"estado\" : \"" + aux.isEstado() + "\"\n\t\t},";
+        }
+        json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+        json += "]";
+    }
+
+    /**
+     * Crea y retorna una cadena en forma de una estructura JSON
+     *
+     * @return Devuelve un String de una estructura JSON
+     */
+    public String getPersonaJSON() {
+        String json = "\"Persona\" : [";
+
+        json += "\n\t\t{\n\t\t\"idpersona\" : \"" + persona.getIdPersona() + "\",\n";
+        json += "\t\t\t\"idciudad\" : \"" + persona.getIdCiudad() + "\",\n";
+        json += "\t\t\t\"nombre\" : \"" + persona.getNombre() + "\",\n";
+        json += "\t\t\t\"apellido\" : \"" + persona.getApellido() + "\",\n";
+        json += "\t\t\t\"genero\" : \"" + persona.getGenero() + "\",\n";
+        json += "\t\t\t\"usuario\" : \"" + persona.getUsuario() + "\",\n";
+        json += "\t\t\t\"correo\" : \"" + persona.getCorreo() + "\",\n";
+        json += "\t\t\t\"clave\" : \"" + persona.getClave() + "\",\n";
+        json += "\t\t\t\"administrador\" : \"" + persona.isAdministrador() + "\",\n";
+        json += "\t\t\t\"estado\" : \"" + persona.isEstado() + "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
+
     public String getMessage() {
         return conex.getMessage();
     }
-
+    
     public Persona getPersona() {
         return persona;
     }
 
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+
+    public List<Persona> getPersonaList() {
+        return personaList;
+    }
+
+    public void setPersonaList(List<Persona> personaList) {
+        this.personaList = personaList;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
     }
 
 }

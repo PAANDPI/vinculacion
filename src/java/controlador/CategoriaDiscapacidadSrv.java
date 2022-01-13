@@ -5,20 +5,20 @@
  */
 package controlador;
 
-import accesoDatos.PersonaDAO;
+import accesoDatos.CategoriaDiscapacidadDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Persona;
+import model.CategoriaDiscapacidad;
 
 /**
  *
  * @author Arialdo
  */
-public class PersonaSrv extends HttpServlet {
+public class CategoriaDiscapacidadSrv extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class PersonaSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PersonaSrv</title>");
+            out.println("<title>Servlet CategoriaDiscapacidadSrv</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PersonaSrv at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CategoriaDiscapacidadSrv at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,14 +58,15 @@ public class PersonaSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        PersonaDAO personaDAO = new PersonaDAO();
+        
+        CategoriaDiscapacidadDAO categoriaDiscapacidadDAO = new CategoriaDiscapacidadDAO();
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            personaDAO.selectAll();
-            retorno += personaDAO.getJson();
+            categoriaDiscapacidadDAO.selectAll();
+            retorno += categoriaDiscapacidadDAO.getJson();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);
@@ -83,22 +84,22 @@ public class PersonaSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona persona = new Persona();
-        persona.setUsuario(request.getParameter("usuario"));
-        persona.setClave(request.getParameter("clave"));
+        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
+        categoriaDiscapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idcategoriadiscapacidad")));
+        categoriaDiscapacidad.setCategoriaDiscapacidad(request.getParameter("categoriadiscapacidad"));
 
-        PersonaDAO personaDAO = new PersonaDAO(persona);
+        CategoriaDiscapacidadDAO categoriaDiscapacidadDAODAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (personaDAO.login()) {
+            if (categoriaDiscapacidadDAODAO.update()>0) {
                 retorno += "\"codigo\":200,\n";
-                retorno += personaDAO.getPersonaJSON();
+                retorno += categoriaDiscapacidadDAODAO.getCategoriaDiscapacidadJSON();
                 response.setStatus(response.SC_OK);
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAODAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
 
             }
@@ -120,32 +121,22 @@ public class PersonaSrv extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona persona = new Persona();
+        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
+        categoriaDiscapacidad.setCategoriaDiscapacidad(request.getParameter("categoriadiscapacidad"));
 
-        String idCIud = request.getParameter("idCiudad");
-
-        //persona.setIdCiudad(Integer.parseInt(request.getParameter("idCiudad")));
-        persona.setNombre(request.getParameter("nombre"));
-        persona.setApellido(request.getParameter("apellido"));
-        persona.setGenero(request.getParameter("genero"));
-        persona.setUsuario(request.getParameter("usuario"));
-        persona.setCorreo(request.getParameter("correo"));
-        persona.setClave(request.getParameter("clave"));
-        persona.setAdministrador(Boolean.parseBoolean(request.getParameter("administrador")));
-
-        PersonaDAO personaDAO = new PersonaDAO(persona);
+        CategoriaDiscapacidadDAO categoriaDiscapacidadDAODAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (personaDAO.insert() > 0) {
+            if (categoriaDiscapacidadDAODAO.insert() > 0) {
                 retorno += "\"codigo\":200,\n";
-                retorno += personaDAO.getPersonaJSON();
+                retorno += categoriaDiscapacidadDAODAO.getCategoriaDiscapacidadJSON();
                 response.setStatus(response.SC_OK);
                 //response.sendRedirect("index.jsp");
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAODAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
             }
             retorno += "}";
@@ -164,21 +155,20 @@ public class PersonaSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Persona persona = new Persona();
+        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
+        categoriaDiscapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idcategoriadiscapacidad")));
 
-        persona.setIdPersona(Integer.parseInt(request.getParameter("idCiudad")));
-
-        PersonaDAO personaDAO = new PersonaDAO(persona);
-        response.setContentType("text/json;charset=UTF-8");
+        CategoriaDiscapacidadDAO categoriaDiscapacidadDAODAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
+         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (personaDAO.habilitarDeshabilitar() > 0) {
+            if (categoriaDiscapacidadDAODAO.habilitarDeshabilitar() > 0) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAODAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
             }
             retorno += "}";
