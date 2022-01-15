@@ -28,13 +28,15 @@ public class DiscapacidadDAO {
     }
 
     public int insert() {
-        String sql = String.format("SELECT insertarDiscapacidad('%s');",
-                discapacidad.getDiscapacidad());
+        String sql = String.format("SELECT insertarDiscapacidad('%s',%d);",
+                discapacidad.getDiscapacidad(),discapacidad.getIdcategoriaDiscapacidad());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+            return -1; 
+        
+       
     }
 
     public int update() {
