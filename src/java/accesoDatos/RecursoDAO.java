@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Ciudad;
+import model.Recurso;
 
 /**
  *
@@ -12,24 +12,26 @@ import model.Ciudad;
  */
 public class RecursoDAO {
 
-    private Ciudad ciudad;
-    private List<Ciudad> ciudadList;
+    private Recurso recurso;
+    private List<Recurso> recursoList;
 
     private Conexion conex;
-
+    private String json; 
     public RecursoDAO() {
         conex = new Conexion();
-        ciudad = new Ciudad();
+        recurso = new Recurso();
     }
 
-    public RecursoDAO(Ciudad ciudad) {
+    public RecursoDAO(Recurso recurso) {
         conex = new Conexion();
-        this.ciudad = ciudad;
+        this.recurso = recurso;
     }
 
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s');",
+                recurso.getIdCategoriaRecurso(),recurso.getIdDiscapacidad(),
+                recurso.getRecurso(),recurso.getDescripcion(),recurso.getEtiquetas());
 
         System.out.println(sql);
         if (conex.isState()) {
@@ -39,87 +41,113 @@ public class RecursoDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+         String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s');",
+                recurso.getIdRecurso(),recurso.getIdCategoriaRecurso(),recurso.getIdDiscapacidad(),
+                recurso.getRecurso(),recurso.getDescripcion(),recurso.getEtiquetas());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public int disableDevice() {
-        String sql = "SELECT ();";
-        if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return -1;
-    }
-
-    public int enableANDdisableDevice() {
-        String sql = "SELECT ();";
+     public int habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitardeshabilitarrecurso(%d);", 
+                recurso.getIdRecurso());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
         return -1;
     }
-
+     
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT eliminarrecurso(%d);", 
+                 recurso.getIdRecurso());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public List<Ciudad> selectAll() {
-        ciudadList = new ArrayList<>();
+    public List<Recurso> selectAll() {
+        recursoList = new ArrayList<>();
 
         if (conex.isState()) {
             try {
                 ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
                 while (result.next()) {
-                    ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
-                            result.getString(3)));
+                    recursoList.add(new Recurso(result.getInt(1), result.getInt(2), result.getInt(3),
+                            result.getString(4),result.getString(5),result.getString(6), result.getBoolean(7)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
-                return ciudadList;
+                return recursoList;
             } catch (SQLException ex) {
                 conex.setMessage(ex.getMessage());
             }
         }
         return null;
     }
+    
+    public void lista2JSON() {
+        json = "\"Recurso\" : [";
 
-    public List<Ciudad> selectAll(int idProvincia) {
-        ciudadList = new ArrayList<>();
-
-        if (conex.isState()) {
-            try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
-                while (result.next()) {
-                       ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
-                            result.getString(3)));
-                }
-                result.close();
-                conex.closeConnection();
-            } catch (SQLException ex) {
-                conex.setMessage(ex.getMessage());
-            }
+        for (int i = 0; i < recursoList.size(); i++) {
+            Recurso aux = recursoList.get(i);
+            json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + aux.getIdRecurso() + "\",\n";
+            json += "\t\t\t\"idcategoriarecurso\" : \"" + aux.getIdCategoriaRecurso() + "\",\n";
+            json += "\t\t\t\"iddiscapacidad\" : \"" + aux.getIdDiscapacidad() + "\",\n";
+            json += "\t\t\t\"recurso\" : \"" + aux.getRecurso() + "\",\n";
+            json += "\t\t\t\"descripcion\" : \"" + aux.getDescripcion() + "\",\n";
+            json += "\t\t\t\"etiquetas\" : \"" + aux.getEtiquetas() + "\"\n\t\t},";
         }
-        return null;
+        json = json.substring(0, (json.length() - 1));
+        json += "]";
+    }
+     
+    public String getRecursoJSON() {
+        String json = "\"Recurso\" : [";
+
+        json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + recurso.getIdRecurso()+ "\",\n";
+        json += "\t\t\t\"idcategoriarecurso\" : \"" +recurso.getIdCategoriaRecurso() + "\",\n";
+        json += "\t\t\t\"iddiscapacidad\" : \"" + recurso.getIdDiscapacidad() + "\",\n";
+        json += "\t\t\t\"recurso\" : \"" + recurso.getRecurso() + "\",\n";
+        json += "\t\t\t\"descripcion\" : \"" + recurso.getDescripcion() + "\",\n";
+        json += "\t\t\t\"etiquetas\" : \"" + recurso.getEtiquetas()+ "\"\n\t\t}\n";
+        json += "]";
+        return json;
     }
 
+    
     public String getMessage() {
         return conex.getMessage();
     }
 
-    public Ciudad getCiudad() {
-        return ciudad;
+    public Recurso getRecurso() {
+        return recurso;
     }
 
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
+    public void setRecurso(Recurso recurso) {
+        this.recurso = recurso;
     }
+
+    public List<Recurso> getRecursoList() {
+        return recursoList;
+    }
+
+    public void setRecursoList(List<Recurso> recursoList) {
+        this.recursoList = recursoList;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
+
 
 }
