@@ -16,6 +16,7 @@ public class ProvinciaDAO {
     private List<Provincia> provinciaList;
 
     private Conexion conex;
+    private String json;
 
     public ProvinciaDAO() {
         conex = new Conexion();
@@ -29,8 +30,8 @@ public class ProvinciaDAO {
 
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
-
+        String sql = String.format("SELECT insertarprovincia(%d,'%s');",
+                provincia.getIdPais(),provincia.getProvincia());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
@@ -39,24 +40,17 @@ public class ProvinciaDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT insertarprovincia(%d, %d,'%s');",
+                provincia.getIdProvincia(),provincia.getIdPais(),provincia.getProvincia());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public int enableANDdisable() {
-        String sql = "SELECT ();";
-        if (conex.isState()) {
-            System.out.println(sql);
-            return conex.execute(sql);
-        }
-        return -1;
-    }
-
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT eliminarprovincia(%d);", 
+                provincia.getIdProvincia());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -73,6 +67,7 @@ public class ProvinciaDAO {
                     provinciaList.add(new Provincia(result.getInt(1), result.getInt(2), 
                             result.getString(3), result.getBoolean(4)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
                 return provinciaList;
@@ -83,6 +78,31 @@ public class ProvinciaDAO {
         return null;
     }
 
+    
+    public void lista2JSON() {
+        json = "\"Provincia\" : [";
+
+        for (int i = 0; i < provinciaList.size(); i++) {
+            Provincia aux = provinciaList.get(i);
+            json += "\n\t\t{\n\t\t\"idprovincia\" : \"" + aux.getIdProvincia() + "\",\n";
+            json += "\t\t\t\"idpais\" : \"" + aux.getIdPais() + "\",\n";
+            json += "\t\t\t\"provincia\" : \"" + aux.getProvincia() + "\"\n\t\t},";
+        }
+        json = json.substring(0, (json.length() - 1));
+        json += "]";
+    }
+     
+    public String getProvinciaJSON() {
+        String json = "\"Provincia\" : [";
+
+        json += "\n\t\t{\n\t\t\"idprovincia\" : \"" + provincia.getIdProvincia()+ "\",\n";
+        json += "\t\t\t\"idpais\" : \"" +provincia.getIdPais() + "\",\n";
+        json += "\t\t\t\"provincia\" : \"" + provincia.getProvincia()+ "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
+
+    
     public String getMessage() {
         return conex.getMessage();
     }
@@ -95,4 +115,19 @@ public class ProvinciaDAO {
         this.provincia = provincia;
     }
 
+    public List<Provincia> getProvinciaList() {
+        return provinciaList;
+    }
+
+    public void setProvinciaList(List<Provincia> provinciaList) {
+        this.provinciaList = provinciaList;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }   
 }
