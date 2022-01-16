@@ -65,7 +65,7 @@ public class DiscapacidadSrv extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
             discapacodadDAO.selectAll();
-            retorno += discapacodadDAO.lista2JSON();
+            retorno += discapacodadDAO.getJson();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);

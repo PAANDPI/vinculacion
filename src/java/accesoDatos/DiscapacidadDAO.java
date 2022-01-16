@@ -76,7 +76,7 @@ public class DiscapacidadDAO {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwDiscapacidad;");
                 while (result.next()) {
                     discapacidadList.add(new Discapacidad(result.getInt(1),
-                            result.getInt(1),result.getString(2)));
+                            result.getInt(2),result.getString(3)));
                 }
                 lista2JSON();
                 result.close();
