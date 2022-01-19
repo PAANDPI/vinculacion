@@ -17,6 +17,10 @@
         <servlet-name>CategoriaDiscapacidadSrv</servlet-name>
         <servlet-class>controlador.CategoriaDiscapacidadSrv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DiscapacidadSrv</servlet-name>
+        <servlet-class>controlador.DiscapacidadSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -28,6 +32,10 @@
     <servlet-mapping>
         <servlet-name>CategoriaDiscapacidadSrv</servlet-name>
         <url-pattern>/CategoriaDiscapacidadSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DiscapacidadSrv</servlet-name>
+        <url-pattern>/DiscapacidadSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

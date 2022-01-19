@@ -1,4 +1,5 @@
-
+var jsonCategoria;
+var jsonDiscapacidades;
 $(document).ready(function () {
     
         cargarCategoriaDiscapacidades();
@@ -7,11 +8,22 @@ $(document).ready(function () {
         {
             $.ajax({
                 method: "GET",
-                url: "",          
+                url: "CategoriaDiscapacidadSrv",          
                 success: function (data) {
-                    var htmlCat_discapacidades="";
-                    var cmbCatDiscapacidades= document.getElementById("cmbIdCategoriDiscapacidad").value;
-                    var jsonCategoria=JSON.parse(data);
+                     jsonCategoria=data; 
+//                     ALT+0145;
+                     var html=`<option value="" selected disabled hidden></option>`;
+                     for(var i=0; i<jsonCategoria.CategoriaDiscapacidad.length; i++)
+                     {
+                         var idCategoria=jsonCategoria.CategoriaDiscapacidad[i].idcategoriadiscapacidad;
+                         var nombreCategoria=jsonCategoria.CategoriaDiscapacidad[i].categoriadiscapacidad;                         
+                         html+=`<option value="${idCategoria}">${nombreCategoria}</option>`;
+                         
+                     }
+                     console.log(html);
+                     
+                    var cmbCatDiscapacidades= document.getElementById("cmbIdCategoriDiscapacidad");
+                    cmbCatDiscapacidades.innerHTML=html;
                    
                 },
                 error: function (error) {
@@ -23,13 +35,24 @@ $(document).ready(function () {
         {
             $.ajax({
                 method: "GET",
-                url: "",          
-                success: function (data) {
-                    var html_discapacidades="";
-                    var jsonDiscapacidades=JSON.parse(data);
+                url: "DiscapacidadSrv",          
+               success: function (data) {
+                   console.log(data)
+                   jsonDiscapacidades=JSON.parse(data);
                    
-                },
-                error: function (error) {
+                     var htmlTabla=`<`;
+                     var cmbDiscapacidades=`<`;
+                     for(var i=0; i<jsonDiscapacidades.Discapacidad.length; i++)
+                     {
+                         var idDiscapacidad=jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                         var nombreCategoriaDiscapacidad=jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;   
+                         var idCategoriaDiscapacidad=jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                         var nombreDiscapacidad=jsonDiscapacidades.Discapacidad[i].discapacidad;
+                         
+                     }
+                  
+               },
+               error: function (error) {
                  
                 }
             });
@@ -39,12 +62,12 @@ $(document).ready(function () {
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-
+        
         if ((nombreDiscapacidad.length * idCategoriaDiscapacidad.length) > 0)
         {
             $.ajax({
                 method: "POST",
-                url: "",
+                url: "DiscapacidadSrv",
                 data: {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad},
                 success: function (data) {
 
@@ -53,7 +76,7 @@ $(document).ready(function () {
 
                 },
                 error: function (error) {
-
+                    console.log(error);
                     alerta("Algo salio mal"+error, "error");
                 }
             });

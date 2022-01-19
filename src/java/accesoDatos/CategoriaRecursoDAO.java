@@ -17,6 +17,8 @@ public class CategoriaRecursoDAO {
 
     private Conexion conex;
 
+    private String json;
+    
     public CategoriaRecursoDAO() {
         conex = new Conexion();
         categoriaRecurso = new CategoriaRecurso();
@@ -39,7 +41,7 @@ public class CategoriaRecursoDAO {
 
     public int update() {
         String sql = String.format("SELECT editarCategoriaRecurso(%d, '%s');",
-                categoriaRecurso.getIdCategoriaRecurso(), categoriaRecurso.getIdCategoriaRecurso());
+                categoriaRecurso.getIdCategoriaRecurso(), categoriaRecurso.getCategoriaRecurso());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -47,7 +49,8 @@ public class CategoriaRecursoDAO {
     }
 
     public int habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitarDeshabilitarCategoriaRecurso(%d);",
+//        String sql = String.format("SELECT habilitarDeshabilitarCategoriaRecurso(%d);",
+       String sql = String.format("SELECT editarcategoriarecurso(%d);",
                 categoriaRecurso.getIdCategoriaRecurso());
         if (conex.isState()) {
             System.out.println(sql);
@@ -75,6 +78,7 @@ public class CategoriaRecursoDAO {
                     categoriaRecursoList.add(new CategoriaRecurso(
                             result.getInt(1), result.getString(2)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
                 return categoriaRecursoList;
@@ -85,6 +89,27 @@ public class CategoriaRecursoDAO {
         return null;
     }
 
+     public void lista2JSON() {
+        json = "\"CategoriaRecurso\" : [";
+
+        for (int i = 0; i < categoriaRecursoList.size(); i++) {
+            CategoriaRecurso aux = categoriaRecursoList.get(i);
+            json += "\n\t\t{\n\t\t\"idcategoriarecurso\" : \"" + aux.getIdCategoriaRecurso() + "\",\n";
+            json += "\t\t\t\"categoriarecurso\" : \"" + aux.getCategoriaRecurso() + "\"\n\t\t},";
+        }
+        json = json.substring(0, (json.length() - 1));
+        json += "]";
+    }
+     
+    public String getCategoriaRecursoJSON() {
+        String json = "\"CategoriaRecurso\" : [";
+
+        json += "\n\t\t{\n\t\t\"idcategoriarecurso\" : \"" + categoriaRecurso.getIdCategoriaRecurso()+ "\",\n";
+        json += "\t\t\t\"categoriarecurso\" : \"" + categoriaRecurso.getCategoriaRecurso()+ "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
+     
     public String getMessage() {
         return conex.getMessage();
     }
@@ -97,4 +122,21 @@ public class CategoriaRecursoDAO {
         this.categoriaRecurso = categoriaRecurso;
     }
 
+    public List<CategoriaRecurso> getCategoriaRecursoList() {
+        return categoriaRecursoList;
+    }
+
+    public void setCategoriaRecursoList(List<CategoriaRecurso> categoriaRecursoList) {
+        this.categoriaRecursoList = categoriaRecursoList;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
+
+    
 }

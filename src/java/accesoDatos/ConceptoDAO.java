@@ -16,7 +16,7 @@ public class ConceptoDAO {
     private List<Concepto> conceptoList;
 
     private Conexion conex;
-
+    private String json;
     public ConceptoDAO() {
         conex = new Conexion();
         concepto = new Concepto();
@@ -76,6 +76,7 @@ public class ConceptoDAO {
                 while (result.next()) {
                     conceptoList.add(new Concepto(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4)));
                 }
+                lista2JSON();
                 result.close();
                 conex.closeConnection();
                 return conceptoList;
@@ -124,6 +125,31 @@ public class ConceptoDAO {
         return null;
     }
 
+    public void lista2JSON() {
+        json = "\"Concepto\" : [";
+
+        for (int i = 0; i < conceptoList.size(); i++) {
+            Concepto aux = conceptoList.get(i);
+            json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + aux.getIdConcepto() + "\",\n";
+            json += "\t\t\t\"iddiscapacidad\" : \"" + aux.getIdDiscapacidad() + "\",\n";
+            json += "\t\t\t\"descripcion\" : \"" + aux.getDescripcion() + "\",\n";
+            json += "\t\t\t\"etiquetas\" : \"" + aux.getEtiquetas() + "\"\n\t\t},";
+        }
+        json = json.substring(0, (json.length() - 1));
+        json += "]";
+    }
+     
+    public String getConceptoJSON() {
+        String json = "\"Concepto\" : [";
+
+        json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + concepto.getIdConcepto()+ "\",\n";
+        json += "\t\t\t\"iddiscapacidad\" : \"" + concepto.getIdDiscapacidad() + "\",\n";
+        json += "\t\t\t\"descripcion\" : \"" + concepto.getDescripcion() + "\",\n";
+        json += "\t\t\t\"etiquetas\" : \"" + concepto.getEtiquetas()+ "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
+    
     public String getMessage() {
         return conex.getMessage();
     }
@@ -136,4 +162,19 @@ public class ConceptoDAO {
         this.concepto = concepto;
     }
 
+    public List<Concepto> getConceptoList() {
+        return conceptoList;
+    }
+
+    public void setConceptoList(List<Concepto> conceptoList) {
+        this.conceptoList = conceptoList;
+    }
+
+    public String getJson() {
+        return json;
+    }
+
+    public void setJson(String json) {
+        this.json = json;
+    }
 }
