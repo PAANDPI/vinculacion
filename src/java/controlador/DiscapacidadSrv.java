@@ -59,13 +59,12 @@ public class DiscapacidadSrv extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             Discapacidad discapacidad=new Discapacidad();
-            DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);
+            DiscapacidadDAO discapacidadDAO= new  DiscapacidadDAO(discapacidad);
             try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            discapacodadDAO.selectAll();
-            retorno += discapacodadDAO.getJson();
+            retorno += discapacidadDAO.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);

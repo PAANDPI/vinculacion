@@ -17,6 +17,7 @@ public class DiscapacidadDAO {
 
     private Conexion conex;
     private String json;
+
     public DiscapacidadDAO() {
         conex = new Conexion();
         discapacidad = new Discapacidad();
@@ -29,20 +30,19 @@ public class DiscapacidadDAO {
 
     public int insert() {
         String sql = String.format("SELECT insertarDiscapacidad('%s',%d);",
-                discapacidad.getDiscapacidad(),discapacidad.getIdcategoriaDiscapacidad());
+                discapacidad.getDiscapacidad(), discapacidad.getIdcategoriaDiscapacidad());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
-            return -1; 
-        
-       
+        return -1;
+
     }
 
     public int update() {
         String sql = String.format("SELECT editarDiscapacidad(%d, %d, '%s');",
-                discapacidad.getIdDiscapacidad(),discapacidad.getIdcategoriaDiscapacidad(), discapacidad.getDiscapacidad());
-        
+                discapacidad.getIdDiscapacidad(), discapacidad.getIdcategoriaDiscapacidad(), discapacidad.getDiscapacidad());
+
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -50,7 +50,7 @@ public class DiscapacidadDAO {
     }
 
     public int habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitarDeshabilitarDiscapacidad(%d);", 
+        String sql = String.format("SELECT habilitarDeshabilitarDiscapacidad(%d);",
                 discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
             System.out.println(sql);
@@ -60,7 +60,7 @@ public class DiscapacidadDAO {
     }
 
     public int delete() {
-        String sql = String.format("SELECT eliminarDiscapacidad(%d);", 
+        String sql = String.format("SELECT eliminarDiscapacidad(%d);",
                 discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
             return conex.update(sql);
@@ -76,7 +76,7 @@ public class DiscapacidadDAO {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwDiscapacidad;");
                 while (result.next()) {
                     discapacidadList.add(new Discapacidad(result.getInt(1),
-                            result.getInt(2),result.getString(3)));
+                            result.getInt(2), result.getString(3)));
                 }
                 lista2JSON();
                 result.close();
@@ -87,6 +87,29 @@ public class DiscapacidadDAO {
             }
         }
         return null;
+    }
+
+    public String getVW2JSON() {
+        String json = "\"Discapacidad\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwDiscapacidad;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getInt("categoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getInt("discapacidad") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
     }
 
     public void lista2JSON() {
@@ -101,17 +124,17 @@ public class DiscapacidadDAO {
         json = json.substring(0, (json.length() - 1));
         json += "]";
     }
-     
+
     public String getDiscapacidadJSON() {
         String json = "\"Discapacidad\" : [";
 
-        json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + discapacidad.getIdDiscapacidad()+ "\",\n";
+        json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + discapacidad.getIdDiscapacidad() + "\",\n";
         json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + discapacidad.getIdcategoriaDiscapacidad() + "\",\n";
-        json += "\t\t\t\"discapacidad\" : \"" + discapacidad.getDiscapacidad()+ "\"\n\t\t}\n";
+        json += "\t\t\t\"discapacidad\" : \"" + discapacidad.getDiscapacidad() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
-    
+
     public String getMessage() {
         return conex.getMessage();
     }

@@ -76,7 +76,7 @@ public class PaisDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwPais;");
                 while (result.next()) {
                     ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
                             result.getString(3)));
@@ -96,7 +96,7 @@ public class PaisDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwPais;");
                 while (result.next()) {
                        ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
                             result.getString(3)));
@@ -110,6 +110,29 @@ public class PaisDAO {
         return null;
     }
 
+    public String getVW2JSON() {
+        String json = "\"Lugar\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwPais;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idpais\" : \"" + result.getInt("idpais") + "\",\n";
+                    json += "\t\t\t\"pais\" : \"" + result.getString("pais") + "\",\n";
+                    json += "\t\t\t\"codigo\" : \"" + result.getString("codigo") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+    
     public String getMessage() {
         return conex.getMessage();
     }

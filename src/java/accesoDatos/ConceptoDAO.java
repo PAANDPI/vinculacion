@@ -87,42 +87,28 @@ public class ConceptoDAO {
         return null;
     }
 
-    public List<Concepto> selectAll(int idPatient) {
-        conceptoList = new ArrayList<>();
+    public String getVW2JSON() {
+        String json = "\"Concepto\" : [";
 
         if (conex.isState()) {
             try {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwConcepto;");
                 while (result.next()) {
-                    conceptoList.add(new Concepto(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4)));
+                    json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getInt("discapacidad") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getInt("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getInt("etiquetas") + "\"\n\t\t},";
                 }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();
                 conex.closeConnection();
-                return conceptoList;
             } catch (SQLException ex) {
                 conex.setMessage(ex.getMessage());
             }
         }
-        return null;
-    }
-
-    public List<Concepto> selectAllByTutor(int idTutor) {
-        conceptoList = new ArrayList<>();
-
-        if (conex.isState()) {
-            try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
-                while (result.next()) {
-                    conceptoList.add(new Concepto(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4)));
-                }
-                result.close();
-                conex.closeConnection();
-                return conceptoList;
-            } catch (SQLException ex) {
-                conex.setMessage(ex.getMessage());
-            }
-        }
-        return null;
+        json += "]";
+        return json;
     }
 
     public void lista2JSON() {

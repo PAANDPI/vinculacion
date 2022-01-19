@@ -64,8 +64,7 @@ public class PersonaSrv extends HttpServlet {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            personaDAO.selectAll();
-            retorno += personaDAO.getJson();
+            retorno += personaDAO.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);

@@ -90,6 +90,34 @@ public class RecursoDAO {
         return null;
     }
     
+    public String getVW2JSON() {
+        String json = "\"Recurso\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
+                    json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getString("idcategoriarecurso") + "\",\n";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getString("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+    
     public void lista2JSON() {
         json = "\"Recurso\" : [";
 

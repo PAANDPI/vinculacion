@@ -17,6 +17,7 @@ public class CiudadDAO {
 
     private Conexion conex;
     private String json;
+
     public CiudadDAO() {
         conex = new Conexion();
         ciudad = new Ciudad();
@@ -30,7 +31,7 @@ public class CiudadDAO {
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = String.format("SELECT insertarCiudad(%d, %d, '%s');",
-               ciudad.getIdCiudad(), ciudad.getIdProvincia(), ciudad.getCiudad());
+                ciudad.getIdCiudad(), ciudad.getIdProvincia(), ciudad.getCiudad());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
@@ -84,7 +85,7 @@ public class CiudadDAO {
         }
         return null;
     }
-       
+
     public List<Ciudad> selectAll(int idProvincia) {
         ciudadList = new ArrayList<>();
 
@@ -104,6 +105,30 @@ public class CiudadDAO {
         return null;
     }
 
+    public String getVW2JSON() {
+        String json = "\"Ciudad\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwCiudad;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idciudad\" : \"" + result.getInt("idciudad") + "\",\n";
+                    json += "\t\t\t\"idprovincia\" : \"" + result.getInt("idprovincia") + "\",\n";
+                    json += "\t\t\t\"ciudad\" : \"" + result.getInt("ciudad") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getInt("estado") + "\",\n";
+                    json += "\t\t\t\"provincia\" : \"" + result.getInt("provincia") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
     public void lista2JSON() {
         json = "\"Ciudad\" : [";
 
@@ -116,17 +141,17 @@ public class CiudadDAO {
         json = json.substring(0, (json.length() - 1));
         json += "]";
     }
-     
+
     public String getCiudadJSON() {
         String json = "\"Ciudad\" : [";
 
-        json += "\n\t\t{\n\t\t\"idciudad\" : \"" + ciudad.getIdCiudad()+ "\",\n";
+        json += "\n\t\t{\n\t\t\"idciudad\" : \"" + ciudad.getIdCiudad() + "\",\n";
         json += "\t\t\t\"idprovincia\" : \"" + ciudad.getIdProvincia() + "\",\n";
-        json += "\t\t\t\"ciudad\" : \"" + ciudad.getCiudad()+ "\"\n\t\t}\n";
+        json += "\t\t\t\"ciudad\" : \"" + ciudad.getCiudad() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
-    
+
     public String getMessage() {
         return conex.getMessage();
     }
@@ -147,7 +172,6 @@ public class CiudadDAO {
         this.ciudadList = ciudadList;
     }
 
-    
     public String getJson() {
         return json;
     }

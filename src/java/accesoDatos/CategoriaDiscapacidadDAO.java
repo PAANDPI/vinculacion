@@ -132,14 +132,8 @@ public class CategoriaDiscapacidadDAO {
      */
     public String getCategoriaDiscapacidadJSON() {
         String json = "\"CategoriaDiscapacidad\" : [";
-<<<<<<< HEAD
-
         json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + categoriaDiscapacidad.getIdCategoriaDiscapacidad() + "\",\n";
         json += "\t\t\t\"categoriadiscapacidad\" : \"" + categoriaDiscapacidad.getCategoriaDiscapacidad() + "\"\n\t\t}\n";
-=======
-        json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + categoriaDiscapacidad.getIdCategoriaDiscapacidad()+ "\",\n";
-        json += "\t\t\t\"categoriadiscapacidad\" : \"" + categoriaDiscapacidad.getCategoriaDiscapacidad()+ "\"\n\t\t}\n";
->>>>>>> 6c58ed94bdb3b3cda376fbb7231e0ffe8ee80d42
         json += "]";
         return json;
     }

@@ -17,6 +17,7 @@ public class LugarDAO {
 
     private Conexion conex;
     private String json;
+
     public LugarDAO() {
         conex = new Conexion();
         lugar = new Lugar();
@@ -29,9 +30,9 @@ public class LugarDAO {
 
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %5.2f, %5.2f, '%s');", 
-                lugar.getIdCiudad(),lugar.getLugar(),lugar.getDescripcion(),lugar.getCoordenadaX(),
-                lugar.getCoordenadaY(),lugar.getEtiqueta());
+        String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %5.2f, %5.2f, '%s');",
+                lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(), lugar.getCoordenadaX(),
+                lugar.getCoordenadaY(), lugar.getEtiqueta());
 
         System.out.println(sql);
         if (conex.isState()) {
@@ -40,8 +41,8 @@ public class LugarDAO {
         return -1;
     }
 
-     public int habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitardeshabilitarlugares(%d);", 
+    public int habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitardeshabilitarlugares(%d);",
                 lugar.getIdLugar());
         if (conex.isState()) {
             System.out.println(sql);
@@ -49,11 +50,11 @@ public class LugarDAO {
         }
         return -1;
     }
-    
+
     public int update() {
         String sql = String.format("SELECT editarDiscapacidad(%d, %d, '%s', '%s', %5.2f, %5.2f, '%s');",
-                lugar.getIdLugar(),lugar.getIdCiudad(),lugar.getLugar(),lugar.getDescripcion(),
-                lugar.getCoordenadaX(), lugar.getCoordenadaY(),lugar.getEtiqueta());
+                lugar.getIdLugar(), lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),
+                lugar.getCoordenadaX(), lugar.getCoordenadaY(), lugar.getEtiqueta());
         if (conex.isState()) {
             return conex.update(sql);
         }
@@ -61,7 +62,7 @@ public class LugarDAO {
     }
 
     public int delete() {
-        String sql = String.format("SELECT eliminarlugares(%d);", 
+        String sql = String.format("SELECT eliminarlugares(%d);",
                 lugar.getIdLugar());
         if (conex.isState()) {
             return conex.update(sql);
@@ -75,12 +76,12 @@ public class LugarDAO {
         if (conex.isState()) {
             try {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
-       //         public Lugar(int idLugar, int idCiudad, String lugar, String descripcion, String etiqueta, double coordenadaX, double coordenadaY, boolean estado) {
-       
+                //         public Lugar(int idLugar, int idCiudad, String lugar, String descripcion, String etiqueta, double coordenadaX, double coordenadaY, boolean estado) {
+
                 while (result.next()) {
                     lugarList.add(new Lugar(result.getInt(1), result.getInt(2),
                             result.getString(3), result.getString(4),
-                            result.getString(5), result.getDouble(6), 
+                            result.getString(5), result.getDouble(6),
                             result.getDouble(7), result.getBoolean(8)));
                 }
                 result.close();
@@ -102,7 +103,7 @@ public class LugarDAO {
                 while (result.next()) {
                     lugarList.add(new Lugar(result.getInt(1), result.getInt(2),
                             result.getString(3), result.getString(4),
-                            result.getString(5), result.getDouble(6), 
+                            result.getString(5), result.getDouble(6),
                             result.getDouble(7), result.getBoolean(8)));
                 }
                 lista2JSON();
@@ -114,6 +115,35 @@ public class LugarDAO {
             }
         }
         return null;
+    }
+
+    public String getVW2JSON() {
+        String json = "\"Lugar\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idlugar\" : \"" + result.getInt("idlugar") + "\",\n";
+                    json += "\t\t\t\"ciudad\" : \"" + result.getString("ciudad") + "\",\n";
+                    json += "\t\t\t\"provincia\" : \"" + result.getString("provincia") + "\",\n";
+                    json += "\t\t\t\"pais\" : \"" + result.getString("pais") + "\",\n";
+                    json += "\t\t\t\"lugar\" : \"" + result.getString("lugar") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"coordendax\" : \"" + result.getString("coordendax") + "\",\n";
+                    json += "\t\t\t\"coordenday\" : \"" + result.getString("coordenday") + "\",\n";
+                    json += "\t\t\t\"etiqueta\" : \"" + result.getString("etiqueta") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
     }
 
     public void lista2JSON() {
@@ -132,22 +162,21 @@ public class LugarDAO {
         json = json.substring(0, (json.length() - 1));
         json += "]";
     }
-     
+
     public String getLugarJSON() {
         String json = "\"Lugar\" : [";
 
-        json += "\n\t\t{\n\t\t\"idlugar\" : \"" + lugar.getIdLugar()+ "\",\n";
+        json += "\n\t\t{\n\t\t\"idlugar\" : \"" + lugar.getIdLugar() + "\",\n";
         json += "\t\t\t\"idciudad\" : \"" + lugar.getIdCiudad() + "\",\n";
         json += "\t\t\t\"lugar\" : \"" + lugar.getLugar() + "\",\n";
         json += "\t\t\t\"descripcion\" : \"" + lugar.getDescripcion() + "\",\n";
         json += "\t\t\t\"coordendax\" : \"" + lugar.getCoordenadaX() + "\",\n";
         json += "\t\t\t\"coordenday\" : \"" + lugar.getCoordenadaY() + "\",\n";
-        json += "\t\t\t\"etiqueta\" : \"" + lugar.getEtiqueta()+ "\"\n\t\t}\n";
+        json += "\t\t\t\"etiqueta\" : \"" + lugar.getEtiqueta() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
-    
-    
+
     public String getMessage() {
         return conex.getMessage();
     }
