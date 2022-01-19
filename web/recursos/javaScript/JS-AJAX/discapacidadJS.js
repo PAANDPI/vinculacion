@@ -1,4 +1,5 @@
 var jsonCategoria;
+var jsonDiscapacidades;
 $(document).ready(function () {
     
         cargarCategoriaDiscapacidades();
@@ -36,7 +37,19 @@ $(document).ready(function () {
                 method: "GET",
                 url: "DiscapacidadSrv",          
                success: function (data) {
-                   console.log(data);
+                   console.log(data)
+                   jsonDiscapacidades=JSON.parse(data);
+                   
+                     var htmlTabla=`<`;
+                     var cmbDiscapacidades=`<`;
+                     for(var i=0; i<jsonDiscapacidades.Discapacidad.length; i++)
+                     {
+                         var idDiscapacidad=jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                         var nombreCategoriaDiscapacidad=jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;   
+                         var idCategoriaDiscapacidad=jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                         var nombreDiscapacidad=jsonDiscapacidades.Discapacidad[i].discapacidad;
+                         
+                     }
                   
                },
                error: function (error) {
