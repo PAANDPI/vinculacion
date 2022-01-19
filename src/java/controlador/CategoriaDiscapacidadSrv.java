@@ -65,8 +65,7 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            categoriaDiscapacidadDAO.selectAll();
-            retorno += categoriaDiscapacidadDAO.getJson();
+            retorno += categoriaDiscapacidadDAO.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);

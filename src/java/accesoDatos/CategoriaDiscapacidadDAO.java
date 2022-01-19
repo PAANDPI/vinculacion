@@ -88,6 +88,27 @@ public class CategoriaDiscapacidadDAO {
         return null;
     }
 
+    public String getVW2JSON() {
+        String json = "\"CategoriaDiscapacidad\" : [";
+
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwCategoriaDiscapacidad;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getInt("categoriadiscapacidad") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
     /**
      * Crea y retorna una cadena en forma de una estructura JSON
      *
@@ -112,8 +133,8 @@ public class CategoriaDiscapacidadDAO {
     public String getCategoriaDiscapacidadJSON() {
         String json = "\"CategoriaDiscapacidad\" : [";
 
-        json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + categoriaDiscapacidad.getIdCategoriaDiscapacidad()+ "\",\n";
-        json += "\t\t\t\"categoriadiscapacidad\" : \"" + categoriaDiscapacidad.getCategoriaDiscapacidad()+ "\"\n\t\t}\n";
+        json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + categoriaDiscapacidad.getIdCategoriaDiscapacidad() + "\",\n";
+        json += "\t\t\t\"categoriadiscapacidad\" : \"" + categoriaDiscapacidad.getCategoriaDiscapacidad() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
