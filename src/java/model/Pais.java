@@ -6,15 +6,15 @@ package model;
 public class Pais {
  
     private int idPais;
-    private String Provincia, codigo;
+    private String pais, codigo;
     private boolean estado;
 
     public Pais() {
     }
 
-    public Pais(int idPais, String Provincia, String codigo, boolean estado) {
+    public Pais(int idPais, String pais, String codigo, boolean estado) {
         this.idPais = idPais;
-        this.Provincia = Provincia;
+        this.pais = pais;
         this.codigo = codigo;
         this.estado = estado;
     }
@@ -27,13 +27,14 @@ public class Pais {
         this.idPais = idPais;
     }
 
-    public String getProvincia() {
-        return Provincia;
+    public String getPais() {
+        return pais;
     }
 
-    public void setProvincia(String Provincia) {
-        this.Provincia = Provincia;
+    public void setPais(String pais) {
+        this.pais = pais;
     }
+
 
     public String getCodigo() {
         return codigo;

@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Ciudad;
+import model.Pais;
 
 /**
  *
@@ -12,24 +12,25 @@ import model.Ciudad;
  */
 public class PaisDAO {
 
-    private Ciudad ciudad;
-    private List<Ciudad> ciudadList;
+    private Pais pais;
+    private List<Pais> paisList;
 
     private Conexion conex;
 
     public PaisDAO() {
         conex = new Conexion();
-        ciudad = new Ciudad();
+        pais = new Pais();
     }
 
-    public PaisDAO(Ciudad ciudad) {
+    public PaisDAO(Pais pais) {
         conex = new Conexion();
-        this.ciudad = ciudad;
+        this.pais = pais;
     }
 
     public int insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT insertarPais('%s', '%s');", 
+                pais.getPais(), pais.getCodigo());
 
         System.out.println(sql);
         if (conex.isState()) {
@@ -39,23 +40,18 @@ public class PaisDAO {
     }
 
     public int update() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT editarPais(%d, '%s', '%s', '%b');", 
+                pais.getIdPais(), pais.getPais(), pais.getCodigo(), pais.isEstado());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public int disableDevice() {
-        String sql = "SELECT ();";
-        if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return -1;
-    }
 
-    public int enableANDdisableDevice() {
-        String sql = "SELECT ();";
+    public int habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitardeshabilitarpais(%d);", 
+                pais.getIdPais());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
@@ -64,26 +60,27 @@ public class PaisDAO {
     }
 
     public int delete() {
-        String sql = "SELECT ();";
+        String sql = String.format("SELECT eliminarpais(%d);", 
+                pais.getIdPais());
         if (conex.isState()) {
             return conex.update(sql);
         }
         return -1;
     }
 
-    public List<Ciudad> selectAll() {
-        ciudadList = new ArrayList<>();
+    public List<Pais> selectAll() {
+        paisList = new ArrayList<>();
 
         if (conex.isState()) {
             try {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwPais;");
                 while (result.next()) {
-                    ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
-                            result.getString(3)));
+                    paisList.add(new Pais(result.getInt(1), result.getString(2),
+                            result.getString(3), result.getBoolean(4)));
                 }
                 result.close();
                 conex.closeConnection();
-                return ciudadList;
+                return paisList;
             } catch (SQLException ex) {
                 conex.setMessage(ex.getMessage());
             }
@@ -91,24 +88,7 @@ public class PaisDAO {
         return null;
     }
 
-    public List<Ciudad> selectAll(int idProvincia) {
-        ciudadList = new ArrayList<>();
-
-        if (conex.isState()) {
-            try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwPais;");
-                while (result.next()) {
-                       ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
-                            result.getString(3)));
-                }
-                result.close();
-                conex.closeConnection();
-            } catch (SQLException ex) {
-                conex.setMessage(ex.getMessage());
-            }
-        }
-        return null;
-    }
+    
 
     public String getVW2JSON() {
         String json = "\"Lugar\" : [";
@@ -133,16 +113,29 @@ public class PaisDAO {
         return json;
     }
     
+    public String getPaisJSON() {
+        String json = "\"Pais\" : [";
+
+        json += "\n\t\t{\n\t\t\"idpais\" : \"" + pais.getIdPais() + "\",\n";
+        json += "\t\t\t\"pais\" : \"" + pais.getPais() + "\",\n";
+        json += "\t\t\t\"codigo\" : \"" + pais.getCodigo() + "\",\n";
+        json += "\t\t\t\"estado\" : \"" + pais.isEstado() + "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
+    
     public String getMessage() {
         return conex.getMessage();
     }
 
-    public Ciudad getCiudad() {
-        return ciudad;
+    public Pais getPais() {
+        return pais;
     }
 
-    public void setCiudad(Ciudad ciudad) {
-        this.ciudad = ciudad;
+    public void setPais(Pais pais) {
+        this.pais = pais;
     }
+
+    
 
 }

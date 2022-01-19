@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/accesoDatos/CiudadDAO.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/controlador/PersonaSrv.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/accesoDatos/CategoriaDiscapacidadDAO.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/accesoDatos/RecursoDAO.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/controlador/CategoriaDiscapacidadSrv.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/accesoDatos/LugarDAO.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/controlador/DiscapacidadSrv.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/vinculacion/src/java/accesoDatos/ConceptoDAO.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/model/Pais.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/accesoDatos/PaisDAO.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/controlador/CiudadSrv.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/accesoDatos/ProvinciaDAO.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/controlador/PaisSrv.java</file>
+            <file>file:/G:/Mi%20unidad/UNIVERSIDAD/NOVENO%20SEMESTRE/VINCULACION/APLICACION%20REPOSITORIO/vinculacion/src/java/accesoDatos/RecursoDAO.java</file>
         </group>
     </open-files>
 </project-private>

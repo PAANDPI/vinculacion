@@ -6,6 +6,8 @@ package model;
 public class Ciudad {
     private int idCiudad, idProvincia;
     private String Ciudad;
+    private boolean estado;
+    
 
     public Ciudad() {
     }
@@ -14,6 +16,7 @@ public class Ciudad {
         this.idCiudad = idCiudad;
         this.idProvincia = idProvincia;
         this.Ciudad = Ciudad;
+     
     }
 
     public int getIdCiudad() {
@@ -39,5 +42,14 @@ public class Ciudad {
     public void setCiudad(String Ciudad) {
         this.Ciudad = Ciudad;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 
 }

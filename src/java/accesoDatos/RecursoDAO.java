@@ -74,7 +74,7 @@ public class RecursoDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso;");
                 while (result.next()) {
                     recursoList.add(new Recurso(result.getInt(1), result.getInt(2), result.getInt(3),
                             result.getString(4),result.getString(5),result.getString(6), result.getBoolean(7)));
@@ -95,7 +95,7 @@ public class RecursoDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
                     json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getString("idcategoriarecurso") + "\",\n";

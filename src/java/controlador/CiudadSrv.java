@@ -1,24 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package controlador;
 
-import accesoDatos.CategoriaDiscapacidadDAO;
+import accesoDatos.CiudadDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CategoriaDiscapacidad;
+import model.Ciudad;
 
 /**
  *
- * @author Arialdo
+ * @author dayanna
  */
-public class CategoriaDiscapacidadSrv extends HttpServlet {
+public class CiudadSrv extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,15 +36,16 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CategoriaDiscapacidadSrv</title>");            
+            out.println("<title>Servlet CiudadSrv</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CategoriaDiscapacidadSrv at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CiudadSrv at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
 
+   
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -59,13 +59,13 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        CategoriaDiscapacidadDAO categoriaDiscapacidadDAO = new CategoriaDiscapacidadDAO();
+        CiudadDAO ciudadDAO = new CiudadDAO();
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            retorno += categoriaDiscapacidadDAO.getVW2JSON();
+            retorno += ciudadDAO.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
             //processRequest(request, response);
@@ -83,22 +83,24 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
-        categoriaDiscapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idcategoriadiscapacidad")));
-        categoriaDiscapacidad.setCategoriaDiscapacidad(request.getParameter("categoriadiscapacidad"));
-
-        CategoriaDiscapacidadDAO categoriaDiscapacidadDAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
+        Ciudad ciudad = new Ciudad();
+        ciudad.setIdCiudad(Integer.parseInt(request.getParameter("idciudad")));
+        ciudad.setIdProvincia(Integer.parseInt(request.getParameter("idprovincia")));
+        ciudad.setCiudad(request.getParameter("ciudad"));
+        ciudad.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
+        
+        CiudadDAO ciudadDAO = new CiudadDAO(ciudad);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.update()>0) {
+            if (ciudadDAO.update()>0) {
                 retorno += "\"codigo\":200,\n";
-                retorno += categoriaDiscapacidadDAO.getCategoriaDiscapacidadJSON();
+                retorno += ciudadDAO.getCiudadJSON();
                 response.setStatus(response.SC_OK);
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + ciudadDAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
 
             }
@@ -120,22 +122,24 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
-        categoriaDiscapacidad.setCategoriaDiscapacidad(request.getParameter("categoriadiscapacidad"));
-
-        CategoriaDiscapacidadDAO categoriaDiscapacidadDAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
+        Ciudad ciudad = new Ciudad();
+        ciudad.setIdProvincia(Integer.parseInt(request.getParameter("idprovincia")));
+        ciudad.setCiudad(request.getParameter("ciudad"));
+        ciudad.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
+        
+        CiudadDAO ciudadDAO = new CiudadDAO(ciudad);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.insert() > 0) {
+            if (ciudadDAO.insert() > 0) {
                 retorno += "\"codigo\":200,\n";
-                retorno += categoriaDiscapacidadDAO.getCategoriaDiscapacidadJSON();
+                retorno += ciudadDAO.getCiudadJSON();
                 response.setStatus(response.SC_OK);
                 //response.sendRedirect("index.jsp");
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + ciudadDAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
             }
             retorno += "}";
@@ -154,20 +158,20 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        CategoriaDiscapacidad categoriaDiscapacidad = new CategoriaDiscapacidad();
-        categoriaDiscapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idcategoriadiscapacidad")));
-
-        CategoriaDiscapacidadDAO categoriaDiscapacidadDAO = new CategoriaDiscapacidadDAO(categoriaDiscapacidad);
+        Ciudad ciudad = new Ciudad();
+        ciudad.setIdCiudad(Integer.parseInt(request.getParameter("idciudad")));
+        
+        CiudadDAO ciudadDAO = new CiudadDAO(ciudad);
          response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.habilitarDeshabilitar() > 0) {
+            if (ciudadDAO.habilitarDeshabilitar() > 0) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {
                 retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + categoriaDiscapacidadDAO.getMessage() + "\"\n";
+                retorno += "\"mensaje\": \"" + ciudadDAO.getMessage() + "\"\n";
                 response.setStatus(response.SC_BAD_REQUEST);
             }
             retorno += "}";

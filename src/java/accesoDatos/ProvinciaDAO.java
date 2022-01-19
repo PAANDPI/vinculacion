@@ -83,7 +83,7 @@ public class ProvinciaDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwProvincia;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idprovincia\" : \"" + result.getInt("idprovincia") + "\",\n";
                     json += "\t\t\t\"pais\" : \"" + result.getString("pais") + "\",\n";
