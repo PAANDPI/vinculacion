@@ -96,7 +96,7 @@ public class CategoriaDiscapacidadDAO {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwCategoriaDiscapacidad;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
-                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getInt("categoriadiscapacidad") + "\"\n\t\t},";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getString("categoriadiscapacidad") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();

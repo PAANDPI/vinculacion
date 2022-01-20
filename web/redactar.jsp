@@ -10,9 +10,9 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
-        <script src="recursos/javaScript/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>     
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-            <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/JS-AJAX/conceptosJS.js" type="text/javascript"></script>
         <script src="recursos/javaScript/editor.js" type="text/javascript"></script>
         <script src="recursos/javaScript/editor2.js" type="text/javascript"></script>
         
@@ -73,13 +73,8 @@
                 <label for="inputState">Nombre de la discapacidad</label>
                 <div class="input-group">    
 
-                    <select id="iDDiscapacidad" class="form-control" style="background: #DEDEDE;">
-                        <option value="45">Discapacidad 1</option>
-                        <option value="46">Discapacidad 2</option>
-                        <option value="47">Discapacidad 3</option>
-                        <option value="48">Discapacidad 4</option>
-                        <option value="49">Discapacidad 5</option>
-                        <option value="50">Discapacidad 6</option>
+                    <select id="cmb-discapacidad" class="form-control" style="background: #DEDEDE;">
+                        
                     </select>
 
                     <span class="input-group-btn">
@@ -125,7 +120,5 @@
 
         <!--Modal agregar discapacidad-->
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
-
     </body>
-     <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
-</html>
+   </html>

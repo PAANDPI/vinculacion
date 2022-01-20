@@ -33,9 +33,11 @@ public class DiscapacidadDAO {
                 discapacidad.getDiscapacidad(), discapacidad.getIdcategoriaDiscapacidad());
         System.out.println(sql);
         if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return -1;
+            conex.execute(sql);
+            return 1;
+        }else
+        {return -1;}
+        
 
     }
 
@@ -98,8 +100,8 @@ public class DiscapacidadDAO {
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
-                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getInt("categoriadiscapacidad") + "\",\n";
-                    json += "\t\t\t\"discapacidad\" : \"" + result.getInt("discapacidad") + "\"\n\t\t},";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getString("categoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();

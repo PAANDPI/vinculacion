@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <label class=" ">Seleccionar discapacidad</label>
                             <select  class=" form-control" id="cmb-discapacidad">
-                                <option style="font-size: 16px">Física</option>
+                                
                             </select>
                         </div>
                         <div class="form-group">

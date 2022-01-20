@@ -36,7 +36,7 @@ $(document).ready(function () {
             url: "DiscapacidadSrv",
             success: function (data) {
                 jsonDiscapacidades = JSON.parse(data);
-                var htmlTabla = ``;
+       
                 var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
                 for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
                 {
@@ -44,21 +44,11 @@ $(document).ready(function () {
                     var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
                     var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
                     var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
-                    htmlTabla += `<tr>
-                                    <td>${nombreDiscapacidad}</td>
-                                    <td>${nombreCategoriaDiscapacidad}</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                            </div>
-                                        </td>                                 
-                                  </tr>`;
+                 
                     cmbDiscapacidades+=`<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
                 }
-               
-                    var tbl_Discapacidad = document.getElementById("tbl_Discapacidad");
-                    var cmb_Discapacidad=document.getElementById("cmb-discapacidad");
-                    tbl_Discapacidad.innerHTML = htmlTabla;
+                                 
+                    var cmb_Discapacidad=document.getElementById("cmb-discapacidad");     
                     cmb_Discapacidad.innerHTML=cmbDiscapacidades;
                
 
@@ -92,7 +82,40 @@ $(document).ready(function () {
             });
 
     });
-    
+    $('#btnGuardarConcepto').on('click', function () {
+
+        var htmlDescripcion = resultado();
+        var iDDiscapacidad = document.getElementById("iDDiscapacidad").value;
+        var etiquetas = document.getElementById("etiquetas").value;
+        if (htmlDescripcion.length > 0)
+        {
+            if ((iDDiscapacidad.length * etiquetas.length) > 0) {
+
+                $.ajax({
+                    method: "POST",
+                    url: "",
+                    data: {"iDDiscapacidad": iDDiscapacidad,
+                            "descripcion": htmlDescripcion,
+                            "etiquetas": etiquetas},
+
+                    success: function (data) {
+                        alerta("Concepto guardado correctamente:", "success");
+                    },
+                    error: function (error) {
+                        alerta("Algo salio mal:" + error, "error");
+                    }
+                });
+            } else
+            {
+                alerta("Complete todo los campos", "error");
+            }
+
+        } else {
+            alerta("Ejecute primero la vista previa", "info");
+        }
+
+
+    });
 });
 
 

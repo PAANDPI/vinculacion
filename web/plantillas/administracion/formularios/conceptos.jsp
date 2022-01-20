@@ -21,97 +21,12 @@
                 <table class="table table-fixed table-sm" >
                     <thead style="position: sticky; top: 0px;z-index: 10;">
                         <tr  class="color_base blanco" >
-                            <th class="rounded-left" >Titulo</th>
-                            <th>Categotia</th> 
-                            <th>Concepto</th>
+                            <th class="rounded-left" >Nombre de la discapacidad</th>
+                            <th>Categoria</th> 
                             <th class="rounded-right">Opciones</th>
                         </tr>
                     </thead>   
-                    <tbody >
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" style="z-index: 9" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
-                        <tr>
-                            <td>Sindrome de down</td>
-                            <td>Intelectual</td>
-                            <td>
-                                Si                               
-                            </td>
-                            <td>
-                                <div class="btn-group" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-info btn-sm ">Seleccionar</button>   
-                                </div>
-                            </td>                                 
-                        </tr>
+                    <tbody id="tbl_Discapacidad">
 
                     </tbody>                       
                 </table>

@@ -58,6 +58,7 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+          response.setContentType("text/html;charset=UTF-8");  
             Discapacidad discapacidad=new Discapacidad();
             DiscapacidadDAO discapacidadDAO= new  DiscapacidadDAO(discapacidad);
             try (PrintWriter out = response.getWriter()) {
@@ -82,11 +83,15 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+         response.setContentType("text/json;charset=UTF-8");
           Discapacidad discapacidad=new Discapacidad();
+          
           discapacidad.setIdcategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
           discapacidad.setDiscapacidad(request.getParameter("discapacidad"));
+          
           DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);
-          response.setContentType("text/json;charset=UTF-8");
+          
            try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                if ( discapacodadDAO.insert()>0)

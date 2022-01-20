@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">               
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
 
-
+      
         <title>Administrador</title>
     </head>
     <body class="">        
@@ -42,4 +42,5 @@
         </div>       
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
+     
 </html>
