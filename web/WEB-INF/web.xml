@@ -29,6 +29,14 @@
         <servlet-name>PaisSrv</servlet-name>
         <servlet-class>controlador.PaisSrv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CategoriaRecursoSrv</servlet-name>
+        <servlet-class>controlador.CategoriaRecursoSrv</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConceptoSrv</servlet-name>
+        <servlet-class>controlador.ConceptoSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -52,6 +60,14 @@
     <servlet-mapping>
         <servlet-name>PaisSrv</servlet-name>
         <url-pattern>/PaisSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoriaRecursoSrv</servlet-name>
+        <url-pattern>/CategoriaRecursoSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConceptoSrv</servlet-name>
+        <url-pattern>/ConceptoSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
