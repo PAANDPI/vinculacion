@@ -37,7 +37,7 @@ public class ConceptoSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ConceptoSrv</title>");            
+            out.println("<title>Servlet ConceptoSrv</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ConceptoSrv at " + request.getContextPath() + "</h1>");
@@ -58,9 +58,9 @@ public class ConceptoSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            Concepto concepto=new Concepto();
-            ConceptoDAO conceptoDAO=new ConceptoDAO(concepto);
-            try (PrintWriter out = response.getWriter()) {
+        Concepto concepto = new Concepto();
+        ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+        try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
@@ -69,7 +69,7 @@ public class ConceptoSrv extends HttpServlet {
             out.write(retorno);
             //processRequest(request, response);
         }
-               
+
     }
 
     /**
@@ -81,71 +81,100 @@ public class ConceptoSrv extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Concepto concepto=new Concepto();
-        //concepto.setIdConcepto(Integer.parseInt(request.getParameter("idconcepto")));
-        concepto.setIdDiscapacidad(Integer.parseInt(request.getParameter("idDiscapacidad")));
-        concepto.setDescripcion(request.getParameter("descripcion"));
-        concepto.setEtiquetas(request.getParameter("etiquetas"));
-        ConceptoDAO conceptoDAO=new ConceptoDAO(concepto);
-         response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
-            if (conceptoDAO.update()>0) {
-                retorno += "\"codigo\":200,\n";
-                retorno += conceptoDAO.getConceptoJSON();
-                response.setStatus(response.SC_OK);
-            } else {
-                retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + conceptoDAO.getMessage() + "\"\n";
-                response.setStatus(response.SC_BAD_REQUEST);
+        int accion = Integer.parseInt(req.getParameter("accion"));
+        if (accion == 1) {
+            Concepto concepto = new Concepto();
+            int id = Integer.parseInt(req.getParameter("idDiscapacidad"));
+            concepto.setIdDiscapacidad(id);
+            concepto.setDescripcion(req.getParameter("descripcion"));
+            concepto.setEtiquetas(req.getParameter("etiquetas"));
 
+            ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+            resp.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = resp.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (conceptoDAO.insert() > 0) {
+////                    retorno += "\"codigo\":200,\n";
+//                    retorno += conceptoDAO.getConceptoJSON();
+                    resp.setStatus(HttpServletResponse.SC_OK);
+//                    resp.sendRedirect("index.jsp");
+                } else {
+//                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"mensaje\": \"" + conceptoDAO.getMessage() + "\"\n";
+                   resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                
+                }
+                retorno += "}";
+                out.write(retorno);
             }
-            retorno += "}";
-            out.write(retorno);
-
-            //processRequest(request, response);
+        } else {
+            Concepto concepto = new Concepto();
+            concepto.setIdDiscapacidad(Integer.parseInt(req.getParameter("idDiscapacidad")));
+            concepto.setDescripcion(req.getParameter("descripcion"));
+            concepto.setEtiquetas(req.getParameter("etiquetas"));
+            ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+            resp.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = resp.getWriter()) {
+                String retorno = "{\n\t";
+                if (conceptoDAO.update() > 0) {
+//                    retorno += "\"codigo\":200,\n";
+//                    retorno += conceptoDAO.getConceptoJSON();
+                    resp.setStatus(resp.SC_OK);
+                } else {
+//                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"mensaje\": \"" + conceptoDAO.getMessage() + "\"\n";
+                    resp.setStatus(resp.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
         }
     }
 
     @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         //super.doPut(req, resp); //To change body of generated methods, choose Tools | Templates.
-        Concepto concepto=new Concepto();
-        concepto.setIdDiscapacidad(Integer.parseInt(req.getParameter("idDiscapacidad")));
-        concepto.setDescripcion(req.getParameter("descripcion"));
-        concepto.setEtiquetas(req.getParameter("etiquetas"));
-        ConceptoDAO conceptoDAO=new ConceptoDAO(concepto);
-        resp.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = resp.getWriter()) {
-            String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
-            if (conceptoDAO.insert() > 0) {
-                retorno += "\"codigo\":200,\n";
-                retorno += conceptoDAO.getConceptoJSON();
-                resp.setStatus(resp.SC_OK);
-                //response.sendRedirect("index.jsp");
-            } else {
-                retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + conceptoDAO.getMessage() + "\"\n";
-                resp.setStatus(resp.SC_BAD_REQUEST);
-            }
-            retorno += "}";
-            out.write(retorno);
-        }
+//
+//        Concepto concepto = new Concepto();
+////        Integer.parseInt(req.getParameter("idDiscapacidad"));
+//        int id = Integer.parseInt(req.getParameter("idDiscapacidad"));
+//        concepto.setIdDiscapacidad(id);
+//        concepto.setDescripcion(req.getParameter("descripcion"));
+//        concepto.setEtiquetas(req.getParameter("etiquetas"));
+//
+//        ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+//        resp.setContentType("text/json;charset=UTF-8");
+//        try (PrintWriter out = resp.getWriter()) {
+//            String retorno = "{\n\t";
+//            /* TODO output your page here. You may use following sample code. */
+//            if (conceptoDAO.insert() > 0) {
+//                retorno += "\"codigo\":200,\n";
+//                retorno += conceptoDAO.getConceptoJSON();
+//                resp.setStatus(resp.SC_OK);
+//                //response.sendRedirect("index.jsp");
+//            } else {
+//                retorno += "\"codigo\":400,\n";
+//                retorno += "\"mensaje\": \"" + conceptoDAO.getMessage() + "\"\n";
+//                resp.setStatus(resp.SC_BAD_REQUEST);
+//            }
+//            retorno += "}";
+//            out.write(retorno);
+//        }
+
     }
 
     @Override
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-            Concepto concepto=new Concepto();
-            concepto.setIdConcepto(Integer.parseInt(req.getParameter("idconcepto")));
-            ConceptoDAO conceptoDAO=new ConceptoDAO(concepto);
-            
-            resp.setContentType("text/json;charset=UTF-8");
+        Concepto concepto = new Concepto();
+        concepto.setIdConcepto(Integer.parseInt(req.getParameter("idconcepto")));
+        ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+
+        resp.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = resp.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
@@ -162,8 +191,6 @@ public class ConceptoSrv extends HttpServlet {
         }
     }
 
-    
-    
     /**
      * Returns a short description of the servlet.
      *

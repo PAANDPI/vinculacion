@@ -40,11 +40,12 @@ $(document).ready(function () {
                 var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
                 for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
                 {
-                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad ;
                     var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
-                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
                     var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
                     htmlTabla += `<tr>
+                                    <th>${i+1}</th>
                                     <td>${nombreDiscapacidad}</td>
                                     <td>${nombreCategoriaDiscapacidad}</td>
                                         <td>
@@ -70,6 +71,7 @@ $(document).ready(function () {
        
 
     }
+    
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
@@ -94,7 +96,10 @@ $(document).ready(function () {
     });
     
 });
-
+function seleccionarDiscapacidad(idDiscapacidad)
+    {
+        alerta(idDiscapacidad);
+    }
 
 function alerta(texto, icono)
 {

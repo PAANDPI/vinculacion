@@ -21,7 +21,8 @@
                 <table class="table table-fixed table-sm" >
                     <thead style="position: sticky; top: 0px;z-index: 10;">
                         <tr  class="color_base blanco" >
-                            <th class="rounded-left" >Nombre de la discapacidad</th>
+                            <th class="rounded-left" >#</th>
+                            <th >Nombre de la discapacidad</th>
                             <th>Categoria</th> 
                             <th class="rounded-right">Opciones</th>
                         </tr>
@@ -54,30 +55,7 @@
                         </tr>
                     </thead>   
                     <tbody >
-                        <tr>
-                            <th>1</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
-                        <tr>
-                            <th>4</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
-                        <tr>
-                            <th>6</th>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </td>                                                       
-                        </tr>
+
                     </tbody>                       
                 </table>
             </div>

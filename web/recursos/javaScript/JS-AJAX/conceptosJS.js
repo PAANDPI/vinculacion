@@ -40,9 +40,9 @@ $(document).ready(function () {
                 var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
                 for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
                 {
-                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad ;
                     var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
-                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
                     var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
                  
                     cmbDiscapacidades+=`<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
@@ -68,8 +68,7 @@ $(document).ready(function () {
                 method: "POST",
                 url: "DiscapacidadSrv",
                 data: datos,
-                success: function (data) {
-                    console.log(data);
+                success: function (data) {                  
                     document.getElementById("btnClickCerrar").click();
                     alerta(`Discapacidad ${nombreDiscapacidad} añadida con exito`, "success");
                     cargarDiscapacidades();
@@ -85,34 +84,38 @@ $(document).ready(function () {
     $('#btnGuardarConcepto').on('click', function () {
 
         var htmlDescripcion = resultado();
-        var iDDiscapacidad = document.getElementById("iDDiscapacidad").value;
+        var iDDiscapacidad = document.getElementById("cmb-discapacidad").value;
         var etiquetas = document.getElementById("etiquetas").value;
-        if (htmlDescripcion.length > 0)
-        {
-            if ((iDDiscapacidad.length * etiquetas.length) > 0) {
-
-                $.ajax({
-                    method: "POST",
-                    url: "",
-                    data: {"iDDiscapacidad": iDDiscapacidad,
+        var datos= {"idDiscapacidad": iDDiscapacidad,
                             "descripcion": htmlDescripcion,
-                            "etiquetas": etiquetas},
-
+                            "etiquetas": etiquetas, "accion":1};
+            console.log(datos);        
+             $.ajax({
+                    method: "POST",
+                    url: "ConceptoSrv",
+                    data:  datos,
                     success: function (data) {
+                        console.log(data);
                         alerta("Concepto guardado correctamente:", "success");
                     },
                     error: function (error) {
+                        console.log(error);
                         alerta("Algo salio mal:" + error, "error");
                     }
                 });
-            } else
-            {
-                alerta("Complete todo los campos", "error");
-            }
-
-        } else {
-            alerta("Ejecute primero la vista previa", "info");
-        }
+//        if (htmlDescripcion.length > 0)
+//        {
+//            if ((iDDiscapacidad.length * etiquetas.length) > 0) {
+//
+//               
+//            } else
+//            {
+//                alerta("Complete todo los campos", "error");
+//            }
+//
+//        } else {
+//            alerta("Ejecute primero la vista previa", "info");
+//        }
 
 
     });

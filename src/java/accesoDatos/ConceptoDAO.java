@@ -33,9 +33,13 @@ public class ConceptoDAO {
                 concepto.getEtiquetas());
         System.out.println(sql);
         if (conex.isState()) {
-            return conex.execute(sql);
+            conex.execute(sql);
+            return 10;
+        }else
+        {
+            return -1;
         }
-        return -1;
+        
     }
 
     public int update() {
