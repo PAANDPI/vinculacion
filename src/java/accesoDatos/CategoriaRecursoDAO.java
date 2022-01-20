@@ -97,7 +97,7 @@ public class CategoriaRecursoDAO {
                 ResultSet result = conex.returnQuery("SELECT * FROM vwCategoriaRecurso;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
-                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getInt("categoriarecurso") + "\"\n\t\t},";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();

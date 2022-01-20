@@ -96,9 +96,9 @@ public class ConceptoDAO {
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
-                    json += "\t\t\t\"discapacidad\" : \"" + result.getInt("discapacidad") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getInt("descripcion") + "\",\n";
-                    json += "\t\t\t\"etiquetas\" : \"" + result.getInt("etiquetas") + "\"\n\t\t},";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();

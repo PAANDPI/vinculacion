@@ -114,9 +114,9 @@ public class CiudadDAO {
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idciudad\" : \"" + result.getInt("idciudad") + "\",\n";
                     json += "\t\t\t\"idprovincia\" : \"" + result.getInt("idprovincia") + "\",\n";
-                    json += "\t\t\t\"ciudad\" : \"" + result.getInt("ciudad") + "\",\n";
-                    json += "\t\t\t\"estado\" : \"" + result.getInt("estado") + "\",\n";
-                    json += "\t\t\t\"provincia\" : \"" + result.getInt("provincia") + "\"\n\t\t},";
+                    json += "\t\t\t\"ciudad\" : \"" + result.getString("ciudad") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"provincia\" : \"" + result.getString("provincia") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();
