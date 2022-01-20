@@ -9,27 +9,42 @@ $(document).ready(function () {
         var txtNombreUsuario=document.getElementById("txtNombreUsuario").value;
         var txtContrasenia=document.getElementById("txtContrasenia").value;
         var txtConfirmarContrasenia=document.getElementById("txtConfirmarContrasenia").value;
-        
-        var validor=(txtNombre.length*txtApellido.length* cmbGenero.length*
-        txtCorreo.length* txtNombreUsuario.length)
-            if(validor>0)
-            {
+         var cmbCantones = document.getElementById("cmbCantones").value;
+         
+        var datos={"idCiudad":cmbCantones,
+                    "nombre":txtNombre,
+                    "apellido":txtApellido,
+                    "genero":cmbGenero,
+                    "usuario":txtNombreUsuario, 
+                    "correo":txtCorreo, 
+                    "clave":txtContrasenia,
+                    "administrador":"true", 
+                    "accion": "2" };
+                
+        console.log(datos);
+//        var validor=(txtNombre.length*txtApellido.length* cmbGenero.length*
+//        txtCorreo.length* txtNombreUsuario.length * cmbCantones.length)
+//            if(validor>0)
+//            {
                  $.ajax({
                     method: "POST",
-                    url: "",
-                    data: {},                       
+                    url: "PersonaSrv",
+                    data:datos ,                       
                     success: function (data) {
                     alerta("Usuario guardado correctamente:", "success");
                     },
                     error: function (error) {
+                    
+                    console.log(error);
                     alerta("Algo salio mal:"+error, "error");
+                    
                     }
                 });
-                
-            }else
-            {
-                 alerta("Complete todo los campos", "error");
-            }
+//                
+//            }else
+//            {
+//                 alerta("Complete todo los campos", "error");
+//            }
         
     });
     

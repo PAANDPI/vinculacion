@@ -17,7 +17,7 @@
                 </div>  
                 <div class="p-4 barra-colores"  style="height: 75vh;max-height: 75vh;overflow-y: auto;">                     
                     <label class="font-weight-bold">Información basica</label>
-   
+                        
                     <div class="form-group">
                         <label>Nombre</label>
                         <input  id="txtNombre" class="form-control" type="text">
@@ -26,13 +26,19 @@
                     <div class="form-group">
                         <label>Apellido</label>
                         <input id="txtApellido" class="form-control" type="text">
-                    </div>         
+                    </div> 
+                    <div class="form-group">
+                        <label >Ciudad</label>
+                        <select selected="selected" id="cmbCantones"  class="form-control">
+                        
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label >Género</label>
                         <select  class=" form-control" id="cmbGenero">
-                            <option style="font-size: 16px">Femenino</option>
-                            <option style="font-size: 16px">Masculino</option>
-                            <option style="font-size: 16px">Otro</option>
+                            <option value="Femenino" style="font-size: 16px">Femenino</option>
+                            <option value="Masculino" style="font-size: 16px">Masculino</option>
+                            <option value="Otro" style="font-size: 16px">Otro</option>
                         </select>
                     </div>
                     <div class="form-group">

@@ -34,11 +34,11 @@ public class PersonaDAO {
 
         persona.setClave(DigestUtils.sha1Hex(persona.getClave()));
 
-        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
-                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
+        String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s','%s', '%b');",
+                persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
-                persona.getClave(), persona.isAdministrador(), persona.isEstado());
-        System.out.println(sql);
+                persona.getClave(),persona.isAdministrador());
+        System.out.println("consulta" +sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }

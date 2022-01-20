@@ -15,6 +15,8 @@
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="recursos/javaScript/administrador.js" type="text/javascript"></script>
         <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/JS-AJAX/personaJS.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/JS-AJAX/pais.js" type="text/javascript"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
           
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
