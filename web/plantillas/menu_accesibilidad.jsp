@@ -1,7 +1,7 @@
 <link href="recursos/estilos/menuflotante.css" rel="stylesheet" type="text/css"/>
 <link href="recursos/estilos/app.css" rel="stylesheet" type="text/css"/>
 <a type="button"  
-   style=" position: fixed;right: 20px; bottom: 50px ;width: 50px; height: 50px;transition: all 300ms ease 0ms;font-size: 21px" 
+   style=" position: fixed;right: 20px; bottom: 50px ;width: 50px; height: 50px;transition: all 300ms ease 0ms;font-size: 21px; z-index: 10" 
    class="btn btn-info bi bi-gear blanco   rounded-circle " data-toggle="modal" data-target="#exampleModalCenter" ></a>
 
 <div  class="modal fade "  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

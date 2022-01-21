@@ -19,74 +19,66 @@
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
     </head>
     <body >
+
         <%@include file="plantillas/menu.jsp" %>  
-         <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
+        <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
         <div class="container mt-5">
-            <%@include  file="plantillas/recursos/card_recursos.jsp" %>
+            <h1 class="text-center">BUSCADOR DE RECURSOS</h1>
+          
+            <div class="text-center" style="color: gray;">En esta sección se comparte recursos digitales agrupados por cada tipo de discapacidad</div>
+            <hr style="background: gainsboro">
+<!--            <label class="font-weight-bold">Selecciones la categoría:</label>-->
+            <%@include  file="plantillas/recursos/card_recursos.jsp" %>  
             <%@include  file="plantillas/recursos/buscador_recuros.jsp" %>
+           
+           <hr style="background: gainsboro">
+            <label class="font-weight-bold">Contenido resultante:</label>
         </div>
-        <div class="row  pr-5" style="padding-left:100px">
-            <div class="col-lg-2">
-                <div class="card p-0 m-0 infoCar">
-                    <div class="card-header p-1 m-1">
-                        <h5><span class="bi bi-info-square-fill"></span> Filtros </h5>
-                    </div>
-                    <div class="card-body p-0 m-0">
-                        <%@include  file="plantillas/recursos/filtros.jsp" %>
-                    </div>                   
-                    <div class="card-footer">
-                        <input class="btn btn-sm btn-block login_color infoCar " value="Aplicar filtro" type="button" >  
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="card-group ">
-                    <div class="card infoCar">                        
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <div class="row  pr-lg-5 pr-md-5 pr-xl-3 pl-lg-5 pl-md-2 pl-xl-1" style="z-index: 1" >
+            <div class="col-lg-12 col-md-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card infoCar">                        
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card infoCar">                       
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                         <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                 <div class="card-group">
-                    <div class="card infoCar">                        
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card infoCar">                        
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
-                    <div class="card infoCar">                       
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                         <div class="col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Special title treatment</h5>
+                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-       
+
+
+
             </div>
         </div>     
 

@@ -5,13 +5,13 @@
         </div>                    
         <div class="col-lg-12">
             <h4 class="">BUSCADOR DE DISCAPACIDAD</h4>                     
-            <label style="font-size: 20px" class="sub-letras letra_color " >Busca información sobre diferentes tipos de discapacidades </label>                                        
+            <label style="font-size: 20px; color: seashell" class="sub-letras " >Busca información sobre diferentes tipos de discapacidades </label>                                        
         </div>
-        <div class="col-lg-12">
+        <div class="col-lg-12 pl-xl-2 pl-md-2 pr-xl-2 m-2">
             <div class="row justify-content-center">
                 <div class="col-lg-7 ">
                     <div class="input-group mb-3">
-                        <input type="text" class=" form-control form-control-lg" placeholder="Busqueda de discapacidades" aria-label="Recipient's username" >
+                        <input type="text" class=" form-control form-control-lg " placeholder="Busqueda de discapacidades" aria-label="Recipient's username" >
                         <div class="input-group-append">
                             <button class="btn btn-light bi bi-search" type="button"></button>
                         </div>

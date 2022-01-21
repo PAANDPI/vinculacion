@@ -92,9 +92,8 @@ body.white-theme .degradado ul li a
     color: black !important;
 }
 body.white-theme  .imgF
-{
-   
-   filter: brightness(50%);
+{   
+        filter: brightness(10%);
 }
 body.white-theme .degradado_2  a
 {color: black;
