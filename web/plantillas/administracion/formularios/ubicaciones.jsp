@@ -1,6 +1,6 @@
 <div id="formulario-ubicaciones" class="col-lg-12"> 
     <div class="row container">
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div  style="width: 100%; height: 80vh; " class="mt-3  float-left  sombra ">                    
                 <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
                     <div  class="row ml-4">
@@ -54,7 +54,7 @@
 
             </div> 
         </div> 
-        <div class="col-lg-6">
+        <div class="col-lg-7">
              <table class="table mt-4">
             <thead>
                 <tr>
