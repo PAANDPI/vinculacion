@@ -1,12 +1,9 @@
 <div class="col-lg-12" id="Contenedor-inicio">
-    <div class="row justify-content-center pl-5 pr-5 pt-3 pb-3 " >
 
-
-    </div>
 
     <div class="row">
         <div class="col-lg-5">
-            <div class="mt-2 barra-colores pl-5 pt-4" style="height: auto;max-height:90vh;overflow: auto ">
+            <div class="mt-2 barra-colores  pl-lg-5 pt-lg-4 p-xl-5 p-sm-2">
                 <table class="table ">
                     <thead class="color_base blanco">
                         <tr>
