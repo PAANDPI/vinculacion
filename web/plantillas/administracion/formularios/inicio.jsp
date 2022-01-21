@@ -1,4 +1,4 @@
-<div class="col-lg-10" id="Contenedor-inicio">
+<div class="col-lg-12" id="Contenedor-inicio">
     <div class="row justify-content-center pl-5 pr-5 pt-3 pb-3 " >
 
 

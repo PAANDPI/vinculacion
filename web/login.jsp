@@ -13,15 +13,17 @@
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">     
         <link href="recursos/estilos/login.css" rel="stylesheet" type="text/css"/>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
     </head>
-
+    <style>
+   
+    </style>
+        
     <body>
-
         <%@include file="plantillas/fondo_decoracion.jsp"%>
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">

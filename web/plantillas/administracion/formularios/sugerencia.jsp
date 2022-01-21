@@ -1,4 +1,4 @@
-<div id="contenedor-sugerencias" class="col-lg-10 p-5">
+<div id="contenedor-sugerencias" class="col-lg-12 p-5">
     <div class="row " style="height: 80vh; max-height: 80vh; overflow: auto">
         <table class="table">
             <thead>

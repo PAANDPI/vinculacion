@@ -1,15 +1,11 @@
-<div id="formulario-ubicaciones" class="col-lg-10"> 
-    <div class="row">
-        <div class="col-lg-5">
-            <div  style="width: 100%; height: 95vh; " class="mt-3  float-left  sombra ">                    
+<div id="formulario-ubicaciones" class="col-lg-12"> 
+    <div class="row container">
+        <div class="col-lg-6">
+            <div  style="width: 100%; height: 80vh; " class="mt-3  float-left  sombra ">                    
                 <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
-
-                    <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
-
                     <div  class="row ml-4">
                         <label class=" font-weight-bold blanco " style="font-size: 20px" >Lugares</label>    
                     </div> 
-
                     <div class="row ">
                         <nav class="nav ml-4">
                             <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> </a>  
@@ -17,11 +13,9 @@
                             <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
 
                         </nav>
-
                     </div> 
-
                 </div>  
-                <div class="p-4 barra-colores " style="height: 75vh;max-height: 75vh;overflow-y: auto;">
+                <div class="p-4 barra-colores " style="height: 60vh;max-height: 60vh;overflow-y: auto;">
                     <form>                        
                         <div class="form-group">
                             <label class=" ">Seleccionar provincia</label>
@@ -60,7 +54,7 @@
 
             </div> 
         </div> 
-        <div class="col-lg-7">
+        <div class="col-lg-6">
              <table class="table mt-4">
             <thead>
                 <tr>

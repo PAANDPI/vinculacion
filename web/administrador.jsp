@@ -32,13 +32,12 @@
     </head>
     <body class="">        
         <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%> 
-
-        <div class="row" >
             <%@include  file="plantillas/administracion/menu_administracion.jsp" %>
+        <div class="row" >         
             <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
             <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
-            <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
             <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp"%>
+            <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
             <%@include  file="plantillas/administracion/formularios/sugerencia.jsp"%>
             <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>
         </div>       

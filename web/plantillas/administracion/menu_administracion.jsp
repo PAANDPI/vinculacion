@@ -1,14 +1,16 @@
- <div class="col-lg-2 color_base  " style=" height: 100vh; ">                
-                <div class="row pt-2 justify-content-center" >
-                    <img class=" mt-5" width="75" height="70" src="recursos/imagenes/Logo_colorido.png" alt=""/>
-                </div>
-                <div class="row pt-2 pb-3 justify-content-center">
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1 color_base" >
+    <a class="navbar-brand" style="position: relative; left: 10%" href="#">
+        <img class="p-0" width="55" height="50" src="recursos/imagenes/sin_letras.png" alt=""/>
+        <!--<label class="grosor">YUYAPUY</label>--> 
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                    <h5 class="blanco">Administración</h5>
-                </div>
-                <div class="row pl-4" >
-                    <ul class="nav flex-column" >
-                        <li class="nav-item">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto ">
+            
+            <li class="nav-item">
                             <a id="btnInicio" class="nav-link blanco pb-1  efector_barra bi bi-house " href="#"> Inicio</a>
                         </li>
                         <li class="nav-item">
@@ -19,33 +21,20 @@
                             <a id="btnUbicaciones" class="nav-link blanco pb-1 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
                         </li>
                         <li class="nav-item">
-                            <a id="btnSugerencias" class="nav-link blanco pb-1 efector_barra bi bi-chat-left-dots " href="#">  Sugerencias</a>
-                        </li>
-                        <li class="nav-item">
                             <a id="btnControl-de-usuarios" class="nav-link blanco pb-1 efector_barra bi bi-people " href="#">  Control de usuario</a>
                         </li>
                         <li class="nav-item">
                             <a id="btnRecursos" class="nav-link blanco pb-1 efector_barra  bi bi-archive " href="#">  Recursos </a>
                         </li>
-<!--                        <li class="nav-item">
-                            <a class="nav-link blanco efector_barra   bi-card-list " href="#"> Categorias</a>
-                            <ul class="list-group ml-5">
-                                <a href="#" style="" class="efector_barra bi bi-puzzle blanco btn p-0 text-left" data-toggle="modal" data-target="#model_discapacidad">
-                                    Discapacidades
-                                </a> 
-                                <a href="#" style="" class="efector_barra bi bi-archive-fill blanco p-0 btn text-left" data-toggle="modal" data-target="#model_recursos" >
-                                    Recursos
-                                </a>
-                                 
-                            </ul>
-                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link blanco pb-3 efector_barra  bi bi-gear " href="#">  Cuenta</a>
                         </li>
 
-                        <li class="nav-item " style="position: absolute; bottom: 20px;right: 5px">
+                        <li class="nav-item " >
                             <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="index.jsp">    Salir</a>
                         </li>
-                    </ul>
-                </div>
-            </div>
+           
+            
+        </ul>               
+    </div>
+</nav>

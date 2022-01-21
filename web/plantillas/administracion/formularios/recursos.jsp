@@ -1,4 +1,4 @@
-<div id="formulario-recursos" class="col-lg-10"> 
+<div id="formulario-recursos" class="col-lg-12"> 
     <div class="row">
     <div class="col-lg-5">
         <div  style="width: 100%; height: 95vh; " class="mt-4  float-left  sombra ">                    

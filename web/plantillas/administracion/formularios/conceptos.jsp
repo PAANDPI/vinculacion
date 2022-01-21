@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<div class="col-lg-10" id="formulario-conceptos">
+<div class="col-lg-12" id="formulario-conceptos">
     <div  class="row pl-5 pr-5 pt-3 pb-3">
         <div  class="col-lg-12 pl-2 pr-2">
             <div class="row">
