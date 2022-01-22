@@ -94,7 +94,7 @@ public class CiudadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (ciudadDAO.update()>0) {
+            if (ciudadDAO.update()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += ciudadDAO.getCiudadJSON();
                 response.setStatus(response.SC_OK);
@@ -132,7 +132,7 @@ public class CiudadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (ciudadDAO.insert() > 0) {
+            if (ciudadDAO.insert()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += ciudadDAO.getCiudadJSON();
                 response.setStatus(response.SC_OK);
@@ -166,7 +166,7 @@ public class CiudadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (ciudadDAO.habilitarDeshabilitar() > 0) {
+            if (ciudadDAO.habilitarDeshabilitar()) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {

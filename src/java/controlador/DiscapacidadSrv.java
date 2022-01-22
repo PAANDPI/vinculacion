@@ -87,14 +87,14 @@ public class DiscapacidadSrv extends HttpServlet {
          response.setContentType("text/json;charset=UTF-8");
           Discapacidad discapacidad=new Discapacidad();
           
-          discapacidad.setIdcategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
+          discapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
           discapacidad.setDiscapacidad(request.getParameter("discapacidad"));
           
           DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);
           
            try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
-               if ( discapacodadDAO.insert()>0)
+               if ( discapacodadDAO.insert())
                {
                    retorno += "\"codigo\":200,\n";
                    retorno += discapacodadDAO.getDiscapacidadJSON();

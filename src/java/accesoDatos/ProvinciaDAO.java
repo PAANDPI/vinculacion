@@ -28,33 +28,32 @@ public class ProvinciaDAO {
         this.provincia = provincia;
     }
 
-    public int insert() {
-        //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
+    public boolean insert() {
         String sql = String.format("SELECT insertarprovincia(%d,'%s');",
                 provincia.getIdPais(), provincia.getProvincia());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT insertarprovincia(%d, %d,'%s');",
                 provincia.getIdProvincia(), provincia.getIdPais(), provincia.getProvincia());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarprovincia(%d);",
                 provincia.getIdProvincia());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Provincia> selectAll() {

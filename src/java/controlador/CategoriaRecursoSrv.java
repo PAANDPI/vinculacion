@@ -92,7 +92,7 @@ public class CategoriaRecursoSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaRecursoDAO.update()>0) {
+            if (categoriaRecursoDAO.update()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += categoriaRecursoDAO.getCategoriaRecursoJSON();
                 response.setStatus(response.SC_OK);
@@ -118,7 +118,7 @@ public class CategoriaRecursoSrv extends HttpServlet {
         try (PrintWriter out = resp.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaRecursoDAO.insert() > 0) {
+            if (categoriaRecursoDAO.insert()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += categoriaRecursoDAO.getCategoriaRecursoJSON();
                 resp.setStatus(resp.SC_OK);
@@ -145,7 +145,7 @@ public class CategoriaRecursoSrv extends HttpServlet {
         try (PrintWriter out = resp.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaRecursoDAO.habilitarDeshabilitar() > 0) {
+            if (categoriaRecursoDAO.habilitarDeshabilitar()) {
                 retorno += "\"codigo\":200\n";
                 resp.setStatus(resp.SC_OK);
             } else {

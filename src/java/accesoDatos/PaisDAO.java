@@ -27,7 +27,7 @@ public class PaisDAO {
         this.pais = pais;
     }
 
-    public int insert() {
+    public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = String.format("SELECT insertarPais('%s', '%s');", 
                 pais.getPais(), pais.getCodigo());
@@ -36,36 +36,36 @@ public class PaisDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarPais(%d, '%s', '%s', '%b');", 
                 pais.getIdPais(), pais.getPais(), pais.getCodigo(), pais.isEstado());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitardeshabilitarpais(%d);", 
                 pais.getIdPais());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarpais(%d);", 
                 pais.getIdPais());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Pais> selectAll() {

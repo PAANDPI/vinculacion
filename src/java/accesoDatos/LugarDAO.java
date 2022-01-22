@@ -28,7 +28,7 @@ public class LugarDAO {
         this.lugar = lugar;
     }
 
-    public int insert() {
+    public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %5.2f, %5.2f, '%s');",
                 lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(), lugar.getCoordenadaX(),
@@ -38,36 +38,36 @@ public class LugarDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitardeshabilitarlugares(%d);",
                 lugar.getIdLugar());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarDiscapacidad(%d, %d, '%s', '%s', %5.2f, %5.2f, '%s');",
                 lugar.getIdLugar(), lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),
                 lugar.getCoordenadaX(), lugar.getCoordenadaY(), lugar.getEtiqueta());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarlugares(%d);",
                 lugar.getIdLugar());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Lugar> selectAll() {

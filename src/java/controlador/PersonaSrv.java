@@ -121,13 +121,13 @@ public class PersonaSrv extends HttpServlet {
             persona.setCorreo(request.getParameter("correo"));
             persona.setClave(request.getParameter("clave"));
             persona.setAdministrador(Boolean.parseBoolean(request.getParameter("administrador")));
-     
+
             PersonaDAO personaDAO = new PersonaDAO(persona);
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
-                if (personaDAO.insert() > 0) {
+                if (personaDAO.insert()) {
 //                    retorno += "\"codigo\":200,\n";
 //                    retorno += personaDAO.getPersonaJSON();
                     response.setStatus(response.SC_OK);
@@ -178,7 +178,7 @@ public class PersonaSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (personaDAO.habilitarDeshabilitar() > 0) {
+            if (personaDAO.habilitarDeshabilitar()) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {

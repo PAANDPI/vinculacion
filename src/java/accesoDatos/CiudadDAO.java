@@ -28,7 +28,7 @@ public class CiudadDAO {
         this.ciudad = ciudad;
     }
 
-    public int insert() {
+    public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = String.format("SELECT insertarCiudad(%d, %d, '%s');",
                 ciudad.getIdCiudad(), ciudad.getIdProvincia(), ciudad.getCiudad());
@@ -36,34 +36,34 @@ public class CiudadDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarCiudad(%d, %d, '%s');",
                 ciudad.getIdCiudad(), ciudad.getIdProvincia(), ciudad.getCiudad());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitarDeshabilitarCiudad(%d);",
                 ciudad.getIdCiudad());
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarCiudad(%d);",
                 ciudad.getIdCiudad());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Ciudad> selectAll() {

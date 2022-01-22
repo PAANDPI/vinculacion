@@ -17,6 +17,7 @@ public class ConceptoDAO {
 
     private Conexion conex;
     private String json;
+
     public ConceptoDAO() {
         conex = new Conexion();
         concepto = new Concepto();
@@ -27,48 +28,45 @@ public class ConceptoDAO {
         this.concepto = concepto;
     }
 
-    public int insert() {
+    public boolean insert() {
         String sql = String.format("SELECT insertarConcepto(%d, '%s', '%s');",
-                concepto.getIdDiscapacidad(), concepto.getDescripcion(), 
+                concepto.getIdDiscapacidad(), concepto.getDescripcion(),
                 concepto.getEtiquetas());
         System.out.println(sql);
         if (conex.isState()) {
-            conex.execute(sql);
-            return 10;
-        }else
-        {
-            return -1;
+            return conex.execute(sql);
+
         }
-        
+        return false;
     }
 
-    public int update() {
-        String sql = String.format("SELECT editarConcepto(%d, %d, '%s', '%s');", 
+    public boolean update() {
+        String sql = String.format("SELECT editarConcepto(%d, %d, '%s', '%s');",
                 concepto.getIdConcepto(), concepto.getIdDiscapacidad(),
                 concepto.getDescripcion(), concepto.getEtiquetas());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitarDeshabilitarConcepto(%d);", 
+    public boolean habilitarDeshabilitar() {
+        String sql = String.format("SELECT habilitarDeshabilitarConcepto(%d);",
                 concepto.getIdConcepto());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
-        String sql = String.format("SELECT eliminarConcepto(%d);", 
+    public boolean delete() {
+        String sql = String.format("SELECT eliminarConcepto(%d);",
                 concepto.getIdConcepto());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Concepto> selectAll() {
@@ -115,6 +113,61 @@ public class ConceptoDAO {
         return json;
     }
 
+    public String getVW2JSON(int idDiscapacidad) {
+        String json = "\"Concepto\" : [";
+
+        if (conex.isState()) {
+            try {
+                String sql = String.format("SELECT * FROM vwConcepto\n"
+                        + "WHERE idDiscapacidad = %d;",
+                        idDiscapacidad);
+
+                ResultSet result = conex.returnQuery(sql);
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
+    public String getVW2JSON(String discapacidad) {
+        String json = "\"Concepto\" : [";
+
+        if (conex.isState()) {
+            try {
+                 String sql = String.format("SELECT * FROM vwConcepto\n"
+                        + "WHERE Discapacidad ILIKE '%s%%';",
+                        discapacidad);
+                ResultSet result = conex.returnQuery(sql);
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
     public void lista2JSON() {
         json = "\"Concepto\" : [";
 
@@ -128,18 +181,18 @@ public class ConceptoDAO {
         json = json.substring(0, (json.length() - 1));
         json += "]";
     }
-     
+
     public String getConceptoJSON() {
         String json = "\"Concepto\" : [";
 
-        json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + concepto.getIdConcepto()+ "\",\n";
+        json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + concepto.getIdConcepto() + "\",\n";
         json += "\t\t\t\"iddiscapacidad\" : \"" + concepto.getIdDiscapacidad() + "\",\n";
         json += "\t\t\t\"descripcion\" : \"" + concepto.getDescripcion() + "\",\n";
-        json += "\t\t\t\"etiquetas\" : \"" + concepto.getEtiquetas()+ "\"\n\t\t}\n";
+        json += "\t\t\t\"etiquetas\" : \"" + concepto.getEtiquetas() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
-    
+
     public String getMessage() {
         return conex.getMessage();
     }

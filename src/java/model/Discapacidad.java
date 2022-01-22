@@ -5,16 +5,17 @@ package model;
  * @author Arialdo
  */
 public class Discapacidad {
+
     private int idDiscapacidad;
-    private int idcategoriaDiscapacidad;
+    private int idCategoriaDiscapacidad;
     private String discapacidad;
 
     public Discapacidad() {
     }
 
-    public Discapacidad(int idDiscapacidad,int idcategoriaDiscapacidad, String discapacidad) {
+    public Discapacidad(int idDiscapacidad, int idCategoriaDiscapacidad, String discapacidad) {
         this.idDiscapacidad = idDiscapacidad;
-        this.idcategoriaDiscapacidad=idcategoriaDiscapacidad;
+        this.idCategoriaDiscapacidad = idCategoriaDiscapacidad;
         this.discapacidad = discapacidad;
     }
 
@@ -34,12 +35,12 @@ public class Discapacidad {
         this.discapacidad = discapacidad;
     }
 
-    public int getIdcategoriaDiscapacidad() {
-        return idcategoriaDiscapacidad;
+    public int getIdCategoriaDiscapacidad() {
+        return idCategoriaDiscapacidad;
     }
 
-    public void setIdcategoriaDiscapacidad(int idcategoriaDiscapacidad) {
-        this.idcategoriaDiscapacidad = idcategoriaDiscapacidad;
+    public void setIdCategoriaDiscapacidad(int idCategoriaDiscapacidad) {
+        this.idCategoriaDiscapacidad = idCategoriaDiscapacidad;
     }
 
 }

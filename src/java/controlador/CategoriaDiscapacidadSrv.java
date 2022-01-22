@@ -92,7 +92,7 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.update()>0) {
+            if (categoriaDiscapacidadDAO.update()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += categoriaDiscapacidadDAO.getCategoriaDiscapacidadJSON();
                 response.setStatus(response.SC_OK);
@@ -128,7 +128,7 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.insert() > 0) {
+            if (categoriaDiscapacidadDAO.insert()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += categoriaDiscapacidadDAO.getCategoriaDiscapacidadJSON();
                 response.setStatus(response.SC_OK);
@@ -162,7 +162,7 @@ public class CategoriaDiscapacidadSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaDiscapacidadDAO.habilitarDeshabilitar() > 0) {
+            if (categoriaDiscapacidadDAO.habilitarDeshabilitar()) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {

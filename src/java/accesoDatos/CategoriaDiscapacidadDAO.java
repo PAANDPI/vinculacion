@@ -29,7 +29,7 @@ public class CategoriaDiscapacidadDAO {
         this.categoriaDiscapacidad = categoriaDiscapacidad;
     }
 
-    public int insert() {
+    public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = "SELECT editarcategoriadiscapacidad();";
 
@@ -37,34 +37,34 @@ public class CategoriaDiscapacidadDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT insertarCategoriaDiscapacidad('%s');",
                 categoriaDiscapacidad.getCategoriaDiscapacidad());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT editarcategoriadiscapacidad(%d);",
                 categoriaDiscapacidad.getIdCategoriaDiscapacidad());
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarCategoriaDiscapacidad(%d);",
                 categoriaDiscapacidad.getIdCategoriaDiscapacidad());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<CategoriaDiscapacidad> selectAll() {

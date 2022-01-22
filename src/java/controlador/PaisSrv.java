@@ -93,7 +93,7 @@ public class PaisSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (paisDAO.update()>0) {
+            if (paisDAO.update()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += paisDAO.getPaisJSON();
                 response.setStatus(response.SC_OK);
@@ -131,7 +131,7 @@ public class PaisSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (paisDAO.insert() > 0) {
+            if (paisDAO.insert()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += paisDAO.getPaisJSON();
                 response.setStatus(response.SC_OK);
@@ -165,7 +165,7 @@ public class PaisSrv extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (paisDAO.habilitarDeshabilitar() > 0) {
+            if (paisDAO.habilitarDeshabilitar()) {
                 retorno += "\"codigo\":200\n";
                 response.setStatus(response.SC_OK);
             } else {

@@ -86,13 +86,13 @@ public class Conexion {
         return result;
 
     }
-
-    public int execute(String sql) {
-        int retorno = -1;
+    
+    public boolean execute(String sql) {
+        boolean retorno = false;
         try {
             if (openConnection()) {
-                retorno = st.executeUpdate(sql);
-                message = "Se guardó correctamente : ";
+                retorno = st.execute(sql);
+                message = "Correcto";
             }
         } catch (SQLException exc) {
             System.out.println(sql);

@@ -29,26 +29,26 @@ public class CategoriaRecursoDAO {
         this.categoriaRecurso = categoriaRecurso;
     }
 
-    public int insert() {
+    public boolean insert() {
         String sql = String.format("SELECT insertarCategoriaRecurso('%s');",
                 categoriaRecurso.getIdCategoriaRecurso());
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarCategoriaRecurso(%d, '%s');",
                 categoriaRecurso.getIdCategoriaRecurso(), categoriaRecurso.getCategoriaRecurso());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
 //        String sql = String.format("SELECT habilitarDeshabilitarCategoriaRecurso(%d);",
        String sql = String.format("SELECT editarcategoriarecurso(%d);",
                 categoriaRecurso.getIdCategoriaRecurso());
@@ -56,16 +56,16 @@ public class CategoriaRecursoDAO {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarCategoriaRecurso(%d);",
                 categoriaRecurso.getIdCategoriaRecurso());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<CategoriaRecurso> selectAll() {

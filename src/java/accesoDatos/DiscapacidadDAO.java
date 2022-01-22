@@ -28,46 +28,43 @@ public class DiscapacidadDAO {
         this.discapacidad = discapacidad;
     }
 
-    public int insert() {
+    public boolean insert() {
         String sql = String.format("SELECT insertarDiscapacidad('%s',%d);",
-                discapacidad.getDiscapacidad(), discapacidad.getIdcategoriaDiscapacidad());
+                discapacidad.getDiscapacidad(), discapacidad.getIdCategoriaDiscapacidad());
         System.out.println(sql);
         if (conex.isState()) {
-            conex.execute(sql);
-            return 1;
-        }else
-        {return -1;}
-        
-
+            return conex.execute(sql);
+        }
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarDiscapacidad(%d, %d, '%s');",
-                discapacidad.getIdDiscapacidad(), discapacidad.getIdcategoriaDiscapacidad(), discapacidad.getDiscapacidad());
+                discapacidad.getIdDiscapacidad(), discapacidad.getIdCategoriaDiscapacidad(), discapacidad.getDiscapacidad());
 
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitarDeshabilitarDiscapacidad(%d);",
                 discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarDiscapacidad(%d);",
                 discapacidad.getIdDiscapacidad());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Discapacidad> selectAll() {
@@ -114,13 +111,92 @@ public class DiscapacidadDAO {
         return json;
     }
 
+    public String getVW2JSON(int idCategoriaDiscapacidad) {
+        String json = "\"Discapacidad\" : [";
+
+        if (conex.isState()) {
+            try {
+                String sql = String.format("SELECT * FROM vwDiscapacidad\n"
+                        + "WHERE idcategoriadiscapacidad = %d;",
+                        idCategoriaDiscapacidad);
+                ResultSet result = conex.returnQuery(sql);
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getString("categoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+
+        }
+        json += "]";
+        return json;
+    }
+
+    public String getVW2JSON(String discapacidad) {
+        String json = "\"Discapacidad\" : [";
+
+        if (conex.isState()) {
+            try {
+                String sql = String.format("SELECT * FROM vwDiscapacidad\n"
+                        + "WHERE idcategoriadiscapacidad ILIKE '%%s';",
+                        discapacidad);
+                ResultSet result = conex.returnQuery(sql);
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getString("categoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+    
+    public String getVW2JSONCategoriaDiscapacidad(String categoriaDiscapacidad) {
+        String json = "\"Discapacidad\" : [";
+
+        if (conex.isState()) {
+            try {
+                String sql = String.format("SELECT * FROM vwDiscapacidad\n"
+                        + "WHERE categoriaDiscapacidad ILIKE '%%s';",
+                        categoriaDiscapacidad);
+                ResultSet result = conex.returnQuery(sql);
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + result.getInt("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"categoriadiscapacidad\" : \"" + result.getString("categoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
     public void lista2JSON() {
         json = "\"Discapacidad\" : [";
 
         for (int i = 0; i < discapacidadList.size(); i++) {
             Discapacidad aux = discapacidadList.get(i);
             json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + aux.getIdDiscapacidad() + "\",\n";
-            json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + aux.getIdcategoriaDiscapacidad() + "\",\n";
+            json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + aux.getIdCategoriaDiscapacidad() + "\",\n";
             json += "\t\t\t\"discapacidad\" : \"" + aux.getDiscapacidad() + "\"\n\t\t},";
         }
         json = json.substring(0, (json.length() - 1));
@@ -131,7 +207,7 @@ public class DiscapacidadDAO {
         String json = "\"Discapacidad\" : [";
 
         json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + discapacidad.getIdDiscapacidad() + "\",\n";
-        json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + discapacidad.getIdcategoriaDiscapacidad() + "\",\n";
+        json += "\t\t\t\"idcategoriadiscapacidad\" : \"" + discapacidad.getIdCategoriaDiscapacidad() + "\",\n";
         json += "\t\t\t\"discapacidad\" : \"" + discapacidad.getDiscapacidad() + "\"\n\t\t}\n";
         json += "]";
         return json;

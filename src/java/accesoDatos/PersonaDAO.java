@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import model.Persona;
 import org.apache.commons.codec.digest.DigestUtils;
 
@@ -30,7 +29,7 @@ public class PersonaDAO {
         this.persona = persona;
     }
 
-    public int insert() {
+    public boolean insert() {
 
         persona.setClave(DigestUtils.sha1Hex(persona.getClave()));
 
@@ -42,39 +41,39 @@ public class PersonaDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
         String sql = String.format("SELECT editarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
                 + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
                 persona.getClave(), persona.isAdministrador(), persona.isEstado());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int habilitarDeshabilitar() {
+    public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitardeshabilitarpersona(%d);",
                 persona.getIdPersona());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
                 + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
                 persona.getClave(), persona.isAdministrador(), persona.isEstado());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Persona> selectAll() {

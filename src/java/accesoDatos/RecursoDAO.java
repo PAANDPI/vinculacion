@@ -27,7 +27,7 @@ public class RecursoDAO {
         this.recurso = recurso;
     }
 
-    public int insert() {
+    public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
         String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s');",
                 recurso.getIdCategoriaRecurso(),recurso.getIdDiscapacidad(),
@@ -37,36 +37,36 @@ public class RecursoDAO {
         if (conex.isState()) {
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-    public int update() {
+    public boolean update() {
          String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s');",
                 recurso.getIdRecurso(),recurso.getIdCategoriaRecurso(),recurso.getIdDiscapacidad(),
                 recurso.getRecurso(),recurso.getDescripcion(),recurso.getEtiquetas());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
-     public int habilitarDeshabilitar() {
+     public boolean habilitarDeshabilitar() {
         String sql = String.format("SELECT habilitardeshabilitarrecurso(%d);", 
                 recurso.getIdRecurso());
         if (conex.isState()) {
             System.out.println(sql);
             return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
      
-    public int delete() {
+    public boolean delete() {
         String sql = String.format("SELECT eliminarrecurso(%d);", 
                  recurso.getIdRecurso());
         if (conex.isState()) {
-            return conex.update(sql);
+            return conex.execute(sql);
         }
-        return -1;
+        return false;
     }
 
     public List<Recurso> selectAll() {
