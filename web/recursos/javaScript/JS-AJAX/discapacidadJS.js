@@ -6,80 +6,11 @@ var nConceptos = 0;
 $(document).ready(function () {
 
     cargarCategoriaDiscapacidades();
-    cargarDiscapacidades();
-    function cargarCategoriaDiscapacidades()
-    {
-        $.ajax({
-            method: "GET",
-            url: "CategoriaDiscapacidadSrv",
-            success: function (data) {
-                jsonCategoria = data;
-                var html = `<option value="" selected disabled hidden></option>`;
-                for (var i = 0; i < jsonCategoria.CategoriaDiscapacidad.length; i++)
-                {
-                    var idCategoria = jsonCategoria.CategoriaDiscapacidad[i].idcategoriadiscapacidad;
-                    var nombreCategoria = jsonCategoria.CategoriaDiscapacidad[i].categoriadiscapacidad;
-                    html += `<option value="${idCategoria}">${nombreCategoria}</option>`;
-
-                }
-                var cmbCatDiscapacidades = document.getElementById("cmbIdCategoriDiscapacidad");
-                cmbCatDiscapacidades.innerHTML = html;
-
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-    function cargarDiscapacidades()
-    {
-
-        $.ajax({
-            method: "GET",
-            url: "DiscapacidadSrv",
-            success: function (data) {
-                jsonDiscapacidades = JSON.parse(data);
-                var htmlTabla = ``;
-                var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
-                for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
-                {
-                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
-                    var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
-                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
-                    var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
-                    htmlTabla += `<tr>
-                                    <th>${i + 1}</th>
-                                    <td>${nombreDiscapacidad}</td>
-                                    <td>${nombreCategoriaDiscapacidad}</td>
-                                        <td>
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-success btn-sm bi bi-check-circle"></button> 
-                                            <button onclick=modificarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-warning btn-sm bi bi-pencil-fill"></button> 
-                                            <button onclick=eliminarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-danger btn-sm bi bi-x-square"></button>   
-                                            </div>
-                                        </td>                                 
-                                  </tr>`;
-                    cmbDiscapacidades += `<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
-                }
-
-                var tbl_Discapacidad = document.getElementById("tbl_Discapacidad");
-                var cmb_Discapacidad = document.getElementById("cmb-discapacidad");
-                tbl_Discapacidad.innerHTML = htmlTabla;
-                cmb_Discapacidad.innerHTML = cmbDiscapacidades;
-
-            },
-            error: function (error) {
-
-            }
-        });
-
-
-    }
-
+    cargarDiscapacidades();   
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad}
+        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion":"1"}
         $.ajax({
             method: "POST",
             url: "DiscapacidadSrv",
@@ -141,6 +72,94 @@ $(document).ready(function () {
 
 
 });
+function cargarCategoriaDiscapacidades()
+{
+        $.ajax({
+            method: "GET",
+            url: "CategoriaDiscapacidadSrv",
+            success: function (data) {
+                jsonCategoria = data;
+                var html = `<option value="" selected disabled hidden></option>`;
+                for (var i = 0; i < jsonCategoria.CategoriaDiscapacidad.length; i++)
+                {
+                    var idCategoria = jsonCategoria.CategoriaDiscapacidad[i].idcategoriadiscapacidad;
+                    var nombreCategoria = jsonCategoria.CategoriaDiscapacidad[i].categoriadiscapacidad;
+                    html += `<option value="${idCategoria}">${nombreCategoria}</option>`;
+
+                }
+                var cmbCatDiscapacidades = document.getElementById("cmbIdCategoriDiscapacidad");
+                cmbCatDiscapacidades.innerHTML = html;
+
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }   
+function cargarDiscapacidades()
+{
+
+        $.ajax({
+            method: "GET",
+            url: "DiscapacidadSrv",
+            success: function (data) {
+                jsonDiscapacidades = JSON.parse(data);
+                var htmlTabla = ``;
+                var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
+                for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
+                {
+                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                    var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
+                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                    var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
+                    htmlTabla += `<tr>
+                                    <th>${i + 1}</th>
+                                    <td>${nombreDiscapacidad}</td>
+                                    <td>${nombreCategoriaDiscapacidad}</td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-success btn-sm bi bi-check-circle"></button> 
+                                            <button onclick=modificarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-warning btn-sm bi bi-pencil-fill"></button> 
+                                            <button onclick=eliminarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-danger btn-sm bi bi-x-square"></button>   
+                                            </div>
+                                        </td>                                 
+                                  </tr>`;
+                    cmbDiscapacidades += `<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
+                }
+
+                var tbl_Discapacidad = document.getElementById("tbl_Discapacidad");
+                var cmb_Discapacidad = document.getElementById("cmb-discapacidad");
+                tbl_Discapacidad.innerHTML = htmlTabla;
+                cmb_Discapacidad.innerHTML = cmbDiscapacidades;
+
+            },
+            error: function (error) {
+
+            }
+        });
+
+
+    }
+function eliminarDiscapacidad(idDiscapacidad)
+{
+    
+     $.ajax({
+        method: "POST",
+        url: "DiscapacidadSrv",
+        data: {"idDiscapacidad": idDiscapacidad, "accion": "2"},
+        success: function (data) {
+           
+            swal({text: "Todo bien", icon: "success"});
+            cargarDiscapacidades();
+        },
+        error: function (error) {
+            console.log(error);
+            
+             swal({text: "Algo salio mal", icon: "error"});
+
+        }
+    });            
+}
 function navegacionConceptos(n)
 {
     var contenedor = document.getElementById("containerConceptos");
@@ -170,7 +189,6 @@ function navegacionConceptos(n)
     contenedor.innerHTML = html;
     pag.innerHTML = (nConceptos + 1);
 }
-
 function seleccionarDiscapacidad(idDiscapacidad)
 {
     var contenedor = document.getElementById("containerConceptos");
@@ -193,9 +211,11 @@ function seleccionarDiscapacidad(idDiscapacidad)
 
                 html = `<div class="card col-lg-12" style="width:100%">
                             <div class="card-body" style="height: 80vh; overflow-y:auto;">
-                                <div class="card-text">${descripcion}</div>
-                                <a href="" class="btn btn-primary">Modificar</a>
-                                <a href="" class="btn btn-primary">Eliminar</a>                               
+                                <div class="card-text">${descripcion}</div>                              
+                            </div>
+                            <div class="card-footer text-muted">
+                                    <a onClick="modificarConcepto(${idConcepto})" class="btn btn-primary">Modificar</a>
+                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-primary">Eliminar</button>   
                             </div>
                         </div>`;
                 contenedor.innerHTML = html;
@@ -221,12 +241,30 @@ function seleccionarDiscapacidad(idDiscapacidad)
         }
     });
 }
+function eliminarConcepto(idConcepto)
+{
+    
+     $.ajax({
+        method: "POST",
+        url: "ConceptoSrv",
+        data: {"idconcepto": idConcepto, "accion": "3"},
+        success: function (data) {
+           
+            swal({text: "Concepto eliminado con exito", icon: "success"});
+            
+        },
+        error: function (error) {
+            console.log(error);
+            
+             swal({text: "No se pudo eliminar el concepto", icon: "error"});
 
+        }
+    });            
+}
 function alerta(texto, icono)
 {
     swal({text: texto, icon: icono});
 }
-
 function resultado()
 {
     document.getElementById("resu").innerHTML = document.getElementById("descripcion").innerHTML;

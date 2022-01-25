@@ -83,15 +83,13 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         response.setContentType("text/json;charset=UTF-8");
-          Discapacidad discapacidad=new Discapacidad();
-          
+           int accion = Integer.parseInt(request.getParameter("accion"));
+           if(accion==1){
+          response.setContentType("text/json;charset=UTF-8");
+          Discapacidad discapacidad=new Discapacidad();         
           discapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
-          discapacidad.setDiscapacidad(request.getParameter("discapacidad"));
-          
-          DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);
-          
+          discapacidad.setDiscapacidad(request.getParameter("discapacidad"));          
+          DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);          
            try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                if ( discapacodadDAO.insert())
@@ -107,6 +105,33 @@ public class DiscapacidadSrv extends HttpServlet {
                }
                 retorno += "}";
                 out.write(retorno);
+           }
+           }else if(accion==2)
+           {
+               
+            Discapacidad discapacidad = new Discapacidad();
+            discapacidad.setIdDiscapacidad(Integer.parseInt(request.getParameter("idDiscapacidad")));
+            DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad); 
+
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                if (discapacodadDAO.delete()) {
+                    
+                    retorno += "\"codigo\":200\n";
+                    response.setStatus(response.SC_OK);
+                    
+                } else {
+                    
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + discapacodadDAO.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                    
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+            
            }
     }
      @Override
