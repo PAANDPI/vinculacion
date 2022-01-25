@@ -6,10 +6,10 @@
 .efecto_blanco
 {    
     color: white;
-    background: rgba(0,0,0,0.5)!important;        
-    backdrop-filter:blur(20px)!important;
-    /*background: rgba(255,255,255,0.5)!important;*/    
+    /*background: rgba(0,0,0,0.5)!important;*/        
     /*backdrop-filter:blur(20px)!important;*/
+    background: rgba(255,255,255,0.5)!important;    
+    backdrop-filter:blur(5px)!important;
 }
 .centrar_objeto
 {

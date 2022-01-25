@@ -1,4 +1,4 @@
-<div class="pb-4 pt-5 degradado sombra" >            
+<div class="pb-4 pt-5 degradado " >            
     <div class="row justify-content-center text-center ">
         <div class="col-lg-12">
             <img width="240" height="210" src="recursos/imagenes/Logo_colorido.png" alt=""/>
@@ -11,9 +11,9 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 ">
                     <div class="input-group mb-3">
-                        <input type="text" class=" form-control form-control-lg " placeholder="Busqueda de discapacidades" aria-label="Recipient's username" >
+                        <input id="nombreDiscapacidad" type="text" class=" form-control form-control-lg " placeholder="Busqueda de discapacidades" aria-label="Recipient's username" >
                         <div class="input-group-append">
-                            <button class="btn btn-light bi bi-search" type="button"></button>
+                            <button id="btnBuscarDiscapacidad" class="btn btn-light bi bi-search" type="button"></button>
                         </div>
                     </div>   
                 </div>

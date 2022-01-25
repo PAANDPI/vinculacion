@@ -1,4 +1,4 @@
-<div class="pt-5">
+
     <div class="row justify-content-center ">
         <div class="card col-lg-3 col-sm-12 m-2 infoCar p-0" style="">
             <div class="amarillo " style="height: 20px; width: 100%"></div>
@@ -83,4 +83,3 @@
             </div>
         </div>
     </div>
-</div>

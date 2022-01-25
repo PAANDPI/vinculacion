@@ -60,12 +60,14 @@ public class ConceptoSrv extends HttpServlet {
             throws ServletException, IOException {
         Concepto concepto = new Concepto();
         ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
+         response.setContentType("text/html;charset=UTF-8");
+//        response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
             String busqueda = (request.getParameter("busqueda"));
-
+            
             int tipoBusqueda = Integer.parseInt(request.getParameter("tipobusqueda"));
             switch (tipoBusqueda) {
                 case 1:

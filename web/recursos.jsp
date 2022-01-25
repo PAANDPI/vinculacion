@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="icon" href="recursos/iconos/Logo_colorido.ico" type="image/x-icon">
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>

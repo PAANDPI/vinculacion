@@ -10,9 +10,11 @@
 <html>
     <head>
         <title>Principal</title>
+         <link rel="icon" href="recursos/iconos/Logo_colorido.ico" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+   
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
@@ -50,7 +52,7 @@
                 </div>
             </div>
         </div> 
-        <div class="container mb-5">
+        <div class="container headline mb-5">
             <div class="row container" >
                 <div class="col-lg-12 ">
                     <label style="font-size: 45px" class="font-weight-bold ">Funciones de YUYAPUY </label> 
@@ -72,5 +74,7 @@
 
 
     </body>
-
+     
+      
+        
 </html>

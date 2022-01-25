@@ -9,6 +9,7 @@
 <html>
     <head>
         <title>Login</title>
+         <link rel="icon" href="recursos/iconos/Logo_colorido.ico" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>

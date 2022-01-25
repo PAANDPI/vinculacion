@@ -99,7 +99,7 @@ public class ConceptoDAO {
                     json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replace("\"", "\\\"") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
@@ -115,7 +115,7 @@ public class ConceptoDAO {
 
     public String getVW2JSON(int idDiscapacidad) {
         String json = "\"Concepto\" : [";
-
+        String rem="\\\"";    
         if (conex.isState()) {
             try {
                 String sql = String.format("SELECT * FROM vwConcepto\n"
@@ -127,7 +127,7 @@ public class ConceptoDAO {
                     json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replace("\"", "\\\"") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
@@ -154,7 +154,7 @@ public class ConceptoDAO {
                     json += "\n\t\t{\n\t\t\"idconcepto\" : \"" + result.getInt("idconcepto") + "\",\n";
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replace("\"", "\\\"") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma

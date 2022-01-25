@@ -3,7 +3,7 @@
 
     <div class="row">
         <div class="col-lg-5">
-            <div class="mt-2 barra-colores  pl-lg-5 pt-lg-4 p-xl-5 p-sm-2">
+<!--            <div class="mt-2 barra-colores  pl-lg-5 pt-lg-4 p-xl-5 p-sm-2">
                 <table class="table ">
                     <thead class="color_base blanco">
                         <tr>
@@ -50,11 +50,11 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div>-->
         </div>
         <div class=" col-lg-7 ">
             <div class="mt-2 barra-colores pr-5 pt-4" style="height: auto;max-height:90vh;overflow: auto ">
-             <table class=" table ">
+<!--             <table class=" table ">
                 <thead class="color_base blanco ">
                     <tr>
                         <th scope="col">Categoria</th>
@@ -95,7 +95,7 @@
                         <td>78</td>
                     </tr>
                 </tbody>
-            </table>
+            </table>-->
             </div>
            
         </div>
