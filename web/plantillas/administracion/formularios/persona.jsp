@@ -1,17 +1,17 @@
 <div id="formulario-persona" class="col-lg-12"> 
     <div class="row ">
-        <div class="col-lg-6 justify-content-center p-3 ">
+        <div class="col-lg-5 justify-content-center p-3 ">
             <div  style="width: 500px; height: auto; border-radius: 10px 10px 10px 10px" class="m-auto">                    
                 <div style="border-top:  10px solid #0B3049; background: #0B3049; border-radius: 10px 10px 0px 0px" class="col-lg-12 pl-0 pt-2">
                     <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
                     <div  class="row ml-4">
-                        <label class=" font-weight-bold blanco " style="font-size: 20px" >Usuarios</label>    
+                        <label class=" font-weight-bold blanco " style="font-size: 20px" >USUARIO</label>    
                     </div> 
                     <div class="row ">
                         <nav class="nav ml-4">
                             <a id="btnGuardarUsuario" class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
                             <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar </a>    
-                            <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Eliminar</a> 
+                            <!--<a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Eliminar</a>--> 
                         </nav>
                     </div> 
                 </div>  
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label class="font-weight-bold" >Ciudad</label>
                         <select selected="selected" id="cmbCantones"  class="form-control form-control-sm">
-                        
+
                         </select>
                     </div>
                     <div class="form-group">
@@ -64,37 +64,15 @@
 
             </div> 
         </div>
-        <div class="col-lg-6">
-            <table class="table mt-4">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody id="tbl_personas">
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="col-lg-7 ">
+            <label class="font-weight-bold mt-3 bi bi-view-list" style="border-bottom: 0px solid #c4c4c4; width: 95%"> LISTA DE USUARIO</label>
+            <div class=" barra-colores  mr-5" style="height: 100vh;max-height: 74vh;overflow-y: auto;  ">
+                <table class="table">
+                    <tbody id="tbl_personas">
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </div> 

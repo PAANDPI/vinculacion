@@ -118,7 +118,7 @@ function cargarDiscapacidades()
                                     <td>${nombreCategoriaDiscapacidad}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-success btn-sm bi bi-check-circle"></button> 
+                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-info btn-sm bi bi-check-circle"></button> 
                                             <button onclick=modificarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-warning btn-sm bi bi-pencil-fill"></button> 
                                             <button onclick=eliminarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-danger btn-sm bi bi-x-square"></button>   
                                             </div>
@@ -168,7 +168,7 @@ function eliminarDiscapacidad(idDiscapacidad)
                             success: function (data) {
 
                                 swal({text: "Discapacidad eliminada", icon: "success"});
-                               cargarDiscapacidades();
+                                cargarDiscapacidades();
                             },
                             error: function (error) {
                                 console.log(error);
@@ -180,14 +180,14 @@ function eliminarDiscapacidad(idDiscapacidad)
                         break;
 
                     case "No":
-                         swal({text: "Eliminación cancelada", icon: "info"});                     
+                        swal({text: "Eliminación cancelada", icon: "info"});
                         break;
 
                     default:
 
                 }
             });
- 
+
 }
 function navegacionConceptos(n)
 {
@@ -209,7 +209,7 @@ function navegacionConceptos(n)
     var idConcepto = jsonConceptos.Concepto[nConceptos].idconcepto;
 
     html = `<div class="card col-lg-12" style="width:100%">
-                            <div class="card-body" style="height: 80vh; overflow-y:auto;  background:#E2E2E5 ">                              
+                            <div class="card-body" style="height: 80vh; overflow-y:auto;  ">                              
                                 <p class="card-text">${descripcion}</p>
                                 <a href="" class="btn btn-primary">Modificar</a>
                                 <a href="" class="btn btn-primary">Eliminar</a>                               
@@ -238,13 +238,17 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 var descripcion = jsonConceptos.Concepto[0].descripcion;
                 var idConcepto = jsonConceptos.Concepto[0].idconcepto;
 
-                html = `<div class="card col-lg-12" style="width:100%">
+                html = `<div class="card col-lg-12" style="width:100%; height: 75vh; overflow-y:auto; zoom: 100%">
                             <div class="card-body" style="height: 80vh; overflow-y:auto;">
                                 <div class="card-text">${descripcion}</div>                              
                             </div>
                             <div class="card-footer text-muted">
-                                    <a onClick="modificarConcepto(${idConcepto})" class="btn btn-primary">Modificar</a>
-                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-primary">Eliminar</button>   
+                                    <button onClick="modificarConcepto(${idConcepto})" class="btn btn-warning btn-sm">Modificar</button>
+                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-danger btn-sm">Eliminar</button>  
+                                <div class="btn-group float-right" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-secondary btn-sm">+</button>
+                                        <button type="button" class="btn btn-secondary btn-sm">-</button>
+                                </div>
                             </div>
                         </div>`;
                 contenedor.innerHTML = html;
@@ -252,7 +256,7 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 numero.innerHTML = jsonConceptos.Concepto.length;
             } catch (e)
             {
-                html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  background:#E2E2E5 ">                            
+                html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  ">                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
                              <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene coneptos</h3>                            
                              <hr style="border: 1px  solid">
