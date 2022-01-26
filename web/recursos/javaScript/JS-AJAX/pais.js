@@ -7,7 +7,6 @@ $(document).ready(function () {
             url: "PaisSrv",
             success: function (data) {
                 paisJSON = data;
-                console.log(paisJSON);
             },
             error: function (error) {
                 console.log(error);
@@ -20,7 +19,6 @@ $(document).ready(function () {
             url: "CiudadSrv",
             success: function (data) {
                 cantonesJSON = data;    
-                console.log(cantonesJSON);
                 var html = `<option value="" selected disabled hidden></option>`;
                 for (var i = 0; i < cantonesJSON.Ciudad.length; i++)
                 {

@@ -1,4 +1,4 @@
-
+var jsonPersonas;
 $(document).ready(function () {
     listadeUsuarios();
    function listadeUsuarios()
@@ -7,8 +7,37 @@ $(document).ready(function () {
                     method: "GET",
                     url: "PersonaSrv",                       
                     success: function (data) {
-                    console.log(data);
-                   
+                    jsonPersonas= data;
+                    var htmlTabla = ``;
+                     for (var i = 0; i < jsonPersonas.Persona.length; i++)
+                    {
+                           var idpersona=jsonPersonas.Persona[i].idpersona;
+                           var idciudad=jsonPersonas.Persona[i].idciudad;
+                           var nombre=jsonPersonas.Persona[i].nombre;
+                           var apellido=jsonPersonas.Persona[i].apellido;
+                           var genero=jsonPersonas.Persona[i].genero;
+                           var usuario=jsonPersonas.Persona[i].usuario;
+                           var correo=jsonPersonas.Persona[i].correo;
+                           var clave=jsonPersonas.Persona[i].clave;
+                           var administrador=jsonPersonas.Persona[i].administrador;
+                           var estado=jsonPersonas.Persona[i].estado;
+                           var ciudad=jsonPersonas.Persona[i].ciudad;
+                           
+                                htmlTabla += `<tr>
+                                    <th><div class=""></div></th>
+                                    <td>${nombre}</td>
+                                    <td></td>
+                                        <td>
+                                            <div class="btn-group" role="group" aria-label="Basic example">                                            
+                                            <button onclick=modificarDiscapacidad("") type="button" class="btn btn-warning btn-sm bi bi-pencil-fill"></button> 
+                                            <button onclick=eliminarDiscapacidad("") type="button" class="btn btn-danger btn-sm bi bi-x-square"></button>   
+                                            </div>
+                                        </td>                                 
+                                  </tr>`;
+                    }
+                     var tbl_personas = document.getElementById("tbl_personas");
+                         tbl_personas.innerHTML = htmlTabla;
+                                        
                     },
                     error: function (error) {                    
                     console.log(error);                                       

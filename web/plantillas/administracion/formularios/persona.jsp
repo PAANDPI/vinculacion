@@ -1,7 +1,7 @@
 <div id="formulario-persona" class="col-lg-12"> 
     <div class="row ">
         <div class="col-lg-6 justify-content-center p-3 ">
-            <div  style="width: 500px; height: auto; border-radius: 10px 10px 10px 10px" class="m-auto sombra">                    
+            <div  style="width: 500px; height: auto; border-radius: 10px 10px 10px 10px" class="m-auto">                    
                 <div style="border-top:  10px solid #0B3049; background: #0B3049; border-radius: 10px 10px 0px 0px" class="col-lg-12 pl-0 pt-2">
                     <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
                     <div  class="row ml-4">
@@ -64,7 +64,7 @@
 
             </div> 
         </div>
-<!--        <div class="col-lg-7">
+        <div class="col-lg-6">
             <table class="table mt-4">
                 <thead>
                     <tr>
@@ -74,7 +74,7 @@
                         <th scope="col">Handle</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbl_personas">
                     <tr>
                         <th scope="row">1</th>
                         <td>Mark</td>
@@ -95,6 +95,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>-->
+        </div>
     </div>
 </div> 
