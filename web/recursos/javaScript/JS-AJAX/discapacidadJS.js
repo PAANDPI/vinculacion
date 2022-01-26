@@ -6,11 +6,11 @@ var nConceptos = 0;
 $(document).ready(function () {
 
     cargarCategoriaDiscapacidades();
-    cargarDiscapacidades();   
+    cargarDiscapacidades();
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion":"1"}
+        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"}
         $.ajax({
             method: "POST",
             url: "DiscapacidadSrv",
@@ -74,45 +74,45 @@ $(document).ready(function () {
 });
 function cargarCategoriaDiscapacidades()
 {
-        $.ajax({
-            method: "GET",
-            url: "CategoriaDiscapacidadSrv",
-            success: function (data) {
-                jsonCategoria = data;
-                var html = `<option value="" selected disabled hidden></option>`;
-                for (var i = 0; i < jsonCategoria.CategoriaDiscapacidad.length; i++)
-                {
-                    var idCategoria = jsonCategoria.CategoriaDiscapacidad[i].idcategoriadiscapacidad;
-                    var nombreCategoria = jsonCategoria.CategoriaDiscapacidad[i].categoriadiscapacidad;
-                    html += `<option value="${idCategoria}">${nombreCategoria}</option>`;
+    $.ajax({
+        method: "GET",
+        url: "CategoriaDiscapacidadSrv",
+        success: function (data) {
+            jsonCategoria = data;
+            var html = `<option value="" selected disabled hidden></option>`;
+            for (var i = 0; i < jsonCategoria.CategoriaDiscapacidad.length; i++)
+            {
+                var idCategoria = jsonCategoria.CategoriaDiscapacidad[i].idcategoriadiscapacidad;
+                var nombreCategoria = jsonCategoria.CategoriaDiscapacidad[i].categoriadiscapacidad;
+                html += `<option value="${idCategoria}">${nombreCategoria}</option>`;
 
-                }
-                var cmbCatDiscapacidades = document.getElementById("cmbIdCategoriDiscapacidad");
-                cmbCatDiscapacidades.innerHTML = html;
-
-            },
-            error: function (error) {
-                console.log(error);
             }
-        });
-    }   
+            var cmbCatDiscapacidades = document.getElementById("cmbIdCategoriDiscapacidad");
+            cmbCatDiscapacidades.innerHTML = html;
+
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
 function cargarDiscapacidades()
 {
 
-        $.ajax({
-            method: "GET",
-            url: "DiscapacidadSrv",
-            success: function (data) {
-                jsonDiscapacidades = JSON.parse(data);
-                var htmlTabla = ``;
-                var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
-                for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
-                {
-                    var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
-                    var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
-                    var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
-                    var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
-                    htmlTabla += `<tr>
+    $.ajax({
+        method: "GET",
+        url: "DiscapacidadSrv",
+        success: function (data) {
+            jsonDiscapacidades = JSON.parse(data);
+            var htmlTabla = ``;
+            var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
+            for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
+            {
+                var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
+                var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
+                var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
+                var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
+                htmlTabla += `<tr>
                                     <th>${i + 1}</th>
                                     <td>${nombreDiscapacidad}</td>
                                     <td>${nombreCategoriaDiscapacidad}</td>
@@ -124,41 +124,70 @@ function cargarDiscapacidades()
                                             </div>
                                         </td>                                 
                                   </tr>`;
-                    cmbDiscapacidades += `<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
-                }
-
-                var tbl_Discapacidad = document.getElementById("tbl_Discapacidad");
-                var cmb_Discapacidad = document.getElementById("cmb-discapacidad");
-                tbl_Discapacidad.innerHTML = htmlTabla;
-                cmb_Discapacidad.innerHTML = cmbDiscapacidades;
-
-            },
-            error: function (error) {
-
+                cmbDiscapacidades += `<option value="${idDiscapacidad}">${nombreDiscapacidad}</option>`;
             }
-        });
 
+            var tbl_Discapacidad = document.getElementById("tbl_Discapacidad");
+            var cmb_Discapacidad = document.getElementById("cmb-discapacidad");
+            tbl_Discapacidad.innerHTML = htmlTabla;
+            cmb_Discapacidad.innerHTML = cmbDiscapacidades;
 
-    }
-function eliminarDiscapacidad(idDiscapacidad)
-{
-    
-     $.ajax({
-        method: "POST",
-        url: "DiscapacidadSrv",
-        data: {"idDiscapacidad": idDiscapacidad, "accion": "2"},
-        success: function (data) {
-           
-            swal({text: "Todo bien", icon: "success"});
-            cargarDiscapacidades();
         },
         error: function (error) {
-            console.log(error);
-            
-             swal({text: "Algo salio mal", icon: "error"});
 
         }
-    });            
+    });
+
+
+}
+function eliminarDiscapacidad(idDiscapacidad)
+{
+    swal("¿Esta seguro querer eliminar esta discapacidad?", {
+        buttons: {
+            cancel: "Cancelar",
+            si: {
+                text: "Sí",
+                value: "Si",
+                className: "btn btn-success",
+            },
+            no: {
+                text: "No",
+                value: "No",
+                className: "btn btn-warning",
+            }
+        }
+    })
+            .then((value) => {
+                switch (value) {
+
+                    case "Si":
+                        $.ajax({
+                            method: "POST",
+                            url: "DiscapacidadSrv",
+                            data: {"idDiscapacidad": idDiscapacidad, "accion": "2"},
+                            success: function (data) {
+
+                                swal({text: "Discapacidad eliminada", icon: "success"});
+                               cargarDiscapacidades();
+                            },
+                            error: function (error) {
+                                console.log(error);
+
+                                swal({text: "No se pudo eliminar la discapacidad", icon: "error"});
+
+                            }
+                        });
+                        break;
+
+                    case "No":
+                         swal({text: "Eliminación cancelada", icon: "info"});                     
+                        break;
+
+                    default:
+
+                }
+            });
+ 
 }
 function navegacionConceptos(n)
 {
@@ -180,7 +209,7 @@ function navegacionConceptos(n)
     var idConcepto = jsonConceptos.Concepto[nConceptos].idconcepto;
 
     html = `<div class="card col-lg-12" style="width:100%">
-                            <div class="card-body" style="height: 80vh; overflow-y:auto;">                              
+                            <div class="card-body" style="height: 80vh; overflow-y:auto;  background:#E2E2E5 ">                              
                                 <p class="card-text">${descripcion}</p>
                                 <a href="" class="btn btn-primary">Modificar</a>
                                 <a href="" class="btn btn-primary">Eliminar</a>                               
@@ -223,7 +252,7 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 numero.innerHTML = jsonConceptos.Concepto.length;
             } catch (e)
             {
-                html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto">                            
+                html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  background:#E2E2E5 ">                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
                              <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene coneptos</h3>                            
                              <hr style="border: 1px  solid">
@@ -243,23 +272,23 @@ function seleccionarDiscapacidad(idDiscapacidad)
 }
 function eliminarConcepto(idConcepto)
 {
-    
-     $.ajax({
+
+    $.ajax({
         method: "POST",
         url: "ConceptoSrv",
         data: {"idconcepto": idConcepto, "accion": "3"},
         success: function (data) {
-           
+
             swal({text: "Concepto eliminado con exito", icon: "success"});
-            
+
         },
         error: function (error) {
             console.log(error);
-            
-             swal({text: "No se pudo eliminar el concepto", icon: "error"});
+
+            swal({text: "No se pudo eliminar el concepto", icon: "error"});
 
         }
-    });            
+    });
 }
 function alerta(texto, icono)
 {

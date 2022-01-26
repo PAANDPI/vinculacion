@@ -1,6 +1,20 @@
 
 $(document).ready(function () {
-   
+    listadeUsuarios();
+   function listadeUsuarios()
+{
+     $.ajax({
+                    method: "GET",
+                    url: "PersonaSrv",                       
+                    success: function (data) {
+                    console.log(data);
+                   
+                    },
+                    error: function (error) {                    
+                    console.log(error);                                       
+                    }
+                });
+}
     $('#btnGuardarUsuario').on('click', function () {
         var txtNombre=document.getElementById("txtNombre").value;
         var txtApellido=document.getElementById("txtApellido").value;
@@ -10,7 +24,7 @@ $(document).ready(function () {
         var txtContrasenia=document.getElementById("txtContrasenia").value;
         var txtConfirmarContrasenia=document.getElementById("txtConfirmarContrasenia").value;
          var cmbCantones = document.getElementById("cmbCantones").value;
-         
+        var administradorCheck= document.getElementById("administradorCheck");
         var datos={"idCiudad":cmbCantones,
                     "nombre":txtNombre,
                     "apellido":txtApellido,
@@ -18,14 +32,14 @@ $(document).ready(function () {
                     "usuario":txtNombreUsuario, 
                     "correo":txtCorreo, 
                     "clave":txtContrasenia,
-                    "administrador":"true", 
+                    "administrador":administradorCheck.checked, 
                     "accion": "2" };
                 
         console.log(datos);
-//        var validor=(txtNombre.length*txtApellido.length* cmbGenero.length*
-//        txtCorreo.length* txtNombreUsuario.length * cmbCantones.length)
-//            if(validor>0)
-//            {
+        var validor=(txtNombre.length*txtApellido.length* cmbGenero.length*
+        txtCorreo.length* txtNombreUsuario.length * cmbCantones.length)
+            if(validor>0)
+            {
                  $.ajax({
                     method: "POST",
                     url: "PersonaSrv",
@@ -40,15 +54,16 @@ $(document).ready(function () {
                     
                     }
                 });
-//                
-//            }else
-//            {
-//                 alerta("Complete todo los campos", "error");
-//            }
+                
+            }else
+            {
+                 alerta("Complete todo los campos", "error");
+            }
         
     });
     
 });
+
 function alerta(texto, icono)
 {
     swal({text: texto, icon: icono});

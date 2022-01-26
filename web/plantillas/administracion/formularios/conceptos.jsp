@@ -52,7 +52,7 @@
                 <div class="col-lg-12">
                     <div id="containerConceptos" class="barra-colores "
                          style="height: 80vh;">                        
-                        <div class="card p-5  justify-content-center" style="width:100%; height: 80vh; overflow-y:auto; border: none">                                                     
+                        <div class="card p-5  justify-content-center" style="width:100%; height: 80vh; overflow-y:auto; background:#E2E2E5 ">                                                     
                             <div class="alert  alert-info m-auto" style="width: 50%">    
                                 <span class="bi bi-info-circle-fill" style="font-size: 25px"> Precaución</span>
                                 <hr style="border: 1px  solid">

@@ -30,8 +30,8 @@
       
         <title>Administrador</title>
     </head>
-    <body class="">        
-        <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%> 
+    <body class="" style="background:#E2E2E5 ">        
+        <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%>        
             <%@include  file="plantillas/administracion/menu_administracion.jsp" %>
         <div class="row" >         
             <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>

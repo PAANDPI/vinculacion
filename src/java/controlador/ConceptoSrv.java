@@ -61,7 +61,6 @@ public class ConceptoSrv extends HttpServlet {
         Concepto concepto = new Concepto();
         ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);
         response.setContentType("text/html;charset=UTF-8");
-//        response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
