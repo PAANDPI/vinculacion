@@ -18,7 +18,7 @@
         <script src="recursos/javaScript/JS-AJAX/personaJS.js" type="text/javascript"></script>
         <script src="recursos/javaScript/JS-AJAX/pais.js" type="text/javascript"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-       
+        <script src="recursos/javaScript/JS-AJAX/ubicacionJS.js" type="text/javascript"></script>
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>

@@ -78,7 +78,7 @@ public class ProvinciaDAO {
     }
 
     public String getVW2JSON() {
-        String json = "\"Lugar\" : [";
+        String json = "\"Provincia\" : [";
 
         if (conex.isState()) {
             try {

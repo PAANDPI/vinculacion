@@ -8,7 +8,7 @@
                     </div> 
                     <div class="row ">
                         <nav class="nav ml-4">
-                            <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> </a>  
+                            <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco " id="btn_guarda_lugar"> </a>  
                             <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> </a>   
                             <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
 
@@ -19,14 +19,14 @@
                     <form>                        
                         <div class="form-group">
                             <label class=" ">Seleccionar provincia</label>
-                            <select  class=" form-control form-control-sm" id="cmb-provincia">
-                                <option style="font-size: 16px">Física</option>
+                            <select  class=" form-control form-control-sm" id="cmb-provincia" >
+                              
                             </select>
                         </div>
                         <div class="form-group">
                             <label class=" ">Seleccionar cantón</label>
                             <select  class=" form-control form-control-sm" id="cmb-canton">
-                                <option style="font-size: 16px">Física</option>
+                                <option disabled selected hidden>-- Seleccione Cantón --</option>
                             </select>
                         </div>
                         <div class="form-group">

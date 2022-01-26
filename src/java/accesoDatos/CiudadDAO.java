@@ -86,23 +86,24 @@ public class CiudadDAO {
         return null;
     }
 
-    public List<Ciudad> selectAll(int idProvincia) {
-        ciudadList = new ArrayList<>();
-
+    public String selectAll(String idProvincia) {
+        String json = "\"Ciudad\" : [";
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM public.table;");
+                ResultSet result = conex.returnQuery("SELECT * FROM public.ciudad C where C.idprovincia = " + idProvincia);
                 while (result.next()) {
-                    ciudadList.add(new Ciudad(result.getInt(1), result.getInt(2),
-                            result.getString(3)));
+                      json += "\n\t\t{\n\t\t\"idciudad\" : \"" + result.getInt("idciudad") + "\",\n";                
+                    json += "\t\t\t\"ciudad\" : \"" + result.getString("ciudad") + "\"\n\t\t},";
                 }
+                  json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();
                 conex.closeConnection();
             } catch (SQLException ex) {
                 conex.setMessage(ex.getMessage());
             }
         }
-        return null;
+        json += "]";
+        return json;
     }
 
     public String getVW2JSON() {
