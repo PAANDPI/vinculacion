@@ -58,16 +58,21 @@ public class CiudadSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         CiudadDAO ciudadDAO = new CiudadDAO();
+        String opcion= request.getParameter("opcion");
+        String idProvincia= request.getParameter("idProvincia");
         response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try (PrintWriter out = response.getWriter()) {   
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
-            retorno += ciudadDAO.getVW2JSON();
+            if (opcion.equals("1")) {
+                retorno += ciudadDAO.getVW2JSON();
+            }else if (opcion.equals("2")) {
+                retorno += ciudadDAO.selectAll(idProvincia);
+            }
             retorno += "\n}";
-            out.write(retorno);
+            out.write(retorno);           
             //processRequest(request, response);
         }
     }
