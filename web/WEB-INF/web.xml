@@ -37,6 +37,10 @@
         <servlet-name>ConceptoSrv</servlet-name>
         <servlet-class>controlador.ConceptoSrv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LugarSrv</servlet-name>
+        <servlet-class>controlador.LugarSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -68,6 +72,10 @@
     <servlet-mapping>
         <servlet-name>ConceptoSrv</servlet-name>
         <url-pattern>/ConceptoSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LugarSrv</servlet-name>
+        <url-pattern>/LugarSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

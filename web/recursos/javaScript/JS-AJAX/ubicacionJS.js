@@ -1,3 +1,5 @@
+/* global Ciudad */
+
 $(document).ready(function () {
     function cargaProvincia(e) {
         $.ajax({
@@ -27,7 +29,8 @@ $(document).ready(function () {
     });
 
     $('#cmb-provincia').change(function () {
-        var datos = {"opcion": "2", "idProvincia": this.value};
+        var Provincia = this.value;
+        var datos = {"opcion": "2", "idProvincia": Provincia };
         $.ajax({
             method: "GET",
             url: 'CiudadSrv',
@@ -49,5 +52,41 @@ $(document).ready(function () {
             }
         });
     });
+    var Ciudad;
+      $("#cmb-canton").change(function(e){
+          Ciudad= this.value;
+      });
+    $('#btn_guarda_lugar').click(function (e) {
+        
+        var Lugar = $("#txt-nombreLugar").val();
+        var Descripcion = $("#txt-descripcionLugar").val();
+        var coordenadaX = $("#txt-coordenadaX").val();
+        var coordenadaY = $("#txt-coordenadaY").val();
+        ;
+        var Estado = 'true';
+        var datos = {"IdCiudad": Ciudad, "Lugar": Lugar, "Descripcion": Descripcion, "CoordenadaX": coordenadaX, "CoordenadaY": coordenadaY, "Estado": Estado};
+        console.log(datos);
+        $.ajax({
+            method: "POST",
+            url: 'LugarSrv',
+            data: datos,
+            success: function (data) {
+                console.log(data);
+                Limpiar();
+                alerta(`Ubicacion ${Lugar} añadida con exito`, "success");
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+    function Limpiar(e) {
+        $("#txt-nombreLugar").val('');
+        $("#txt-descripcionLugar").val('');
+        $("#txt-coordenadaX").val('');
+        $("#txt-coordenadaY").val('');
+        cargaProvincia();
+        $("#cmb-canton").val('');
+    }
 });
 

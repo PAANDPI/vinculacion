@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/src/java/accesoDatos/ProvinciaDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/src/java/controlador/CiudadSrv.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/src/java/accesoDatos/CiudadDAO.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/recursos/javaScript/JS-AJAX/personaJS.js</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/plantillas/administracion/formularios/conceptos.jsp</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/src/java/controlador/ProvinciaSvr.java</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/src/java/controlador/LugarSrv.java</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/src/java/accesoDatos/LugarDAO.java</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/web/plantillas/administracion/formularios/ubicaciones.jsp</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/web/recursos/javaScript/JS-AJAX/ubicacionJS.js</file>
+            <file>file:/C:/Users/Dell%20i5/Documents/Universidad/Vinculacion/Unidad%20Educativa%20Bartolicci/Repositorio/vinculacion/src/java/accesoDatos/CiudadDAO.java</file>
         </group>
     </open-files>
 </project-private>

@@ -10,7 +10,7 @@ $(document).ready(function () {
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"}
+        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
         $.ajax({
             method: "POST",
             url: "DiscapacidadSrv",

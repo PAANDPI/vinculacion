@@ -43,7 +43,7 @@
                         </div>  
                         <div class="form-group">
                             <label class=" ">Coordenada Y</label>
-                            <input  class="form-control form-control-sm" type="number" id="txt-coordenadaY" >
+                            <input  class="form-control form-control-sm" type="text" id="txt-coordenadaY" >
                         </div>  
                         <div class="form-group">
                             <label class=" ">Etiqueta</label>
@@ -57,11 +57,12 @@
         <div class="col-lg-7">
              <table class="table mt-4">
             <thead>
-                <tr>
+                <tr rowspan="2">
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Lugar</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col" colspan="2" >Ubicación</th>
                 </tr>
             </thead>
             <tbody>
@@ -70,18 +71,8 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                     <td>Otto</td>
+                    <td>@mdo</td>
                 </tr>
             </tbody>
         </table>
