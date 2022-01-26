@@ -9,8 +9,9 @@
                         <select selected="selected" id="cmbIdCategoriDiscapacidad"  class="form-control">
                         
                         </select>
-                        <label>Nombre discapacidad</label>
-                        <input id="txtNombreDiscapacidad" type="text" class="form-control" placeholder="Nombre de la discapacidad">
+                        <label for="txtNombreDiscapacidad">Nombre discapacidad</label>
+                        <input id="txtNombreDiscapacidad" type="text" class="form-control" maxlength="8" placeholder="Nombre de la discapacidad">
+                     
                         <hr>
                     </div>
                     <div class="modal-footer">

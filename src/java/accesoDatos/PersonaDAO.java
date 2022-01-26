@@ -146,23 +146,23 @@ public class PersonaDAO {
     }
 
     public String getVW2JSON() {
-        String json = "\"Lugar\" : [";
+        String json = "\"Persona\" : [";
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwLugar;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwPersona;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idpersona\" : \"" + result.getInt("idpersona") + "\",\n";
-                    json += "\t\t\t\"idciudad\" : \"" + result.getString("idciudad") + "\",\n";
+                    json += "\t\t\t\"idciudad\" : \"" + result.getInt("idciudad") + "\",\n";
                     json += "\t\t\t\"nombre\" : \"" + result.getString("nombre") + "\",\n";
                     json += "\t\t\t\"apellido\" : \"" + result.getString("apellido") + "\",\n";
                     json += "\t\t\t\"genero\" : \"" + result.getString("genero") + "\",\n";
                     json += "\t\t\t\"usuario\" : \"" + result.getString("usuario") + "\",\n";
                     json += "\t\t\t\"correo\" : \"" + result.getString("correo") + "\",\n";
                     json += "\t\t\t\"clave\" : \"" + result.getString("clave") + "\",\n";
-                    json += "\t\t\t\"administrador\" : \"" + result.getString("administrador") + "\",\n";
-                    json += "\t\t\t\"estado\" : \"" + result.getString("estado") + "\",\n";
-                    json += "\t\t\t\"ciudad\" : \"" + result.getBoolean("ciudad") + "\"\n\t\t},";
+                    json += "\t\t\t\"administrador\" : \"" + result.getBoolean("administrador") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"ciudad\" : \"" + result.getString("ciudad") + "\"\n\t\t},";
                 }
                 json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
                 result.close();
