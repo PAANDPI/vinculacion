@@ -5,7 +5,7 @@ $(document).ready(function () {
     {
         $.ajax({
             method: "GET",
-            url: "PersonaSrv",
+            url: "Persona_Srv",
             success: function (data) {
                 jsonPersonas = data;
                 var htmlTabla = ``;
@@ -96,7 +96,7 @@ $(document).ready(function () {
         {
             $.ajax({
                 method: "POST",
-                url: "PersonaSrv",
+                url: "Persona_Srv",
                 data: datos,
                 success: function (data) {
                     alerta("Usuario guardado correctamente:", "success");
