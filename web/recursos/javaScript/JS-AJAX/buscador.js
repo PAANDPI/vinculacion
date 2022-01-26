@@ -29,7 +29,7 @@ $(document).ready(function ()
                     <div class="card-header" id="heading${idConcepto}">
                         <h5 class="">
                           <button id="btnR${idConcepto}" class="btn font-weight-bold bi bi-bookmark-fill" data-toggle="collapse" data-target="#collapse${idConcepto}" aria-expanded=" ${boolean}" aria-controls="collapse${idConcepto}">
-                            ${vector[1]}                           
+                           ${titulo} :     ${vector[1]}                           
                           </button>
                         </h5>
                          <labels class="font-weight-bold ml-3">Relacionado con:</labels>

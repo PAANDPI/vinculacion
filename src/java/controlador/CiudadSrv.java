@@ -60,7 +60,7 @@ public class CiudadSrv extends HttpServlet {
             throws ServletException, IOException {
         CiudadDAO ciudadDAO = new CiudadDAO();
         String opcion= request.getParameter("opcion");
-        String idProvincia= request.getParameter("idProvincia");
+        
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {   
             String retorno = "{\n\t";
@@ -69,6 +69,7 @@ public class CiudadSrv extends HttpServlet {
             if (opcion.equals("1")) {
                 retorno += ciudadDAO.getVW2JSON();
             }else if (opcion.equals("2")) {
+                String idProvincia= request.getParameter("idProvincia");
                 retorno += ciudadDAO.selectAll(idProvincia);
             }
             retorno += "\n}";

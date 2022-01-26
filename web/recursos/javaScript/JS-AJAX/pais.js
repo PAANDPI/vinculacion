@@ -14,12 +14,14 @@ $(document).ready(function () {
         });
     }
      function cmbCantones(){
+         var datos = {"opcion": "1"};
      $.ajax({
             method: "GET",
             url: "CiudadSrv",
+            data: datos,
             success: function (data) {
                 cantonesJSON = data;    
-                var html = `<option value="" selected disabled hidden></option>`;
+                var html = `<option value="" selected disabled hidden>-- Seleccione Cantón --</option>`;
                 for (var i = 0; i < cantonesJSON.Ciudad.length; i++)
                 {
                     var idCiudad = cantonesJSON.Ciudad[i].idciudad;
