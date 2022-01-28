@@ -3,3 +3,6 @@
 /dist/
 private.xml
 private.properties
+*.properties
+nbproject/ant-deploy.xml
+nbproject/build-impl.xml
