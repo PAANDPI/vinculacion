@@ -14,11 +14,12 @@ public class Recurso {
     private int idRecurso, idCategoriaRecurso, idDiscapacidad;
     private String recurso, descripcion, etiquetas;
     private boolean estado;
+    private String ruta;
 
     public Recurso() {
     }
 
-    public Recurso(int idRecurso, int idCategoriaRecurso, int idDiscapacidad, String recurso, String descripcion, String etiquetas, boolean estado) {
+    public Recurso(int idRecurso, int idCategoriaRecurso, int idDiscapacidad, String recurso, String descripcion, String etiquetas, boolean estado, String ruta) {
         this.idRecurso = idRecurso;
         this.idCategoriaRecurso = idCategoriaRecurso;
         this.idDiscapacidad = idDiscapacidad;
@@ -26,6 +27,7 @@ public class Recurso {
         this.descripcion = descripcion;
         this.etiquetas = etiquetas;
         this.estado = estado;
+        this.ruta = ruta;
     }
 
     public int getIdRecurso() {
@@ -83,4 +85,14 @@ public class Recurso {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public String getRuta() {
+        return ruta;
+    }
+
+    public void setRuta(String ruta) {
+        this.ruta = ruta;
+    }
+    
+    
 }

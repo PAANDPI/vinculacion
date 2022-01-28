@@ -41,6 +41,10 @@
         <servlet-name>LugarSrv</servlet-name>
         <servlet-class>controlador.LugarSrv</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecursoSrv</servlet-name>
+        <servlet-class>controlador.RecursoSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -76,6 +80,10 @@
     <servlet-mapping>
         <servlet-name>LugarSrv</servlet-name>
         <url-pattern>/LugarSrv</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecursoSrv</servlet-name>
+        <url-pattern>/RecursoSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
