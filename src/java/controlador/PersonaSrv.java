@@ -18,7 +18,7 @@ import model.Persona;
  *
  * @author Arialdo
  */
-public class Persona_Srv extends HttpServlet {
+public class PersonaSrv extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class Persona_Srv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Persona_Srv</title>");
+            out.println("<title>Servlet PersonaSrv</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Persona_Srv at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PersonaSrv at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -41,10 +41,6 @@
         <servlet-name>LugarSrv</servlet-name>
         <servlet-class>controlador.LugarSrv</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Persona_Srv</servlet-name>
-        <servlet-class>controlador.Persona_Srv</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -80,10 +76,6 @@
     <servlet-mapping>
         <servlet-name>LugarSrv</servlet-name>
         <url-pattern>/LugarSrv</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Persona_Srv</servlet-name>
-        <url-pattern>/Persona_Srv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
