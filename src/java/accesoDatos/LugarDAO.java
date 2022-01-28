@@ -30,9 +30,11 @@ public class LugarDAO {
 
     public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %5.2f, %5.2f, '%s');",
-                lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(), lugar.getCoordenadaX(),
-                lugar.getCoordenadaY(), lugar.getEtiqueta());
+        String coordenadasX=lugar.getCoordenadaX()+"";
+        String coordenadasY=lugar.getCoordenadaY()+"";
+        String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %s, %s, '%s');",
+                lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),coordenadasX.replace(",",".") ,
+                coordenadasY.replace(",","."), lugar.getEtiqueta());
 
         System.out.println(sql);
         if (conex.isState()) {
