@@ -9,18 +9,18 @@
                     </div> 
                     <div class="row ">
                         <nav class="nav ml-4">
-                            <a id="btnGuardarUsuario" class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
-                            <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar </a>    
+                            <a id="btnGuardarUsuario" class="btn btn-l efecto_guardar  bi bi-save-fill blanco ">  Guardar</a>  
+                            <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar </a>    
                             <!--<a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Eliminar</a>--> 
                         </nav>
                     </div> 
                 </div>  
                 <div class="p-4 barra-colores"  style="height: 100vh;max-height: 65vh;overflow-y: auto; background:#ededed; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px" >                                                               
+                    
                     <div class="form-group">
                         <label class="font-weight-bold">Nombre</label>
                         <input  id="txtNombre" class="form-control form-control-sm" type="text">
                     </div>    
-
                     <div class="form-group">
                         <label class="font-weight-bold">Apellido</label>
                         <input id="txtApellido" class="form-control form-control-sm" type="text">
@@ -74,5 +74,11 @@
             </div>
 
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12"  style="border-top: 1px solid #c4c4c4;">
+            <label class="pr-3 float-right" style="color:#a3a3a3 ">Sección de gestión de usuarios</label>
+        </div>
+        
     </div>
 </div> 

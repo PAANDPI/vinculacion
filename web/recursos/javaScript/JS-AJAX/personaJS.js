@@ -22,40 +22,44 @@ $(document).ready(function () {
                     var administrador = jsonPersonas.Persona[i].administrador;
                     var estado = jsonPersonas.Persona[i].estado;
                     var ciudad = jsonPersonas.Persona[i].ciudad;
-
+                    var url = ` recursos/iconos/admin.png`;
+                    if (administrador)
+                    {
+                        url = `recursos/iconos/normal.png`;
+                    }
 
 
                     htmlTabla += `<tr>
                                     <th>
-                                        <div class="alert alert-light" style="border: 1px solid #c4c4c4;" role="alert">
-                                                <h4 class="alert-heading bi bi-bookmark-fill"> ${nombre} ${apellido}</h4>
- 
-                                                 <div class="row">
-                                                   <div class="col-lg-4">
-                                                     <label>Username: </label> <p  style="font-weight: normal">  ${usuario}</p>
-                                                   </div>
-                                                   <div class="col-lg-4">
-                                                      <label >Administrador:</label><p  style="font-weight: normal">  ${administrador}</p>
-                                                   </div>
-                                                <div class="col-lg-4">
-                                                   <label>Genero: </label> <p  style="font-weight: normal"> ${genero}</p>
-                                                 </div> 
-                                                  </div>
-                                                  <div class="row mt-2">                                                        
-                                                 <div class="col-lg-4">
-                                                   <label >Estado:</label><p  style="font-weight: normal">  ${estado}</p>
-                                                 </div> 
-                                                   <div class="col-lg-4">
-                                                   <label  >Correo:</label><p  style="font-weight: normal"> ${correo}</p>
+                                        <div class="card" style="border: 1px solid #c4c4c4;  " role="alert">
+                                                <div class="card-header ">
+                                                <div class="row">
+                                                   <h5 class="card-title col-lg-11 bi bi-person-circle "> ${nombre} ${apellido}</h5>
+                                                    <div class="col-lg-1"> <img class="float-right " src="${url}" width="35"></div>
+                                                </div>
+                                                   
                                                  </div>
-                                               </div>
-                                               <hr>
-                                               <div class="row p-0">
-                                                  <div class="col-lg-12 pl-3">     
-                                                      <button onClink="seleccionar(${idpersona})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
-                                                      <button onClink="eliminarPersona(${idpersona})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
-                                                  </div>        
-                                               </div>
+                                                <div class="card-body">
+                                                        <div class="row">
+                                                                    <div class="col-lg-6">
+                                                                         <h6 class="font-weight-bold">Username: ${usuario}</h6>
+                                                                         <h6 class="font-weight-bold" >Administrador: ${administrador}</h6>
+                                                                         <h6 class="font-weight-bold">Genero: ${genero}</h6> 
+                                                                    </div>
+                                                                    <div class="col-lg-6">
+                                                                          <h6  class="font-weight-bold">Estado: ${estado}</h6>
+                                                                          <h6 class="font-weight-bold">Correo: ${correo}</h6>
+                                                                    </div>                                                             
+                                                        </div>
+                                                        <hr>
+                                                        <div class="row p-0">
+                                                            <div class="col-lg-12 pl-3">     
+                                                                <button onClink="seleccionar(${idpersona})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
+                                                                <button onClink="eliminarPersona(${idpersona})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
+                                                            </div>        
+                                                        </div>
+                                                 </div>                                                                                               
+                                             
                                             </div>
                                      </th>
                                    `;

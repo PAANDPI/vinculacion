@@ -1,23 +1,23 @@
 <div id="formulario-recursos" class="col-lg-12"> 
-    <div class="row container">
-    <div class="col-lg-5">
-        <div  style="width: 100%; height: 80vh; " class="mt-4  float-left  sombra ">                    
-            <div style="border-top:  10px solid #0B3049; background: #0B3049;" class="col-lg-12 pl-0 pt-2">
+    <div class="row">
+    <div class="col-lg-5 justify-content-center p-3">
+        <div  style="width: 500px; height: auto; border-radius: 10px 10px 10px 10px " class="m-auto">                    
+            <div style="border-top:  10px solid #0B3049; background: #0B3049; border-radius: 10px 10px 0px 0px" class="col-lg-12 pl-0 pt-2">
                 <span class="bi bi-info-circle blanco efector_barra" style="font-size: 20px; position: absolute; right: 20px; top: 1px; "></span>
                 <div  class="row ml-4">
-                    <label class=" font-weight-bold blanco " style="font-size: 20px" >Recursos</label>    
+                    <label class=" font-weight-bold blanco " style="font-size: 20px" >RECURSOS</label>    
                 </div> 
-                <div class="row ">
+                <div class="row">
                     <nav class="nav ml-4">
-                        <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> </a>  
-                        <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> </a>    
-                        <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> 
+                        <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>  
+                        <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco "> Modificar</a>    
+                        <!--<a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a>--> 
                     </nav>
                 </div> 
             </div>  
-            <div class="p-4 barra-colores"  style="height: 60vh;max-height: 60vh;overflow-y: auto;">
-                <form>
-                   <div class="form-group">
+            <div class="p-4 barra-colores " style="height: 100vh;max-height: 65vh;overflow-y: auto; background:#ededed; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
+                
+                        <div class="form-group">
                             <label class=" ">Seleccionar categoría</label>
                             <select  class=" form-control" id="cmb-categoria">
                                 <option style="font-size: 16px">Física</option>
@@ -54,7 +54,7 @@
                             <label class=" ">Etiqueta</label>
                             <input  class="form-control" type="text" id="txt-etiqueta" >
                         </div> 
-                </form>                         
+                                       
             </div>
 
         </div> 

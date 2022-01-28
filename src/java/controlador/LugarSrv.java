@@ -58,7 +58,18 @@ public class LugarSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+            LugarDAO lugarDao = new LugarDAO();
+            response.setContentType("text/json;charset=UTF-8");
+            
+            try (PrintWriter out = response.getWriter()) {
+            String retorno = "{\n\t";
+
+            retorno += "\"codigo\":200,\n";
+            retorno += lugarDao.getVW2JSON();
+            retorno += "\n}";
+            out.write(retorno);
+           
+            }
     }
 
     /**

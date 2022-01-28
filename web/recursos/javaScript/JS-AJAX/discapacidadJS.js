@@ -112,7 +112,7 @@ function cargarDiscapacidades()
                 var nombreCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].categoriadiscapacidad;
                 var idCategoriaDiscapacidad = jsonDiscapacidades.Discapacidad[i].idcategoriadiscapacidad;
                 var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
-                htmlTabla += `<tr>
+                htmlTabla += `<tr style="border-radius:10px ">
                                     <th>${i + 1}</th>
                                     <td>${nombreDiscapacidad}</td>
                                     <td>${nombreCategoriaDiscapacidad}</td>
@@ -208,15 +208,32 @@ function navegacionConceptos(n)
     var descripcion = jsonConceptos.Concepto[nConceptos].descripcion;
     var idConcepto = jsonConceptos.Concepto[nConceptos].idconcepto;
 
-    html = `<div class="card col-lg-12" style="width:100%">
-                            <div class="card-body" style="height: 80vh; overflow-y:auto;  ">                              
-                                <p class="card-text">${descripcion}</p>
-                                <a href="" class="btn btn-primary">Modificar</a>
-                                <a href="" class="btn btn-primary">Eliminar</a>                               
+   html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
+                            <div  class="card-body" style="height: 80vh; overflow-y:auto; ">
+                                <div id="contenedoDescripcion" style="zoom:100%" class="card-text">${descripcion}</div>                              
+                            </div>
+                            <div class="card-footer text-muted">
+                                    <button onClick="modificarConcepto(${idConcepto})" class="btn btn-warning">Modificar</button>
+                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-danger ">Eliminar</button>  
+                                <div class=" float-right">                                  
+                                   <input class="mr-2" list="tickmarks" onmousemove="labelZoom()"  id="cantidadZoom" type="range" value="100" >
+                                   <label   id="valorZoom">50%</label>
+                                </div>
                             </div>
                         </div>`;
     contenedor.innerHTML = html;
     pag.innerHTML = (nConceptos + 1);
+}
+
+function labelZoom()
+{
+    var cantidadZoom = document.getElementById("cantidadZoom");
+    var valorZoom= document.getElementById("valorZoom");    
+    valorZoom.innerText = cantidadZoom.value+"%";
+    
+    var contenedoDescripcion = document.getElementById("contenedoDescripcion");
+    contenedoDescripcion.style.cssText = `zoom:${cantidadZoom.value}%`;
+    
 }
 function seleccionarDiscapacidad(idDiscapacidad)
 {
@@ -238,16 +255,16 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 var descripcion = jsonConceptos.Concepto[0].descripcion;
                 var idConcepto = jsonConceptos.Concepto[0].idconcepto;
 
-                html = `<div class="card col-lg-12" style="width:100%; height: 75vh; overflow-y:auto; zoom: 100%">
-                            <div class="card-body" style="height: 80vh; overflow-y:auto;">
-                                <div class="card-text">${descripcion}</div>                              
+                html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
+                            <div  class="card-body" style="height: 80vh; overflow-y:auto; ">
+                                <div id="contenedoDescripcion" style="zoom:100%" class="card-text">${descripcion}</div>                              
                             </div>
                             <div class="card-footer text-muted">
-                                    <button onClick="modificarConcepto(${idConcepto})" class="btn btn-warning btn-sm">Modificar</button>
-                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-danger btn-sm">Eliminar</button>  
-                                <div class="btn-group float-right" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-secondary btn-sm">+</button>
-                                        <button type="button" class="btn btn-secondary btn-sm">-</button>
+                                    <button onClick="modificarConcepto(${idConcepto})" class="btn btn-warning">Modificar</button>
+                                    <button onClick="eliminarConcepto(${idConcepto})" class="btn btn-danger ">Eliminar</button>  
+                                <div class=" float-right">                                  
+                                   <input class="mr-2" list="tickmarks" onmousemove="labelZoom()"  id="cantidadZoom" type="range" value="100" >
+                                   <label  id="valorZoom">50%</label>
                                 </div>
                             </div>
                         </div>`;
