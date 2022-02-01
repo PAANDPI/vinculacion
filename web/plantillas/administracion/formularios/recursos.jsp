@@ -18,13 +18,13 @@
             <div class="p-4 barra-colores " style="height: 100vh;max-height: 65vh;overflow-y: auto; background:#ededed; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
                
                         <div class="form-group">
-                            <label class=" ">Seleccionar categoría</label>
+                            <label class="font-weight-bold">Seleccionar categoría</label>
                             <select  class=" form-control form-control-sm" id="cmb-categoria">
                                 <option style="font-size: 16px">Física</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class=" ">Seleccionar discapacidad</label>
+                            <label class="font-weight-bold">Seleccionar discapacidad</label>
                             <select  class=" form-control form-control-sm" id="cmb-discapacidad">
                                 
                             </select>
@@ -38,19 +38,19 @@
                             <label class="form-check-label" for="inlineCheckbox2">Enlace</label>
                         </div>-->
                         <div class="mb-3">     
-                            <label class=" ">Seleccionar tipo de recurso</label>
+                            <label class="font-weight-bold">Seleccionar tipo de recurso</label>
                             <input class="form-control form-control-sm" type="file" id="formFile">
                         </div>
                         <div class="mb-3">
-                              <label class=" ">Nombre del recurso: </label>
+                              <label class="font-weight-bold">Nombre del recurso: </label>
                             <input type="text" class="form-control form-control-sm" id="txtRecurso">
                         </div>
                         <div class="form-group">
-                            <label class=" ">Descripción</label>
+                            <label class="font-weight-bold">Descripción</label>
                             <textarea  style="height: 100px" class="form-control form-control-sm" type="text" id="txt-descripcionRecurso"></textarea>                                                                    
                         </div>  
                         <div class="form-group">
-                            <label class=" ">Etiqueta</label>
+                            <label class="font-weight-bold">Etiqueta</label>
                             <input  class="form-control form-control-sm" type="text" id="txt-etiquetaa" >
                         </div> 
                                 

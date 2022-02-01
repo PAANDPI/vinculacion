@@ -11,7 +11,7 @@
                         <nav class="nav ml-4">
                             <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco " id="btn_guarda_lugar">  Guardar</a>  
                             <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modifica</a>   
-                            <!--                            <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> -->
+                            <!-- <a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> </a> -->
 
                         </nav>
                     </div> 
@@ -61,8 +61,7 @@
                             <option value="INSTITUTOS">INSTITUTOS</option>
                             <option value="ESCUELAS">ESCUELAS</option>
                             <option value="CENTROS MÉDICOS">CENTROS MÉDICOS</option>
-                        </select>
-                       
+                        </select>                       
                     </div>                                    
                 </div>
             </div> 
@@ -72,9 +71,11 @@
             <div class=" barra-colores  mr-5" style="height: 100vh;max-height: 74vh;overflow-y: auto;  ">
                 <table class="table ">
                     <thead>
-                        <!--                 <tr class="color_base blanco" >
-                                                    <th class="rounded-left" >#</th>
-                                         </tr>-->
+                        <!--  
+                                <tr class="color_base blanco" >
+                                    <th class="rounded-left" >#</th>
+                                </tr>
+                        -->
                     </thead>
                     <tbody id="tbl_ubicaciones">
 
