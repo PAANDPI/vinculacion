@@ -89,6 +89,7 @@ public class LugarSrv extends HttpServlet {
         String Descripcion = request.getParameter("Descripcion");
         String CoordenadaX = request.getParameter("CoordenadaX");
         String CoordenadaY = request.getParameter("CoordenadaY");
+        String etiquetas = request.getParameter("Etiquete");
         String Estado= request.getParameter("Estado");
         Lugar beanLugar = new Lugar();
         beanLugar.setIdCiudad(Integer.parseInt(IdCiudad));
@@ -96,7 +97,8 @@ public class LugarSrv extends HttpServlet {
         beanLugar.setDescripcion(Descripcion);
         beanLugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
         beanLugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
-        beanLugar.setEstado(Boolean.getBoolean(Estado));
+        beanLugar.setEstado(Boolean.getBoolean(Estado));       
+        beanLugar.setEtiqueta(etiquetas);
         LugarDAO lugarDao = new LugarDAO(beanLugar);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {

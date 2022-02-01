@@ -45,5 +45,5 @@
         </div>       
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
-     
+     <script src="recursos/javaScript/JS-AJAX/recursoJS.js" type="text/javascript"></script>
 </html>

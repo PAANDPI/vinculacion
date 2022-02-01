@@ -54,7 +54,15 @@
                     </div> 
                     <div class="form-group">
                         <label class="font-weight-bold">Etiqueta</label>
-                        <input  class="form-control form-control-sm" type="text" id="txt-etiqueta" >
+                        <select  class=" form-control form-control-sm" id="txt-etiqueta" > >
+                            <option value="FUNDACIONES">FUNDACIONES</option>
+                            <option value="PATRONATOS">PATRONATOS</option>
+                            <option value="ORGANIZACIONES">ORGANIZACIONES</option>
+                            <option value="INSTITUTOS">INSTITUTOS</option>
+                            <option value="ESCUELAS">ESCUELAS</option>
+                            <option value="CENTROS MÉDICOS">CENTROS MÉDICOS</option>
+                        </select>
+                       
                     </div>                                    
                 </div>
             </div> 

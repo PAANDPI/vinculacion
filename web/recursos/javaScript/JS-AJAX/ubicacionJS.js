@@ -61,9 +61,9 @@ var Lugar = $("#txt-nombreLugar").val();
         var Descripcion = $("#txt-descripcionLugar").val();
         var coordenadaX = $("#txt-coordenadaX").val();
         var coordenadaY = $("#txt-coordenadaY").val();
-        ;
+        var etiquete = $("#txt-etiqueta").val();
         var Estado = 'true';
-        var datos = {"IdCiudad": Ciudad, "Lugar": Lugar, "Descripcion": Descripcion, "CoordenadaX": coordenadaX, "CoordenadaY": coordenadaY, "Estado": Estado};
+        var datos = {"IdCiudad": Ciudad, "Lugar": Lugar, "Descripcion": Descripcion, "CoordenadaX": coordenadaX, "CoordenadaY": coordenadaY, "Estado": Estado, "Etiquete":etiquete};
         console.log(datos);
         $.ajax({
         method: "POST",
