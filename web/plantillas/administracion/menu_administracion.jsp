@@ -31,7 +31,7 @@
                         </li>
 
                         <li class="nav-item " >
-                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="index.jsp">    Salir</a>
+                            <a class="nav-link blanco efector_barra bi bi-box-arrow-left " href="index.jsp">   Salir</a>
                         </li>
            
             

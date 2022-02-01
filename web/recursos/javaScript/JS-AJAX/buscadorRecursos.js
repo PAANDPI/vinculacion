@@ -77,7 +77,7 @@ function tbl_recursos()
                                             <p class="card-text">${descripcion}</p>
                                             <h6>Discapacidad: ${discapacidad}</h6>
                                             <h6>Tipo de recurso: ${categoriarecurso}</h6>                                           
-                                            <a onclick="Open(${i})" class="btn btn-sm btn-success">Ver recurso</a>
+                                            <button onclick="Open(${i})" class="btn btn-sm btn-success">Ver recurso</button>
                                         </div>
                                     </div>
                                 </div>

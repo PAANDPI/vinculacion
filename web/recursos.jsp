@@ -28,7 +28,7 @@
           
             <div class="text-center" style="color: gray;">En esta sección se comparte recursos digitales agrupados por cada tipo de discapacidad</div>
             <hr style="background: gainsboro">
-            <%@include  file="plantillas/recursos/card_recursos.jsp" %>  
+            <%--<%@include  file="plantillas/recursos/card_recursos.jsp" %>--%>  
             <%@include  file="plantillas/recursos/buscador_recuros.jsp" %>
            
            <hr style="background: gainsboro">

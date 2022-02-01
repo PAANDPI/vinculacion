@@ -54,7 +54,7 @@
                             <li><a id="btn_plantilla_tres" href="#">Plantilla 3</a></li>
                         </ul>
                     </div>                   
-                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atras</a>
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atrás</a>
                 </div>
                 <div class="col-lg-2">
                     <input onclick="resultado()" type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">  
