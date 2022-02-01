@@ -1,22 +1,77 @@
-var lugares = L.layerGroup();
-
-    $.ajax({
-        method: "GET",
-        url: 'LugarSrv',
-        success: function (data) {
+var patronatos = L.layerGroup();
+;
+var institutos = L.layerGroup();;
+var organizaciones = L.layerGroup();;
+var fundaciones = L.layerGroup();;
+var ecuelas = L.layerGroup();;
+var centrosMedicos = L.layerGroup();;
+var jsonMapa;
+var icono;
+$.ajax({
+    method: "GET",
+    url: 'LugarSrv',
+    success: function (data) {
         var htmlTabla = ``;
-        var jsonMapa = data.Lugar;
-            for (var i = 0; i < jsonMapa.length; i++) 
-            {
-                L.marker([jsonMapa[i].coordendax,jsonMapa[i].coordenday]).bindPopup(jsonMapa[i].lugar).addTo(lugares);
-
-            }
-        
-        },
-        error: function (error) 
+        var lista = ``;
+        jsonMapa = data.Lugar;
+        for (var i = 0; i < jsonMapa.length; i++)
         {
+            lista+= `<option value="${ jsonMapa[i].lugar}"></option>`;
+            if (jsonMapa[i].etiqueta === "PATRONATOS")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/patronatos.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(patronatos);
+            } else if (jsonMapa[i].etiqueta === "INSTITUTOS")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/instituciones.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(institutos);
+            } else if (jsonMapa[i].etiqueta === "ORGANIZACIONES")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/organizaciones.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(organizaciones);
+            } else if (jsonMapa[i].etiqueta === "FUNDACIONES")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/Ong.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(fundaciones);
+            } else if (jsonMapa[i].etiqueta === "ESCUELAS")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/Estudio.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(ecuelas);
+            } else if (jsonMapa[i].etiqueta === "CENTROS MÉDICOS")
+            {
+                 icono = L.icon({
+                    iconUrl: "recursos/iconos/iconos mapa/Clinica.ico", 
+                    iconSize: [50, 50] // size of the icon          
+                });
+                L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(jsonMapa[i].lugar).addTo(centrosMedicos);
+            }
+
+
+
         }
-        });
+        document.getElementById("lugares").innerHTML=lista;
+
+    },
+    error: function (error)
+    {
+    }
+});
 
 var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
 var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
@@ -30,22 +85,27 @@ var baseLayers = {
 };
 
 var overlays = {
-    'lugares': lugares
+    'patronatos': patronatos,
+    'institutos': institutos,
+    'organizaciones': organizaciones,
+    'fundaciones': fundaciones,
+    'ecuelas': ecuelas,
+    'centrosMedicos': centrosMedicos
 };
+
 
 //var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
 var map = L.map('map', {
-    center: [39.73, -104.99],
-    zoom: 2,
-    
+    center: [-1.0803599757262687, -78.46033885786659],
+    zoom: 7,
+
 });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
 var basemaps = {
-     
 
     Darck: L.tileLayer.wms('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         layers: 'Modo_darck'
@@ -62,12 +122,12 @@ var basemaps = {
 
     'Topography': L.tileLayer.wms(' https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
         layers: 'TOPO-WMS,OSM-Overlay-WMS'
-    })   
+    })
 };
 
-L.control.layers(basemaps,overlays).addTo(map);
+L.control.layers(basemaps, overlays).addTo(map);
 
 
 
 
-                
+

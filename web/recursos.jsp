@@ -28,7 +28,6 @@
           
             <div class="text-center" style="color: gray;">En esta sección se comparte recursos digitales agrupados por cada tipo de discapacidad</div>
             <hr style="background: gainsboro">
-<!--            <label class="font-weight-bold">Selecciones la categoría:</label>-->
             <%@include  file="plantillas/recursos/card_recursos.jsp" %>  
             <%@include  file="plantillas/recursos/buscador_recuros.jsp" %>
            
@@ -38,50 +37,12 @@
         <div class="row  pr-lg-5 pr-md-5 pr-xl-3 pl-lg-5 pl-md-2 pl-xl-1" style="z-index: 1" >
             <div class="col-lg-12 col-md-12">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="col-sm-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="row" id="tbl_recursos">
+
                     </div>
                 </div>
-
-
-
             </div>
         </div>     
-
     </body>
+    <script src="recursos/javaScript/JS-AJAX/buscadorRecursos.js" type="text/javascript"></script>
 </html>

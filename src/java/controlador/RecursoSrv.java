@@ -58,17 +58,32 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RecursoDAO recursoDAO = new RecursoDAO();
+         int accion = Integer.parseInt(request.getParameter("accion"));
+        if (accion == 1) {
+            
+       RecursoDAO recursoDAO = new RecursoDAO();
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
             retorno += recursoDAO.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
-            //processRequest(request, response);
-        }
+            
+            
+        }}else if(accion==2)
+        {
+            int idCategoria= Integer.parseInt(request.getParameter("cmbCategoria"));
+            String discapacidad=request.getParameter("txtDiscapacidad");
+              RecursoDAO recursoDAO = new RecursoDAO();
+                response.setContentType("text/json;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String retorno = "{\n\t";
+            retorno += "\"codigo\":200,\n";
+            retorno += recursoDAO.getVW2JSON(idCategoria,discapacidad);
+            retorno += "\n}";
+            out.write(retorno);
+        }}
     }
 
     /**

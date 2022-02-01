@@ -44,43 +44,21 @@
                     <label class="font-weight-bold" >Ubicación</label>
                     <input type="text" class="form-control form-control-sm mb-2" id="exampleInputEmail1"  placeholder="Mi ubicación">       
                     <label class="font-weight-bold" >Destino</label>
-                    <input type="text" class="form-control form-control-sm"  placeholder="Mi destino">
+                    <input list="lugares"  type="text" class="form-control form-control-sm"  placeholder="Mi destino">
                     <button style="border: 3px solid #052C46;border-radius: 10px; position: relative; left:  1px " 
                             type="button" class="btn btn-block mt-3 btn-sm font-weight-bold bi bi-compass "> Ruta</button>
                 </div>                 
-                <div class="pl-3 pr-3">
+<!--                <div class="pl-3 pr-3">
                     <h5>Area del buffer:   <a class=" btn bi bi-trash" style="font-size: 20px"></a></h5>
                     <input style="width: 100%" class="mb-3" type="range" name="price" id="rango" min="0" max="5000" step="100" value="0">
-                </div> 
+                </div> -->
                     </div>
                 </div>
             </div>
-        </div>
-        
-<!--        <div class="mt-3" >
-            <div style="width: 100%; height: auto; border:  1px solid gray ; border-radius: 10px; background: white">
-                <div  style="width: 100%; height: 50px; border-top-left-radius: 10px; border-top-right-radius: 10px" class="degradado_2 p-3">
-                    <h5 class="blanco">Generar ruta</h5>        
-
-                </div> 
-                <div class="form-group p-3">
-                    <label class="font-weight-bold" >Ubicación</label>
-                    <input type="text" class="form-control form-control-sm mb-2" id="exampleInputEmail1"  placeholder="Mi ubicación">       
-                    <label class="font-weight-bold" >Destino</label>
-                    <input type="text" class="form-control form-control-sm"  placeholder="Mi destino">
-                    <button style="border: 3px solid #052C46;border-radius: 10px; position: relative; left:  1px " 
-                            type="button" class="btn btn-block mt-3 btn-sm font-weight-bold bi bi-compass "> Ruta</button>
-                </div>                 
-                <div class="pl-3 pr-3">
-                    <h5>Area del buffer:   <a class=" btn bi bi-trash" style="font-size: 20px"></a></h5>
-                    <input style="width: 100%" class="mb-3" type="range" name="price" id="rango" min="0" max="5000" step="100" value="0">
-                </div>                
-            </div>
-        </div>-->
-
+        </div>       
         <div id="map" style="width: 100%; height: 91vh;z-index: 1" class=" "></div>  
 
-
+        
     </body>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
             integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -90,3 +68,7 @@
     <script src="recursos/javaScript/mapa.js" type="text/javascript"></script>
 
 </html>
+
+<datalist id="lugares" >                         
+   
+</datalist>

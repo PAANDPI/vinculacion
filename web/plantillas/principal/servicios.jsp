@@ -33,7 +33,7 @@
                         En esta sección se comparte recursos digitales <br> 
                         agrupados por cada tipo de discapacidad<br>                                            
                     </p>  
-                    <div><a href="buscador.jsp"  class="btn  efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
+                    <div><a href="recursos.jsp"  class="btn  efec " >  Ir al buscador <span class="bi bi-arrow-right"></span></a></div>
                 </div>
 
             </div>                                                                            
@@ -52,7 +52,7 @@
                        recomendaciones de fundaciones, centros <br>
                        terapéuticos, entre otros <br>               
                     </p>  
-                    <div><a href="buscador.jsp"  class="btn  efec " >  Ir al mapa <span class="bi bi-arrow-right"></span></a></div>
+                    <div><a href="mapa.jsp"  class="btn  efec " >  Ir al mapa <span class="bi bi-arrow-right"></span></a></div>
 
                 </div>
                 <div class="col-lg-6 p-0" style="height:400px;">

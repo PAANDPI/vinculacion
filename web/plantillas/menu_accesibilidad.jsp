@@ -73,18 +73,18 @@
                     </div>   
                     <div class="col-lg-12">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <button id="ByN" type="button" class="btn btn-sm btn-primary">Blanco y negro</button>
-                            <button id="Sepia" type="button" class="btn btn-sm  btn-secondary">Sepia</button>
-                            <button id="BajoBrillo" type="button" class="btn btn-sm  btn-danger">Bajo brillo</button>
-                            <button id="AltoContraste" type="button" class="btn btn-sm  btn-success">Contraste</button>
-                            <button id="Saturar" type="button" class="btn btn-sm  btn-warning">Saturar</button>
-                            <button id="Normal" type="button" class="btn btn-sm  btn-dark">Restaurar</button>
+                            <button id="ByN" type="button" class="btn btn-sm btn-outline-primary">Blanco y negro</button>
+                            <button id="Sepia" type="button" class="btn btn-sm  btn-outline-secondary">Sepia</button>
+                            <button id="BajoBrillo" type="button" class="btn btn-sm  btn-outline-danger">Bajo brillo</button>
+                            <button id="AltoContraste" type="button" class="btn btn-sm  btn-outline-success">Contraste</button>
+                            <button id="Saturar" type="button" class="btn btn-sm  btn-outline-warning">Saturar</button>
+                            <button id="Normal" type="button" class="btn btn-sm  btn-outline-secondary">Restaurar</button>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button id="" class="btn float-right  btn-secondary" type="button">Restablecer</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                   
                 </div>
             </div>
 
