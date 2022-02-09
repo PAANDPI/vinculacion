@@ -8,7 +8,7 @@ $(document).ready(function () {
     cargarCategoriaDiscapacidades();
     cargarDiscapacidades();
     $('#btnGuardarDiscapacidad').on('click', function () {
-        var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
+        var idCategoriaDiscapacidad = document.getElementById("cmbId\n\s.CategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
         var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
         $.ajax({

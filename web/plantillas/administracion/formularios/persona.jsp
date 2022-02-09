@@ -10,8 +10,8 @@
                     <div class="row ">
                         <nav class="nav ml-4">
                             <a id="btnGuardarUsuario" class="btn btn-l efecto_guardar  bi bi-save-fill blanco ">  Guardar</a>  
-                            <a class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar </a>    
-                            <!--<a  class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Eliminar</a>--> 
+                            <a id="btn_modificarUsuario" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar </a>    
+                            <a  id="btn_cancelar"s class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> cancelar </a>
                         </nav>
                     </div> 
                 </div>  
@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label class="font-weight-bold">Género</label>
                         <select  class=" form-control form-control-sm" id="cmbGenero">
-                            <option value="Femenino" style="font-size: 16px">Femenino</option>
+                            <option value="Femenino " style="font-size: 16px">Femenino</option>
                             <option value="Masculino" style="font-size: 16px">Masculino</option>
                             <option value="Otro" style="font-size: 16px">Otro</option>
                         </select>

@@ -128,18 +128,72 @@ public class PersonaSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
                 if (personaDAO.insert()) {
-//                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"codigo\":200,\n";
 //                    retorno += personaDAO.getPersonaJSON();
                     response.setStatus(response.SC_OK);
                     //response.sendRedirect("index.jsp");
                 } else {
-//                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"codigo\":400,\n";
 //                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
                 }
                 retorno += "}";
                 out.write(retorno);
             }
+        } else if (accion == 3)//update
+        {
+            Persona persona = new Persona();
+            persona.setIdPersona(Integer.parseInt(request.getParameter("idpersona")));
+            persona.setIdCiudad(Integer.parseInt(request.getParameter("idCiudad")));
+            persona.setNombre(request.getParameter("nombre"));
+            persona.setApellido(request.getParameter("apellido"));
+            persona.setGenero(request.getParameter("genero"));
+            persona.setUsuario(request.getParameter("usuario"));
+            persona.setCorreo(request.getParameter("correo"));
+            persona.setClave(request.getParameter("clave"));
+            persona.setAdministrador(Boolean.parseBoolean(request.getParameter("administrador")));
+
+            PersonaDAO personaDAO = new PersonaDAO(persona);
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (personaDAO.update()) {
+                    retorno += "\"codigo\":200\n";
+//                    retorno += personaDAO.getPersonaJSON();
+                    response.setStatus(response.SC_OK);
+                    //response.sendRedirect("index.jsp");
+                } else {
+                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+        } else if (accion == 4)//delete
+        {
+            Persona persona = new Persona();
+            persona.setIdPersona(Integer.parseInt(request.getParameter("idpersona")));
+            PersonaDAO PDao = new PersonaDAO(persona);
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (PDao.delete()) {
+                    retorno += "\"codigo\":200,\n";
+//                    retorno += personaDAO.getPersonaJSON();
+                    response.setStatus(response.SC_OK);
+                    //response.sendRedirect("index.jsp");
+                } else {
+                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+
         }
 
     }

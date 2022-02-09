@@ -36,8 +36,8 @@ public class PersonaDAO {
         String sql = String.format("SELECT insertarpersona(%d, '%s', '%s', '%s', '%s', '%s','%s', '%b');",
                 persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
-                persona.getClave(),persona.isAdministrador());
-        System.out.println("consulta" +sql);
+                persona.getClave(), persona.isAdministrador());
+        System.out.println("consulta" + sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -45,10 +45,10 @@ public class PersonaDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT editarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
-                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
+        String sql = String.format("SELECT editarpersona(%d,%d, '%s', '%s', '%s', '%s', '%s','%s', '%b','%b');", 
+                persona.getIdPersona(),persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
-                persona.getClave(), persona.isAdministrador(), persona.isEstado());
+                persona.getClave(), persona.isAdministrador(), true);
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -66,10 +66,7 @@ public class PersonaDAO {
     }
 
     public boolean delete() {
-        String sql = String.format("SELECT eliminarpersona(%d, '%s', '%s', '%s', '%s', '%s', "
-                + "'%s');", persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
-                persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
-                persona.getClave(), persona.isAdministrador(), persona.isEstado());
+        String sql = String.format("SELECT eliminarpersona(%d);", persona.getIdPersona());
         if (conex.isState()) {
             return conex.execute(sql);
         }

@@ -1,105 +1,185 @@
 /* global Ciudad */
 tbl_Lugares();
-        var jsonUbicaciones;
-        $(document).ready(function () {
-function cargaProvincia(e) {
-$.ajax({
-method: "GET",
-        url: 'ProvinciaSvr',
-        success: function (data) {
-        jsonProvincia = data;
+var jsonUbicaciones;
+var jsonCantones;
+var idlugar;
+$(document).ready(function () {
+    function cargaProvincia(e) {
+        $.ajax({
+            method: "GET",
+            url: 'ProvinciaSvr',
+            success: function (data) {
+                jsonProvincia = data;
                 var html = `<option value="" selected disabled hidden>-- Seleccione Provincia --</option>`;
                 for (var i = 0; i < jsonProvincia.Provincia.length; i++)
-        {
-        var idProvincia = jsonProvincia.Provincia[i].idprovincia;
-                var nombreProvincia = jsonProvincia.Provincia[i].provincia;
-                html += `<option value="${idProvincia}">${nombreProvincia}</option>`;
-        }
-        var cmbCatDiscapacidades = document.getElementById("cmb-provincia");
+                {
+                    var idProvincia = jsonProvincia.Provincia[i].idprovincia;
+                    var nombreProvincia = jsonProvincia.Provincia[i].provincia;
+                    html += `<option value="${idProvincia}">${nombreProvincia}</option>`;
+                }
+                var cmbCatDiscapacidades = document.getElementById("cmb-provincia");
                 cmbCatDiscapacidades.innerHTML = html;
-        },
-        error: function (error) {
-        console.log(error);
-        }
-});
-}
-$('#btnUbicaciones').click(function (e) {
-cargaProvincia();
-        console.log('llenado de provincia');
-});
-        $('#cmb-provincia').change(function () {
-var Provincia = this.value;
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+    $('#btnUbicaciones').click(function (e) {
+        cargaProvincia();
+        $('#btn_modUbicacion').hide();
+        $('#btn_cancelarUbica').hide();
+    });
+    $('#cmb-provincia').change(function () {
+        var Provincia = this.value;
         var datos = {"opcion": "2", "idProvincia": Provincia};
         $.ajax({
-        method: "GET",
-                url: 'CiudadSrv',
-                data: datos,
-                success: function (data) {
-                console.log(data);
-                        var html = `<option value="" selected disabled hidden>-- Seleccione Cantón --</option>`;
-                        for (var i = 0; i < data.Ciudad.length; i++)
+            method: "GET",
+            url: 'CiudadSrv',
+            data: datos,
+            success: function (data) {
+                jsonCantones = data;
+                var html = `<option value="" selected disabled hidden>-- Seleccione Cantón --</option>`;
+                for (var i = 0; i < data.Ciudad.length; i++)
                 {
-                var idCanton = data.Ciudad[i].idciudad;
-                        var nombreCanton = data.Ciudad[i].ciudad;
-                        html += `<option value="${idCanton}">${nombreCanton}</option>`;
+                    var idCanton = data.Ciudad[i].idciudad;
+                    var nombreCanton = data.Ciudad[i].ciudad;
+                    html += `<option value="${idCanton}">${nombreCanton}</option>`;
                 }
                 var cmbCatDiscapacidades = document.getElementById("cmb-canton");
-                        cmbCatDiscapacidades.innerHTML = html;
-                },
-                error: function (error) {
+                cmbCatDiscapacidades.innerHTML = html;
+            },
+            error: function (error) {
                 console.log(error);
-                }
+            }
         });
-});
-        var Ciudad;
-        $("#cmb-canton").change(function (e) {
-Ciudad = this.value;
-});
-        $('#btn_guarda_lugar').click(function (e) {
+    });
+    var Ciudad;
+    $("#cmb-canton").change(function (e) {
+        Ciudad = this.value;
+    });
+    $('#btn_cancelarUbica').click(function () {
+        $('#btn_guarda_lugar').show("2000");
+        $('#btn_modUbicacion').hide();
+        $('#btn_cancelarUbica').hide();
+        Limpiar();
 
-var Lugar = $("#txt-nombreLugar").val();
+    });
+    $('#btn_guarda_lugar').click(function (e) {
+
+        var Lugar = $("#txt-nombreLugar").val();
         var Descripcion = $("#txt-descripcionLugar").val();
         var coordenadaX = $("#txt-coordenadaX").val();
         var coordenadaY = $("#txt-coordenadaY").val();
         var etiquete = $("#txt-etiqueta").val();
         var Estado = 'true';
-        var datos = {"IdCiudad": Ciudad, "Lugar": Lugar, "Descripcion": Descripcion, "CoordenadaX": coordenadaX, "CoordenadaY": coordenadaY, "Estado": Estado, "Etiquete":etiquete};
+        var datos = {"IdCiudad": Ciudad, "Lugar": Lugar,
+            "Descripcion": Descripcion,
+            "CoordenadaX": coordenadaX,
+            "CoordenadaY": coordenadaY,
+            "Estado": Estado,
+            "Etiquete": etiquete,
+            "accion": "1"};
         console.log(datos);
         $.ajax({
-        method: "POST",
+            method: "POST",
+            url: 'LugarSrv',
+            data: datos,
+            success: function (data)
+            {
+                console.log(data);
+                Limpiar();
+                alerta(`Ubicacion ${Lugar} añadida con exito`, "success");
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+    function Limpiar(e) {
+        $("#txt-nombreLugar").val('');
+        $("#txt-descripcionLugar").val('');
+        $("#txt-coordenadaX").val('');
+        $("#txt-coordenadaY").val('');
+        cargaProvincia();
+        $("#cmb-canton").val('');
+    }
+});
+function seleccionarUbicacion(idub) {
+    var idProv, idCiudad;
+    for (var x of jsonUbicaciones) {
+        if (idub == x.idlugar) {
+            idlugar = x.idlugar;
+            // $('#cmb-provincia :selected').text(x.provincia);
+            for (var y of jsonProvincia.Provincia) {
+                if (y.provincia == x.provincia) {
+                    idProv = y.idprovincia;
+                    break;
+                }
+            }
+            $('#cmb-provincia').prop('selectedIndex', idProv);
+            $('#cmb-provincia :selected').change();
+            /* for (var z of jsonCantones.Ciudad) {
+             if (z == x.ciudad) {
+             idCiudad = z.idciudad;
+             break;
+             }
+             }*/
+            $('#cmb-canton').prop('selectedIndex', idCiudad);
+            $('#txt-nombreLugar').val(x.lugar);
+            $('#txt-descripcionLugar').val(x.descripcion);
+            $('#txt-coordenadaX').val(x.coordendax);
+            $('#txt-coordenadaY').val(x.coordenday);
+            $('#txt-etiqueta :selected').text(x.etiqueta);
+            $('#btn_guarda_lugar').hide("slow");
+            $('#btn_modUbicacion').show("2000");
+            $('#btn_cancelarUbica').show("2000");
+        }
+    }
+}
+function eliminiarUbicacion(id) {
+   // console.log(id);
+    var dato = {"idlugar": id, "accion": "2"}
+    swal({
+        title: "¿Desea Eliminar ubicación?",
+        //text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method: "POST",
                 url: 'LugarSrv',
-                data: datos,
+                data: dato,
                 success: function (data)
                 {
-                console.log(data);
-                        Limpiar();
-                        alerta(`Ubicacion ${Lugar} añadida con exito`, "success");
+                    console.log(data);
+                    swal("La ubicacion a sido eliminada", {
+                        icon: "success",
+                    });
                 },
                 error: function (error) {
-                console.log(error);
+                    console.log(error);
                 }
-        });
-});
-        function Limpiar(e) {
-        $("#txt-nombreLugar").val('');
-                $("#txt-descripcionLugar").val('');
-                $("#txt-coordenadaX").val('');
-                $("#txt-coordenadaY").val('');
-                cargaProvincia();
-                $("#cmb-canton").val('');
+            });
+
+        } else {
+            //swal("Your imaginary file is safe!");
         }
-});
-        function tbl_Lugares()
-                {
-                $.ajax({
-                method: "GET",
-                        url: 'LugarSrv',
-                        success: function (data) {
-                        var htmlTabla = ``;
-                                jsonUbicaciones = data.Lugar;
-                                for (var i = 0; i < jsonUbicaciones.length; i++) {
-                        console.log(jsonUbicaciones[i].lugar);
-                                htmlTabla += `<tr>
+    });
+}
+function tbl_Lugares()
+{
+    $.ajax({
+        method: "GET",
+        url: 'LugarSrv',
+        success: function (data) {
+            var htmlTabla = ``;
+            jsonUbicaciones = data.Lugar;
+            for (var i = 0; i < jsonUbicaciones.length; i++) {
+                console.log(jsonUbicaciones[i].lugar);
+                htmlTabla += `<tr>
                              <td>
                                 <div class="card caja">
                                             <div class="card-header ">
@@ -141,13 +221,14 @@ var Lugar = $("#txt-nombreLugar").val();
 
                               </td>
                               </tr>`;
-                        }
+            }
 
-                        var tbl_ubicaciones = document.getElementById("tbl_ubicaciones");
-                                tbl_ubicaciones.innerHTML = htmlTabla;
-                        },
-                        error: function (error) {
+            var tbl_ubicaciones = document.getElementById("tbl_ubicaciones");
+            tbl_ubicaciones.innerHTML = htmlTabla;
+        },
+        error: function (error) {
 
-                        }
-                });
-                        } 
+        }
+    });
+
+} 

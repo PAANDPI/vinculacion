@@ -1,4 +1,5 @@
 var jsonPersonas;
+var idPersona;
 $(document).ready(function () {
     listadeUsuarios();
     function listadeUsuarios()
@@ -54,8 +55,8 @@ $(document).ready(function () {
                                                         <hr>
                                                         <div class="row p-0">
                                                             <div class="col-lg-12 pl-3">     
-                                                                <button onClink="seleccionar(${idpersona})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
-                                                                <button onClink="eliminarPersona(${idpersona})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
+                                                                <button onclick="btnEditPersona(${idpersona})"  type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
+                                                                <button onclick="deletePersona(${idpersona})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
                                                             </div>        
                                                         </div>
                                                  </div>                                                                                               
@@ -66,13 +67,20 @@ $(document).ready(function () {
                 }
                 var tbl_personas = document.getElementById("tbl_personas");
                 tbl_personas.innerHTML = htmlTabla;
-
+                $('#btn_cancelar').hide();
+                $('#btn_modificarUsuario').hide();
             },
             error: function (error) {
                 console.log(error);
             }
         });
     }
+    $('#btn_cancelar').click(function (e) {
+        $('#btnGuardarUsuario').show("2000");
+        $('#btn_cancelar').hide("slow");
+        $('#btn_modificarUsuario').hide("slow");
+        limpiar();
+    });
     $('#btnGuardarUsuario').on('click', function () {
         var txtNombre = document.getElementById("txtNombre").value;
         var txtApellido = document.getElementById("txtApellido").value;
@@ -92,7 +100,6 @@ $(document).ready(function () {
             "clave": txtContrasenia,
             "administrador": administradorCheck.checked,
             "accion": "2"};
-
         console.log(datos);
         var validor = (txtNombre.length * txtApellido.length * cmbGenero.length *
                 txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
@@ -104,25 +111,132 @@ $(document).ready(function () {
                 data: datos,
                 success: function (data) {
                     alerta("Usuario guardado correctamente:", "success");
+                    limpiar();
                 },
                 error: function (error) {
 
                     console.log(error);
                     alerta("Algo salio mal:" + error, "error");
-
                 }
             });
-
         } else
         {
             alerta("Complete todo los campos", "error");
         }
 
     });
+    function alerta(texto, icono)
+    {
+        swal({text: texto, icon: icono});
+    }
+    function limpiar()
+    {
+        $('#txtNombre').val('');
+        $('#txtApellido').val('');
+        $('#cmbGenero').val('');
+        $('#txtNombreUsuario').val('');
+        $('#cmbCantones').prop('selectedIndex', 0);
+        $('#txtCorreo').val('');
+        $('#txtContrasenia').val('');
+        $('#txtConfirmarContrasenia').val('');
+        $('#administradorCheck').attr('checked', false);
+    }
+    $('#btn_modificarUsuario').on('click', function () {
 
+        var txtNombre = document.getElementById("txtNombre").value;
+        var txtApellido = document.getElementById("txtApellido").value;
+        var cmbGenero = document.getElementById("cmbGenero").value;
+        var txtCorreo = document.getElementById("txtCorreo").value;
+        var txtNombreUsuario = document.getElementById("txtNombreUsuario").value;
+        var txtContrasenia = document.getElementById("txtContrasenia").value;
+        var txtConfirmarContrasenia = document.getElementById("txtConfirmarContrasenia").value;
+        var cmbCantones = document.getElementById("cmbCantones").value;
+        var administradorCheck = document.getElementById("administradorCheck");
+        var datos = {
+            "idpersona": idPersona,
+            "idCiudad": cmbCantones,
+            "nombre": txtNombre,
+            "apellido": txtApellido,
+            "genero": cmbGenero,
+            "usuario": txtNombreUsuario,
+            "correo": txtCorreo,
+            "clave": txtContrasenia,
+            "administrador": administradorCheck.checked,
+            "accion": "3"};
+        console.log(datos);
+        var validor = (txtNombre.length * txtApellido.length * cmbGenero.length *
+                txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
+        if (validor > 0)
+        {
+            $.ajax({
+                method: "POST",
+                url: "PersonaSrv",
+                data: datos,
+                success: function (data) {
+                    alerta("Usuario Modificado correctamente:", "success");
+                    limpiar();
+                },
+                error: function (error,ex) {
+                    console.log(error);
+                    console.log(ex);
+                    alerta("Algo salio mal:" + error, "error");
+                }
+            });
+        } else
+        {
+            alerta("Complete todo los campos", "error");
+        }
+
+    });
 });
-
-function alerta(texto, icono)
-{
-    swal({text: texto, icon: icono});
+function btnEditPersona(aux) {
+    idPersona = aux;
+    console.log(jsonPersonas.Persona);
+    for (var x of jsonPersonas.Persona) {
+        if (x.idpersona == aux) {
+            $('#txtNombre').val(x.nombre);
+            $('#txtApellido').val(x.apellido);
+            $('#cmbGenero').val(x.genero);
+            $('#txtNombreUsuario').val(x.usuario);
+            $('#cmbCantones').prop('selectedIndex', x.idciudad);
+            $('#txtCorreo').val(x.correo);
+            $('#txtContrasenia').val('');
+            $('#txtConfirmarContrasenia').val('');
+            $('#administradorCheck').attr('checked', x.estado);
+            $('#btnGuardarUsuario').hide("slow");
+            $('#btn_modificarUsuario').show("2000");
+            $('#btn_cancelar').show("2000");
+        }
+    }
 }
+function deletePersona(id) {
+    console.log(id);
+    var dato = {"idpersona": id, "accion": "4"}
+    swal({
+        title: "¿Desea Eliminar esta Persona?",
+        //text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method: "POST",
+                url: 'PersonaSrv',
+                data: dato,
+                success: function (data)
+                {
+                    console.log(data);
+                    swal("La persona a sido eliminada correctamente", {
+                        icon: "success"});
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        } else {
+            //swal("Your imaginary file is safe!");
+        }
+    });
+}
+

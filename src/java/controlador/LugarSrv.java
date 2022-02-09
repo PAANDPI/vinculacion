@@ -58,18 +58,18 @@ public class LugarSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            LugarDAO lugarDao = new LugarDAO();
-            response.setContentType("text/json;charset=UTF-8");
-            
-            try (PrintWriter out = response.getWriter()) {
+        LugarDAO lugarDao = new LugarDAO();
+        response.setContentType("text/json;charset=UTF-8");
+
+        try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
 
             retorno += "\"codigo\":200,\n";
             retorno += lugarDao.getVW2JSON();
             retorno += "\n}";
             out.write(retorno);
-           
-            }
+
+        }
     }
 
     /**
@@ -84,39 +84,59 @@ public class LugarSrv extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        String IdCiudad = request.getParameter("IdCiudad");
-        String Lugar = request.getParameter("Lugar");
-        String Descripcion = request.getParameter("Descripcion");
-        String CoordenadaX = request.getParameter("CoordenadaX");
-        String CoordenadaY = request.getParameter("CoordenadaY");
-        String etiquetas = request.getParameter("Etiquete");
-        String Estado= request.getParameter("Estado");
-        Lugar beanLugar = new Lugar();
-        beanLugar.setIdCiudad(Integer.parseInt(IdCiudad));
-        beanLugar.setLugar(Lugar);
-        beanLugar.setDescripcion(Descripcion);
-        beanLugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
-        beanLugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
-        beanLugar.setEstado(Boolean.getBoolean(Estado));       
-        beanLugar.setEtiqueta(etiquetas);
-        LugarDAO lugarDao = new LugarDAO(beanLugar);
         response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
-            if (lugarDao.insert()) {
-                retorno += "\"codigo\":200,\n";
-                retorno += lugarDao.getLugarJSON();
-                response.setStatus(response.SC_OK);
-                //response.sendRedirect("index.jsp");
-            } else {
-                retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + lugarDao.getMessage() + "\"\n";
-                response.setStatus(response.SC_BAD_REQUEST);
+        String accion = request.getParameter("accion");
+        if (accion.equals("1")) {
+            String IdCiudad = request.getParameter("IdCiudad");
+            String Lugar = request.getParameter("Lugar");
+            String Descripcion = request.getParameter("Descripcion");
+            String CoordenadaX = request.getParameter("CoordenadaX");
+            String CoordenadaY = request.getParameter("CoordenadaY");
+            String etiquetas = request.getParameter("Etiquete");
+            String Estado = request.getParameter("Estado");
+            Lugar beanLugar = new Lugar();
+            beanLugar.setIdCiudad(Integer.parseInt(IdCiudad));
+            beanLugar.setLugar(Lugar);
+            beanLugar.setDescripcion(Descripcion);
+            beanLugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
+            beanLugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
+            beanLugar.setEstado(Boolean.getBoolean(Estado));
+            beanLugar.setEtiqueta(etiquetas);
+            LugarDAO lugarDao = new LugarDAO(beanLugar);
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (lugarDao.insert()) {
+                    retorno += "\"codigo\":200,\n";
+                    retorno += lugarDao.getLugarJSON();
+                    response.setStatus(response.SC_OK);
+                    //response.sendRedirect("index.jsp");
+                } else {
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + lugarDao.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
             }
-            retorno += "}";
-            out.write(retorno);
-        }      
+        } else if (accion.equals("2")) {
+            String IdLugar = request.getParameter("idlugar");
+            Lugar bLugar = new Lugar();
+            bLugar.setIdLugar(Integer.parseInt(IdLugar));
+            LugarDAO lugarD = new LugarDAO(bLugar);
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                if (lugarD.delete()) {
+                    retorno += "\"codigo\":200,\n";
+                } else {
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + lugarD.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+        }
     }
 
     /**
