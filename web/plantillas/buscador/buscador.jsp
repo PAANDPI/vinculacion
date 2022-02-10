@@ -13,7 +13,7 @@
                     <div class="input-group mb-3">
                         <input id="nombreDiscapacidad" type="text" class=" form-control form-control-lg " placeholder="Busqueda de discapacidades" aria-label="Recipient's username" >
                         <div class="input-group-append">
-                            <button id="btnBuscarDiscapacidad" class="btn btn-light bi bi-search" type="button"></button>
+                            <button title="buscador" name="buscador" id="btnBuscarDiscapacidad" class="btn btn-light bi bi-search" type="button"></button>
                         </div>
                     </div>   
                 </div>

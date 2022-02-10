@@ -9,16 +9,30 @@ const toBase64 = file => new Promise((resolve, reject) => {
         reader.onerror = error => reject(error);
     });
 async function Main() {
-    const file = document.querySelector('#formFile').files[0];
-    base64 = await toBase64(file);
-    guardarRecurso();
+
+    var checkArchivo = document.getElementById("checkArchivo").checked;
+    var checkEnlace = document.getElementById("checkEnlace").checked;
+
+    var datosM
+    if (checkArchivo) {
+        
+        const file = document.querySelector('#formFile').files[0];
+        base64 = await toBase64(file);
+        guardarRecurso();
+        
+    } else if (checkEnlace) {
+        
+        guardarRecurso();
+    }
+
+
 }
 function tbl_recursos()
 {
     $.ajax({
         method: "GET",
         url: "RecursoSrv",
-        data:{"accion":1},
+        data: {"accion": 1},
         success: function (data) {
 
             jsonRecursos = data;
@@ -111,25 +125,70 @@ function tbl_recursos()
         }
     });
 }
+$(document).ready(function () {
+
+
+    $("#buscadorRecursos").keyup(function () {
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#tblRecursos tbody tr"), function () {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
+        });
+    });
+
+    $('#enlaceC').hide();
+    $("#checkArchivo").click(function () {
+        $('#fileC').show();
+        $('#enlaceC').hide();
+    });
+    $("#checkEnlace").click(function () {
+
+        $('#enlaceC').show();
+        $('#fileC').hide();
+    });
+
+});
 function guardarRecurso() {
 
     var ruta = base64;
-
     var idcategoriarecurso = document.getElementById("cmb-categoria").value;
     var iddiscapacidad = document.getElementById("cmb-discapacidad").value;
     var recurso = document.getElementById("txtRecurso").value;
     var descripcion = document.getElementById("txt-descripcionRecurso").value;
     var etiquetas = document.getElementById("txt-etiquetaa").value;
 
-    var datos =
-            {"idcategoriarecurso": idcategoriarecurso,
-                "iddiscapacidad": iddiscapacidad,
-                "recurso": recurso,
-                "descripcion": descripcion,
-                "etiquetas": etiquetas,
-                "estado": "true",
-                "ruta": ruta
-            }
+    var checkArchivo = document.getElementById("checkArchivo").checked;
+    var checkEnlace = document.getElementById("checkEnlace").checked;
+
+    var datosM
+    if (checkArchivo) {
+        datos =
+                {"idcategoriarecurso": idcategoriarecurso,
+                    "iddiscapacidad": iddiscapacidad,
+                    "recurso": recurso,
+                    "descripcion": descripcion,
+                    "etiquetas": etiquetas,
+                    "estado": "true",
+                    "accion": 1,
+                    "ruta": ruta
+                }
+    } else if (checkEnlace) {
+        datos =
+                {"idcategoriarecurso": idcategoriarecurso,
+                    "iddiscapacidad": iddiscapacidad,
+                    "recurso": recurso,
+                    "descripcion": descripcion,
+                    "etiquetas": etiquetas,
+                    "estado": "true",
+                    "accion": 2,
+                    "ruta": document.getElementById("txtEnlace").value
+                }
+    }
+
+
 
     $.ajax({
         method: "POST",

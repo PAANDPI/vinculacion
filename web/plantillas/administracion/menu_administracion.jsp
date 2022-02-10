@@ -25,9 +25,9 @@
                         <li class="nav-item">
                             <a id="btnRecursos" class=" btn nav-link blanco pb-1 efector_barra  bi bi-archive " href="#">  Recursos </a>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a class="btn nav-link blanco pb-3 efector_barra  bi bi-gear " href="#">  Cuenta</a>
-                        </li>
+                        </li>-->
 
                         <li class="nav-item " >
                             <button type="button" id="btnCerrarSession" class="btn nav-link blanco efector_barra bi bi-box-arrow-left" >   Salir</button>

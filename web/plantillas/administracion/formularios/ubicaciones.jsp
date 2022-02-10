@@ -16,7 +16,7 @@
                         </nav>
                     </div> 
                 </div>  
-                <div class="p-4 barra-colores " style="height: 100vh;max-height: 65vh;overflow-y: auto; background:#ededed; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
+                <div class="p-4 barra-colores " style="height: 100vh;max-height: 70vh;overflow-y: auto; background:white; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
 
                     <div class="form-group">
                         <label class="font-weight-bold ">Seleccionar provincia</label>
@@ -48,7 +48,7 @@
                             <input  class="form-control form-control-sm" type="text" id="txt-coordenadaY" >
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="font-weight-bold bi bi-info-circle" style="color: #ededed"> Seleccionador</label>
+                            <label class="font-weight-bold bi bi-info-circle" style=""> Seleccionador</label>
                             <button type="button" class="btn btn-sm btn-success  bi bi-geo-alt " data-toggle="modal" data-target="#exampleModal2" > Buscar en mapa</button>
                         </div>
                     </div> 
@@ -66,16 +66,30 @@
                 </div>
             </div> 
         </div> 
-        <div class="col-lg-7">
-            <label class="font-weight-bold mt-3 bi bi-view-list" style="border-bottom: 1px solid #c4c4c4; width: 95%"> LISTA DE LUGARES</label>
-            <div class=" barra-colores  mr-5" style="height: 100vh;max-height: 74vh;overflow-y: auto;  ">
-                <table class="table ">
+        <div class="col-lg-7 pr-2">
+            
+            <div class="mr-5 mt-3 mb-2 p-3" style=" background: white; display: flex; flex-wrap: wrap ; 
+                                    -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
+                                     box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20);border-radius: 10px;">
+               
+                <label style="flex-basis: 40%" class="font-weight-bold bi bi-view-list">  LISTA DE LUGARES  </label>
+           
+                
+                     <input  style="flex-basis: 60%" id="buscadorLugaress" placeholder="Buscador de lugares"  type="text" class=" form-control form-control-sm" >
+            
+            </div>
+         
+             
+            <div class=" barra-colores  mr-5" style="height: 100vh;
+                                                max-height: 74vh;
+                                                overflow-y: auto;
+                                                background: white; 
+                                                -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
+                                                box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20);
+                                                border-radius: 10px;">
+                <table id="tblUbicacionesss" class="table ">
                     <thead>
-                        <!--  
-                                <tr class="color_base blanco" >
-                                    <th class="rounded-left" >#</th>
-                                </tr>
-                        -->
+
                     </thead>
                     <tbody id="tbl_ubicaciones">
 

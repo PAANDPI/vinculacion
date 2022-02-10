@@ -15,7 +15,8 @@
    
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-   
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="recursos/javaScript/administrador.js" type="text/javascript"></script>
@@ -34,6 +35,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap" rel="stylesheet">
         <link rel="icon" href="recursos/iconos/Logo_colorido.ico" type="image/x-icon">
       
+        
+        <style>
+            body
+            { max-width: 100%}
+        </style>
+        
         <title>Administrador</title>
     </head>
         <%  if (username != null) {

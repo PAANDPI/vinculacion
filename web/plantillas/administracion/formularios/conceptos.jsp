@@ -9,17 +9,14 @@
                 </div>
                 <div class="col-lg-7 ">
                     <div class="input-group mb-3 float-right">
-                        <input type="text" class="form-control form-control-sm  float-right" placeholder="Nombre de la discapacidad" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-sm blanco  my-2 my-sm-0  color_base float-right bi bi-search" type="button"></button>
-                        </div>
+                        <input id="buscadorDiscapacidades" type="text" autocomplete="off" class="form-control form-control-sm  float-right" placeholder="Escriba el nombre de la discapacidad" >                      
                     </div>
                 </div>
             </div>
 
             <div class="barra-colores" style="height: 80vh; max-height: 80vh; overflow-y: auto; border-left: #002752;   ">
-                <table class="table table-fixed  table-sm table-hover table-light" >
-                    <thead style="position: sticky; top: 0px;z-index: 10;">
+                <table id="tblDiscapacidad" class="table table-fixed  table-sm table-hover table-light" >
+                    <thead  style="position: sticky; top: 0px;z-index: 10;">
                         <tr class="color_base blanco" >
                             <th class="rounded-left" >#</th>
                             <th >DISCAPACIDAD</th>

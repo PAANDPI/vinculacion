@@ -97,6 +97,9 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        int accion = Integer.parseInt(request.getParameter("accion"));
+        if (accion == 1) {
         Recurso recurso = new Recurso();
         recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
         recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
@@ -113,17 +116,40 @@ public class RecursoSrv extends HttpServlet {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             if (recursoDAO.insert()) {
-//                retorno += "\"codigo\":200,\n";
-//                retorno += recursoDAO.getRecursoJSON();
                 response.setStatus(HttpServletResponse.SC_OK);
-                //response.sendRedirect("index.jsp");
+
             } else {
-//                retorno += "\"codigo\":400,\n";
-//                retorno += "\"mensaje\": \"" + recursoDAO.getMessage() + "\"\n";
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             }
             retorno += "}";
             out.write(retorno);
+        }
+        } else if(accion==2)
+        {
+             Recurso recurso = new Recurso();
+        recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
+        recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
+        recurso.setRecurso(request.getParameter("recurso"));
+        recurso.setDescripcion(request.getParameter("descripcion"));
+        recurso.setEtiquetas(request.getParameter("etiquetas"));
+        recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
+        recurso.setRuta(request.getParameter("ruta"));
+
+        RecursoDAO recursoDAO = new RecursoDAO(recurso);
+        recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+        response.setContentType("text/json;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String retorno = "{\n\t";
+           
+            if (recursoDAO.insertEnlace()) {
+                response.setStatus(HttpServletResponse.SC_OK);
+
+            } else {
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+            retorno += "}";
+            out.write(retorno);
+        }
         }
 //        Recurso recurso = new Recurso();
 //        recurso.setRecurso(request.getParameter("recurso"));

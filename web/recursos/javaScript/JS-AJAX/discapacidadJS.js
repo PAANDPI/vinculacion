@@ -69,9 +69,25 @@ $(document).ready(function () {
             window.location.href = "redactar.jsp";
         }
     });
+    $("#buscadorDiscapacidades").keyup(function () {
+        _this = this;
+      
+        $.each($("#tblDiscapacidad tbody tr"), function () {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
+        });
+    });
 
 
 });
+
+
+
+
+
+
 function cargarCategoriaDiscapacidades()
 {
     $.ajax({
@@ -322,3 +338,4 @@ function resultado()
     document.getElementById("resu").innerHTML = aux;
     return aux;
 }
+

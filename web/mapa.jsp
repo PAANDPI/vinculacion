@@ -36,11 +36,6 @@
     </head>
     <body >   
         <div class="row">
-            <!--            <div class="col-lg-4  m-0">
-                          
-                        </div>-->
-
-
             <div id="accordion" style="position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 500px; ">
                 <div class="card" style="border-top-left-radius: 20px;border-top-right-radius: 20px">
                     <div class="color_base blanco" style="width: 100%; height: auto; border-top-left-radius: 20px;border-top-right-radius: 20px" id="headingOne">

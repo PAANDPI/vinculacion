@@ -4,6 +4,20 @@ var jsonUbicaciones;
 var jsonCantones;
 var idlugar;
 $(document).ready(function () {
+    
+     $("#buscadorLugaress").keyup(function () {
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#tblUbicacionesss tbody tr"), function () {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
+        });
+    });
+
+
+    
     function cargaProvincia(e) {
         $.ajax({
             method: "GET",
@@ -181,6 +195,7 @@ function tbl_Lugares()
                 console.log(jsonUbicaciones[i].lugar);
                 htmlTabla += `<tr>
                              <td>
+              
                                 <div class="card caja">
                                             <div class="card-header ">
                                               <div class="row">
@@ -232,3 +247,5 @@ function tbl_Lugares()
     });
 
 } 
+
+

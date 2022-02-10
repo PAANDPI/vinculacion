@@ -73,7 +73,19 @@ public class RecursoDAO {
         }
         return false;
     }
-
+    public boolean insertEnlace() {
+       
+            //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
+            String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s');",
+                    recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
+                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta());
+            System.out.println(sql);
+            if (conex.isState()) {
+                return conex.execute(sql);
+            }
+        
+        return false;
+    }
     public boolean update() {
         String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s');",
                 recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
