@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<% HttpSession sesion = request.getSession(true);
+    Object username = sesion.getAttribute("username") == null ? null : sesion.getAttribute("username");
+%>
 <html>
    
     <head>
@@ -33,6 +36,12 @@
       
         <title>Administrador</title>
     </head>
+        <%  if (username != null) {
+                  
+                } else {
+                    response.sendRedirect("login.jsp");
+        }%>  
+     
     <body class="" style="background:#E2E2E5 ">        
         <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%>        
             <%@include  file="plantillas/administracion/menu_administracion.jsp" %>

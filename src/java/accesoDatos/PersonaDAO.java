@@ -217,7 +217,21 @@ public class PersonaDAO {
         json += "]";
         return json;
     }
+public String getPersonaJSON2() {
+        String json = "\"Persona\" : [";
 
+        json += "\n\t\t{\n\t\t\"idpersona\" : \"" + persona.getIdPersona() + "\",\n";
+        json += "\t\t\t\"idciudad\" : \"" + persona.getIdCiudad() + "\",\n";
+        json += "\t\t\t\"nombre\" : \"" + persona.getNombre() + "\",\n";
+        json += "\t\t\t\"apellido\" : \"" + persona.getApellido() + "\",\n";
+        json += "\t\t\t\"genero\" : \"" + persona.getGenero() + "\",\n";
+        json += "\t\t\t\"usuario\" : \"" + persona.getUsuario() + "\",\n";
+        json += "\t\t\t\"correo\" : \"" + persona.getCorreo() + "\",\n";        
+        json += "\t\t\t\"administrador\" : \"" + persona.isAdministrador() + "\",\n";
+        json += "\t\t\t\"estado\" : \"" + persona.isEstado() + "\"\n\t\t}\n";
+        json += "]";
+        return json;
+    }
     public String getMessage() {
         return conex.getMessage();
     }

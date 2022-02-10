@@ -16,9 +16,10 @@
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">     
         <link href="recursos/estilos/login.css" rel="stylesheet" type="text/css"/>
-        <!--Iconos-->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        
         <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Bebas+Neue&family=Pacifico&display=swap" rel="stylesheet">
+        <script src="recursos/javaScript/JS-AJAX/login.js" type="text/javascript"></script>
     </head>
     <style>
    
@@ -42,7 +43,7 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
                                 </div>
-                                <input type="text" name="txtUsuario" class="form-control input_user" value="" placeholder="Correo electrónico">
+                                <input id="txtNombre_usuario" type="text" name="txtUsuario" class="form-control input_user"  placeholder="Nombre de usuario o correo">
                             </div>
 
 
@@ -50,12 +51,12 @@
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="bi bi-key-fill"></i></span>
                                 </div>
-                                <input type="password" name="txtClave" class="form-control input_pass" value="" placeholder="Contraseña">
+                                <input id="txtClave" type="password" name="txtClave" class="form-control input_pass" value="" placeholder="Contraseña">
                             </div>
 
 
                             <div class="d-flex justify-content-center mt-3 ">
-                                <a href="administrador.jsp" name="button" class="btn btn-block login_btn" style="color: #fff">Iniciar Sesión</a>
+                                <button id="btnIniciarSecion" type="button" name="button" class="btn btn-block login_btn" style="color: #fff">Iniciar Sesión</button>
                             </div>
 
 

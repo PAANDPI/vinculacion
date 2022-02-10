@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<% HttpSession sesion = request.getSession(true);
+    Object username = sesion.getAttribute("username") == null ? null : sesion.getAttribute("username");
+%>
 <html>
     <head>
         <title></title>
@@ -34,10 +37,9 @@
             background: rgba(255,255,255,0.1);            
         }
     </style>
-
-    <!-- Modal -->
-
-
+        <%if (username != null) { } else {
+        response.sendRedirect("login.jsp");
+        }%>       
     <body>
         <div class="row color_base" style="padding-top: 10px">
             <div class="container">

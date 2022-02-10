@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Persona;
 
 /**
@@ -97,7 +98,10 @@ public class PersonaSrv extends HttpServlet {
                 /* TODO output your page here. You may use following sample code. */
                 if (personaDAO.login()) {
                     retorno += "\"codigo\":200,\n";
-                    retorno += personaDAO.getPersonaJSON();
+                    retorno += personaDAO.getPersonaJSON2();
+                    HttpSession sesion= request.getSession(true);
+                    String cadenaSesion= personaDAO.getPersonaJSON2();
+                    sesion.setAttribute("username", cadenaSesion);
                     response.setStatus(response.SC_OK);
                 } else {
                     retorno += "\"codigo\":400,\n";
@@ -128,12 +132,12 @@ public class PersonaSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
                 if (personaDAO.insert()) {
-                    retorno += "\"codigo\":200,\n";
+//                    retorno += "\"codigo\":200,\n";
 //                    retorno += personaDAO.getPersonaJSON();
                     response.setStatus(response.SC_OK);
                     //response.sendRedirect("index.jsp");
                 } else {
-                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"codigo\":400,\n";
 //                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
                 }
@@ -194,6 +198,11 @@ public class PersonaSrv extends HttpServlet {
                 out.write(retorno);
             }
 
+        }else if(accion==5)
+        {
+                HttpSession sesion = request.getSession(true);
+                sesion.removeValue("username");
+                response.sendRedirect("index.jsp");
         }
 
     }

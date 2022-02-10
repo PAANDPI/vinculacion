@@ -75,6 +75,30 @@ $(document).ready(function () {
             }
         });
     }
+    
+        
+    $('#btnCerrarSession').on('click', function () {
+        
+        var datos = {"accion": "5"};
+        $.ajax({
+            method: "POST",
+            url: "PersonaSrv",
+            data: datos,
+            success: function (data) {
+               console.log(data);
+               window.location.href = "index.jsp";
+//               swal({text: mensaje.responseJSON.mensaje, icon: "success"});
+                
+
+            },
+            error: function (error) {
+            console.log(error);
+             
+            }
+        });
+
+    });
+    
     $('#btn_cancelar').click(function (e) {
         $('#btnGuardarUsuario').show("2000");
         $('#btn_cancelar').hide("slow");
