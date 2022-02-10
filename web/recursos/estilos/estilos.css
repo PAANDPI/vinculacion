@@ -289,3 +289,7 @@ body .degradado ul li a
     background: linear-gradient(262deg, rgba(11,48,73,1) 0%, rgba(15,54,80,1) 15%, rgba(66,125,164,1) 84%, rgba(65,122,159,1) 100%);
     height: auto;
 }
+#btnInforcion:hover
+{
+    cursor: pointer;     
+}

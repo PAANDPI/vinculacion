@@ -23,52 +23,125 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
               integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
               crossorigin=""/>
+
+        <!--zona de la ruta-->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+        <link rel="stylesheet"   href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+        <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+
+
     </head>
-    <body style="overflow-y:hidden ">
+    <body >   
+        <div class="row">
+            <!--            <div class="col-lg-4  m-0">
+                          
+                        </div>-->
 
-        <%@include  file="plantillas/menu.jsp" %>  
-        
-        <div id="accordion" style="position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 400px">
-            <div class="card">
-                <div class=" color_base"  style="width: 100%; height: auto; border:  1px solid gray ; " id="headingOne">
-                    <h5 class="mb-0">
-                        <button class="btn " style="color: white" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Generador de ruta
-                        </button>
-                    </h5>
-                </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <div class="form-group p-3">
-                    <label class="font-weight-bold" >Ubicación</label>
-                    <input type="text" class="form-control form-control-sm mb-2" id="exampleInputEmail1"  placeholder="Mi ubicación">       
-                    <label class="font-weight-bold" >Destino</label>
-                    <input list="lugares"  type="text" class="form-control form-control-sm"  placeholder="Mi destino">
-                    <button style="border: 3px solid #052C46;border-radius: 10px; position: relative; left:  1px " 
-                            type="button" class="btn btn-block mt-3 btn-sm font-weight-bold bi bi-compass "> Ruta</button>
-                </div>                 
-<!--                <div class="pl-3 pr-3">
-                    <h5>Area del buffer:   <a class=" btn bi bi-trash" style="font-size: 20px"></a></h5>
-                    <input style="width: 100%" class="mb-3" type="range" name="price" id="rango" min="0" max="5000" step="100" value="0">
-                </div> -->
+            <div id="accordion" style="position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 500px; ">
+                <div class="card" style="border-top-left-radius: 20px;border-top-right-radius: 20px">
+                    <div class="color_base blanco" style="width: 100%; height: auto; border-top-left-radius: 20px;border-top-right-radius: 20px" id="headingOne">
+                        <h5 class="mb-0 p-4">
+                            <button class="btn bi bi-caret-down-fill font-weight-bold blanco"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">                                
+                                Generador de ruta
+                            </button>
+                            <a id="btnInforcion"  class=" float-right bi bi-info-circle p-2"></a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" style="max-height: 70vh;overflow-x: hidden;  overflow-y: auto" class="collapse show barra-colores" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="row">
+                            <div class="col-lg-12" >
+                                <div class="form-group pl-4 pr-4 m-2">
+                                    <div class="row">                                       
+                                        <div id="informacionContenedor" class="col-lg-12">
+                                            <div class="alert alert-warning" role="alert">
+                                                <h6 class="alert-heading">¿Cómo marcar el punto de destino?</h6>
+                                                <p style="text-align: justify">Marque el lugarde incio en el mapa o directamente presionar el boton <b class="bi bi-hand-index-fill"> Buscar ubicacion</b> </p>                                       
+                                            </div>                                    
+                                        </div> 
+                                        <div class="col-lg-12 mt-2"> 
+                                            <button onclick="ponerubicacion()" style="border-radius: 50px;" class="btn btn-sm btn-warning  font-weight-bold float-left">Buscar ubicacion  <span class="bi bi-hand-index-fill"></span></button>
+                                            <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Menú <span class="bi bi-arrow-left"></span></a>
+                                        </div>
+                                    </div>    
+                                </div>
+                            </div> 
+                            <div class="col-lg-12">
+                                <div class="ml-3 mr-3 mb-2 p-3" style="-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
+                                     box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20); border-radius: 10px;"> 
+                                     <label  class="font-weight-bold">Lugar de destino:</label><br>
+                                        <div class="input-group">
+                                            <input id="search" type="text" class="form-control form-control-sm" placeholder="Ingrese el lugar a buscar" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                        </div>  
+                                </div>
+                                <div class="ml-3 mt-2 mr-3 p-3  barra-colores" 
+                                     style="overflow-y: auto; max-height: 250px; border-radius: 10px;
+                                     -webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
+                                     box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20);">
+                                    <table id="mytable" class="table table-sm">
+                                        <thead>
+                                        </thead>
+                                        <tbody id="lugaresMapa">                       
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 ">
+                                <div class="ml-3 mr-3 mb-3 mt-3 p-3 " style="-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
+                                     box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20); border-radius: 10px;">
+                                    <label class="ml-1 font-weight-bold"> Significado de los iconos: </label>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">                                    
+                                            <i>Centros Medicos</i>
+                                            <img src="recursos/iconos/iconos mapa/Clinica.ico" width="25" />
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i>Escuelas</i>
+                                            <img src="recursos/iconos/iconos mapa/Estudio.ico" width="25" />
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i>Fundaciones</i>
+                                            <img src="recursos/iconos/iconos mapa/Ong.ico" width="25" />
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i>Institutos</i>
+                                            <img src="recursos/iconos/iconos mapa/instituciones.ico" width="25" />
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i>Organizaciones</i>
+                                            <img src="recursos/iconos/iconos mapa/organizaciones.ico" width="25" />
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <i>Patronatos</i>
+                                            <img src="recursos/iconos/iconos mapa/patronatos.ico" width="25" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </div>       
-        <div id="map" style="width: 100%; height: 91vh;z-index: 1" class=" "></div>  
+        </div>    
+        <div class="col-lg-12 m-0 p-0">
+            <div id="map" style="width: 100%; height: 100vh;z-index: 1;" class=" "></div>  
+        </div>
 
-        
-    </body>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
-    <script src="recursos/javaScript/mapa.js" type="text/javascript"></script>
+    </div>
+
+</body>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+crossorigin=""></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+<script src="recursos/javaScript/mapa.js" type="text/javascript"></script>
 
 </html>
 
-<datalist id="lugares" >                         
-   
-</datalist>
