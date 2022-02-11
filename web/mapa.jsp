@@ -89,10 +89,10 @@
                             <div class="col-lg-12 ">
                                 <div class="ml-3 mr-3 mb-3 mt-3 p-3 " style="-webkit-box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.20); 
                                      box-shadow: 1px 1px 40px 1px rgba(0,0,0,0.20); border-radius: 10px;">
-                                    <label class="ml-1 font-weight-bold"> Significado de los iconos: </label>
+                                    <label class="ml-1 font-weight-bold"> Significado de los íconos: </label>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">                                    
-                                            <i>Centros Medicos</i>
+                                            <i>Centros Médicos</i>
                                             <img src="recursos/iconos/iconos mapa/Clinica.ico" width="25" />
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">

@@ -76,7 +76,7 @@
                 <div class="contenedor_iconos rosado rounded-circle float-right" style="position: absolute; right:10px; top:35px" >
                     <img width="40" height="40" class="m-1" src="recursos/iconos/multiple.png" alt=""/>
                 </div>
-                <h5 class="card-title">DISCAPACIDAD MULTIPLES</h5>
+                <h5 class="card-title">DISCAPACIDAD MÚLTIPLE</h5>
                 <p class="card-text text-justify"><br>
                 Se caracteriza por la presencia de distintas discapacidades en diferentes grados y combinaciones: discapacidad intelectual, auditiva, motora, visual, autismo, parálisis cerebral, algunos síndromes específicos, epilepsia, hidrocefalia, escoliosis y problemas de comportamiento.  
                 </p>

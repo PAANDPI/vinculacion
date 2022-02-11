@@ -50,7 +50,7 @@
                        Brinda referencias de lugares de interés para<br> 
                        personas con discapacidad, puede encontrar <br>
                        recomendaciones de fundaciones, centros <br>
-                       terapéuticos, entre otros <br>               
+                       de terapia, entre otros <br>               
                     </p>  
                     <div><a href="mapa.jsp"  class="btn  efec " >  Ir al mapa <span class="bi bi-arrow-right"></span></a></div>
 
