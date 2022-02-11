@@ -24,7 +24,7 @@
             </li> 
 
             <li class="nav-item">
-                <a class="nav-link  btn mr-3 botones p-1"  href="#"><span class="bi bi-people"></span>  Conócenos  </a>
+                <a class="nav-link  btn mr-3 botones p-1"  href="../vinculacion/conocenos.jsp"><span class="bi bi-people"></span>  Conócenos  </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link  btn mr-3 botones p-1"  href="../vinculacion/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
