@@ -43,9 +43,12 @@
         
         <title>Administrador</title>
     </head>
-        <%  if (username != null) {
-                  
-                } else {
+        
+        <%  String tipoUsuario="";
+            if (username != null) 
+        {
+              tipoUsuario=  sesion.getAttribute("username").toString();
+         } else {
                     response.sendRedirect("login.jsp");
         }%>  
      
@@ -55,10 +58,21 @@
         <div class="row" >         
             <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
             <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
-            <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp"%>
-            <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
-            <%@include  file="plantillas/administracion/formularios/sugerencia.jsp"%>
+            <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>                                 
             <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>
+            
+            <% 
+                boolean validador= Boolean.parseBoolean(tipoUsuario); 
+                if (validador)
+                   { %>
+                   
+                     <%@include  file="plantillas/administracion/formularios/persona.jsp" %>  
+                   <% }
+                   else
+                {
+                    
+                }
+             %>
         </div>       
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
