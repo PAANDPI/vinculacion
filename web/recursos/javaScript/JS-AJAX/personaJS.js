@@ -1,7 +1,7 @@
 var jsonPersonas;
 var idPersona;
 $(document).ready(function () {
-    
+   
     $("#buscadorPersonas").keyup(function () {
         _this = this;
         // Show only matching TR, hide rest of them

@@ -217,6 +217,10 @@ public class PersonaDAO {
         json += "]";
         return json;
     }
+public boolean tipoUsuario(){
+    
+     return persona.isAdministrador();
+}
 public String getPersonaJSON2() {
         String json = "\"Persona\" : [";
 

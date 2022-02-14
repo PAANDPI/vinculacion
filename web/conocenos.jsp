@@ -22,54 +22,91 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>Conócenos</title>
     </head>
-    <body class="color_base">
-        <%@include  file="plantillas/menu.jsp" %>    
-        <div class="color_base" style="max-width: 100%; height: 200px;">
+    <body >
+        <div style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
 
-        </div>
-        <div  style="background: white; border-radius: 100px 100px 0px 0px ">
+            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav m-auto align-content-center">
+                        <li class="nav-item ">
+                            <a class="nav-link btn mr-3 botones mt-3  p-1 blanco" href="../vinculacion/index.jsp"><span  class="bi bi-house"></span>  Inicio  </a>
+                        </li>
+                        <li class="nav-item "> 
+                            <a class="nav-link btn mr-3 botones mt-3  p-1 blanco"  href="../vinculacion/buscador.jsp"> <span class="bi bi-search"></span>  Buscador </a>
+                        </li>
+                        <li class="nav-item "> 
+                            <a class="nav-link btn mr-3 botones mt-3  p-1 blanco"  href="../vinculacion/recursos.jsp"> <span class="bi bi-folder"></span>  Recursos </a>
+                        </li> 
+                        <li class="nav-item "> 
+                            <a class="nav-link btn mr-3 botones  mt-3  p-1 blanco"  href="../vinculacion/mapa.jsp"> <span class="bi bi-compass"></span>  Mapa </a>
+                        </li> 
+
+                        <li class="nav-item">
+                            <a class="nav-link  btn mr-3 botones  mt-3  p-1 blanco"  href="../vinculacion/conocenos.jsp"><span class="bi bi-people"></span>  Conócenos  </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link  btn mr-3 botones mt-3  p-1 blanco"  href="../vinculacion/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
+                        </li>
+                    </ul>               
+                </div>
+            </nav>
+
+            <div style="width: 100%; position: absolute; bottom: 50px;">
+                <div class="row flex-column justify-content-center"   >
+                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>YUYAPUY</b> </h1>
+                    <p class="text-center" style="font-size: 13px;color: gray">
+                        <b>Aquí puedes conocer más sobre yuyapuy y las herramientas que ofrece este proyecto.</b>
+                        <br>Ademas, puedes conocer sobre el resto de proyectos enfocados en las <br>
+                        personas con discapacidad                    
+                    </p>
+                </div>
+
+            </div>
+
+        </div> 
+        <div  style="background: white;">
             <div class="container">
-                <div class="row mt-5 p-3 pt-5" >
+                <div class="row " >
                     <div class="col-lg-6 pl-2 pr-5">
-                        <div class="row justify-content-center  mb-3">
-                            <div class="col-lg-12  text-center">
-                                <h2 class="font-weight-bold">Ofrecer herramientas TIC</h2>
-                                <span style="font-size: 25px" class="bi bi-arrow-down-circle-fill"></span>
-                            </div>
-                        </div> 
-                        <div class="row  ">
-                            <div class="col-lg-8 m-3">
-                                <div class=" p-3  ali blanco sombra"  style="background:#EABF3F; width: 100%; height: 100px; border-radius: 10px;
-                                     -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
-                                     box-shadow: 1px 1px 15px 5px  rgba(0,0,0,0.20);border-radius: 10px;">
-                                    <i style="flex-basis: 10%" class="bi bi-vr"></i>
-                                    <h4 style="flex-basis: 90%" class="font-weight-bold">Contruir <br> aplicaciones de TIC</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center ">
-                            <div class="col-lg-4">
+                        <img style="width: 100%" src="recursos/imagenes/Herramientas.png" alt=""/>
 
-                            </div>
-                            <div class="col-lg-8">
-                                <div class=" p-3  blanco"  style="background:#CF7F2F; width: 100%; height: 100px; border-radius: 10px;                                
-                                     -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
-                                     box-shadow: 1px 1px 15px 5px  rgba(0,0,0,0.20);border-radius: 10px;">
-                                    <i style="flex-basis: 10%" class="bi bi-window-stack"></i>
-                                    <h4 style="flex-basis: 90%" class="font-weight-bold">Implementar un <br> sitio web</h4>
-                                </div> 
-                            </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-lg-8 m-3"> 
-                                <div class=" p-3  blanco sombra" style="background:#BEBEBE; width: 100%; height: 100px; border-radius: 10px;
-                                     -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
-                                     box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.20);border-radius: 10px;">
-                                    <i style="flex-basis: 10%" class="bi  bi-people"></i>
-                                    <h4 class="font-weight-bold">Capacitar distintos <br> involucrados</h4>
-                                </div> 
-                            </div>
-                        </div>
+                        <!--                        <div class="row  ">
+                                                    <div class="col-lg-8 m-3">
+                                                        <div class=" p-3  ali blanco sombra"  style="background:#EABF3F; width: 100%; height: 100px; border-radius: 10px;
+                                                             -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
+                                                             box-shadow: 1px 1px 15px 5px  rgba(0,0,0,0.20);border-radius: 10px;">
+                                                            <i style="flex-basis: 10%" class="bi bi-vr"></i>
+                                                            <h4 style="flex-basis: 90%" class="font-weight-bold">Contruir <br> aplicaciones de TIC</h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row justify-content-center ">
+                                                    <div class="col-lg-4">
+                        
+                                                    </div>
+                                                    <div class="col-lg-8">
+                                                        <div class=" p-3  blanco"  style="background:#CF7F2F; width: 100%; height: 100px; border-radius: 10px;                                
+                                                             -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
+                                                             box-shadow: 1px 1px 15px 5px  rgba(0,0,0,0.20);border-radius: 10px;">
+                                                            <i style="flex-basis: 10%" class="bi bi-window-stack"></i>
+                                                            <h4 style="flex-basis: 90%" class="font-weight-bold">Implementar un <br> sitio web</h4>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <div class="row ">
+                                                    <div class="col-lg-8 m-3"> 
+                                                        <div class=" p-3  blanco sombra" style="background:#BEBEBE; width: 100%; height: 100px; border-radius: 10px;
+                                                             -webkit-box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.20); display: flex; flex-wrap: wrap ;
+                                                             box-shadow: 1px 1px 15px 5px rgba(0,0,0,0.20);border-radius: 10px;">
+                                                            <i style="flex-basis: 10%" class="bi  bi-people"></i>
+                                                            <h4 class="font-weight-bold">Capacitar distintos <br> involucrados</h4>
+                                                        </div> 
+                                                    </div>
+                                                </div>-->
                     </div>
                     <div class="col-lg-6 ">
                         <h2>Objetivo General</h2> 
@@ -83,75 +120,100 @@
 
                     </div>
                 </div>
-                <div class="row align-content-center mb-5 pb-5 pt-5">
-                    <div class="col-lg-12 mb-5">
-                        <h1>Colaboradores</h1>
-                    </div> 
-                    <div class=" col-lg-3 ">   
-                        <div  style="width: 220px; height: 300px; border-radius: 20px; border-top: 10px solid #466493 ;
-                              -webkit-box-shadow: 1px 1px 10px 10px rgba(154, 91, 206,1);
-                              box-shadow: 1px 1px 50px 1px  rgba(154, 91, 206,0.70);">
-                            <img class="p-3"  style="width: 100%; height: 200px" src="recursos/conocenos/Logo-Down.jpg" alt=""/>
-                            <label style="color: #383838" class="font-weight-bold text-center p-1">
-                                Fundación Down Santo Domingo</label>
-                        </div>                                      
+                <style>
+                    .bn{
+                        -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                        border-radius: 200px;
+                    }
+                    .cajas
+                    {
+                        width: 100%; height: 300px;
+                        box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);
+                        border-bottom: 10px solid #5BAB90;
+                        border-top: 10px solid #5BAB90;
+                        border-radius: 50px;
+                        -webkit-transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1),-webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        text-decoration: none; 
+                    }
+                </style>
+            </div>
+            <div class="row">
+
+                <div class="col-lg-12 p-5">
+                    <h2 class="text-center mb-5"  style="font-size: 50px;font-weight: bold;"><b>COLABORADORES</b> </h2>
+                    <p></p>
+                    <div class="container">
+                        <img style="width: 100%;"  src="recursos/imagenes/Colaboradores.png" alt=""/>
                     </div>
-                    <div class=" col-lg-3 ">
 
-                        <div  style="width: 220px; height: 300px; border-radius: 20px; border-top: 10px solid #EE3921;
-                              -webkit-box-shadow: 1px 1px 10px 10px rgba(154, 91, 206,1);
-                              box-shadow: 1px 1px 50px 1px  rgba(154, 91, 206,0.70);">
-
-                            <img class="p-3" style="width: 100%; height: 200px" src="recursos/conocenos/CX1TE_uG_400x400.jpg" alt=""/>
-
-                            <label style="color: #383838" class="font-weight-bold text-center p-1">
-                                GAD Parroquial La esperanza</label>
-
-                        </div>  
-
-                    </div>
-                    <div class=" col-lg-3 "> 
-
-                        <div  style="width: 220px; height: 300px; border-radius: 20px;border-top: 10px solid #5B8957;
-                              -webkit-box-shadow: 1px 1px 10px 10px rgba(154, 91, 206,1);
-                              box-shadow: 1px 1px 50px 1px  rgba(154, 91, 206,0.70);">
-
-                            <img class="p-3" style="width: 100%; height: 200px" src="recursos/conocenos/Quevedo.png" alt=""/>
-
-                            <label style="color: #383838" class="font-weight-bold text-center p-1">
-                                Dirección de Desarrollo Social del GADM de Quevedo </label>
-
-                        </div>                                          
-
-                    </div>
-                    <div class=" col-lg-3"> 
-                        <div  style="width: 220px; height: 300px; border-radius: 20px;border-top: 10px solid #E16D1B;
-                              -webkit-box-shadow: 1px 1px 10px 10px rgba(154, 91, 206,1);
-                              box-shadow: 1px 1px 50px 1px  rgba(154, 91, 206,0.70);">
-
-                            <img class="p-3" style="width: 100%; height: 200px" src="recursos/conocenos/bartolucci.jpg" alt=""/>
-
-                            <label style="color: #383838" class="font-weight-bold text-center p-1">
-                                Unidad de Educación Especializada "Enrique Bartolucci" </label>
-
-                        </div>
-                    </div>
                 </div>
-                <div class="row mb-5 pb-3">
-                    <div class="col-lg-12 mb-5">
-                        <h2>Juegos y otras aplicaciones</h2>
+
+            </div>
+
+            <div class="container ">
+                 <h2 class="text-center mb-5 mt-5 pt-5"  style="font-size: 50px;font-weight: bold;"><b>DESARROLLADORES</b> </h2>
+                <div class="row justify-content-center">               
+                    <div class=" mt-5 col-lg-2  ">
+                       
+                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/espin.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
+                        <label class="text-center font-weight-bold">Luis Miguel Espin Carrascos</label>
+                       
+                    </div> 
+                    <div class=" mt-5 col-lg-2 ">                       
+                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/ariel.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
+                            <label class="text-center font-weight-bold">Ariel Owaldo Fernández Loor</label>              
                     </div>
-                    <div class="card mt-1 mb-3">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div 
+                    <div class="mt-5 col-lg-2 "> 
+                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Francisco.jpg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
+                            <label class="text-center font-weight-bold">Francisco Simpon Moreira García</label>
+                    </div>
+                    <div class="mt-5 col-lg-2 ">
+                        
+                            <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Michelle.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
+                            <label class="text-center font-weight-bold">Doris Michalle Solano Chico</label>
+                       
+                    </div>
+                    <div class="mt-5 col-lg-2"> 
+                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Dayana.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
+                                  <label class="text-center font-weight-bold">Dayana Lizzet Velez Araujo </label>             
+                    </div>
                 </div>
             </div>
+                
+
+
+
+
+
         </div>
-        <%@include  file="plantillas/footer.jsp" %>  
-    </body>
+
+
+        <div class="container">
+        <div class="row mb-5 mt-5 pt-5 pb-3">
+            <div class="col-lg-12 mb-5">
+                 <h2 class="text-center mb-5"  style="font-size: 50px;font-weight: bold;"><b>OTRAS APLICACIONES DEL PROYECTO</b> </h2>
+                
+            </div>
+            <div class="card mt-1 mb-3">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div 
+        </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-lg-12">
+
+        </div>
+    </div>
+    <img style="width: 100%; opacity: 0.65" src="recursos/imagenes/mountains-55067.png" alt=""/>
+    <%--<%@include  file="plantillas/footer.jsp" %>--%>  
+</body>
 </html>

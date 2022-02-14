@@ -100,8 +100,8 @@ public class PersonaSrv extends HttpServlet {
                     retorno += "\"codigo\":200,\n";
                     retorno += personaDAO.getPersonaJSON2();
                     HttpSession sesion= request.getSession(true);
-                    String cadenaSesion= personaDAO.getPersonaJSON2();
-                    sesion.setAttribute("username", cadenaSesion);
+                    
+                    sesion.setAttribute("username", personaDAO.tipoUsuario()+"");
                     response.setStatus(response.SC_OK);
                 } else {
                     retorno += "\"codigo\":400,\n";

@@ -43,22 +43,45 @@
         
         <title>Administrador</title>
     </head>
-        <%  if (username != null) {
-                  
-                } else {
+        <%        
+            boolean validador=false;
+            String tipoUsuario="";
+            
+            if (username != null) 
+        {
+              tipoUsuario=  sesion.getAttribute("username").toString();
+              validador= Boolean.parseBoolean(tipoUsuario); 
+         } else {
                     response.sendRedirect("login.jsp");
         }%>  
      
     <body class="" style="background:#E2E2E5 ">        
-        <%--<%@include file="plantillas/fondo_decoracion_1.jsp" %>--%>        
-            <%@include  file="plantillas/administracion/menu_administracion.jsp" %>
+        <%                
+         if (validador)
+           { %> <%@include  file="plantillas/administracion/menu_administracion.jsp" %> <% }
+                else
+                {  %> 
+                   <%@include  file="plantillas/administracion/menu_noAdministrador.jsp"%>
+               <%  }
+              %>        
+           
         <div class="row" >         
             <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
             <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
-            <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp"%>
-            <%@include  file="plantillas/administracion/formularios/persona.jsp" %>
-            <%@include  file="plantillas/administracion/formularios/sugerencia.jsp"%>
-            <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>
+            <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>                                 
+            <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>            
+            <%                
+                if (validador)
+                   { %>
+                   
+                     <%@include  file="plantillas/administracion/formularios/persona.jsp" %>  
+                   <% }
+                   else
+                {
+                    
+                }
+             %> 
+             
         </div>       
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
