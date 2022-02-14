@@ -122,6 +122,7 @@ public class ConceptoSrv extends HttpServlet {
         } else if (accion == 2) {
             Concepto concepto = new Concepto();
             concepto.setIdDiscapacidad(Integer.parseInt(request.getParameter("idDiscapacidad")));
+            concepto.setIdConcepto(Integer.parseInt(request.getParameter("idConcepto")));
             concepto.setDescripcion(request.getParameter("descripcion"));
             concepto.setEtiquetas(request.getParameter("etiquetas"));
             ConceptoDAO conceptoDAO = new ConceptoDAO(concepto);

@@ -1,10 +1,27 @@
 var jsonCategoria;
 var jsonDiscapacidades;
+var jsonconceptoMod = localStorage.getItem('JsonConcepto');
+var idconceptoMod = localStorage.getItem('idModConcepto');
 var idDiscapacidad2 = localStorage.getItem('idDiscapacidad');
+
 $(document).ready(function () {
 
     cargarCategoriaDiscapacidades();
     cargarDiscapacidades();
+    comprobarModificar();
+    function comprobarModificar() {
+        //console.log('prueba de parametro ' + idDiscapacidad2);
+        for (var i of JSON.parse(jsonconceptoMod)) {
+            if (i.idconcepto == idconceptoMod) {
+                console.log(i);
+                $('#descripcion').Editor('setText', i.descripcion);
+                Ntitulo = i.etiquetas.indexOf("titulo") + 8;
+                titulo = i.etiquetas.substring(Ntitulo, i.etiquetas.length);
+                $('#txttitulo').val(titulo);
+                $('#etiquetas').val(i.etiquetas.substring(0, Ntitulo - 8));
+            }
+        }
+    }
     function cargarCategoriaDiscapacidades()
     {
         $.ajax({
@@ -53,15 +70,15 @@ $(document).ready(function () {
                 cmb_Discapacidad.innerHTML = cmbDiscapacidades;
                 try {
                     if (idDiscapacidad2.length > 0)
-                {
-                    cmb_Discapacidad.value = idDiscapacidad2;
+                    {
+                        cmb_Discapacidad.value = idDiscapacidad2;
 
-                }  
+                    }
                 } catch (e) {
-                    
+
                 }
 
-               
+
 
             },
             error: function (error) {
@@ -99,10 +116,15 @@ $(document).ready(function () {
         var iDDiscapacidad = document.getElementById("cmb-discapacidad").value;
         var etiquetas = document.getElementById("etiquetas").value;
         var txttitulo = document.getElementById("txttitulo").value;
-        
-        var datos = {"idDiscapacidad": iDDiscapacidad,
-            "descripcion": htmlDescripcion,
-            "etiquetas": etiquetas+ `titulo: ${txttitulo}`, "accion": 1};
+        if (idconceptoMod=="") {
+            var datos = {"idConcepto": idconceptoMod, "idDiscapacidad": iDDiscapacidad,
+                "descripcion": htmlDescripcion,
+                "etiquetas": etiquetas + `titulo: ${txttitulo}`, "accion": 2};
+        } else {
+            var datos = {"idDiscapacidad": iDDiscapacidad,
+                "descripcion": htmlDescripcion,
+                "etiquetas": etiquetas + `titulo: ${txttitulo}`, "accion": 1};
+        }
         console.log(datos);
 
         if (htmlDescripcion.length > 0)

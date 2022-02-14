@@ -6,11 +6,11 @@
                     </div>
                     <div class="modal-body">
                         <label>Categoria</label>
-                        <select selected="selected" id="cmbIdCategoriDiscapacidad"  class="form-control">
+                        <select selected="selected" id="cmbIdCategoriDiscapacidad"  class="form-control"  >
                         
                         </select>
                         <label for="txtNombreDiscapacidad">Nombre discapacidad</label>
-                        <input id="txtNombreDiscapacidad" type="text" class="form-control" placeholder="Nombre de la discapacidad">
+                        <input id="txtNombreDiscapacidad" type="text"  class="form-control" placeholder="Nombre de la discapacidad">
                      
                         <hr>
                     </div>

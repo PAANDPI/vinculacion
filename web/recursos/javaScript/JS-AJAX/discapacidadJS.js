@@ -2,21 +2,27 @@ var jsonCategoria;
 var jsonDiscapacidades;
 var jsonConceptos;
 var nConceptos = 0;
+var IdDiscapacidad = -1;
+
 
 $(document).ready(function () {
 
     cargarCategoriaDiscapacidades();
     cargarDiscapacidades();
     $('#btnGuardarDiscapacidad').on('click', function () {
-        var idCategoriaDiscapacidad = document.getElementById("cmbId\n\s.CategoriDiscapacidad").value;
+        var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-        var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
+        if (IdDiscapacidad > 0) {
+            var datos = {"discapacidad": nombreDiscapacidad,"idDiscapacidad":IdDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "3"};
+        } else {
+            var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
+        }
         $.ajax({
             method: "POST",
             url: "DiscapacidadSrv",
             data: datos,
             success: function (data) {
-                console.log(data);
+                //console.log(data);
                 document.getElementById("btnClickCerrar").click();
                 alerta(`Discapacidad ${nombreDiscapacidad} añadida con exito`, "success");
                 cargarDiscapacidades();
@@ -28,6 +34,13 @@ $(document).ready(function () {
             }
         });
 
+    });
+    $("#btnClickCerrar").click(function (e) {
+        $('#cmbIdCategoriDiscapacidad').val('');
+        $('#txtNombreDiscapacidad').val('');
+        $('#btnGuardarDiscapacidad').text('Guardar discacidad');
+        $('#btnGuardarDiscapacidad').css("background", "");
+        IdDiscapacidad = -1;
     });
     $('#btnAnadirConcepto').on('click', function () {
         var idDiscapacidad = localStorage.getItem('idDiscapacidad');
@@ -71,7 +84,7 @@ $(document).ready(function () {
     });
     $("#buscadorDiscapacidades").keyup(function () {
         _this = this;
-      
+
         $.each($("#tblDiscapacidad tbody tr"), function () {
             if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
                 $(this).hide();
@@ -79,11 +92,21 @@ $(document).ready(function () {
                 $(this).show();
         });
     });
-
-
 });
 
-
+function modificarDiscapacidad(idDis) {
+    $('#addDiscapacidad').click();
+    $('#btnGuardarDiscapacidad').text('Modificar');
+    $('#btnGuardarDiscapacidad').css("background", "#218838");
+    IdDiscapacidad = idDis;
+    for (var x of jsonDiscapacidades.Discapacidad) {
+        if (x.iddiscapacidad == idDis) {
+            //console.log(x);
+            $('#cmbIdCategoriDiscapacidad').prop('selectedIndex', x.idcategoriadiscapacidad);
+            $('#txtNombreDiscapacidad').val(x.discapacidad);
+        }
+    }
+}
 
 
 
@@ -224,7 +247,7 @@ function navegacionConceptos(n)
     var descripcion = jsonConceptos.Concepto[nConceptos].descripcion;
     var idConcepto = jsonConceptos.Concepto[nConceptos].idconcepto;
 
-   html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
+    html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
                             <div  class="card-body" style="height: 80vh; overflow-y:auto; ">
                                 <div id="contenedoDescripcion" style="zoom:100%" class="card-text">${descripcion}</div>                              
                             </div>
@@ -244,12 +267,12 @@ function navegacionConceptos(n)
 function labelZoom()
 {
     var cantidadZoom = document.getElementById("cantidadZoom");
-    var valorZoom= document.getElementById("valorZoom");    
-    valorZoom.innerText = cantidadZoom.value+"%";
-    
+    var valorZoom = document.getElementById("valorZoom");
+    valorZoom.innerText = cantidadZoom.value + "%";
+
     var contenedoDescripcion = document.getElementById("contenedoDescripcion");
     contenedoDescripcion.style.cssText = `zoom:${cantidadZoom.value}%`;
-    
+
 }
 function seleccionarDiscapacidad(idDiscapacidad)
 {
@@ -306,6 +329,11 @@ function seleccionarDiscapacidad(idDiscapacidad)
 
         }
     });
+}
+function modificarConcepto(idModConcepto){
+    $(location).attr('href',"redactar.jsp");
+    localStorage.setItem("JsonConcepto", JSON.stringify(jsonConceptos.Concepto));
+    localStorage.setItem("idModConcepto", idModConcepto);
 }
 function eliminarConcepto(idConcepto)
 {

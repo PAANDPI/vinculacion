@@ -37,7 +37,7 @@ public class DiscapacidadSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DiscapacidadSrv</title>");            
+            out.println("<title>Servlet DiscapacidadSrv</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet DiscapacidadSrv at " + request.getContextPath() + "</h1>");
@@ -58,10 +58,10 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          response.setContentType("text/html;charset=UTF-8");  
-            Discapacidad discapacidad=new Discapacidad();
-            DiscapacidadDAO discapacidadDAO= new  DiscapacidadDAO(discapacidad);
-            try (PrintWriter out = response.getWriter()) {
+        response.setContentType("text/html;charset=UTF-8");
+        Discapacidad discapacidad = new Discapacidad();
+        DiscapacidadDAO discapacidadDAO = new DiscapacidadDAO(discapacidad);
+        try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
             retorno += "\"codigo\":200,\n";
@@ -83,62 +83,82 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           int accion = Integer.parseInt(request.getParameter("accion"));
-           if(accion==1){
-          response.setContentType("text/json;charset=UTF-8");
-          Discapacidad discapacidad=new Discapacidad();         
-          discapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
-          discapacidad.setDiscapacidad(request.getParameter("discapacidad"));          
-          DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad);          
-           try (PrintWriter out = response.getWriter()) {
+        int accion = Integer.parseInt(request.getParameter("accion"));
+        if (accion == 1) {
+            response.setContentType("text/json;charset=UTF-8");
+            Discapacidad discapacidad = new Discapacidad();
+            discapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
+            discapacidad.setDiscapacidad(request.getParameter("discapacidad"));
+            DiscapacidadDAO discapacodadDAO = new DiscapacidadDAO(discapacidad);
+            try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
-               if ( discapacodadDAO.insert())
-               {
-                   retorno += "\"codigo\":200,\n";
-                   retorno += discapacodadDAO.getDiscapacidadJSON();
-                   response.setStatus(response.SC_OK);
-               }else
-               {
-                retorno += "\"codigo\":400,\n";
-                retorno += "\"mensaje\": \"" + discapacodadDAO.getMessage() + "\"\n";
-                response.setStatus(response.SC_BAD_REQUEST);
-               }
+                if (discapacodadDAO.insert()) {
+                    retorno += "\"codigo\":200,\n";
+                    retorno += discapacodadDAO.getDiscapacidadJSON();
+                    response.setStatus(response.SC_OK);
+                } else {
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + discapacodadDAO.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
                 retorno += "}";
                 out.write(retorno);
-           }
-           }else if(accion==2)
-           {
-               
+            }
+        } else if (accion == 2) {
+
             Discapacidad discapacidad = new Discapacidad();
             discapacidad.setIdDiscapacidad(Integer.parseInt(request.getParameter("idDiscapacidad")));
-            DiscapacidadDAO discapacodadDAO= new  DiscapacidadDAO(discapacidad); 
+            DiscapacidadDAO discapacodadDAO = new DiscapacidadDAO(discapacidad);
 
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 if (discapacodadDAO.delete()) {
-                    
+
                     retorno += "\"codigo\":200\n";
                     response.setStatus(response.SC_OK);
-                    
+
                 } else {
-                    
+
                     retorno += "\"codigo\":400,\n";
                     retorno += "\"mensaje\": \"" + discapacodadDAO.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
-                    
+
                 }
                 retorno += "}";
                 out.write(retorno);
             }
-            
-           }
+        }
+        if (accion == 3) {
+            response.setContentType("text/json;charset=UTF-8");
+            Discapacidad discapacidad = new Discapacidad();
+            discapacidad.setIdDiscapacidad(Integer.parseInt(request.getParameter("idDiscapacidad")));
+            discapacidad.setIdCategoriaDiscapacidad(Integer.parseInt(request.getParameter("idCategoriaDiscapacidad")));
+            discapacidad.setDiscapacidad(request.getParameter("discapacidad"));
+            DiscapacidadDAO discapacodadDAO = new DiscapacidadDAO(discapacidad);
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                if (discapacodadDAO.update()) {
+                    retorno += "\"codigo\":200,\n";
+                    retorno += discapacodadDAO.getDiscapacidadJSON();
+                    response.setStatus(response.SC_OK);
+                } else {
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + discapacodadDAO.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+        }
     }
-     @Override
+
+    @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          
+
     }
+
     /**
      * Returns a short description of the servlet.
      *

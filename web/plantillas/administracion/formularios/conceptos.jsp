@@ -4,7 +4,7 @@
         <div  class="col-lg-5 pl-2 pr-2">
             <div class="row">
                 <div class="col-lg-5">
-                    <a class="nav-link btn color_base btn-sm blanco p-1" href="redactar.jsp" data-toggle="modal" data-target="#exampleModal">
+                    <a id="addDiscapacidad" class="nav-link btn color_base btn-sm blanco p-1" href="redactar.jsp" data-toggle="modal" data-target="#exampleModal">
                         <span class="bi bi-folder-plus mr-2"></span>  Discapacidad</a>
                 </div>
                 <div class="col-lg-7 ">

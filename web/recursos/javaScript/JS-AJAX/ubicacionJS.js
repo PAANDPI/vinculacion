@@ -192,7 +192,7 @@ function tbl_Lugares()
             var htmlTabla = ``;
             jsonUbicaciones = data.Lugar;
             for (var i = 0; i < jsonUbicaciones.length; i++) {
-                console.log(jsonUbicaciones[i].lugar);
+               // console.log(jsonUbicaciones[i].lugar);
                 htmlTabla += `<tr>
                              <td>
               
