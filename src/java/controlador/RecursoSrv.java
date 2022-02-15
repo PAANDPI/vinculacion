@@ -58,32 +58,32 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         int accion = Integer.parseInt(request.getParameter("accion"));
+        int accion = Integer.parseInt(request.getParameter("accion"));
         if (accion == 1) {
-            
-       RecursoDAO recursoDAO = new RecursoDAO();
-        response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            retorno += "\"codigo\":200,\n";
-            retorno += recursoDAO.getVW2JSON();
-            retorno += "\n}";
-            out.write(retorno);
-            
-            
-        }}else if(accion==2)
-        {
-            int idCategoria= Integer.parseInt(request.getParameter("cmbCategoria"));
-            String discapacidad=request.getParameter("txtDiscapacidad");
-              RecursoDAO recursoDAO = new RecursoDAO();
-                response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            retorno += "\"codigo\":200,\n";
-            retorno += recursoDAO.getVW2JSON(idCategoria,discapacidad);
-            retorno += "\n}";
-            out.write(retorno);
-        }}
+
+            RecursoDAO recursoDAO = new RecursoDAO();
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                retorno += "\"codigo\":200,\n";
+                retorno += recursoDAO.getVW2JSON();
+                retorno += "\n}";
+                out.write(retorno);
+
+            }
+        } else if (accion == 2) {
+            int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
+            String discapacidad = request.getParameter("txtDiscapacidad");
+            RecursoDAO recursoDAO = new RecursoDAO();
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                retorno += "\"codigo\":200,\n";
+                retorno += recursoDAO.getVW2JSON(idCategoria, discapacidad);
+                retorno += "\n}";
+                out.write(retorno);
+            }
+        }
     }
 
     /**
@@ -97,59 +97,58 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         int accion = Integer.parseInt(request.getParameter("accion"));
         if (accion == 1) {
-        Recurso recurso = new Recurso();
-        recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
-        recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
-        recurso.setRecurso(request.getParameter("recurso"));
-        recurso.setDescripcion(request.getParameter("descripcion"));
-        recurso.setEtiquetas(request.getParameter("etiquetas"));
-        recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
-        recurso.setRuta(request.getParameter("ruta"));
+            Recurso recurso = new Recurso();
+            recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
+            recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
+            recurso.setRecurso(request.getParameter("recurso"));
+            recurso.setDescripcion(request.getParameter("descripcion"));
+            recurso.setEtiquetas(request.getParameter("etiquetas"));
+            recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
+            recurso.setRuta(request.getParameter("ruta"));
 
-        RecursoDAO recursoDAO = new RecursoDAO(recurso);
-        recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-        response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
-            if (recursoDAO.insert()) {
-                response.setStatus(HttpServletResponse.SC_OK);
+            RecursoDAO recursoDAO = new RecursoDAO(recurso);
+            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (recursoDAO.insert()) {
+                    response.setStatus(HttpServletResponse.SC_OK);
 
-            } else {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                } else {
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
             }
-            retorno += "}";
-            out.write(retorno);
-        }
-        } else if(accion==2)
-        {
-             Recurso recurso = new Recurso();
-        recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
-        recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
-        recurso.setRecurso(request.getParameter("recurso"));
-        recurso.setDescripcion(request.getParameter("descripcion"));
-        recurso.setEtiquetas(request.getParameter("etiquetas"));
-        recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
-        recurso.setRuta(request.getParameter("ruta"));
+        } else if (accion == 2) {
+            Recurso recurso = new Recurso();
+            recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
+            recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
+            recurso.setRecurso(request.getParameter("recurso"));
+            recurso.setDescripcion(request.getParameter("descripcion"));
+            recurso.setEtiquetas(request.getParameter("etiquetas"));
+            recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
+            recurso.setRuta(request.getParameter("ruta"));
 
-        RecursoDAO recursoDAO = new RecursoDAO(recurso);
-        recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-        response.setContentType("text/json;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-           
-            if (recursoDAO.insertEnlace()) {
-                response.setStatus(HttpServletResponse.SC_OK);
+            RecursoDAO recursoDAO = new RecursoDAO(recurso);
+            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
 
-            } else {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                if (recursoDAO.insertEnlace()) {
+                    response.setStatus(HttpServletResponse.SC_OK);
+
+                } else {
+                    response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
             }
-            retorno += "}";
-            out.write(retorno);
-        }
         }
 //        Recurso recurso = new Recurso();
 //        recurso.setRecurso(request.getParameter("recurso"));
