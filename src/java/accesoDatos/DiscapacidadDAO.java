@@ -48,16 +48,6 @@ public class DiscapacidadDAO {
         return false;
     }
 
-    public boolean habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitarDeshabilitarDiscapacidad(%d);",
-                discapacidad.getIdDiscapacidad());
-        if (conex.isState()) {
-            System.out.println(sql);
-            return conex.execute(sql);
-        }
-        return false;
-    }
-
     public boolean delete() {
         String sql = String.format("SELECT eliminarDiscapacidad(%d);",
                 discapacidad.getIdDiscapacidad());
@@ -163,7 +153,7 @@ public class DiscapacidadDAO {
         json += "]";
         return json;
     }
-    
+
     public String getVW2JSONCategoriaDiscapacidad(String categoriaDiscapacidad) {
         String json = "\"Discapacidad\" : [";
 

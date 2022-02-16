@@ -94,15 +94,14 @@ public class LugarSrv extends HttpServlet {
             String CoordenadaY = request.getParameter("CoordenadaY");
             String etiquetas = request.getParameter("Etiquete");
             String Estado = request.getParameter("Estado");
-            Lugar beanLugar = new Lugar();
-            beanLugar.setIdCiudad(Integer.parseInt(IdCiudad));
-            beanLugar.setLugar(Lugar);
-            beanLugar.setDescripcion(Descripcion);
-            beanLugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
-            beanLugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
-            beanLugar.setEstado(Boolean.getBoolean(Estado));
-            beanLugar.setEtiqueta(etiquetas);
-            LugarDAO lugarDao = new LugarDAO(beanLugar);
+            Lugar lugar = new Lugar();
+            lugar.setIdCiudad(Integer.parseInt(IdCiudad));
+            lugar.setLugar(Lugar);
+            lugar.setDescripcion(Descripcion);
+            lugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
+            lugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
+            lugar.setEtiqueta(etiquetas);
+            LugarDAO lugarDao = new LugarDAO(lugar);
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
@@ -121,9 +120,9 @@ public class LugarSrv extends HttpServlet {
             }
         } else if (accion.equals("2")) {
             String IdLugar = request.getParameter("idlugar");
-            Lugar bLugar = new Lugar();
-            bLugar.setIdLugar(Integer.parseInt(IdLugar));
-            LugarDAO lugarD = new LugarDAO(bLugar);
+            Lugar lugar = new Lugar();
+            lugar.setIdLugar(Integer.parseInt(IdLugar));
+            LugarDAO lugarD = new LugarDAO(lugar);
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 if (lugarD.delete()) {

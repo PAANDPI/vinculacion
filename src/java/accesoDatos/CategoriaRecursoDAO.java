@@ -40,20 +40,9 @@ public class CategoriaRecursoDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT editarCategoriaRecurso(%d, '%s');",
+        String sql = String.format("SELECT editarcategoriarecurso(%d, '%s');",
                 categoriaRecurso.getIdCategoriaRecurso(), categoriaRecurso.getCategoriaRecurso());
         if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return false;
-    }
-
-    public boolean habilitarDeshabilitar() {
-//        String sql = String.format("SELECT habilitarDeshabilitarCategoriaRecurso(%d);",
-       String sql = String.format("SELECT editarcategoriarecurso(%d);",
-                categoriaRecurso.getIdCategoriaRecurso());
-        if (conex.isState()) {
-            System.out.println(sql);
             return conex.execute(sql);
         }
         return false;

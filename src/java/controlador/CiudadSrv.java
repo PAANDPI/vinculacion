@@ -131,7 +131,6 @@ public class CiudadSrv extends HttpServlet {
         Ciudad ciudad = new Ciudad();
         ciudad.setIdProvincia(Integer.parseInt(request.getParameter("idprovincia")));
         ciudad.setCiudad(request.getParameter("ciudad"));
-        ciudad.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
         
         CiudadDAO ciudadDAO = new CiudadDAO(ciudad);
         response.setContentType("text/json;charset=UTF-8");

@@ -37,7 +37,20 @@ public class PersonaDAO {
                 persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
                 persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
                 persona.getClave(), persona.isAdministrador());
-        System.out.println("consulta" + sql);
+        System.out.println("consulta: " + sql);
+        if (conex.isState()) {
+            return conex.execute(sql);
+        }
+        return false;
+    }
+
+    public boolean cambiarClave() {
+
+        persona.setClave(DigestUtils.sha1Hex(persona.getClave()));
+
+        String sql = String.format("SELECT cambiarClave(%d, '%s');",
+                persona.getIdPersona(), persona.getClave());
+        System.out.println("consulta: " + sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -45,10 +58,10 @@ public class PersonaDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT editarpersona(%d,%d, '%s', '%s', '%s', '%s', '%s','%s', '%b','%b');", 
-                persona.getIdPersona(),persona.getIdCiudad(), persona.getNombre(), persona.getApellido(),
-                persona.getGenero(), persona.getUsuario(), persona.getCorreo(),
-                persona.getClave(), persona.isAdministrador(), true);
+        String sql = String.format("SELECT editarpersona(%d,%d, '%s', '%s', '%s', '%s','%s', '%b','%b');",
+                persona.getIdPersona(), persona.getIdCiudad(), persona.getNombre(),
+                persona.getApellido(), persona.getGenero(), persona.getUsuario(),
+                persona.getCorreo(), persona.isAdministrador(), persona.isEstado());
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -217,11 +230,13 @@ public class PersonaDAO {
         json += "]";
         return json;
     }
-public boolean tipoUsuario(){
-    
-     return persona.isAdministrador();
-}
-public String getPersonaJSON2() {
+
+    public boolean tipoUsuario() {
+
+        return persona.isAdministrador();
+    }
+
+    public String getPersonaJSON2() {
         String json = "\"Persona\" : [";
 
         json += "\n\t\t{\n\t\t\"idpersona\" : \"" + persona.getIdPersona() + "\",\n";
@@ -230,12 +245,13 @@ public String getPersonaJSON2() {
         json += "\t\t\t\"apellido\" : \"" + persona.getApellido() + "\",\n";
         json += "\t\t\t\"genero\" : \"" + persona.getGenero() + "\",\n";
         json += "\t\t\t\"usuario\" : \"" + persona.getUsuario() + "\",\n";
-        json += "\t\t\t\"correo\" : \"" + persona.getCorreo() + "\",\n";        
+        json += "\t\t\t\"correo\" : \"" + persona.getCorreo() + "\",\n";
         json += "\t\t\t\"administrador\" : \"" + persona.isAdministrador() + "\",\n";
         json += "\t\t\t\"estado\" : \"" + persona.isEstado() + "\"\n\t\t}\n";
         json += "]";
         return json;
     }
+
     public String getMessage() {
         return conex.getMessage();
     }

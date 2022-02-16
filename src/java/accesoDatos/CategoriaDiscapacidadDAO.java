@@ -41,7 +41,7 @@ public class CategoriaDiscapacidadDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT insertarCategoriaDiscapacidad('%s');",
+        String sql = String.format("SELECT insertarcategoriadiscapacidad('%s');",
                 categoriaDiscapacidad.getCategoriaDiscapacidad());
         if (conex.isState()) {
             return conex.execute(sql);
@@ -49,17 +49,8 @@ public class CategoriaDiscapacidadDAO {
         return false;
     }
 
-    public boolean habilitarDeshabilitar() {
-        String sql = String.format("SELECT editarcategoriadiscapacidad(%d);",
-                categoriaDiscapacidad.getIdCategoriaDiscapacidad());
-        if (conex.isState()) {
-            return conex.execute(sql);
-        }
-        return false;
-    }
-
     public boolean delete() {
-        String sql = String.format("SELECT eliminarCategoriaDiscapacidad(%d);",
+        String sql = String.format("SELECT eliminarcategoriadiscapacidad(%d);",
                 categoriaDiscapacidad.getIdCategoriaDiscapacidad());
         if (conex.isState()) {
             return conex.execute(sql);

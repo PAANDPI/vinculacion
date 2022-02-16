@@ -36,7 +36,7 @@ public class PaisSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PaisSrv</title>");            
+            out.println("<title>Servlet PaisSrv</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet PaisSrv at " + request.getContextPath() + "</h1>");
@@ -45,7 +45,7 @@ public class PaisSrv extends HttpServlet {
         }
     }
 
-     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -57,7 +57,7 @@ public class PaisSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         PaisDAO paisDAO = new PaisDAO();
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -87,7 +87,7 @@ public class PaisSrv extends HttpServlet {
         pais.setPais(request.getParameter("pais"));
         pais.setCodigo(request.getParameter("codigo"));
         pais.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
-        
+
         PaisDAO paisDAO = new PaisDAO(pais);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -121,11 +121,10 @@ public class PaisSrv extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Pais pais = new Pais();
-       pais.setPais(request.getParameter("pais"));
+        Pais pais = new Pais();
+        pais.setPais(request.getParameter("pais"));
         pais.setCodigo(request.getParameter("codigo"));
-        pais.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
-        
+
         PaisDAO paisDAO = new PaisDAO(pais);
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -157,11 +156,11 @@ public class PaisSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         Pais pais = new Pais();
+        Pais pais = new Pais();
         pais.setIdPais(Integer.parseInt(request.getParameter("idpais")));
-       
+
         PaisDAO paisDAO = new PaisDAO(pais);
-         response.setContentType("text/json;charset=UTF-8");
+        response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */

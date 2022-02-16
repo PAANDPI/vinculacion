@@ -106,7 +106,6 @@ public class RecursoSrv extends HttpServlet {
             recurso.setRecurso(request.getParameter("recurso"));
             recurso.setDescripcion(request.getParameter("descripcion"));
             recurso.setEtiquetas(request.getParameter("etiquetas"));
-            recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
             recurso.setRuta(request.getParameter("ruta"));
 
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
@@ -131,7 +130,6 @@ public class RecursoSrv extends HttpServlet {
             recurso.setRecurso(request.getParameter("recurso"));
             recurso.setDescripcion(request.getParameter("descripcion"));
             recurso.setEtiquetas(request.getParameter("etiquetas"));
-            recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
             recurso.setRuta(request.getParameter("ruta"));
 
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
@@ -198,7 +196,6 @@ public class RecursoSrv extends HttpServlet {
         recurso.setRecurso(request.getParameter("recurso"));
         recurso.setDescripcion(request.getParameter("descripcion"));
         recurso.setEtiquetas(request.getParameter("etiquetas"));
-        recurso.setEstado(Boolean.parseBoolean(request.getParameter("estado")));
         recurso.setRuta(request.getParameter("ruta"));
 
         RecursoDAO recursoDAO = new RecursoDAO(recurso);

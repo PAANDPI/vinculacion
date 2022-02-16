@@ -124,7 +124,6 @@ public class PersonaSrv extends HttpServlet {
             persona.setUsuario(request.getParameter("usuario"));
             persona.setCorreo(request.getParameter("correo"));
             persona.setClave(request.getParameter("clave"));
-            persona.setAdministrador(Boolean.parseBoolean(request.getParameter("administrador")));
 
             PersonaDAO personaDAO = new PersonaDAO(persona);
             response.setContentType("text/json;charset=UTF-8");

@@ -50,16 +50,6 @@ public class ConceptoDAO {
         return false;
     }
 
-    public boolean habilitarDeshabilitar() {
-        String sql = String.format("SELECT habilitarDeshabilitarConcepto(%d);",
-                concepto.getIdConcepto());
-        if (conex.isState()) {
-            System.out.println(sql);
-            return conex.execute(sql);
-        }
-        return false;
-    }
-
     public boolean delete() {
         String sql = String.format("SELECT eliminarConcepto(%d);",
                 concepto.getIdConcepto());

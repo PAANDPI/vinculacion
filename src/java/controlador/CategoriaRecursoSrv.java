@@ -145,7 +145,7 @@ public class CategoriaRecursoSrv extends HttpServlet {
         try (PrintWriter out = resp.getWriter()) {
             String retorno = "{\n\t";
             /* TODO output your page here. You may use following sample code. */
-            if (categoriaRecursoDAO.habilitarDeshabilitar()) {
+            if (categoriaRecursoDAO.delete()) {
                 retorno += "\"codigo\":200\n";
                 resp.setStatus(resp.SC_OK);
             } else {

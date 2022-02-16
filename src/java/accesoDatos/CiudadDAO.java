@@ -40,7 +40,7 @@ public class CiudadDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT editarCiudad(%d, %d, '%s');",
+        String sql = String.format("SELECT editarCiudad(%d, %d, '%s', true);",
                 ciudad.getIdCiudad(), ciudad.getIdProvincia(), ciudad.getCiudad());
         if (conex.isState()) {
             return conex.execute(sql);

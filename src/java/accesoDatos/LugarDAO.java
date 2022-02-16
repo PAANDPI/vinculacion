@@ -30,13 +30,26 @@ public class LugarDAO {
 
     public boolean insert() {
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String coordenadasX=lugar.getCoordenadaX()+"";
-        String coordenadasY=lugar.getCoordenadaY()+"";
-        String sql = String.format("SELECT insertarlugar (%d, '%s', '%s', %s, %s, '%s');",
-                lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),coordenadasX.replace(",",".") ,
-                coordenadasY.replace(",","."), lugar.getEtiqueta());
+        String coordenadasX = lugar.getCoordenadaX() + "";
+        String coordenadasY = lugar.getCoordenadaY() + "";
+        String sql = String.format("SELECT insertarLugar (%d, '%s', '%s', %s, %s, '%s');",
+                lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(), coordenadasX.replace(",", "."),
+                coordenadasY.replace(",", "."), lugar.getEtiqueta());
 
         System.out.println(sql);
+        if (conex.isState()) {
+            return conex.execute(sql);
+        }
+        return false;
+    }
+
+    public boolean update() {
+        String coordenadasX = lugar.getCoordenadaX() + "";
+        String coordenadasY = lugar.getCoordenadaY() + "";
+
+        String sql = String.format("SELECT editarLugar(%d, %d, '%s', '%s', %s, %s, '%s', true);",
+                lugar.getIdLugar(), lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),
+                coordenadasX.replace(",", "."), coordenadasY.replace(",", "."), lugar.getEtiqueta());
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -48,16 +61,6 @@ public class LugarDAO {
                 lugar.getIdLugar());
         if (conex.isState()) {
             System.out.println(sql);
-            return conex.execute(sql);
-        }
-        return false;
-    }
-
-    public boolean update() {
-        String sql = String.format("SELECT editarDiscapacidad(%d, %d, '%s', '%s', %5.2f, %5.2f, '%s');",
-                lugar.getIdLugar(), lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),
-                lugar.getCoordenadaX(), lugar.getCoordenadaY(), lugar.getEtiqueta());
-        if (conex.isState()) {
             return conex.execute(sql);
         }
         return false;

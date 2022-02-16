@@ -39,8 +39,9 @@ public class ProvinciaDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT insertarprovincia(%d, %d,'%s');",
-                provincia.getIdProvincia(), provincia.getIdPais(), provincia.getProvincia());
+        String sql = String.format("SELECT editarprovincia(%d, %d,'%s', '%b');",
+                provincia.getIdProvincia(), provincia.getIdPais(), 
+                provincia.getProvincia(), provincia.isEstado());
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -48,7 +49,7 @@ public class ProvinciaDAO {
     }
 
     public boolean delete() {
-        String sql = String.format("SELECT eliminarprovincia(%d);",
+        String sql = String.format("SELECT habilitardeshabilitarprovincia(%d);",
                 provincia.getIdProvincia());
         if (conex.isState()) {
             return conex.execute(sql);
