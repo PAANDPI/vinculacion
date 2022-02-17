@@ -1,6 +1,6 @@
 <%-- 
-    Document   : conocenos
-    Created on : 10-feb-2022, 5:35:17
+    Document   : colaboradores
+    Created on : 16-feb-2022, 21:08:43
     Author     : User
 --%>
 
@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="recursos/bootstrap/js/jquery-2.1.1.min.js" type="text/javascript"></script>      
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
@@ -21,19 +21,11 @@
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>Conócenos</title>
-            <style>
-                    .bn{
-                        -webkit-filter: grayscale(100%);
-                        filter: grayscale(100%);
-                        border-radius: 200px;
-                    }
-                  
-                </style>
     </head>
     <body >
         <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
 
-            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
+ <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,14 +56,14 @@
 
             <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>F&C</b></h1>
+                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>PERSONAL</b></h1>
                     <h2 class="text-center" style="color: #2F2F2F; font-size: 17px">
-                        Tecnologías de la Información y Comunicación enfocadas a la  discapacidad en la zona de influencia de la UTEQ.</h2>
+                        Dirigido por:
+                    </h2>
                     <div class="container">
                         <p class="text-center pr-5 pl-5" style="font-size: 16px;color: gray">                        
-                            Es un proyecto de vinculación con la comunidad de la carrera de Ingeniería en Sistemas/Software de la Facultad de Ciencias
-                            de la Ingeniería de la Universidad Técnica Estatal de Quevedo (UTEQ). Inició su ejecución en mayo de 2021,
-                            bajo la dirección de Orlando Erazo y con la colaboración de Mercedes Moreira.                    
+                            Orlando Ramiro Erazo Moreta <br>
+                            Mercedes Cleopatria Moreira Menendez<br>                    
                         </p>
                     </div>
 
@@ -80,31 +72,85 @@
             </div>
 
         </div> 
-        <div  style="background: white;">
-            <div class="container">
-                <div class="row " >
-                    <div class="col-lg-6 pl-2 pr-5">
-                        <img style="width: 100%; height: 90%" src="recursos/imagenes/Herramientas.png" alt=""/>
-                    </div>
-                    <div class="col-lg-6 ">
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px">Objetivo General</h3> 
-                        <p class="text-justify" style="font-size: 16px;color: gray">Ofrecer herramientas de tecnologías de la información y comunicación a la comunidad de personas con discapacidad de la zona de influencia de la Universidad Técnica Estatal de Quevedo que les permitan acercarse más a su uso en su vida cotidiana.</p>
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px" >Objetivos Específicos</h3> 
-                        <ul>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray">Implementar un sitio web que contenga información y acceso a recursos sobre distintos tipos de discapacidad aplicando recomendaciones de accesibilidad web, de manera que puedan ser usados por personas con discapacidad, personas cercanas o relacionadas a ellos, u otras personas interesadas de acuerdo a las condiciones del caso.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Construir aplicaciones de TIC que puedan ser usadas por personas con discapacidad aplicando los criterios de accesibilidad que correspondan.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Capacitar a distintos tipos de involucrados de acuerdo a los productos compilados, productos desarrollados o prácticas adquiridas con fines de aprendizaje y/o difusión.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            
-            </div>
+       
+
+        <div class="container" >
+            <div class="row pr-5 pl-5 flex-column justify-content-center">
+                <h1 class="mb-5 text-center"  style="font-size: 40px;font-weight: bold;"><b>EN LA ADMINISTRACIÓN DE:</b></h1>
                
+                <ul style="z-index: 10"  class="nav mb-5 justify-content-center text-center ">
+                    <li class="m-3 mr-5 font-weight-bold">Eduardo Díaz<br>
+                        (Rector)</li>
+                    <li class="m-3 mr-5 font-weight-bold">Jenny Torres<br>
+                        (Vicerrectora Académica)</li>
+                    <li class="m-3 mr-5 font-weight-bold">Roberto Pico<br>
+                        (Vicerrector Administrativo)</li>
+                    <li class="m-3 mr-5 font-weight-bold"> Henry Alarcón<br>
+                        (Director de Vinculación)</li>
+                    <li class="m-3 mr-5 font-weight-bold"> Washington Chiriboga<br>
+                        (Decano FCI)</li>
+                    <li class="m-3 mr-5 font-weight-bold">Stalin Carreño<br>
+                        (Unidad de TIC)</li>
+                </ul>
+                
+            </div>
         </div>
- 
-    
-    
-        <div class="mt-5" style="background: rgb(50,113,129);
+
+
+
+        <div class="container">
+            <div class="row pr-5 pl-5 flex-column justify-content-center">
+                 <h1 class="mb-5 text-center"  style="font-size: 40px;font-weight: bold;"><b>ESTUDIANTES:</b></h1>
+                <h1  class="mb-5 text-center" style="font-size: 40px;"><b>Primer periodo académico 2021-2022:</b></h1>
+                <ul class="nav mb-5 justify-content-center text-center " >
+                    <li class="m-3 mr-5 font-weight-bold">Ariel Fernández</li>
+                    <li class="m-3 mr-5 font-weight-bold">Aura Táquez</li>
+                    <li class="m-3 mr-5 font-weight-bold">Bryan Zambrano</li>
+                    <li class="m-3 mr-5 font-weight-bold">Cristhian Burbano</li>
+                    <li class="m-3 mr-5 font-weight-bold">Daniela Moreira</li>
+                    <li class="m-3 mr-5 font-weight-bold">Dayanna Vélez</li>
+                    <li class="m-3 mr-5 font-weight-bold">Deyalit Plaza</li>
+                    <li class="m-3 mr-5 font-weight-bold">Doris Solano</li>
+                    <li class="m-3 mr-5 font-weight-bold">Francisco Moreira</li>
+                    <li class="m-3 mr-5 font-weight-bold">Janer Torrales</li>
+                    <li class="m-3 mr-5 font-weight-bold">Jorge Molina</li>
+                    <li class="m-3 mr-5 font-weight-bold">José García</li>
+                    <li class="m-3 mr-5 font-weight-bold">Josimar Galarza</li>
+                    <li class="m-3 mr-5 font-weight-bold">Kevin Cheves</li>
+                    <li class="m-3 mr-5 font-weight-bold">Luis Espín</li>
+                    <li class="m-3 mr-5 font-weight-bold">Miguel Suárez</li>
+                    <li class="m-3 mr-5 font-weight-bold">Rubén Jaya</li>
+                    <li class="m-3 mr-5 font-weight-bold">Tyrone Tocta</li>
+                    <li class="m-3 mr-5 font-weight-bold">Victor Guillén</li>
+                    <li class="m-3 mr-5 font-weight-bold">Victor Romero</li>
+                    <li class="m-3 mr-5 font-weight-bold">Victor Zapata</li>
+                   
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row pr-5 pl-5 align-content-center justify-content-center">
+                <h1 class="mb-5"  style="font-size: 40px;"><b>Segundo periodo académico 2021-2022:</b></h1>
+               
+                <ul class="nav mb-5 justify-content-center text-center ">
+                    <li class="m-3 mr-5 font-weight-bold">Bryan Mendoza</li>
+                    <li class="m-3 mr-5 font-weight-bold">Cristhian Briones </li>
+                    <li class="m-3 mr-5 font-weight-bold">Fabricio Baño </li>
+                    <li class="m-3 mr-5 font-weight-bold">Germán Álvarez</li>
+                    <li class="m-3 mr-5 font-weight-bold">Henry Pérez </li>
+                    <li class="m-3 mr-5 font-weight-bold">Ingrid Ortiz</li>
+                    <li class="m-3 mr-5 font-weight-bold">John Pincay</li>
+                    <li class="m-3 mr-5 font-weight-bold">José Cordero</li>
+                    <li class="m-3 mr-5 font-weight-bold">Paola Morales</li>
+                    <li class="m-3 mr-5 font-weight-bold">Randy Rodríguez</li>
+                    <li class="m-3 mr-5 font-weight-bold">Steven Hurtado</li>
+                    <li class="m-3 mr-5 font-weight-bold">Suanny Tigselema</li>                                    
+                </ul>
+                
+            </div>
+        </div>
+  <div class="mt-5" style="background: rgb(50,113,129);
                     background: linear-gradient(262deg, rgba(50,113,129,1) 62%, rgba(65,140,159,1) 100%);"  >  
             <div class="container p-4">
                 <div class="row mt-5">    
@@ -147,5 +193,5 @@
               
             </div>               
         </div> 
-</body>
+    </body>
 </html>

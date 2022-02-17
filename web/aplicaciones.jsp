@@ -21,19 +21,23 @@
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>Conócenos</title>
-            <style>
-                    .bn{
-                        -webkit-filter: grayscale(100%);
-                        filter: grayscale(100%);
-                        border-radius: 200px;
-                    }
-                  
-                </style>
+        <style>
+            .cajas
+            {
+                width: 100%;
+                box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);                     
+                border-radius: 50px;
+                -webkit-transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                transition: transform .5s cubic-bezier(.19, 1, .22, 1),-webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                text-decoration: none; 
+            }
+        </style>
     </head>
     <body >
         <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
 
-            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
+           <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -60,51 +64,96 @@
                         </li> 
                     </ul>               
                 </div>
-            </nav>
+            </nav>     
 
             <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>F&C</b></h1>
-                    <h2 class="text-center" style="color: #2F2F2F; font-size: 17px">
-                        Tecnologías de la Información y Comunicación enfocadas a la  discapacidad en la zona de influencia de la UTEQ.</h2>
-                    <div class="container">
-                        <p class="text-center pr-5 pl-5" style="font-size: 16px;color: gray">                        
-                            Es un proyecto de vinculación con la comunidad de la carrera de Ingeniería en Sistemas/Software de la Facultad de Ciencias
-                            de la Ingeniería de la Universidad Técnica Estatal de Quevedo (UTEQ). Inició su ejecución en mayo de 2021,
-                            bajo la dirección de Orlando Erazo y con la colaboración de Mercedes Moreira.                    
-                        </p>
-                    </div>
-
+                    <h1 class="text-center"  style="font-size: 50px;font-weight: bold;"><b>OTRAS APLICACIONES DEL PROYECTO</b></h1> 
+                    <h2 class="text-center">Podemos observar otras aplicaciones desarrollades </h2>
                 </div>
+            </div> 
 
-            </div>
 
-        </div> 
-        <div  style="background: white;">
-            <div class="container">
-                <div class="row " >
-                    <div class="col-lg-6 pl-2 pr-5">
-                        <img style="width: 100%; height: 90%" src="recursos/imagenes/Herramientas.png" alt=""/>
-                    </div>
-                    <div class="col-lg-6 ">
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px">Objetivo General</h3> 
-                        <p class="text-justify" style="font-size: 16px;color: gray">Ofrecer herramientas de tecnologías de la información y comunicación a la comunidad de personas con discapacidad de la zona de influencia de la Universidad Técnica Estatal de Quevedo que les permitan acercarse más a su uso en su vida cotidiana.</p>
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px" >Objetivos Específicos</h3> 
-                        <ul>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray">Implementar un sitio web que contenga información y acceso a recursos sobre distintos tipos de discapacidad aplicando recomendaciones de accesibilidad web, de manera que puedan ser usados por personas con discapacidad, personas cercanas o relacionadas a ellos, u otras personas interesadas de acuerdo a las condiciones del caso.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Construir aplicaciones de TIC que puedan ser usadas por personas con discapacidad aplicando los criterios de accesibilidad que correspondan.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Capacitar a distintos tipos de involucrados de acuerdo a los productos compilados, productos desarrollados o prácticas adquiridas con fines de aprendizaje y/o difusión.</p></li>
-                        </ul>
+
+        </div>  
+        <div class="container">
+            <div class="row  align-content-center justify-content-center">
+                
+                <div class="col-lg-6">
+                    <div class="card  cajas mt-1 mb-3" style="width: 560px">
+                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/L1fr4MH0zuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="card-body p-5">
+                            <h3 class="card-title">PetFriend21</h3>
+                            <p class="card-text"><b>Desarrolladores:</b> Germán Álvarez, Cristhian Briones, José Cordero, Paola Morales, Ingrid Ortiz, Suanny Tigselema</p>          
+                        </div>
                     </div>
                 </div>
-            
+                
+                <div class="col-lg-6">
+                     <div class="card  cajas mt-1 mb-3" style="width: 560px">
+                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/d7qXEMdks4U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                       
+                        <div class="card-body p-5">
+                            <h3 class="card-title">Yuyapuy</h3>
+                            <p class="card-text"><b>Desarrolladores:</b>  Luis Espín, Ariel Fernández, Francisco Moreira, Doris Solano, Dayanna Vélez</p>          
+                        </div>
+                    </div>
+                </div>
+                
+                  <div class="col-lg-6">
+                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
+                         <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/e-6H1tB-WVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        
+                        <div class="card-body p-5">
+                            <h3 class="card-title">JIT (Juegos Interactivos para Todos)</h3>
+                            <p class="card-text"><b>Desarrolladores:</b> Steven Hurtado, Henry Pérez, John Pincay, Randy Rodríguez; José García, Jorge Molina, Aura Táquez</p>          
+                        </div>
+                    </div>
+                   </div>
+                
+                
+                <div class="col-lg-6">
+                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
+                         <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/OE-XvL6q9Y4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                               
+                        <div class="card-body p-5">
+                            <h3 class="card-title">Money Game</h3>
+                            <p class="card-text"><b>Desarrolladores:</b> Kevin Cheves, Josimar Galarza, Miguel Suárez, Victor Zapata</p>          
+                        </div>
+                    </div>
+                   </div>
+                
+                    
+                
+                   
+                <div class="col-lg-6">
+                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
+                         <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/ob_K1W3XLQc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                         
+                        <div class="card-body p-5">
+                            <h3 class="card-title">ToLan</h3>
+                            <p class="card-text"><b>Desarrolladores:</b> Cristhian Burbano, Rubén Jaya, Daniela Moreira, Bryan Zambrano</p>          
+                        </div>
+                    </div>
+                   </div>
+                
+                 <div class="col-lg-6">
+                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
+                         <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/ob_K1W3XLQc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                         
+                        <div class="card-body p-5">
+                            <h3 class="card-title">Juguetes???</h3>
+                            <p class="card-text"><b>Desarrolladores:</b> Victor Romero, Tyrone Tocta, Janer Torrales</p>          
+                        </div>
+                    </div>
+                   </div>
+                
+                
+                
             </div>
-               
+
+
+
+
+
         </div>
- 
-    
-    
-        <div class="mt-5" style="background: rgb(50,113,129);
+          <div class="mt-5" style="background: rgb(50,113,129);
                     background: linear-gradient(262deg, rgba(50,113,129,1) 62%, rgba(65,140,159,1) 100%);"  >  
             <div class="container p-4">
                 <div class="row mt-5">    
@@ -147,5 +196,5 @@
               
             </div>               
         </div> 
-</body>
+    </body>
 </html>

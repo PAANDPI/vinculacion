@@ -293,3 +293,9 @@ body .degradado ul li a
 {
     cursor: pointer;     
 }
+
+.bn{
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                border-radius: 200px;
+            }

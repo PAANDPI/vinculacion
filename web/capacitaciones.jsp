@@ -21,19 +21,30 @@
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>Conócenos</title>
-            <style>
-                    .bn{
-                        -webkit-filter: grayscale(100%);
-                        filter: grayscale(100%);
-                        border-radius: 200px;
+        <style>
+            .bn{
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                border-radius: 200px;
+            }
+             .video
+                    {
+                        width: 100%; height: 370px;
+                        box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);
+                        border-bottom: 10px solid #5BAB90;
+                        border-top: 10px solid #5BAB90;
+                      
+                        -webkit-transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1),-webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        text-decoration: none; 
                     }
-                  
-                </style>
+        </style>
     </head>
     <body >
         <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
 
-            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
+         <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -64,47 +75,49 @@
 
             <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>F&C</b></h1>
-                    <h2 class="text-center" style="color: #2F2F2F; font-size: 17px">
-                        Tecnologías de la Información y Comunicación enfocadas a la  discapacidad en la zona de influencia de la UTEQ.</h2>
-                    <div class="container">
-                        <p class="text-center pr-5 pl-5" style="font-size: 16px;color: gray">                        
-                            Es un proyecto de vinculación con la comunidad de la carrera de Ingeniería en Sistemas/Software de la Facultad de Ciencias
-                            de la Ingeniería de la Universidad Técnica Estatal de Quevedo (UTEQ). Inició su ejecución en mayo de 2021,
-                            bajo la dirección de Orlando Erazo y con la colaboración de Mercedes Moreira.                    
-                        </p>
-                    </div>
-
+                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>CAPACITACIONES IMPARTIDAS</b></h1>                  
                 </div>
-
             </div>
 
         </div> 
-        <div  style="background: white;">
-            <div class="container">
-                <div class="row " >
-                    <div class="col-lg-6 pl-2 pr-5">
-                        <img style="width: 100%; height: 90%" src="recursos/imagenes/Herramientas.png" alt=""/>
-                    </div>
-                    <div class="col-lg-6 ">
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px">Objetivo General</h3> 
-                        <p class="text-justify" style="font-size: 16px;color: gray">Ofrecer herramientas de tecnologías de la información y comunicación a la comunidad de personas con discapacidad de la zona de influencia de la Universidad Técnica Estatal de Quevedo que les permitan acercarse más a su uso en su vida cotidiana.</p>
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px" >Objetivos Específicos</h3> 
-                        <ul>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray">Implementar un sitio web que contenga información y acceso a recursos sobre distintos tipos de discapacidad aplicando recomendaciones de accesibilidad web, de manera que puedan ser usados por personas con discapacidad, personas cercanas o relacionadas a ellos, u otras personas interesadas de acuerdo a las condiciones del caso.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Construir aplicaciones de TIC que puedan ser usadas por personas con discapacidad aplicando los criterios de accesibilidad que correspondan.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Capacitar a distintos tipos de involucrados de acuerdo a los productos compilados, productos desarrollados o prácticas adquiridas con fines de aprendizaje y/o difusión.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            
-            </div>
+
+
+        <div class="container">
+            <div class="row mb-5 mt-5 pt-5 pb-3">
                
+                <div class="col-lg-7 mt-5">
+                    <iframe class="video" src="https://www.youtube.com/embed/QryXeEbbRGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    
+                </div>
+                <div class="col-lg-5 mt-5">
+                    <h3> 1.	Creación de recursos interactivos para necesidades educativas especiales</h3><br>
+                    <p>
+                        <b> Dirigido a: </b><br>
+                        Docentes de la Dirección de Desarrollo Social del GADM de Quevedo..<br>
+                        <b >Fecha: </b>  agosto-septiembre de 2021.<br>
+                        <b>Facilitadores: </b> Fabricio Baño, Bryan Mendoza.<br>
+                    </p>                                                                               
+                </div>
+                
+                
+                 <div class="col-lg-7 mt-5">
+                     <iframe class="video"  height="315" src="https://www.youtube.com/embed/MsD9No9NZvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   
+                </div>
+                <div class="col-lg-5 mt-5">
+                    <h3> Uso de herramientas para la creación de recursos interactivos</h3><br>
+                    <p>
+                        <b> Dirigido a: </b><br>
+                        Técnicos de discapacidad de la Dirección de Desarrollo Comunitario y Gestión Social del Gobierno Autónomo Descentralizado Municipal de El Empalme.<br>
+                        <b >Fecha: </b>  diciembre de 2021 – enero de 2022.<br>
+                        <b>Facilitadores: </b>  Victor Guillén, Deyalit Plaza.<br>
+                    </p>                                                                               
+                </div>
+
+            </div>
         </div>
- 
-    
-    
-        <div class="mt-5" style="background: rgb(50,113,129);
+
+  <div class="mt-5" style="background: rgb(50,113,129);
                     background: linear-gradient(262deg, rgba(50,113,129,1) 62%, rgba(65,140,159,1) 100%);"  >  
             <div class="container p-4">
                 <div class="row mt-5">    
@@ -121,7 +134,7 @@
                             <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> www.uteq.edu.ec</li>
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-md-6 ">
+                    <div class="col-xs-12   col-md-6 ">
                         <h5 class="blanco">Contacto</h5>
                         <ul style="list-style:none;" class="footer-links     ">
                             <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Orlando Erazo (oerazo@uteq.edu.ec)</li>
@@ -147,5 +160,5 @@
               
             </div>               
         </div> 
-</body>
+    </body>
 </html>

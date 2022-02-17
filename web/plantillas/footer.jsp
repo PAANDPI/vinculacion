@@ -3,33 +3,35 @@
                 <div class="row">              
                     <div class="col-sm-12 col-md-6 ">
                         <h5 class="font-weight-bold">Colaboradores</h5>
-                        <img class="imgF" style="width: 200px; height: 220px" src="recursos/iconos/i_2019.png" alt=""/>
-                        <img class="imgF" src="recursos/iconos/descarga.png" alt=""/>
+                        <img class="rounded-circle p-2" style="width: 200px; height: 220px"  src="recursos/conocenos/CX1TE_uG_400x400.jpg" alt=""/>
+                    
+                        <img class="rounded-circle p-2" class="imgF" style="width: 200px; height: 220px" src="recursos/conocenos/descarga.jfif" alt=""/>
+                                           
                     </div>
                     <div class="col-xs-6 col-md-3 ">
                         <h5>Servicios</h5>
                         <ul style="list-style:none;" class="footer-links     ">
-                            <li><a class="btn p-0 m-0  " href="#">Inicio</a></li>
-                            <li><a class="btn p-0 m-0 "  href="#">Buscador</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Mapa</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Buscador</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Eventos</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Noticias</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Conócenos</a></li>
-                            <li><a class="btn p-0 m-0 " href="#">Identifícate</a></li>
+                            <li><a class="btn p-0 m-0  " href="#"><i class="bi bi-caret-right-fill"></i> Inicio</a></li>
+                            <li><a class="btn p-0 m-0 "  href="#"><i class="bi bi-caret-right-fill"></i> Buscador</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Mapa</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Buscador</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Eventos</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Noticias</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Conócenos</a></li>
+                            <li><a class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Identifícate</a></li>
                         </ul>
                     </div>
 
                     <div class="col-xs-6 col-md-3 ">
                         <h5>Enlaces de interés</h5>
                         <ul style="list-style:none;" class="footer-links">
-                            <li><a  class="btn p-0 m-0 " href="#">Ces</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">SENESCYT</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">IECE</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">SNI</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">SERCOP</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">CEDIA</a></li>
-                            <li><a  class="btn p-0 m-0 " href="#">SRI</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> Ces</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> SENESCYT</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> IECE</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> SNI</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> SERCOP</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> CEDIA</a></li>
+                            <li><a  class="btn p-0 m-0 " href="#"><i class="bi bi-caret-right-fill"></i> SRI</a></li>
                         </ul>
                     </div>
                 </div>

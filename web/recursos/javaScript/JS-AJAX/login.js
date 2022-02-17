@@ -19,9 +19,9 @@ $('#btnIniciarSecion').on('click', function () {
 
             },
             error: function (error) {
-
-             mensaje=error;
+            console.log(error);
              
+              mensaje=error;
              swal({text: mensaje.responseJSON.mensaje, icon: "error"});
              
             }

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : conocenos
-    Created on : 10-feb-2022, 5:35:17
+    Document   : colaboradores
+    Created on : 16-feb-2022, 21:08:43
     Author     : User
 --%>
 
@@ -21,19 +21,25 @@
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>Conócenos</title>
-            <style>
-                    .bn{
-                        -webkit-filter: grayscale(100%);
-                        filter: grayscale(100%);
-                        border-radius: 200px;
-                    }
-                  
-                </style>
     </head>
+    <style>
+          .cajas
+                    {
+                        width: 100%; height: 370px;
+                        box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);
+                        border-bottom: 10px solid #5BAB90;
+                        border-top: 10px solid #5BAB90;
+                        border-radius: 50px;
+                        -webkit-transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1);
+                        transition: transform .5s cubic-bezier(.19, 1, .22, 1),-webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
+                        text-decoration: none; 
+                    }
+    </style>
     <body >
         <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
 
-            <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
+       <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1" style="background: none !important; "  >
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -61,50 +67,86 @@
                     </ul>               
                 </div>
             </nav>
-
-            <div  style="width: 100%; position: absolute; bottom: 10px;">
+               <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>F&C</b></h1>
-                    <h2 class="text-center" style="color: #2F2F2F; font-size: 17px">
-                        Tecnologías de la Información y Comunicación enfocadas a la  discapacidad en la zona de influencia de la UTEQ.</h2>
+                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>COLABORADORES</b></h1>
+                    <h2 class="text-center" style="color: #2F2F2F;">Instituciones colaboradoras.</h2>
+                </div>
+            </div>
+       </div> 
+    
+          <div class="row">
+                <div class="col-lg-12">                   
                     <div class="container">
-                        <p class="text-center pr-5 pl-5" style="font-size: 16px;color: gray">                        
-                            Es un proyecto de vinculación con la comunidad de la carrera de Ingeniería en Sistemas/Software de la Facultad de Ciencias
-                            de la Ingeniería de la Universidad Técnica Estatal de Quevedo (UTEQ). Inició su ejecución en mayo de 2021,
-                            bajo la dirección de Orlando Erazo y con la colaboración de Mercedes Moreira.                    
-                        </p>
-                    </div>
+                        <div class="row justify-content-center align-content-center">
 
+                            <div class="col-sm-3">
+                                <div class="card cajas">
+                                    
+                                    <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">
+                                        <div style="width: 150px; height: 150px;">
+                                            <img class="rounded-circle" style="object-fit: cover; width: 100%"   src="recursos/conocenos/Logo-Down.jpg" >
+                                        </div>                                       
+                                    </div>  
+                                    
+                                    <div style="position: absolute; bottom: 10px"  class="card-body">
+                                        <h6 class="card-title text-center">Fundación de y para personas con Síndrome de Down de Santo Domingo</h6>
+                                        <a href="https://www.facebook.com/FundacionDownSD" class="btn btn-block  btn-link" >Ir al sitio</a>
+                                    </div>                                                                        
+                                </div>
+                        </div>
+
+                            <div class="col-sm-3">
+                                <div class="card cajas"> 
+                                    
+                                    <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">
+                                        <div style="width: 150px; height: 150px;">
+                                             <img class="rounded-circle" style="object-fit: cover; width: 100%"   src="recursos/conocenos/Quevedo.png" >
+                                        </div>                                       
+                                    </div>  
+
+                                    <div style="position: absolute; bottom: 10px"  class="card-body">
+                                        <h6 class="card-title text-center">Dirección de Gestión de Desarrollo Social del Gobierno Autónomo Descentralizado Municipal de Quevedo</h6>
+                                        <a href="https://www.facebook.com/Direcci%C3%B3n-de-Desarrollo-Social-GAD-Quevedo-475024629920635" class="btn btn-block  btn-link">Ir al sitio</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="card cajas">
+                                    <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">
+                                        <div style="width: 80%; height: 150px;">
+                                             <img style="object-fit: contain; object-position: center; width: 100%; height: 100%"   src="recursos/conocenos/LOGOTIPO_INSTITUCIONAL_GADM_EL_EMPALME2.png" >
+                                        </div>                                       
+                                    </div>  
+
+
+                                    <div style="position: absolute; bottom: 10px"  class="card-body">
+                                        <h6  class="card-title text-center">Dirección de Desarrollo Comunitario y Gestión Social del Gobierno Autónomo Descentralizado Municipal de El Empalme</h6>
+                                        <a href="https://www.municipioelempalme.gob.ec/gad/" class="btn btn-block  btn-link">Ir al sitio</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="card cajas"> 
+                                    <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">
+                                        <div style="width: 80%; height: 150px; ">
+                                             <img style="object-fit: cover; object-position: center; width: 100%; height: 100%"   src="recursos/conocenos/La_esperanza.png" >
+                                        </div>                                       
+                                    </div> 
+
+                                    <div style="position: absolute; bottom: 10px" class="card-body">
+                                        <h6 class="card-title text-center">Gobierno Autónomo Descentralizado Parroquial Rural La Esperanza</h6>                                     
+                                        <a href="https://laesperanza.gob.ec/" class="btn btn-block  btn-link">Ir al sitio</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                   
+                    </div>
                 </div>
-
             </div>
-
-        </div> 
-        <div  style="background: white;">
-            <div class="container">
-                <div class="row " >
-                    <div class="col-lg-6 pl-2 pr-5">
-                        <img style="width: 100%; height: 90%" src="recursos/imagenes/Herramientas.png" alt=""/>
-                    </div>
-                    <div class="col-lg-6 ">
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px">Objetivo General</h3> 
-                        <p class="text-justify" style="font-size: 16px;color: gray">Ofrecer herramientas de tecnologías de la información y comunicación a la comunidad de personas con discapacidad de la zona de influencia de la Universidad Técnica Estatal de Quevedo que les permitan acercarse más a su uso en su vida cotidiana.</p>
-                        <h3 class="text-center" style="color: #2F2F2F; font-size: 17px" >Objetivos Específicos</h3> 
-                        <ul>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray">Implementar un sitio web que contenga información y acceso a recursos sobre distintos tipos de discapacidad aplicando recomendaciones de accesibilidad web, de manera que puedan ser usados por personas con discapacidad, personas cercanas o relacionadas a ellos, u otras personas interesadas de acuerdo a las condiciones del caso.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Construir aplicaciones de TIC que puedan ser usadas por personas con discapacidad aplicando los criterios de accesibilidad que correspondan.</p></li>
-                            <li><p class="text-justify" style="font-size: 16px;color: gray" >Capacitar a distintos tipos de involucrados de acuerdo a los productos compilados, productos desarrollados o prácticas adquiridas con fines de aprendizaje y/o difusión.</p></li>
-                        </ul>
-                    </div>
-                </div>
-            
-            </div>
-               
-        </div>
- 
-    
-    
-        <div class="mt-5" style="background: rgb(50,113,129);
+          <div class="mt-5" style="background: rgb(50,113,129);
                     background: linear-gradient(262deg, rgba(50,113,129,1) 62%, rgba(65,140,159,1) 100%);"  >  
             <div class="container p-4">
                 <div class="row mt-5">    
@@ -147,5 +189,5 @@
               
             </div>               
         </div> 
-</body>
+    </body>
 </html>
