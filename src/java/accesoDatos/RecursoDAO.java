@@ -63,9 +63,9 @@ public class RecursoDAO {
     public boolean insert() {
         if (guardarArchivo()) {
             //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-            String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s');",
+            String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s','%s');",
                     recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
-                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta());
+                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta(),Boolean.TRUE);
             System.out.println(sql);
             if (conex.isState()) {
                 return conex.execute(sql);
@@ -77,9 +77,9 @@ public class RecursoDAO {
     public boolean insertEnlace() {
 
         //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
-        String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s');",
+        String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s','%s');",
                 recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
-                recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta());
+                recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta(),Boolean.FALSE);
         System.out.println(sql);
         if (conex.isState()) {
             return conex.execute(sql);

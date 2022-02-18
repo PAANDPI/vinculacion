@@ -107,7 +107,6 @@ public class RecursoSrv extends HttpServlet {
             recurso.setDescripcion(request.getParameter("descripcion"));
             recurso.setEtiquetas(request.getParameter("etiquetas"));
             recurso.setRuta(request.getParameter("ruta"));
-
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
             recursoDAO.setRelativePath(getServletContext().getRealPath(""));
             response.setContentType("text/json;charset=UTF-8");
@@ -131,7 +130,6 @@ public class RecursoSrv extends HttpServlet {
             recurso.setDescripcion(request.getParameter("descripcion"));
             recurso.setEtiquetas(request.getParameter("etiquetas"));
             recurso.setRuta(request.getParameter("ruta"));
-
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
             recursoDAO.setRelativePath(getServletContext().getRealPath(""));
             response.setContentType("text/json;charset=UTF-8");

@@ -34,7 +34,6 @@ function tbl_recursos()
         url: "RecursoSrv",
         data: {"accion": 1},
         success: function (data) {
-
             jsonRecursos = data;
             var htmlTabla = ``;
             for (var i = 0; i < jsonRecursos.Recurso.length; i++)
@@ -125,6 +124,7 @@ function tbl_recursos()
         }
     });
 }
+
 $(document).ready(function () {
 
 
@@ -203,7 +203,6 @@ function guardarRecurso() {
         }
     });
 }
-
 var html;
 traerCategoriaRecurso();
 var jsonCategoriaRecuros;
@@ -230,4 +229,7 @@ function traerCategoriaRecurso() {
             console.log(error);
         }
     });
+}
+function eliminarRecurso(x){
+    console.log(x);
 }
