@@ -61,7 +61,7 @@ public class RecursoSrv extends HttpServlet {
         int accion = Integer.parseInt(request.getParameter("accion"));
         if (accion == 1) {
             RecursoDAO recursoDAO = new RecursoDAO();
-            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
             System.out.println("Ruta: " + recursoDAO.getRelativePath());
 
             response.setContentType("text/json;charset=UTF-8");
@@ -77,7 +77,7 @@ public class RecursoSrv extends HttpServlet {
             int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
             String discapacidad = request.getParameter("txtDiscapacidad");
             RecursoDAO recursoDAO = new RecursoDAO();
-            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
             System.out.println("Ruta: " + recursoDAO.getRelativePath());
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
@@ -114,7 +114,6 @@ public class RecursoSrv extends HttpServlet {
             recurso.setRuta(request.getParameter("ruta"));
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
             recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
             System.out.println("Ruta: " + recursoDAO.getRelativePath());
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
@@ -203,7 +202,7 @@ public class RecursoSrv extends HttpServlet {
                 retorno += "}";
                 out.write(retorno);
             }
-        }   
+        }
     }
 
     /**
@@ -217,9 +216,13 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-<<<<<<< HEAD
-=======
+        Recurso recurso = new Recurso();
+        recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
+        recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
+        recurso.setRecurso(request.getParameter("recurso"));
+        recurso.setDescripcion(request.getParameter("descripcion"));
+        recurso.setEtiquetas(request.getParameter("etiquetas"));
+        recurso.setRuta(request.getParameter("ruta"));
         RecursoDAO recursoDAO = new RecursoDAO(recurso);
         recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
         System.out.println("Ruta: " + recursoDAO.getRelativePath());
@@ -240,7 +243,6 @@ public class RecursoSrv extends HttpServlet {
             retorno += "}";
             out.write(retorno);
         }
->>>>>>> 34deff7e1ccef2c7b1c447e39e1f356e91d414c4
     }
 
     /**
@@ -254,7 +256,25 @@ public class RecursoSrv extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Recurso recurso = new Recurso();
+        recurso.setIdRecurso(Integer.parseInt(request.getParameter("idrecurso")));
 
+        RecursoDAO recursoDAO = new RecursoDAO(recurso);
+        response.setContentType("text/json;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            String retorno = "{\n\t";
+            /* TODO output your page here. You may use following sample code. */
+            if (recursoDAO.habilitarDeshabilitar()) {
+                retorno += "\"codigo\":200\n";
+                response.setStatus(HttpServletResponse.SC_OK);
+            } else {
+                retorno += "\"codigo\":400,\n";
+                retorno += "\"mensaje\": \"" + recursoDAO.getMessage() + "\"\n";
+                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            }
+            retorno += "}";
+            out.write(retorno);
+        }
     }
 
     /**
