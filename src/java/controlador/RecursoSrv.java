@@ -68,7 +68,7 @@ public class RecursoSrv extends HttpServlet {
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 retorno += "\"codigo\":200,\n";
-                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath() + "\",\n";
+                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
                 retorno += recursoDAO.getVW2JSON();
                 retorno += "\n}";
                 out.write(retorno);
@@ -83,7 +83,7 @@ public class RecursoSrv extends HttpServlet {
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 retorno += "\"codigo\":200,\n";
-                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath() + "\",\n";
+                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
                 retorno += recursoDAO.getVW2JSON(idCategoria, discapacidad);
                 retorno += "\n}";
                 out.write(retorno);
