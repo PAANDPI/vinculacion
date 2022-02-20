@@ -2,9 +2,11 @@
 tbl_Lugares();
 var jsonUbicaciones;
 var jsonCantones;
+var todoCantones;
+
 var idlugar;
 $(document).ready(function () {
-    
+    cargarTodoCantones()
      $("#buscadorLugaress").keyup(function () {
         _this = this;
         // Show only matching TR, hide rest of them
@@ -15,9 +17,22 @@ $(document).ready(function () {
                 $(this).show();
         });
     });
-
-
-    
+    function cargarTodoCantones()
+    {      
+        var datos = {"opcion": "1"};
+        $.ajax({
+            method: "GET",
+            url: 'CiudadSrv',
+            data: datos,
+            success: function (data) {
+                todoCantones = data;       
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        }); 
+    }
+   
     function cargaProvincia(e) {
         $.ajax({
             method: "GET",
@@ -53,7 +68,7 @@ $(document).ready(function () {
             data: datos,
             success: function (data) {
                 jsonCantones = data;
-                var html = `<option value="" selected disabled hidden>-- Seleccione Cantón --</option>`;
+                var html = ``;
                 for (var i = 0; i < data.Ciudad.length; i++)
                 {
                     var idCanton = data.Ciudad[i].idciudad;
@@ -133,6 +148,15 @@ function seleccionarUbicacion(idub) {
             }
             $('#cmb-provincia').prop('selectedIndex', idProv);
             $('#cmb-provincia :selected').change();
+            for( var a=0; a< todoCantones.Ciudad.length; a++)
+            {
+                var ciudad=todoCantones.Ciudad[a].ciudad
+                if(ciudad===x.ciudad)
+                {
+                    idCiudad=ciudad;
+                }
+            }
+                
             /* for (var z of jsonCantones.Ciudad) {
              if (z == x.ciudad) {
              idCiudad = z.idciudad;

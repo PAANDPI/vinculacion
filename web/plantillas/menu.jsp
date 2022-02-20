@@ -27,7 +27,7 @@
                 <a class="nav-link  btn mr-3 botones p-1"  href="../yuyapuy/conocenos.jsp"><span class="bi bi-people"></span>  Conócenos  </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  btn mr-3 botones p-1"  href="../yuyapuy/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
+                <a class="nav-link  btn mr-3 botones p-1"  href="../yuyapuy.000/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
             </li>
         </ul>               
     </div>
