@@ -16,7 +16,7 @@ $(document).ready(function () {
         if (idCategoriaDiscapacidad.length > 0 && nombreDiscapacidad.length > 0)
         {
             
-            if (validarExistenciaLugares())
+            if (validarExistenciaDiscapacidades())
             {
                 if (IdDiscapacidad > 0) {
                     var datos = {"discapacidad": nombreDiscapacidad, "idDiscapacidad": IdDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "3"};
@@ -113,7 +113,7 @@ $(document).ready(function () {
         });
     });
 });
-function  validarExistenciaLugares()
+function  validarExistenciaDiscapacidades()
 {
     var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
     for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
