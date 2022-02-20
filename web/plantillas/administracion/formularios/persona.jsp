@@ -47,7 +47,7 @@
                         <label class="font-weight-bold">Nombre de usuario</label>
                         <input id="txtNombreUsuario" class="form-control form-control-sm" type="text"  >
                     </div> 
-                    <div class="form-group">
+                    <div id="contenedorClaves" class="form-group">
                         <label class="font-weight-bold" >Contraseña</label>
                         <input  class="form-control form-control-sm" type="password" id="txtContrasenia" >
                         <label class="font-weight-bold">Confirmar contraseña</label>

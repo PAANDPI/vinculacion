@@ -1,7 +1,7 @@
 var jsonPersonas;
 var idPersona;
 $(document).ready(function () {
-   
+
     $("#buscadorPersonas").keyup(function () {
         _this = this;
         // Show only matching TR, hide rest of them
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 $(this).show();
         });
     });
-    
+
     listadeUsuarios();
     function listadeUsuarios()
     {
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
                     htmlTabla += `<tr>
                                     <th>
-                                        <div class="card" style="border: 1px solid #c4c4c4;  " role="alert">
+                                        <div id="cardPersona${idpersona}" class="card" style="border: 1px solid #c4c4c4;  " role="alert">
                                                 <div class="card-header ">
                                                 <div class="row">
                                                    <h5 class="card-title col-lg-11 bi bi-person-circle "> ${nombre} ${apellido}</h5>
@@ -87,34 +87,35 @@ $(document).ready(function () {
             }
         });
     }
-    
-        
+
+
     $('#btnCerrarSession').on('click', function () {
-        
+
         var datos = {"accion": "5"};
         $.ajax({
             method: "POST",
             url: "PersonaSrv",
             data: datos,
             success: function (data) {
-               console.log(data);
-               window.location.href = "index.jsp";
+                console.log(data);
+                window.location.href = "index.jsp";
 //               swal({text: mensaje.responseJSON.mensaje, icon: "success"});
-                
+
 
             },
             error: function (error) {
-            console.log(error);
-             
+                console.log(error);
+
             }
         });
 
     });
-    
+
     $('#btn_cancelar').click(function (e) {
         $('#btnGuardarUsuario').show("2000");
         $('#btn_cancelar').hide("slow");
         $('#btn_modificarUsuario').hide("slow");
+        $('#contenedorClaves').show("2000");
         limpiar();
     });
     $('#btnGuardarUsuario').on('click', function () {
@@ -136,28 +137,54 @@ $(document).ready(function () {
             "clave": txtContrasenia,
             "administrador": administradorCheck.checked,
             "accion": "2"};
-        console.log(datos);
+
+
+
         var validor = (txtNombre.length * txtApellido.length * cmbGenero.length *
-                txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
+                txtCorreo.length * txtNombreUsuario.length * cmbCantones.length * txtConfirmarContrasenia.length
+                * txtContrasenia.length)
         if (validor > 0)
         {
-            $.ajax({
-                method: "POST",
-                url: "PersonaSrv",
-                data: datos,
-                success: function (data) {
-                    alerta("Usuario guardado correctamente:", "success");
-                    limpiar();
-                },
-                error: function (error) {
+            if (txtContrasenia === txtConfirmarContrasenia)
+            {
+                if (validarExistenciaUsuario())
+                {
+                    if (validarExistenciaEmail())
+                    {
+                        $.ajax({
+                            method: "POST",
+                            url: "PersonaSrv",
+                            data: datos,
+                            success: function (data) {
+                                alerta("Usuario guardado correctamente:", "success");
+                                limpiar();
+                            },
+                            error: function (error) {
 
-                    console.log(error);
-                    alerta("Algo salio mal:" + error, "error");
+                                console.log(error);
+                                alerta("Algo salio mal:" + error, "error");
+                            }
+                        });
+
+                    } else
+                    {
+                        alerta("Ya existe este correo", "info");
+                    }
+                } else
+                {
+                    alerta("Ya existe un usuario con este nombre", "info");
                 }
-            });
+
+            } else
+            {
+                alerta("La confirmación de contraseña es errónea, por favor ingrese contraseñas iguales", "info");
+            }
+
+
+
         } else
         {
-            alerta("Complete todo los campos", "error");
+            alerta("Complete todo los campos", "info");
         }
 
     });
@@ -204,20 +231,35 @@ $(document).ready(function () {
                 txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
         if (validor > 0)
         {
-            $.ajax({
-                method: "POST",
-                url: "PersonaSrv",
-                data: datos,
-                success: function (data) {
-                    alerta("Usuario Modificado correctamente:", "success");
-                    limpiar();
-                },
-                error: function (error,ex) {
-                    console.log(error);
-                    console.log(ex);
-                    alerta("Algo salio mal:" + error, "error");
-                }
-            });
+//            if (validarExistenciaUsuario())
+//            {
+//                if (validarExistenciaEmail())
+//                {
+
+                    $.ajax({
+                        method: "POST",
+                        url: "PersonaSrv",
+                        data: datos,
+                        success: function (data) {
+                            alerta("Usuario Modificado correctamente:", "success");
+                            limpiar();
+                        },
+                        error: function (error, ex) {
+                            console.log(error);
+                            console.log(ex);
+                            alerta("Algo salio mal:" + error, "error");
+                        }
+                    });
+//                } else
+//                {
+//                    alerta("Ya existe este correo", "info");
+//                }
+//            } else
+//            {
+//                alerta("Ya existe un usuario con este nombre", "info");
+//            }
+
+
         } else
         {
             alerta("Complete todo los campos", "error");
@@ -225,7 +267,45 @@ $(document).ready(function () {
 
     });
 });
+
+function  validarExistenciaUsuario()
+{
+
+    for (var i = 0; i < jsonPersonas.Persona.length; i++)
+    {
+        var usuario = jsonPersonas.Persona[i].usuario;
+        var txtNombreUsuario = document.getElementById("txtNombreUsuario").value;
+        if (usuario == txtNombreUsuario)
+        {
+            return false;
+            break;
+        }
+    }
+    return true;
+}
+function  validarExistenciaEmail()
+{
+    for (var i = 0; i < jsonPersonas.Persona.length; i++)
+    {
+        var correo = jsonPersonas.Persona[i].correo;
+        var txtCorreo = document.getElementById("txtCorreo").value;
+        if (correo == txtCorreo)
+        {
+            return false;
+            break;
+        }
+    }
+    return true;
+}
+var anterior="";
 function btnEditPersona(aux) {
+    
+       if (anterior.length > 0) {
+        var btnAux = document.getElementById("cardPersona" + anterior);
+        btnAux.className = "card"
+    }
+        document.getElementById("cardPersona" + aux).className = "card text-white cajas bg-primary"
+    
     idPersona = aux;
     console.log(jsonPersonas.Persona);
     for (var x of jsonPersonas.Persona) {
@@ -236,14 +316,21 @@ function btnEditPersona(aux) {
             $('#txtNombreUsuario').val(x.usuario);
             $('#cmbCantones').prop('selectedIndex', x.idciudad);
             $('#txtCorreo').val(x.correo);
-            $('#txtContrasenia').val('');
-            $('#txtConfirmarContrasenia').val('');
+
+
+            $('#contenedorClaves').hide("slow");
+//            $('#txtContrasenia').hide("slow");
+//            $('#txtConfirmarContrasenia').hide("slow");
+
+
             $('#administradorCheck').attr('checked', x.estado);
             $('#btnGuardarUsuario').hide("slow");
             $('#btn_modificarUsuario').show("2000");
             $('#btn_cancelar').show("2000");
         }
     }
+    anterior=aux+"";
+    
 }
 function deletePersona(id) {
     console.log(id);
