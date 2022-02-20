@@ -12,28 +12,41 @@ $(document).ready(function () {
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-        if (IdDiscapacidad > 0) {
-            var datos = {"discapacidad": nombreDiscapacidad,"idDiscapacidad":IdDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "3"};
-        } else {
-            var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
-        }
-        $.ajax({
-            method: "POST",
-            url: "DiscapacidadSrv",
-            data: datos,
-            success: function (data) {
-                //console.log(data);
-                document.getElementById("btnClickCerrar").click();
-                alerta(`Discapacidad ${nombreDiscapacidad} añadida con exito`, "success");
-                cargarDiscapacidades();
 
-            },
-            error: function (error) {
-                console.log(error);
-                alerta("Algo salio mal" + error, "error");
+        if (idCategoriaDiscapacidad.length > 0 && nombreDiscapacidad.length > 0)
+        {
+            
+            if (validarExistenciaLugares())
+            {
+                if (IdDiscapacidad > 0) {
+                    var datos = {"discapacidad": nombreDiscapacidad, "idDiscapacidad": IdDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "3"};
+                } else {
+                    var datos = {"discapacidad": nombreDiscapacidad, "idCategoriaDiscapacidad": idCategoriaDiscapacidad, "accion": "1"};
+                }
+                $.ajax({
+                    method: "POST",
+                    url: "DiscapacidadSrv",
+                    data: datos,
+                    success: function (data) {
+                        //console.log(data);
+                        document.getElementById("btnClickCerrar").click();
+                        alerta(`Discapacidad ${nombreDiscapacidad} añadida con exito`, "success");
+                        cargarDiscapacidades();
+
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        alerta("Algo salio mal" + error, "error");
+                    }
+                });
+            }else 
+            {
+                  alerta("Esta discapacidad ya esta registrada", "info");
             }
-        });
-
+        } else
+        {
+                  alerta("Llene todo los campos", "info");
+        }
     });
     $("#btnClickCerrar").click(function (e) {
         $('#cmbIdCategoriDiscapacidad').val('');
@@ -100,7 +113,20 @@ $(document).ready(function () {
         });
     });
 });
-
+function  validarExistenciaLugares()
+{
+    var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
+    for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
+    {
+        var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
+        if (nombreDiscapacidad == nombreDiscapacidad)
+        {
+            return false;
+            break;
+        }
+    }
+    return true;
+}
 function modificarDiscapacidad(idDis) {
     $('#addDiscapacidad').click();
     $('#btnGuardarDiscapacidad').text('Modificar');
@@ -281,15 +307,15 @@ function labelZoom()
     contenedoDescripcion.style.cssText = `zoom:${cantidadZoom.value}%`;
 
 }
-var anterio="";
+var anterio = "";
 function seleccionarDiscapacidad(idDiscapacidad)
 {
-     if (anterio.length > 0) {
+    if (anterio.length > 0) {
         var btnAux = document.getElementById("d" + anterio);
         btnAux.className = "btn btn-info btn-sm bi bi-circle"
     }
-     document.getElementById("d" + idDiscapacidad).className = "btn btn-success btn-sm bi bi-check-circle"
-     
+    document.getElementById("d" + idDiscapacidad).className = "btn btn-success btn-sm bi bi-check-circle"
+
     var contenedor = document.getElementById("containerConceptos");
     localStorage.setItem("idDiscapacidad", idDiscapacidad);
     var numero = document.getElementById("cont");
@@ -343,10 +369,10 @@ function seleccionarDiscapacidad(idDiscapacidad)
 
         }
     });
-     anterio = idDiscapacidad + "";
+    anterio = idDiscapacidad + "";
 }
-function modificarConcepto(idModConcepto){
-    $(location).attr('href',"redactar.jsp");
+function modificarConcepto(idModConcepto) {
+    $(location).attr('href', "redactar.jsp");
     localStorage.setItem("JsonConcepto", JSON.stringify(jsonConceptos.Concepto));
     localStorage.setItem("idModConcepto", idModConcepto);
 }
