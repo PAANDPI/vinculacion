@@ -42,6 +42,13 @@ $(document).ready(function () {
         $('#btnGuardarDiscapacidad').css("background", "");
         IdDiscapacidad = -1;
     });
+    $("#addDiscapacidad").click(function (e) {
+        $('#cmbIdCategoriDiscapacidad').val('');
+        $('#txtNombreDiscapacidad').val('');
+        $('#btnGuardarDiscapacidad').text('Guardar discacidad');
+        $('#btnGuardarDiscapacidad').css("background", "");
+        IdDiscapacidad = -1;
+    });
     $('#btnAnadirConcepto').on('click', function () {
         var idDiscapacidad = localStorage.getItem('idDiscapacidad');
         if (idDiscapacidad !== null)
@@ -157,7 +164,7 @@ function cargarDiscapacidades()
                                     <td>${nombreCategoriaDiscapacidad}</td>
                                         <td>
                                             <div class="btn-group" role="group" aria-label="Basic example">
-                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-info btn-sm bi bi-check-circle"></button> 
+                                            <button id="d${idDiscapacidad}" onclick=seleccionarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-info btn-sm bi bi-circle"></button> 
                                             <button onclick=modificarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-warning btn-sm bi bi-pencil-fill"></button> 
                                             <button onclick=eliminarDiscapacidad("${idDiscapacidad}") type="button" class="btn btn-danger btn-sm bi bi-x-square"></button>   
                                             </div>
@@ -274,8 +281,15 @@ function labelZoom()
     contenedoDescripcion.style.cssText = `zoom:${cantidadZoom.value}%`;
 
 }
+var anterio="";
 function seleccionarDiscapacidad(idDiscapacidad)
 {
+     if (anterio.length > 0) {
+        var btnAux = document.getElementById("d" + anterio);
+        btnAux.className = "btn btn-info btn-sm bi bi-circle"
+    }
+     document.getElementById("d" + idDiscapacidad).className = "btn btn-success btn-sm bi bi-check-circle"
+     
     var contenedor = document.getElementById("containerConceptos");
     localStorage.setItem("idDiscapacidad", idDiscapacidad);
     var numero = document.getElementById("cont");
@@ -329,6 +343,7 @@ function seleccionarDiscapacidad(idDiscapacidad)
 
         }
     });
+     anterio = idDiscapacidad + "";
 }
 function modificarConcepto(idModConcepto){
     $(location).attr('href',"redactar.jsp");

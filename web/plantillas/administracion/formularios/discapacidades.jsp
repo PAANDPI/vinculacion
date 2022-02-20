@@ -2,7 +2,7 @@
             <div class="modal-dialog  modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Añadir discapacidad</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Modal discapacidad</h5>
                     </div>
                     <div class="modal-body">
                         <label>Categoria</label>
@@ -10,7 +10,7 @@
                         
                         </select>
                         <label for="txtNombreDiscapacidad">Nombre discapacidad</label>
-                        <input id="txtNombreDiscapacidad" type="text"  class="form-control" placeholder="Nombre de la discapacidad">
+                        <input id="txtNombreDiscapacidad" type="text" maxlength="50" class="form-control" placeholder="Nombre de la discapacidad">
                      
                         <hr>
                     </div>
