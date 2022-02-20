@@ -89,9 +89,10 @@ public class RecursoDAO {
     }
 
     public boolean update() {
-        String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s');",
+        String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s');",
                 recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
                 recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.isEstado());
+        
         if (conex.isState()) {
             return conex.execute(sql);
         }

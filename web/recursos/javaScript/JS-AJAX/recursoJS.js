@@ -9,19 +9,14 @@ const toBase64 = file => new Promise((resolve, reject) => {
         reader.onerror = error => reject(error);
     });
 async function Main() {
-
     var checkArchivo = document.getElementById("checkArchivo").checked;
     var checkEnlace = document.getElementById("checkEnlace").checked;
-
     var datosM
     if (checkArchivo) {
-        
         const file = document.querySelector('#formFile').files[0];
         base64 = await toBase64(file);
         guardarRecurso();
-        
     } else if (checkEnlace) {
-        
         guardarRecurso();
     }
 
@@ -52,11 +47,9 @@ function tbl_recursos()
                 if (categoriarecurso === "Archivos")
                 {
                     url = `recursos/iconos/iconos recuros/archivo.png`;
-
                 } else if (categoriarecurso === "Videos")
                 {
                     url = `recursos/iconos/iconos recuros/video.png`;
-
                 } else if (categoriarecurso === "musica")
                 {
                     url = `recursos/iconos/iconos recuros/musica.png`;
@@ -100,9 +93,9 @@ function tbl_recursos()
                                                         <hr>
                                                         <div class="row p-0">
                                                             <div class="col-lg-12 pl-3">     
-                                                                <button onClink="seleccionarRecurso(${idrecurso})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
-                                                                <button onClink="eliminarRecurso(${idrecurso})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
-                                                                <button onClink="verArchivo(${idrecurso})" type="button" class="btn btn-success btn-sm bi bi-journals"> Ver archivo</button>
+                                                                <button onclick="seleccionarRecurso(${idrecurso})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
+                                                                <button onclick="eliminarRecurso(${idrecurso})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
+                                                                <button onclick="verArchivo(${idrecurso})" type="button" class="btn btn-success btn-sm bi bi-journals"> Ver archivo</button>
                                                             </div>        
                                                         </div>
                                                  </div>                                                                                               
@@ -114,13 +107,10 @@ function tbl_recursos()
             }
             var tbl_recursos = document.getElementById("tbl_recursos");
             tbl_recursos.innerHTML = htmlTabla;
-
+            BotonCancelar();
         },
         error: function (error) {
-
-
-            console.log(error)
-
+            console.log(error);
         }
     });
 }
@@ -138,7 +128,6 @@ $(document).ready(function () {
                 $(this).show();
         });
     });
-
     $('#enlaceC').hide();
     $("#checkArchivo").click(function () {
         $('#fileC').show();
@@ -149,7 +138,55 @@ $(document).ready(function () {
         $('#enlaceC').show();
         $('#fileC').hide();
     });
-
+    $('#btn_cancelarRecurso').click(function () {
+        BotonCancelar();
+    });
+    $('#btn_modificarRecurso').click(function () {
+        var ruta = base64;
+        var idcategoriarecurso = document.getElementById("cmb-categoria").value;
+        var iddiscapacidad = document.getElementById("cmb-discapacidad").value;
+        var recurso = document.getElementById("txtRecurso").value;
+        var descripcion = document.getElementById("txt-descripcionRecurso").value;
+        var etiquetas = document.getElementById("txt-etiquetaa").value;
+        var checkArchivo = document.getElementById("checkArchivo").checked;
+        var checkEnlace = document.getElementById("checkEnlace").checked;
+        var datosM;
+        if (checkArchivo) {
+            datos =
+                    {"idrecurso":idRecursoMod,"idcategoriarecurso": idcategoriarecurso,
+                        "iddiscapacidad": iddiscapacidad,
+                        "recurso": recurso,
+                        "descripcion": descripcion,
+                        "etiquetas": etiquetas,
+                        "estado": "true",
+                        "accion": 4,
+                        "ruta": ruta
+                    };
+        } else if (checkEnlace) {
+            datos =
+                    {"idrecurso":idRecursoMod,"idcategoriarecurso": idcategoriarecurso,
+                        "iddiscapacidad": iddiscapacidad,
+                        "recurso": recurso,
+                        "descripcion": descripcion,
+                        "etiquetas": etiquetas,
+                        "estado": "false",
+                        "accion": 4,
+                        "ruta": document.getElementById("txtEnlace").value
+                    };
+        }
+        $.ajax({
+            method: "POST",
+            url: "RecursoSrv",
+            data: datos,
+            success: function (data) {
+                alerta("Archivo guardado con exito", "success");
+                modRecurso = false;
+            },
+            error: function (error) {
+                alerta("Algo salio mal al guardar el archivo", "error");
+            }
+        });
+    });
 });
 function guardarRecurso() {
 
@@ -159,11 +196,9 @@ function guardarRecurso() {
     var recurso = document.getElementById("txtRecurso").value;
     var descripcion = document.getElementById("txt-descripcionRecurso").value;
     var etiquetas = document.getElementById("txt-etiquetaa").value;
-
     var checkArchivo = document.getElementById("checkArchivo").checked;
     var checkEnlace = document.getElementById("checkEnlace").checked;
-
-    var datosM
+    var datosM;
     if (checkArchivo) {
         datos =
                 {"idcategoriarecurso": idcategoriarecurso,
@@ -174,7 +209,7 @@ function guardarRecurso() {
                     "estado": "true",
                     "accion": 1,
                     "ruta": ruta
-                }
+                };
     } else if (checkEnlace) {
         datos =
                 {"idcategoriarecurso": idcategoriarecurso,
@@ -182,10 +217,10 @@ function guardarRecurso() {
                     "recurso": recurso,
                     "descripcion": descripcion,
                     "etiquetas": etiquetas,
-                    "estado": "true",
+                    "estado": "false",
                     "accion": 2,
                     "ruta": document.getElementById("txtEnlace").value
-                }
+                };
     }
 
 
@@ -195,11 +230,11 @@ function guardarRecurso() {
         url: "RecursoSrv",
         data: datos,
         success: function (data) {
-            alerta("Archivo guardado con exito", "success")
-
+            alerta("Archivo guardado con exito", "success");
+            modRecurso = false;
         },
         error: function (error) {
-            alerta("Algo salio mal al guardar el archivo", "error")
+            alerta("Algo salio mal al guardar el archivo", "error");
         }
     });
 }
@@ -219,17 +254,70 @@ function traerCategoriaRecurso() {
                 var idcategoriarecurso = jsonCategoriaRecuros.CategoriaRecurso[i].idcategoriarecurso;
                 var categoriarecurso = jsonCategoriaRecuros.CategoriaRecurso[i].categoriarecurso;
                 html += `<option value="${idcategoriarecurso}">${categoriarecurso}</option>`;
-
             }
             var cmbCategoria = document.getElementById("cmb-categoria");
             cmbCategoria.innerHTML = html;
-
         },
         error: function (error) {
             console.log(error);
         }
     });
 }
-function eliminarRecurso(x){
+function eliminarRecurso(x) {
     console.log(x);
+    datos = {"idrecurso": x, "accion": 3};
+    swal({
+        title: "¿Desea Eliminar este Recurso?",
+        //text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method: "POST",
+                url: "RecursoSrv",
+                data: datos,
+                success: function (data) {
+                    alerta("Archivo Eliminado con exito", "success");
+                },
+                error: function (error) {
+                    alerta("Algo salio mal al Eliminar el archivo", "error");
+                }
+            });
+        } else {
+//swal("Your imaginary file is safe!");
+        }
+    });
+}
+var modRecurso = false;
+var idRecursoMod;
+function seleccionarRecurso(x) {
+    for (var i of jsonRecursos.Recurso) {
+        if (i.idrecurso == x) {
+            var estado = i.estado;
+            idRecursoMod=i.idrecurso;
+            modRecurso = true;
+            $('#cmb-categoria').val(i.idcategoriarecurso);
+            $('#cmb-discapacidad').val(i.iddiscapacidad);
+            $('#txtRecurso').val(i.recurso);
+            $('#txt-descripcionRecurso').val(i.descripcion);
+            $('#txt-etiquetaa').val(i.etiquetas);
+            if (estado == "true") {
+                document.getElementById('checkArchivo').click();
+                $('#formFile').val(i.ruta);
+            } else {
+                document.getElementById('checkEnlace').click();
+                $('#txtEnlace').val(i.ruta);
+            }
+            $('#btnGuardaRecurso').hide("slow");
+            $('#btn_modificarRecurso').show("2000");
+            $('#btn_cancelarRecurso').show("2000");
+        }
+    }
+}
+function BotonCancelar() {
+    $('#btnGuardaRecurso').show("2000");
+    $('#btn_cancelarRecurso').hide("slow");
+    $('#btn_modificarRecurso').hide("slow");
 }
