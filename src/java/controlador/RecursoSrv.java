@@ -60,25 +60,30 @@ public class RecursoSrv extends HttpServlet {
             throws ServletException, IOException {
         int accion = Integer.parseInt(request.getParameter("accion"));
         if (accion == 1) {
-
             RecursoDAO recursoDAO = new RecursoDAO();
+            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+            System.out.println("Ruta: " + recursoDAO.getRelativePath());
+
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 retorno += "\"codigo\":200,\n";
+                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath() + "\",\n";
                 retorno += recursoDAO.getVW2JSON();
                 retorno += "\n}";
                 out.write(retorno);
-
             }
         } else if (accion == 2) {
             int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
             String discapacidad = request.getParameter("txtDiscapacidad");
             RecursoDAO recursoDAO = new RecursoDAO();
+            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+            System.out.println("Ruta: " + recursoDAO.getRelativePath());
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
                 retorno += "\"codigo\":200,\n";
+                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath() + "\",\n";
                 retorno += recursoDAO.getVW2JSON(idCategoria, discapacidad);
                 retorno += "\n}";
                 out.write(retorno);
@@ -109,6 +114,8 @@ public class RecursoSrv extends HttpServlet {
             recurso.setRuta(request.getParameter("ruta"));
             RecursoDAO recursoDAO = new RecursoDAO(recurso);
             recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+            recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+            System.out.println("Ruta: " + recursoDAO.getRelativePath());
             response.setContentType("text/json;charset=UTF-8");
             try (PrintWriter out = response.getWriter()) {
                 String retorno = "{\n\t";
@@ -197,7 +204,8 @@ public class RecursoSrv extends HttpServlet {
         recurso.setRuta(request.getParameter("ruta"));
 
         RecursoDAO recursoDAO = new RecursoDAO(recurso);
-        recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+        recursoDAO.setRelativePath(getServletContext().getRealPath("/"));
+        System.out.println("Ruta: " + recursoDAO.getRelativePath());
         response.setContentType("text/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             String retorno = "{\n\t";
