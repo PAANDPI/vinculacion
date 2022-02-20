@@ -13,9 +13,15 @@ async function Main() {
     var checkEnlace = document.getElementById("checkEnlace").checked;
     var datosM
     if (checkArchivo) {
-        const file = document.querySelector('#formFile').files[0];
-        base64 = await toBase64(file);
-        guardarRecurso();
+        try {
+            const file = document.querySelector('#formFile').files[0];
+            base64 = await toBase64(file);
+            guardarRecurso();
+        } catch (e) {
+            alerta("Por favor selecione un archivo", "info")
+        }
+
+
     } else if (checkEnlace) {
         guardarRecurso();
     }
@@ -67,7 +73,7 @@ function tbl_recursos()
 
                 htmlTabla += `<tr>
                                     <th>
-                                        <div class="card" style="border: 1px solid #c4c4c4;  " role="alert">
+                                        <div  id="cardRecurso${idrecurso}" class="card" style="border: 1px solid #c4c4c4;  " role="alert">
                                                 <div class="card-header ">
                                                 <div class="row">
                                                    <h5 class="card-title col-lg-11"> ${recurso}</h5> 
@@ -153,7 +159,7 @@ $(document).ready(function () {
         var datosM;
         if (checkArchivo) {
             datos =
-                    {"idrecurso":idRecursoMod,"idcategoriarecurso": idcategoriarecurso,
+                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
                         "iddiscapacidad": iddiscapacidad,
                         "recurso": recurso,
                         "descripcion": descripcion,
@@ -164,7 +170,7 @@ $(document).ready(function () {
                     };
         } else if (checkEnlace) {
             datos =
-                    {"idrecurso":idRecursoMod,"idcategoriarecurso": idcategoriarecurso,
+                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
                         "iddiscapacidad": iddiscapacidad,
                         "recurso": recurso,
                         "descripcion": descripcion,
@@ -174,18 +180,31 @@ $(document).ready(function () {
                         "ruta": document.getElementById("txtEnlace").value
                     };
         }
-        $.ajax({
-            method: "POST",
-            url: "RecursoSrv",
-            data: datos,
-            success: function (data) {
-                alerta("Archivo guardado con exito", "success");
-                modRecurso = false;
-            },
-            error: function (error) {
-                alerta("Algo salio mal al guardar el archivo", "error");
-            }
-        });
+        if (datos.idrecurso.length > 0 &&
+                datos.idcategoriarecurso.length > 0 &&
+                datos.iddiscapacidad.length > 0 &&
+                datos.recurso.length > 0 &&
+                datos.descripcion.length > 0 &&
+                datos.etiquetas.length > 0 &&
+                datos.ruta.length > 0
+                )
+        {
+            $.ajax({
+                method: "POST",
+                url: "RecursoSrv",
+                data: datos,
+                success: function (data) {
+                    alerta("Archivo guardado con exito", "success");
+                    modRecurso = false;
+                },
+                error: function (error) {
+                    alerta("Algo salio mal al guardar el archivo", "error");
+                }
+            });
+        } else {
+            alerta("Llene todos los campos", "info");
+        }
+
     });
 });
 function guardarRecurso() {
@@ -222,21 +241,34 @@ function guardarRecurso() {
                     "ruta": document.getElementById("txtEnlace").value
                 };
     }
+    if (
+            datos.idcategoriarecurso.length > 0 &&
+            datos.iddiscapacidad.length > 0 &&
+            datos.recurso.length > 0 &&
+            datos.descripcion.length > 0 &&
+            datos.etiquetas.length > 0 &&
+            datos.ruta.length > 0
+            )
+    {
+
+        $.ajax({
+            method: "POST",
+            url: "RecursoSrv",
+            data: datos,
+            success: function (data) {
+                alerta("Archivo guardado con exito", "success");
+                modRecurso = false;
+            },
+            error: function (error) {
+                alerta("Algo salio mal al guardar el archivo", "error");
+            }
+        });
+
+    } else {
+        alerta("Llene todos los campos", "info");
+    }
 
 
-
-    $.ajax({
-        method: "POST",
-        url: "RecursoSrv",
-        data: datos,
-        success: function (data) {
-            alerta("Archivo guardado con exito", "success");
-            modRecurso = false;
-        },
-        error: function (error) {
-            alerta("Algo salio mal al guardar el archivo", "error");
-        }
-    });
 }
 var html;
 traerCategoriaRecurso();
@@ -292,11 +324,20 @@ function eliminarRecurso(x) {
 }
 var modRecurso = false;
 var idRecursoMod;
+var anterio="";
 function seleccionarRecurso(x) {
+    
+     if (anterio.length > 0) {
+        var card = document.getElementById("cardRecurso" + x);
+         card.className = "card"
+    }
+        document.getElementById("cardRecurso" + x).className = "card text-white cajas bg-primary"
+    
+    
     for (var i of jsonRecursos.Recurso) {
         if (i.idrecurso == x) {
             var estado = i.estado;
-            idRecursoMod=i.idrecurso;
+            idRecursoMod = i.idrecurso;
             modRecurso = true;
             $('#cmb-categoria').val(i.idcategoriarecurso);
             $('#cmb-discapacidad').val(i.iddiscapacidad);
@@ -315,6 +356,7 @@ function seleccionarRecurso(x) {
             $('#btn_cancelarRecurso').show("2000");
         }
     }
+    anterio=x+"";
 }
 function BotonCancelar() {
     $('#btnGuardaRecurso').show("2000");

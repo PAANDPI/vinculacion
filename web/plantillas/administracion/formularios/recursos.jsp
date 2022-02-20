@@ -52,8 +52,8 @@
                     <div id="fileC" class="mb-3 mt-3"> 
                         <label class="font-weight-bold">Seleccione el archivo: </label>
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input " id="formFile" >
-                            <label class="custom-file-label" for="formFile"></label>
+                            <input type="file" class=" " id="formFile" >
+                            
                         </div>
 
                     </div>
