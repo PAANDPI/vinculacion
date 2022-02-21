@@ -30,7 +30,7 @@
 
     }
 </style>
-<div class="col-lg-12 pt-5" id="Contenedor-inicio">
+<div class="col-lg-12 pt-5 " id="Contenedor-inicio">
     <h1 class="text-center mt-3">Aplicación administrativar YUYAPUY</h1>
     <h3 class="text-center mb-5">Información basica de Yuyapuy </h3>
     <div class="padre_informacion mt-5">

@@ -89,6 +89,20 @@ public class RecursoSrv extends HttpServlet {
                 out.write(retorno);
             }
         }
+        else if (accion == 3) {
+            RecursoDAO recursoDAO = new RecursoDAO();
+            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+            System.out.println("Ruta: " + recursoDAO.getRelativePath());
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                retorno += "\"codigo\":200,\n";
+                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                retorno += recursoDAO.getVW2JSONENLACES();
+                retorno += "\n}";
+                out.write(retorno);
+            }
+        }
     }
 
     /**

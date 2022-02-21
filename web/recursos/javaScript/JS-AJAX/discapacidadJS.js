@@ -118,8 +118,8 @@ function  validarExistenciaDiscapacidades()
     var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
     for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
     {
-        var nombreDiscapacidad = jsonDiscapacidades.Discapacidad[i].discapacidad;
-        if (nombreDiscapacidad == nombreDiscapacidad)
+        var nombreDiscapacidad2 = jsonDiscapacidades.Discapacidad[i].discapacidad;
+        if (nombreDiscapacidad2 == nombreDiscapacidad)
         {
             return false;
             break;

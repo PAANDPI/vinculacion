@@ -37,12 +37,17 @@
         <div class="row  pr-lg-5 pr-md-5 pr-xl-3 pl-lg-5 pl-md-2 pl-xl-1" style="z-index: 1" >
             <div class="col-lg-12 col-md-12">
                 <div class="container">
-                    <div class="row" id="tbl_recursos">
-
-                    </div>
+                   
+                        <div class="card-columns pt-5 pb-5" id="tbl_recursos">
+                            
+                        </div>
+                 
                 </div>
             </div>
-        </div>     
+        </div>  
+            <%@include  file="plantillas/footer.jsp" %>  
     </body>
+      
+   
     <script src="recursos/javaScript/JS-AJAX/buscadorRecursos.js" type="text/javascript"></script>
 </html>

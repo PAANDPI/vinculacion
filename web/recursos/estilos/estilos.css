@@ -299,3 +299,14 @@ body .degradado ul li a
                 filter: grayscale(100%);
                 border-radius: 200px;
             }
+            
+.sombras2
+{
+/*box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);*/
+
+}
+.sombras2:hover
+{
+    cursor: pointer;
+    transform: scale(1.1);
+}
