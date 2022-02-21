@@ -244,6 +244,7 @@ $(document).ready(function () {
                         data: datos,
                         success: function (data) {
                             alerta("Usuario Modificado correctamente:", "success");
+                            listadeUsuarios();
                             limpiar();
                         },
                         error: function (error, ex) {
@@ -354,6 +355,7 @@ function deletePersona(id) {
                     console.log(data);
                     swal("La persona a sido eliminada correctamente", {
                         icon: "success"});
+                    listadeUsuarios();
                 },
                 error: function (error) {
                     console.log(error);

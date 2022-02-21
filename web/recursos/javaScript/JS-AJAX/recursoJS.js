@@ -196,6 +196,7 @@ $(document).ready(function () {
                 data: datos,
                 success: function (data) {
                     alerta("Archivo guardado con exito", "success");
+                    tbl_recursos();
                     modRecurso = false;
                 },
                 error: function (error) {
@@ -258,6 +259,7 @@ function guardarRecurso() {
             data: datos,
             success: function (data) {
                 alerta("Archivo guardado con exito", "success");
+                tbl_recursos();
                 modRecurso = false;
             },
             error: function (error) {
@@ -313,6 +315,7 @@ function eliminarRecurso(x) {
                 data: datos,
                 success: function (data) {
                     alerta("Archivo Eliminado con exito", "success");
+                    tbl_recursos();
                 },
                 error: function (error) {
                     alerta("Algo salio mal al Eliminar el archivo", "error");

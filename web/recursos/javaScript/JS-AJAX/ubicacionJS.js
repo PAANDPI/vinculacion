@@ -124,6 +124,7 @@ $(document).ready(function () {
                         console.log(data);
                         Limpiar();
                         alerta(`Ubicacion ${Lugar} añadida con exito`, "success");
+                        tbl_Lugares();
                     },
                     error: function (error) {
                         console.log(error);
@@ -167,12 +168,12 @@ function  validarExistenciaLugares()
     }
     return true;
 }
-var anterio="";
+var anteriorr="";
 function seleccionarUbicacion(idub) {
     
     
-      if (anterio.length > 0) {
-        var btnAux = document.getElementById("cardLugares" + anterio);
+      if (anteriorr.length > 0) {
+        var btnAux = document.getElementById("cardLugares" + anteriorr);
         btnAux.className = "card cajas"
     }
         document.getElementById("cardLugares" + idub).className = "card text-white cajas bg-primary"
@@ -211,7 +212,7 @@ function seleccionarUbicacion(idub) {
             $('#btn_cancelarUbica').show("2000");
         }
     }
-    anterio=idub+"";
+    anteriorr=idub+"";
 }
 function eliminiarUbicacion(id) {
     // console.log(id);
@@ -234,6 +235,7 @@ function eliminiarUbicacion(id) {
                     swal("La ubicacion a sido eliminada", {
                         icon: "success",
                     });
+                    tbl_Lugares();
                 },
                 error: function (error) {
                     console.log(error);
@@ -296,7 +298,6 @@ function tbl_Lugares()
                                               </div>
                                             </div>
                                           </div>
-
                               </td>
                               </tr>`;
             }
