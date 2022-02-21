@@ -54,7 +54,7 @@
          } else {
                     response.sendRedirect("login.jsp");
         }%>  
-     
+        
     <body class="" style="background:#E2E2E5 ">        
         <%                
          if (validador)
@@ -66,7 +66,7 @@
               %>        
            
         <div class="row" >         
-           
+            <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
             <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
             <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>                                 
             <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>            

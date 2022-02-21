@@ -37,6 +37,7 @@ function tbl_recursos()
         success: function (data) {
             jsonRecursos = data;
             var htmlTabla = ``;
+            document.getElementById("caounRecursos").innerHTML= jsonRecursos.Recurso.length;
             for (var i = 0; i < jsonRecursos.Recurso.length; i++)
             {
                 var idrecurso = jsonRecursos.Recurso[i].idrecurso;

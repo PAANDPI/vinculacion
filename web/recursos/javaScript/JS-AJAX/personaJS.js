@@ -22,6 +22,7 @@ $(document).ready(function () {
             success: function (data) {
                 jsonPersonas = data;
                 var htmlTabla = ``;
+                 document.getElementById("caounPersonas").innerHTML= jsonPersonas.Persona.length;
                 for (var i = 0; i < jsonPersonas.Persona.length; i++)
                 {
                     var idpersona = jsonPersonas.Persona[i].idpersona;

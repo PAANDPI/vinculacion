@@ -253,6 +253,7 @@ function tbl_Lugares()
         success: function (data) {
             var htmlTabla = ``;
             jsonUbicaciones = data.Lugar;
+             document.getElementById("caounLugares").innerHTML= jsonUbicaciones.length;
             for (var i = 0; i < jsonUbicaciones.length; i++) {
                 // console.log(jsonUbicaciones[i].lugar);
                 htmlTabla += `<tr>

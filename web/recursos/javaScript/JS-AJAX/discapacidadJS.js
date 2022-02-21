@@ -178,6 +178,7 @@ function cargarDiscapacidades()
             jsonDiscapacidades = JSON.parse(data);
             var htmlTabla = ``;
             var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
+            document.getElementById("caounDiscapacidades").innerHTML=jsonDiscapacidades.Discapacidad.length;
             for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
             {
                 var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;

@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/web/rutaa.jsp</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/src/java/controlador/RecursoSrv.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/src/java/controlador/Rutas.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/web/recursos.jsp</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/src/java/accesoDatos/RecursoDAO.java</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/web/plantillas/menu.jsp</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Arialdo/Documents/NetBeansProjects/Repositorio/yuyapuy/web/index.jsp</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/recursos/javaScript/JS-AJAX/discapacidadJS.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/src/java/controlador/LugarSrv.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/recursos/javaScript/JS-AJAX/ubicacionJS.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/recursos/javaScript/JS-AJAX/recursoJS.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/recursos/javaScript/JS-AJAX/personaJS.js</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/vinculacion/web/plantillas/administracion/formularios/inicio.jsp</file>
         </group>
     </open-files>
 </project-private>
