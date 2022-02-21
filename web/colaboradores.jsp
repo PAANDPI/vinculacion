@@ -8,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <!--zdfsz-->
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="recursos/iconos/Logo_colorido.ico" type="image/x-icon">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
