@@ -158,6 +158,7 @@ $(document).ready(function () {
                             data: datos,
                             success: function (data) {
                                 alerta("Usuario guardado correctamente:", "success");
+                                listadeUsuarios();
                                 limpiar();
                             },
                             error: function (error) {
