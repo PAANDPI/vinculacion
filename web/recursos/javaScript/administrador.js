@@ -7,7 +7,7 @@ $(document).ready(function () {
     $('#formulario-persona').hide();
     $('#formulario-ubicaciones').hide();
      $('#formulario-recursos').hide();
-     $('#contenedor-sugerencias').hide();
+   
 
     $("#btnInicio").click(function () {
         $('#Contenedor-inicio').show(100);
@@ -16,7 +16,7 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
          $('#formulario-recursos').hide();
-         $('#contenedor-sugerencias').hide();
+         
     });
 
     $("#btnConceptos").click(function () {
@@ -25,7 +25,7 @@ $(document).ready(function () {
         $('#Contenedor-de-formularios').hide();
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
-        $('#contenedor-sugerencias').hide();
+       
     });
 
     $("#btnUbicaciones").click(function () {
@@ -34,7 +34,7 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-conceptos').hide();
          $('#formulario-recursos').hide();
-         $('#contenedor-sugerencias').hide();
+       
     });
 
 
@@ -45,7 +45,7 @@ $(document).ready(function () {
         $('#formulario-ubicaciones').hide();
         $('#formulario-persona').show(100);
          $('#formulario-recursos').hide();
-         $('#contenedor-sugerencias').hide();
+        
     });
 
     $("#btnCategoria").click(function () {
@@ -57,7 +57,7 @@ $(document).ready(function () {
     $("#btnRecursos").click(function ()
     {
         $('#formulario-recursos').show();
-        $('#contenedor-sugerencias').hide();
+       
         $('#formulario-ubicaciones').hide();
         $('#Contenedor-de-formularios').hide();
         $('#Contenedor-inicio').hide();
@@ -65,13 +65,13 @@ $(document).ready(function () {
         $('#formulario-conceptos').hide();
     });
 
-    $("#btnSugerencias").click(function () {
-        $('#contenedor-sugerencias').show();
-        $('#formulario-ubicaciones').hide();
-        $('#Contenedor-de-formularios').hide();
-        $('#Contenedor-inicio').hide();
-        $('#formulario-persona').hide();
-        $('#formulario-conceptos').hide();
-        $('#formulario-recursos').hide();
-    });
+//    $("#btnSugerencias").click(function () {
+//        $('#contenedor-sugerencias').show();
+//        $('#formulario-ubicaciones').hide();
+//        $('#Contenedor-de-formularios').hide();
+//        $('#Contenedor-inicio').hide();
+//        $('#formulario-persona').hide();
+//        $('#formulario-conceptos').hide();
+//        $('#formulario-recursos').hide();
+//    });
 });

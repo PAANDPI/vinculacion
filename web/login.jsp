@@ -64,12 +64,12 @@
                     </div>
 
                     <div class="mt-4">
-                        <div class="d-flex justify-content-center links">
+<!--                        <div class="d-flex justify-content-center links">
                             ¿Quieres ser colaborador? <a href="#" class="ml-2">Solicitar</a>
                         </div>
                         <div class="d-flex justify-content-center links">
                             <a href="#">¿Olvidaste tu contraseña?</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

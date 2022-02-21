@@ -22,20 +22,24 @@
     <body >
 
         <%@include file="plantillas/menu.jsp" %>  
-        <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
-        <div class="container mt-5">
-            <h1 class="text-center">BUSCADOR DE RECURSOS</h1>
-          
+        
+  
+        <div class="container  mt-5">
+            <div class="row flex-row justify-content-center align-content-center">
+                  <img width="240" height="210"  src="recursos/imagenes/Logo_colorido.png" alt=""/>
+            </div>          
+            <h1 class="text-center">BUSCADOR DE RECURSOS</h1>         
             <div class="text-center" style="color: gray;">En esta sección se comparte recursos digitales agrupados por cada tipo de discapacidad</div>
             <hr style="background: gainsboro">
-            <%--<%@include  file="plantillas/recursos/card_recursos.jsp" %>--%>  
             <%@include  file="plantillas/recursos/buscador_recuros.jsp" %>
            
            <hr style="background: gainsboro">
             <label class="font-weight-bold">Contenido resultante:</label>
         </div>
+  
+            
         <div class="row  pr-lg-5 pr-md-5 pr-xl-3 pl-lg-5 pl-md-2 pl-xl-1" style="z-index: 1" >
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 ">
                 <div class="container">
                    
                         <div class="card-columns pt-5 pb-5" id="tbl_recursos">
@@ -46,6 +50,7 @@
             </div>
         </div>  
             <%@include  file="plantillas/footer.jsp" %>  
+            <%@include  file="plantillas/menu_accesibilidad.jsp" %>  
     </body>
       
    

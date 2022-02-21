@@ -12,7 +12,9 @@ $('#btnIniciarSecion').on('click', function () {
             success: function (data) {
                console.log(data);
                mensaje=data;
-//                 swal({text: mensaje.responseJSON.mensaje, icon: "success"});
+//               var ec = localStorage.getItem('ec');
+              
+               localStorage.setItem("ec",mensaje.Persona[0].correo+"");
                window.location.href = "administrador.jsp";
              
                 
