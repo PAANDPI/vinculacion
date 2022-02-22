@@ -3,7 +3,7 @@
        <div class="row ">
             <div class="col-lg-8">
                 <div class="input-group mb-3">
-                    <input id="txtDiscapacidad" type="text" class="form-control " style="border: 1px solid #28A83F  " placeholder="Escriba el nombre del discapacidad" >
+                    <input id="txtDiscapacidad" type="text" class="form-control " style="border: 1px solid #28A83F  " placeholder="Escriba el nombre de la discapacidad" >
                     <div class="input-group-append">
                         <button onclick="tbl_recursos_parametros()" class="btn btn-success  bi bi-search" type="button"></button>
                     </div>

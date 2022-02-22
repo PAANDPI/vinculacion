@@ -48,12 +48,6 @@ function tbl_recursos()
                 var estado = jsonRecursos.Recurso[i].estado;
                 var ruta = jsonRecursos.Recurso[i].ruta;
                 var url = `recursos/iconos/iconos recuros/archivo.png`;
-                /* else 
-                 if (categoriarecurso === "Archivos")
-                 {
-                 url = `recursos/iconos/iconos recuros/archivo.png`;
-                 
-                 }*/
 
                 if (categoriarecurso === "Juegos")
                 {

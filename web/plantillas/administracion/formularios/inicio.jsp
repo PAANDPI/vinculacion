@@ -8,7 +8,6 @@
     }
     .caja_informacion
     {
-
         width: 200px; 
         height: auto;
         margin-left: 10px;
@@ -23,16 +22,14 @@
     .imgInicio{
         width: 100px;
         height: 100px;
-
     }
     .cantidad{
         font-size: 50px;
-
     }
 </style>
 <div class="col-lg-12 pt-5 " id="Contenedor-inicio">
-    <h1 class="text-center mt-3">Aplicación administrativar YUYAPUY</h1>
-    <h3 class="text-center mb-5">Información basica de Yuyapuy </h3>
+    <h1 class="text-center mt-3">Aplicación administrativa de YUYAPUY</h1>
+    <h3 class="text-center mb-5">Información básica de Yuyapuy </h3>
     <div class="padre_informacion mt-5">
         <div class="caja_informacion">
             <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">               

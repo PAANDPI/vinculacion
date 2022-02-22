@@ -181,7 +181,7 @@ function formarRuta(idLugar)
         }),
         waypoints: [
             L.latLng(coordenadasx, coordenadasy),
-            L.latLng(-0.0035331769720551394, -79.39125851049161)
+            L.latLng(marcadorInicial.getLatLng())
         ]
     }).addTo(map);
     var btnU = document.getElementById("btnRuta" + idLugar);
@@ -192,7 +192,10 @@ function formarRuta(idLugar)
 var marcadorInicial;
 function ponerubicacion()
 {
-
+  if (marcadorInicial === undefined) {
+    } else {
+        map.removeLayer(marcadorInicial);
+    }
     if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(function (position) {
             xcomputer = position.coords.latitude;

@@ -3,7 +3,7 @@
                 <div class="row">              
                     <div class="col-sm-12 col-md-6 ">
                         <h5 class="font-weight-bold">Colaboradores</h5>
-                        <img class="rounded-circle p-2" style="width: 200px; height: 220px"  src="recursos/conocenos/CX1TE_uG_400x400.jpg" alt=""/>
+                        <img class="rounded-circle p-2" style="width: 200px; height: 100px; background: white"  src="recursos/conocenos/LOGOTIPO_INSTITUCIONAL_GADM_EL_EMPALME2.png" alt=""/>
                     
                         <img class="rounded-circle p-2" class="imgF" style="width: 200px; height: 220px" src="recursos/conocenos/descarga.jfif" alt=""/>
                                            
