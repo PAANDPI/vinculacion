@@ -1,13 +1,36 @@
 var jsonConsulta;
 $(document).ready(function ()
 {
+    cargarAutoCompletado();
+     function cargarAutoCompletado()
+     {
+           var opciones="";
+             $.ajax({
+                method: "GET",
+                url: "DiscapacidadSrv",           
+                success: function (data) {
+                 var lista=  JSON.parse(data);
+                     for (var i = 0; i < lista.Discapacidad.length; i++) {
+                           opciones+=`<option value="${lista.Discapacidad[i].discapacidad}">`;
+                     }
+                  document.getElementById("lista_discapacidades").innerHTML=opciones;
+                },
+                 error: function (error) {
+                    
+                }
+            });
+     }
+    $("#nombreDiscapacidad").keypress(function (event) {
+        if (event.keyCode === 13) {
+            $("#btnBuscarDiscapacidad").click();
+        }
+    });
 
     $('#btnBuscarDiscapacidad').on('click', function () {
-
         var nombreDiscapacidad = document.getElementById("nombreDiscapacidad").value;
         var accordionResultante = document.getElementById("accordionResultante");
         var numeroResultado = document.getElementById("numeroResultado");
-        var html = "";
+        var html = "";    
         var boolean;
         if (nombreDiscapacidad.length > 0) {
             accordionResultante.innerHTML = "";
@@ -18,8 +41,27 @@ $(document).ready(function ()
                 success: function (data) {
                     try {
                         jsonConsulta = JSON.parse(data);
-                        alerta("Busqueda realizada", "success");
-                        console.log(jsonConsulta)
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Busqueda realizada',
+                            text: 'Numero de resultados: ' + jsonConsulta.Concepto.length,
+                            timer: 1000, didOpen: () => {
+                                Swal.showLoading()
+                                const b = Swal.getHtmlContainer().querySelector('b')
+                                timerInterval = setInterval(() => {
+                                }, 100)
+                            },
+                            willClose: () => {
+                                clearInterval(timerInterval)
+                            }
+                        }).then((result) => {
+                            /* Read more about handling dismissals below */
+                            if (result.dismiss === Swal.DismissReason.timer) {
+                                console.log('I was closed by the timer')
+                            }
+                        })
+
+
                         for (var i = 0; i < jsonConsulta.Concepto.length; i++) {
 
                             var titulo = jsonConsulta.Concepto[i].discapacidad;
@@ -27,6 +69,7 @@ $(document).ready(function ()
                             var idConcepto = jsonConsulta.Concepto[i].idconcepto;
                             var etiquetas = jsonConsulta.Concepto[i].etiquetas;
                             var vector = etiquetas.split("titulo:");
+                            
                             html += `<div class="card">
                         <div class="card-header" id="heading${idConcepto}">
                         <h5 class="">
@@ -55,12 +98,15 @@ $(document).ready(function ()
                         $('#informacionBusqueda').hide(100);
                         $('#resultadosBusqueda').show(100);
                     } catch (e) {
-                        swal({
-                            title: "Consulta",
-                            text: "No se pudo encontrar ningun resultado",
-                            icon: "info",
-                            button: "Entendido",
-                        });
+                        Swal.fire({
+                            title: 'No se encontron resultados!',
+                            imageUrl: 'recursos/imagenes/No_resultados.gif',
+                            imageWidth: 200,
+                            imageHeight: 200,
+                            imageAlt: 'Custom image',
+                        })
+                         $('#informacionBusqueda').show(100);
+                         $('#resultadosBusqueda').hide(100);
                     }
 
 
@@ -69,18 +115,23 @@ $(document).ready(function ()
                 error: function (error) {
                     console.log(error);
                     alerta("Algo salio mal", "error");
+                    $('#informacionBusqueda').show(100);
+                    $('#resultadosBusqueda').hide(100);
                 }
             });
 
         } else
         {
-            swal({
-                title: "Información",
-                text: "Por favor, ingrese el nombre de la discapacidad a buscar",
-                icon: "info",
-                button: "Entendido",
-            });
-
+            Swal.fire({
+                title: 'Información!',
+                text: 'Por favor, ingrese el nombre de la discapacidad a buscar',
+                imageUrl: 'recursos/imagenes/Falta_nombre.gif',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
+             $('#informacionBusqueda').show(100);
+             $('#resultadosBusqueda').hide(100);
         }
 
 

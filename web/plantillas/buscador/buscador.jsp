@@ -11,7 +11,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 ">
                     <div class="input-group mb-3">
-                        <input id="nombreDiscapacidad" type="text" class=" form-control form-control-lg " placeholder="Búsqueda de discapacidades" aria-label="Recipient's username" >
+                        <input id="nombreDiscapacidad" list="lista_discapacidades" type="text" class=" form-control form-control-lg " placeholder="Búsqueda de discapacidades" aria-label="Recipient's username" >
                         <div class="input-group-append">
                             <button title="buscador" name="buscador" id="btnBuscarDiscapacidad" class="btn btn-light bi bi-search" type="button"></button>
                         </div>
