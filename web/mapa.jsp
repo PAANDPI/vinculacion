@@ -17,6 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <!--Mapa-->

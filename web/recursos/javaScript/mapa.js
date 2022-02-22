@@ -36,7 +36,7 @@ $.ajax({
                     iconUrl: "recursos/iconos/iconos mapa/instituciones.ico",
                     iconSize: [50, 50] // size of the icon          
                 });
-                 cardMapa = htmlCar(jsonMapa[i].lugar, jsonMapa[i].ciudad, jsonMapa[i].descripcion, i);
+                cardMapa = htmlCar(jsonMapa[i].lugar, jsonMapa[i].ciudad, jsonMapa[i].descripcion, i);
                 L.marker([jsonMapa[i].coordendax, jsonMapa[i].coordenday], {icon: icono}).bindPopup(cardMapa).addTo(institutos);
             } else if (jsonMapa[i].etiqueta === "ORGANIZACIONES")
             {
@@ -158,9 +158,49 @@ L.control.layers(basemaps, overlays).addTo(map);
 
 var routingControl;
 var anterio = "";
-
+var marcadorDestino;
 function formarRuta(idLugar)
 {
+
+    var iconoDestino = "";
+    if (jsonMapa[idLugar].etiqueta === "PATRONATOS")
+    {
+        iconoDestino = L.icon({
+            iconUrl: "recursos/iconos/iconos mapa/patronatos.ico",
+            iconSize: [50, 50]
+        });
+    } else if (jsonMapa[idLugar].etiqueta === "INSTITUTOS")
+    {
+        iconoDestino = L.icon({
+            iconUrl: "recursos/iconos/iconos mapa/instituciones.ico",
+            iconSize: [50, 50] // size of the icon          
+        });
+
+    } else if (jsonMapa[idLugar].etiqueta === "ORGANIZACIONES")
+    {
+        iconoDestino = L.icon({
+            iconUrl: "recursos/iconos/iconos mapa/organizaciones.ico",
+            iconSize: [50, 50] // size of the icon          
+        });
+    } else if (jsonMapa[idLugar].etiqueta === "FUNDACIONES")
+    {
+        iconoDestino = L.icon({
+            iconUrl: "recursos/iconos/iconos mapa/Ong.ico",
+            iconSize: [50, 50] // size of the icon          
+        });
+    } else if (jsonMapa[idLugar].etiqueta === "ESCUELAS")
+    {
+        iconoDestino = L.icon({
+            iconUrl: "recursos/iconos/iconos mapa/Estudio.ico",
+            iconSize: [50, 50] // size of the icon          
+        });
+    } else if (jsonMapa[idLugar].etiqueta === "CENTROS MÉDICOS")
+    {
+        iconoDestino = L.icon({iconUrl: "recursos/iconos/iconos mapa/Clinica.ico",
+            iconSize: [50, 50] // size of the icon          
+        });
+    }
+
     if (anterio.length > 0) {
         var btnAux = document.getElementById("btnRuta" + anterio);
         btnAux.className = "btn btn-warning btn-sm bi bi-geo-alt"
@@ -173,26 +213,43 @@ function formarRuta(idLugar)
         routingControl = null;
     }
 
-    routingControl = L.Routing.control({
+    if (marcadorDestino === undefined)
+    {
+        cardMapa = htmlCar(jsonMapa[idLugar].lugar, jsonMapa[idLugar].ciudad, jsonMapa[idLugar].descripcion, idLugar);
+        marcadorDestino = L.marker([jsonMapa[idLugar].coordendax, jsonMapa[idLugar].coordenday], {icon: iconoDestino}).addTo(map);
+    } else {
+        map.removeLayer(marcadorDestino);
+        cardMapa = htmlCar(jsonMapa[idLugar].lugar, jsonMapa[idLugar].ciudad, jsonMapa[idLugar].descripcion, idLugar);
+        marcadorDestino = L.marker([jsonMapa[idLugar].coordendax, jsonMapa[idLugar].coordenday], {icon: iconoDestino}).addTo(map);
 
-        showAlternatives: true,
-        formatter: new L.Routing.Formatter({
-            language: 'sp'
-        }),
-        waypoints: [
-            L.latLng(coordenadasx, coordenadasy),
-            L.latLng(marcadorInicial.getLatLng())
-        ]
-    }).addTo(map);
+        
+    }
+
+    routingControl = L.Routing.control({
+            showAlternatives: true,
+            formatter: new L.Routing.Formatter({
+                language: 'sp'
+            }),
+            waypoints: [
+                L.latLng(marcadorInicial.getLatLng()),
+                L.latLng(marcadorDestino.getLatLng())
+            ]
+        }).addTo(map);
+
+
+
+
+
+
     var btnU = document.getElementById("btnRuta" + idLugar);
     btnU.className = "btn btn-success btn-sm bi bi-check2-all "
     anterio = idLugar + "";
-//    document.getElementById("nombreDestino").innerHTML = jsonMapa[idLugar].lugar;
+
 }
 var marcadorInicial;
 function ponerubicacion()
 {
-  if (marcadorInicial === undefined) {
+    if (marcadorInicial === undefined) {
     } else {
         map.removeLayer(marcadorInicial);
     }
@@ -212,14 +269,20 @@ var popup = L.popup();
 function onMapClick(e)
 {
     popup
-            .setLatLng(e.latlng) // Sets the geographical point where the popup will open.
+            .setLatLng(e.latlng)
             .setContent("Ubicacido en:<br> " + e.latlng.lat.toString() + "," + e.latlng.lng.toString()) // Sets the HTML content of the popup.
             .openOn(map);
     if (marcadorInicial === undefined) {
     } else {
         map.removeLayer(marcadorInicial);
     }
-    marcadorInicial = L.marker([e.latlng.lat.toString(), e.latlng.lng.toString()]).addTo(map);
+    icono = L.icon({
+        iconUrl: "recursos/iconos/iconos mapa/persona.ico",
+        iconSize: [50, 50] // size of the icon          
+    });
+    marcadorInicial = L.marker([e.latlng.lat.toString(), e.latlng.lng.toString()], {icon: icono}).bindPopup("Mi ubicación o punto de partida").addTo(centrosMedicos).addTo(map);
+    ;
+
 }
 map.on('dblclick', onMapClick);
 
