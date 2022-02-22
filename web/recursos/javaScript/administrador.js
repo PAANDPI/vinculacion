@@ -7,6 +7,7 @@ $(document).ready(function () {
     $('#formulario-persona').hide();
     $('#formulario-ubicaciones').hide();
      $('#formulario-recursos').hide();
+      $('#formulario-Mi-información').hide();
    
 
     $("#btnInicio").click(function () {
@@ -16,7 +17,7 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
          $('#formulario-recursos').hide();
-         
+          $('#formulario-Mi-información').hide();
     });
 
     $("#btnConceptos").click(function () {
@@ -25,7 +26,7 @@ $(document).ready(function () {
         $('#Contenedor-de-formularios').hide();
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
-       
+        $('#formulario-Mi-información').hide();
     });
 
     $("#btnUbicaciones").click(function () {
@@ -34,7 +35,7 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-conceptos').hide();
          $('#formulario-recursos').hide();
-       
+        $('#formulario-Mi-información').hide();
     });
 
 
@@ -45,14 +46,7 @@ $(document).ready(function () {
         $('#formulario-ubicaciones').hide();
         $('#formulario-persona').show(100);
          $('#formulario-recursos').hide();
-        
-    });
-
-    $("#btnCategoria").click(function () {
-
-    });
-    $("#btnCuenta").click(function () {
-
+         $('#formulario-Mi-información').hide();
     });
     $("#btnRecursos").click(function ()
     {
@@ -63,15 +57,16 @@ $(document).ready(function () {
         $('#Contenedor-inicio').hide();
         $('#formulario-persona').hide();
         $('#formulario-conceptos').hide();
+        $('#formulario-Mi-información').hide();
     });
 
-//    $("#btnSugerencias").click(function () {
-//        $('#contenedor-sugerencias').show();
-//        $('#formulario-ubicaciones').hide();
-//        $('#Contenedor-de-formularios').hide();
-//        $('#Contenedor-inicio').hide();
-//        $('#formulario-persona').hide();
-//        $('#formulario-conceptos').hide();
-//        $('#formulario-recursos').hide();
-//    });
+    $("#btnCuenta").click(function () {
+        $('#formulario-Mi-información').show();
+        $('#formulario-ubicaciones').hide();
+        $('#Contenedor-de-formularios').hide();
+        $('#Contenedor-inicio').hide();
+        $('#formulario-persona').hide();
+        $('#formulario-conceptos').hide();
+        $('#formulario-recursos').hide();
+    });
 });

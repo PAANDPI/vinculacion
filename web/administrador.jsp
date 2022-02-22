@@ -26,6 +26,7 @@
         <script src="recursos/javaScript/JS-AJAX/ubicacionJS.js" type="text/javascript"></script>
         <script src="recursos/javaScript/JS-AJAX/personaJS.js" type="text/javascript"></script>
         
+        
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="recursos/estilos/administrador.css" rel="stylesheet" type="text/css"/>
@@ -69,7 +70,8 @@
             <%@include  file="plantillas/administracion/formularios/inicio.jsp" %>
             <%@include  file="plantillas/administracion/formularios/conceptos.jsp" %>
             <%@include  file="plantillas/administracion/formularios/ubicaciones.jsp" %>                                 
-            <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>            
+            <%@include  file="plantillas/administracion/formularios/recursos.jsp"%>   
+            <%@include  file="plantillas/administracion/formularios/cuenta.jsp"%> 
             <%                
                 if (validador)
                    { %>
@@ -86,4 +88,5 @@
         <%@include file="plantillas/administracion/formularios/discapacidades.jsp" %>
     </body>
      <script src="recursos/javaScript/JS-AJAX/recursoJS.js" type="text/javascript"></script>
+     <script src="recursos/javaScript/JS-AJAX/miCuenta.js" type="text/javascript"></script>
 </html>

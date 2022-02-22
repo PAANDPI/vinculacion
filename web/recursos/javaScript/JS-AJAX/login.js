@@ -12,9 +12,7 @@ $('#btnIniciarSecion').on('click', function () {
             success: function (data) {
                console.log(data);
                mensaje=data;
-//               var ec = localStorage.getItem('ec');
-              
-               localStorage.setItem("ec",mensaje.Persona[0].correo+"");
+               localStorage.setItem("usuario",JSON.stringify(mensaje.Persona)+"");
                window.location.href = "administrador.jsp";
              
                 
