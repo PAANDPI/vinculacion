@@ -131,13 +131,9 @@ public class PersonaSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
                 if (personaDAO.insert()) {
-//                    retorno += "\"codigo\":200,\n";
-//                    retorno += personaDAO.getPersonaJSON();
+
                     response.setStatus(response.SC_OK);
-                    //response.sendRedirect("index.jsp");
                 } else {
-//                    retorno += "\"codigo\":400,\n";
-//                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
                 }
                 retorno += "}";
@@ -202,6 +198,25 @@ public class PersonaSrv extends HttpServlet {
                 HttpSession sesion = request.getSession(true);
                 sesion.removeValue("username");
                 response.sendRedirect("index.jsp");
+        }else if(accion==6)
+        {
+            Persona persona = new Persona();
+            persona.setIdPersona(Integer.parseInt(request.getParameter("idpersona")));
+            persona.setClave(request.getParameter("clave"));
+            PersonaDAO personaDAO = new PersonaDAO(persona);
+            response.setContentType("text/json;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                /* TODO output your page here. You may use following sample code. */
+                if (personaDAO.cambiarClave()) {
+                    response.setStatus(response.SC_OK);
+                   
+                } else {
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
         }
 
     }

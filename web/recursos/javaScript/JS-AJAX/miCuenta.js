@@ -34,82 +34,106 @@ document.getElementById("mitxtNombreUsuario").value = MiInformacion[0].usuario;
 $('#contCambiodeClave').hide('100');
 
 $('#btnEditarContrasenia').click(function () {
-    
-   $('#contCambiodeClave').toggle('100');
-    
+
+    $('#contCambiodeClave').toggle('100');
+
 });
 $('#btnMiInformacion').click(function () {
-
-        var usuario = MiInformacion[0].correo;
-        var clave = document.getElementById("txtMi_Contrasenia_antigua").value;
-        var datos = {"usuario": usuario, "clave": clave, "accion": "1"};
-        
+    var validador = false;
+    var usuario = MiInformacion[0].correo;
+    var clave = document.getElementById("txtMi_Contrasenia_antigua").value;
+    var datos = {"usuario": usuario, "clave": clave, "accion": "1"};
+    if (clave.length > 0)
+    {
         $.ajax({
             method: "POST",
             url: "PersonaSrv",
             data: datos,
             success: function (data) {
-//               console.log(data);
-//               mensaje=data;
-//               localStorage.setItem("usuario",JSON.stringify(mensaje.Persona)+"");
-//               window.location.href = "administrador.jsp";
-             
-                
+                if (document.getElementById("txtMi_Contrasenia").value.length >= 6 && document.getElementById("txtMi_ConfirmarContrasenia").value.length  >= 6)
+                {
+                    if (document.getElementById("txtMi_Contrasenia").value === document.getElementById("txtMi_ConfirmarContrasenia").value)
+                    {
+                        validador = true;
+                        modificarclave(validador);
+                       
+                    } else
+                    {
+                        swal("Confirmación erronea", "La nueva contraseña no pudo ser confirmada", "info");
+                        validador = false;
+                    }
+                } else
+                {
+                    swal("La nueva contraseña debe tener una logintud mayor 6 caracteres", "info");
+                    validador = false;
+                }
+
+
+
 
             },
             error: function (error) {
 
-             mensaje=error;
-             swal({text: mensaje.responseJSON.mensaje, icon: "error"});
-             
+                mensaje = error;
+                swal("La contraseña antigua no es correcta", mensaje.responseJSON.mensaje, "error");
+
             }
         });
+    } else
+    {
+        swal("Ingrese la antigua contraseña", "info");
+    }
 
-        }); 
-    
-//    if (document.getElementById("txtMi_Contrasenia").value === document.getElementById("txtMi_ConfirmarContrasenia").value)
-//    {
-//
-//    } else
-//    {
-//        swal({text: "Ingrese", icon: icono});
-//    }
-//
-//    var datos = {
-//        "idpersona": idUsuario,
-//        "idCiudad": document.getElementById("cmbMi_Cantones").value,
-//        "nombre": document.getElementById("txtMi_Nombre").value,
-//        "apellido": document.getElementById("txtMi_Apellido").value,
-//        "genero": document.getElementById("cmbMi_Genero").value,
-//        "usuario": document.getElementById("mitxtNombreUsuario").value,
-//        "correo": document.getElementById("txtMi_Correo").value,
-//        "clave": txtContrasenia,
-//        "administrador": true,
-//        "accion": "3"};
-//
-//
-//    console.log(datos);
-//    var validor = (txtNombre.length * txtApellido.length * cmbGenero.length *
-//            txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
-//    if (validor > 0)
-//    {
-//        $.ajax({
-//            method: "POST",
-//            url: "PersonaSrv",
-//            data: datos,
-//            success: function (data) {
-//                alerta("Usuario Modificado correctamente:", "success");
-//                listadeUsuarios();
-//                limpiar();
-//            },
-//            error: function (error, ex) {
-//                console.log(error);
-//                console.log(ex);
-//                alerta("Algo salio mal:" + error, "error");
-//            }
-//        });
-//    } else
-//    {
-//        alerta("Complete todo los campos", "error");
-//    }
-//});
+
+});
+function modificarclave(validation)
+{
+
+    if (validation)
+    {
+        var datos = {
+            "idpersona": idUsuario,
+            "clave": document.getElementById("txtMi_Contrasenia").value,
+            "accion": "6"
+        };
+
+        $.ajax({
+            method: "POST",
+            url: "PersonaSrv",
+            data: datos,
+            success: function (data) { 
+                 swal("La contraseña fue modificada correctamente, será redirigido al login.", {
+                buttons: {
+                 
+                    si: {
+                        text: "Entendido",
+                        value: "Si",
+                        className: "btn btn-success",
+                    }
+                }
+            })
+                    .then((value) => {
+                        switch (value) {
+                            case "Si":
+                                  window.location.href = "login.jsp";
+                                break;                          
+                            default:
+                        }
+                    });
+             
+            },
+            error: function (error, ex) {
+                console.log(error);
+                console.log(ex);
+                alerta("Algo salio mal:" + error, "error");
+            }
+        });
+    } else
+    {
+    }
+
+
+
+
+
+}

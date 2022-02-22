@@ -61,7 +61,7 @@ public class PersonaDAO {
         String sql = String.format("SELECT editarpersona(%d,%d, '%s', '%s', '%s', '%s','%s', '%b','%b');",
                 persona.getIdPersona(), persona.getIdCiudad(), persona.getNombre(),
                 persona.getApellido(), persona.getGenero(), persona.getUsuario(),
-                persona.getCorreo(), persona.isAdministrador(), persona.isEstado());
+                persona.getCorreo(), persona.isAdministrador(), true);
         if (conex.isState()) {
             return conex.execute(sql);
         }

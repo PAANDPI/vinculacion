@@ -65,15 +65,14 @@
                                     </button>
                                 </div>
                                   <hr> 
-                                <div id="contCambiodeClave" class="form-group">
-                                            
+                                <div id="contCambiodeClave" class="form-group">                                            
                                             <label class="font-weight-bold" >Contraseña antigua</label>
-                                            <input  class="form-control form-control-sm" type="password" id="txtMi_Contrasenia_antigua" >
+                                            <input  class="form-control form-control-sm" autocomplete="off" type="password" id="txtMi_Contrasenia_antigua" >
                                             <label class="font-weight-bold" >Contraseña nueva</label>
                                             <input  class="form-control form-control-sm" type="password" id="txtMi_Contrasenia" >
                                             <label class="font-weight-bold">Confirmar contraseña nueva</label>
                                             <input  class="form-control form-control-sm" type="password" id="txtMi_ConfirmarContrasenia" >
-                                            <a id="btnMiInformacion" class="btn btn-success btn-sm blanco bi bi-save-fill  "> Guardar contraseña</a>  
+                                            <a id="btnMiInformacion" class="btn btn-success btn-sm blanco bi bi-save-fill mt-3 "> Guardar contraseña</a>  
                                  </div>                     
                       
                                       
