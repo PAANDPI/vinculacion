@@ -16,17 +16,19 @@ $(document).ready(function ()
                 url: "ConceptoSrv",
                 data: {"busqueda": nombreDiscapacidad, "tipobusqueda": "2"},
                 success: function (data) {
-                    jsonConsulta = JSON.parse(data);
-                    alerta("Busqueda realizada", "success");
-                    for (var i = 0; i < jsonConsulta.Concepto.length; i++) {
+                    try {
+                        jsonConsulta = JSON.parse(data);
+                        alerta("Busqueda realizada", "success");
+                        console.log(jsonConsulta)
+                        for (var i = 0; i < jsonConsulta.Concepto.length; i++) {
 
-                        var titulo = jsonConsulta.Concepto[i].discapacidad;
-                        var descripcion = jsonConsulta.Concepto[i].descripcion;
-                        var idConcepto = jsonConsulta.Concepto[i].idconcepto;
-                        var etiquetas = jsonConsulta.Concepto[i].etiquetas;
-                        var vector= etiquetas.split("titulo:");
-                        html += `<div class="card">
-                    <div class="card-header" id="heading${idConcepto}">
+                            var titulo = jsonConsulta.Concepto[i].discapacidad;
+                            var descripcion = jsonConsulta.Concepto[i].descripcion;
+                            var idConcepto = jsonConsulta.Concepto[i].idconcepto;
+                            var etiquetas = jsonConsulta.Concepto[i].etiquetas;
+                            var vector = etiquetas.split("titulo:");
+                            html += `<div class="card">
+                        <div class="card-header" id="heading${idConcepto}">
                         <h5 class="">
                           <button id="btnR${idConcepto}" class="btn font-weight-bold bi bi-bookmark-fill" data-toggle="collapse" data-target="#collapse${idConcepto}" aria-expanded=" ${boolean}" aria-controls="collapse${idConcepto}">
                            ${titulo} :     ${vector[1]}                           
@@ -34,7 +36,7 @@ $(document).ready(function ()
                         </h5>
                          <labels class="font-weight-bold ml-3">Relacionado con:</labels>
                           <labels class="ml-1"> ${vector[0]} </labels>
-                    </div>
+                        </div>
 
                     <div id="collapse${idConcepto}" class="collapse show" aria-labelledby="heading${idConcepto}" data-parent="#accordionResultante">
                         <div class="card-body">
@@ -42,16 +44,26 @@ $(document).ready(function ()
                         </div>
                     </div>
                 </div>`;
-                    }
-                    numeroResultado.innerHTML = jsonConsulta.Concepto.length;
+                        }
+                        numeroResultado.innerHTML = jsonConsulta.Concepto.length;
 
-                    accordionResultante.innerHTML = html;
-                    for (var i = 0; i < jsonConsulta.Concepto.length; i++) {
-                        document.getElementById("btnR" + jsonConsulta.Concepto[i].idconcepto).click();
+                        accordionResultante.innerHTML = html;
+                        for (var i = 0; i < jsonConsulta.Concepto.length; i++) {
+                            document.getElementById("btnR" + jsonConsulta.Concepto[i].idconcepto).click();
+                        }
+
+                        $('#informacionBusqueda').hide(100);
+                        $('#resultadosBusqueda').show(100);
+                    } catch (e) {
+                        swal({
+                            title: "Consulta",
+                            text: "No se pudo encontrar ningun resultado",
+                            icon: "info",
+                            button: "Entendido",
+                        });
                     }
 
-                    $('#informacionBusqueda').hide(100);
-                    $('#resultadosBusqueda').show(100);
+
 
                 },
                 error: function (error) {
@@ -68,7 +80,7 @@ $(document).ready(function ()
                 icon: "info",
                 button: "Entendido",
             });
-           
+
         }
 
 
