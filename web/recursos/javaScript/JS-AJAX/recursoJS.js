@@ -37,7 +37,7 @@ function tbl_recursos()
         success: function (data) {
             jsonRecursos = data;
             var htmlTabla = ``;
-            document.getElementById("caounRecursos").innerHTML= jsonRecursos.Recurso.length;
+            document.getElementById("caounRecursos").innerHTML = jsonRecursos.Recurso.length;
             for (var i = 0; i < jsonRecursos.Recurso.length; i++)
             {
                 var idrecurso = jsonRecursos.Recurso[i].idrecurso;
@@ -167,7 +167,8 @@ $(document).ready(function () {
                         "etiquetas": etiquetas,
                         "estado": "true",
                         "accion": 4,
-                        "ruta": ruta
+                        "ruta": ruta,
+                        "host": window.location.host
                     };
         } else if (checkEnlace) {
             datos =
@@ -177,7 +178,7 @@ $(document).ready(function () {
                         "descripcion": descripcion,
                         "etiquetas": etiquetas,
                         "estado": "false",
-                        "accion": 4,
+                        "accion": 5,
                         "ruta": document.getElementById("txtEnlace").value
                     };
         }
@@ -229,7 +230,8 @@ function guardarRecurso() {
                     "etiquetas": etiquetas,
                     "estado": "true",
                     "accion": 1,
-                    "ruta": ruta
+                    "ruta": ruta,
+                    "host": window.location.host
                 };
     } else if (checkEnlace) {
         datos =
@@ -328,16 +330,16 @@ function eliminarRecurso(x) {
 }
 var modRecurso = false;
 var idRecursoMod;
-var anterio="";
+var anterio = "";
 function seleccionarRecurso(x) {
-    
-     if (anterio.length > 0) {
+
+    if (anterio.length > 0) {
         var card = document.getElementById("cardRecurso" + x);
-         card.className = "card"
+        card.className = "card"
     }
-        document.getElementById("cardRecurso" + x).className = "card text-white cajas bg-primary"
-    
-    
+    document.getElementById("cardRecurso" + x).className = "card text-white cajas bg-primary"
+
+
     for (var i of jsonRecursos.Recurso) {
         if (i.idrecurso == x) {
             var estado = i.estado;
@@ -360,7 +362,7 @@ function seleccionarRecurso(x) {
             $('#btn_cancelarRecurso').show("2000");
         }
     }
-    anterio=x+"";
+    anterio = x + "";
 }
 function BotonCancelar() {
     $('#btnGuardaRecurso').show("2000");

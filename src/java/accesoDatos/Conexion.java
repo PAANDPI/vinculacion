@@ -10,7 +10,7 @@ import java.sql.SQLException;
  * @author Arialdo
  */
 public class Conexion {
-    
+
     String consulta = "nada";
     private Connection conex;
     private java.sql.Statement st;
@@ -19,7 +19,7 @@ public class Conexion {
     private String message;
 
     private String url = "jdbc:postgresql://190.15.134.7:8080/vinculacion";
-     private String usuario = "appdist";
+    private String usuario = "appdist";
     private String clave = "@Aplicaciones@Distribuidas@2021";
     /*private String usuario = "appdist";
     private String clave = "@Aplicaciones@Distribuidas@2021";*/
@@ -86,7 +86,7 @@ public class Conexion {
         return result;
 
     }
-    
+
     public boolean execute(String sql) {
         boolean retorno = false;
         try {
