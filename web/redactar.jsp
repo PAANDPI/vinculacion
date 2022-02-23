@@ -51,12 +51,12 @@
                             Plantillas  <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a id="btn_plantilla_uno" href="#">Plantilla 1</a></li>
-                            <li><a id="btn_plantilla_dos" href="#">Plantilla 2</a></li>
-                            <li><a id="btn_plantilla_tres" href="#">Plantilla 3</a></li>
+                            <li><a id="btn_plantilla_simple" href="#">Plantilla simple</a></li>
+                            <li><a id="btn_plantilla_normal" href="#">Plantilla normal</a></li>
+                            <li><a id="btn_plantilla_portada" href="#">Plantilla con portada</a></li>
                         </ul>
                     </div>                   
-                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp">  Atrás</a>
+                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-arrow-left bnt_sobre" href="administrador.jsp" onclick="eliminarS()">  Atrás</a>
                 </div>
                 <div class="col-lg-2">
                     <input onclick="resultado()" type="button" style="margin-bottom: 10px;float: right" class="btn btn-success pb-5" id="btn-enviar" value="Mostrar Resultado">  
@@ -122,7 +122,7 @@
 
             <div  class="col-lg-12" style="padding-top:15px; padding-left: 100px; padding-right: 100px ">
                 <div  style="border:2px solid #999;border-radius: 10px; min-height: 100px; height: auto">
-                    <div id="resu" style="height:auto;">
+                    <div id="resu" class="" style="height:auto; padding: 30px">
                     </div>    
                 </div> 
             </div>

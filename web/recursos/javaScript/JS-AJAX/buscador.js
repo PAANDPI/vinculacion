@@ -40,7 +40,7 @@ $(document).ready(function ()
                 data: {"busqueda": nombreDiscapacidad, "tipobusqueda": "2"},
                 success: function (data) {
                     try {
-                        jsonConsulta = JSON.parse(data);
+                         jsonConsulta = JSON.parse(data.replace(/\n/g,""));     
                         Swal.fire({
                             icon: 'success',
                             title: 'Busqueda realizada',

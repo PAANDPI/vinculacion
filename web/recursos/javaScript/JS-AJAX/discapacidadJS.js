@@ -328,13 +328,15 @@ function seleccionarDiscapacidad(idDiscapacidad)
         url: "ConceptoSrv",
         data: {"busqueda": idDiscapacidad, "tipobusqueda": "1"},
         success: function (data) {
+            
+                 
+                  
             try {
-                jsonConceptos = JSON.parse(data);
-                console.log(jsonConceptos);
+                jsonConceptos = JSON.parse(data.replace(/\n/g,""));        
                 var titulo = jsonConceptos.Concepto[0].discapacidad;
                 var descripcion = jsonConceptos.Concepto[0].descripcion;
                 var idConcepto = jsonConceptos.Concepto[0].idconcepto;
-
+                
                 html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
                             <div  class="card-body" style="height: 80vh; overflow-y:auto; ">
                                 <div id="contenedoDescripcion" style="zoom:100%" class="card-text">${descripcion}</div>                              
@@ -353,6 +355,7 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 numero.innerHTML = jsonConceptos.Concepto.length;
             } catch (e)
             {
+              
                 html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  ">                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
                              <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene coneptos</h3>                            

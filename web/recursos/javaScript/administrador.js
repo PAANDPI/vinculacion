@@ -1,13 +1,13 @@
 
 $(document).ready(function () {
 
-    $('#Contenedor-inicio').show(100);
+    $('#Contenedor-inicio').show("slow");
     $('#formulario-conceptos').hide();
     $('#Contenedor-de-formularios').hide();
     $('#formulario-persona').hide();
     $('#formulario-ubicaciones').hide();
-     $('#formulario-recursos').hide();
-      $('#formulario-Mi-información').hide();
+    $('#formulario-recursos').hide();
+    $('#formulario-Mi-información').hide();
    
 
     $("#btnInicio").click(function () {

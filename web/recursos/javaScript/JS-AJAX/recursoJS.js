@@ -129,10 +129,48 @@ function tbl_recursos()
 
 $(document).ready(function () {
 
+    $('#cmb-categoria').change(function () {
+        var tipo_archivo = $('select[id="cmb-categoria"] option:selected').text();
+        if (tipo_archivo == "Archivos")
+        {
+            $("#checkArchivo").attr("disabled", false);
+            $("#checkArchivo").attr("disabled", false); 
+            $("#formFile").attr("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"); 
+            
+        } else if (tipo_archivo == "Videos")
+        {
+            $("#checkEnlace").click();
+            $("#checkArchivo").attr("disabled", true);
+        } else if (tipo_archivo == "Imagenes")
+        {
+            $("#checkArchivo").attr("disabled", false);
+            $("#checkArchivo").attr("disabled", false);    
+            $("#formFile").attr("accept", ".jpg,.jpeg,.png"); 
+            
+        } else if (tipo_archivo == "Juegos")
+        {
+            $("#checkEnlace").click();
+            $("#checkArchivo").attr("disabled", true);
+        } else if (tipo_archivo == "PDF")
+        {
+            $("#checkArchivo").attr("disabled", false);
+            $("#checkArchivo").attr("disabled", false);
+             $("#formFile").attr("accept", ".pdf"); 
+             
+        } else if (tipo_archivo == "Audio")
+        {
+            $("#checkEnlace").click();
+            $("#checkArchivo").attr("disabled", true);
+        } else if (tipo_archivo == "Musica")
+        {
+            $("#checkEnlace").click();
+            $("#checkArchivo").attr("disabled", true);
+           
+        }
+    });
 
     $("#buscadorRecursos").keyup(function () {
         _this = this;
-        // Show only matching TR, hide rest of them
         $.each($("#tblRecursos tbody tr"), function () {
             if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
                 $(this).hide();
@@ -227,7 +265,7 @@ function guardarRecurso() {
     var checkArchivo = document.getElementById("checkArchivo").checked;
     var checkEnlace = document.getElementById("checkEnlace").checked;
     var datosM;
-     console.log(base64);
+    console.log(base64);
     if (checkArchivo) {
         datos =
                 {"idcategoriarecurso": idcategoriarecurso,
