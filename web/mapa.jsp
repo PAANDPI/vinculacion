@@ -93,28 +93,34 @@
                                     <label class="ml-1 font-weight-bold"> Significado de los íconos: </label>
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">                                    
-                                            <i>Centros Médicos</i>
-                                            <img src="recursos/iconos/iconos mapa/Clinica.ico" width="25" />
+                                            <i> <img src="recursos/iconos/iconos mapa/Clinica.ico" width="25" />  Centros Médicos</i>
+                                            <input type="checkbox" class="form-check float-right" onclick="MostrarCapas(10)">
+
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i>Escuelas</i>
-                                            <img src="recursos/iconos/iconos mapa/Estudio.ico" width="25" />
+                                            <i><img src="recursos/iconos/iconos mapa/Estudio.ico" width="25" />  Escuelas</i>
+                                             <input type="checkbox" class="form-check" onclick="MostrarCapas(9)">
+                                            
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i>Fundaciones</i>
-                                            <img src="recursos/iconos/iconos mapa/Ong.ico" width="25" />
+                                            <i><img src="recursos/iconos/iconos mapa/Ong.ico" width="25" />  Fundaciones</i>
+                                             <input type="checkbox" class="form-check" onclick="MostrarCapas(8)">
+                                            
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i>Institutos</i>
-                                            <img src="recursos/iconos/iconos mapa/instituciones.ico" width="25" />
+                                            <i><img src="recursos/iconos/iconos mapa/instituciones.ico" width="25" />  Institutos</i>
+                                             <input type="checkbox" class="form-check" onclick="MostrarCapas(6)">
+                                            
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i>Organizaciones</i>
-                                            <img src="recursos/iconos/iconos mapa/organizaciones.ico" width="25" />
+                                            <i> <img src="recursos/iconos/iconos mapa/organizaciones.ico" width="25" />  Organizaciones</i>
+                                             <input type="checkbox" class="form-check" onclick="MostrarCapas(7)">
+                                           
                                         </li>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <i>Patronatos</i>
-                                            <img src="recursos/iconos/iconos mapa/patronatos.ico" width="25" />
+                                            <i> <img src="recursos/iconos/iconos mapa/patronatos.ico" width="25" />  Patronatos</i>
+                                             <input type="checkbox" class="form-check" onclick="MostrarCapas(5)">
+                                           
                                         </li>
                                     </ul>
                                 </div>

@@ -122,7 +122,7 @@ var overlays = {
 };
 
 
-//var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
 
 var map = L.map('map', {
     center: [-1.0803599757262687, -78.46033885786659],
@@ -156,12 +156,19 @@ var basemaps = {
 L.control.layers(basemaps, overlays).addTo(map);
 
 
+function MostrarCapas(num)
+{
+    var opciones= document.getElementsByClassName("leaflet-control-layers-selector")
+        opciones[num].click();
+}
+        
 var routingControl;
 var anterio = "";
 var marcadorDestino;
+var idGlobal;
 function formarRuta(idLugar)
 {
-
+    idGlobal = idLugar;
     var iconoDestino = "";
     if (jsonMapa[idLugar].etiqueta === "PATRONATOS")
     {
@@ -222,19 +229,22 @@ function formarRuta(idLugar)
         cardMapa = htmlCar(jsonMapa[idLugar].lugar, jsonMapa[idLugar].ciudad, jsonMapa[idLugar].descripcion, idLugar);
         marcadorDestino = L.marker([jsonMapa[idLugar].coordendax, jsonMapa[idLugar].coordenday], {icon: iconoDestino}).addTo(map);
 
-        
+
     }
 
     routingControl = L.Routing.control({
-            showAlternatives: true,
-            formatter: new L.Routing.Formatter({
-                language: 'sp'
-            }),
-            waypoints: [
-                L.latLng(marcadorInicial.getLatLng()),
-                L.latLng(marcadorDestino.getLatLng())
-            ]
-        }).addTo(map);
+
+        showAlternatives: true,
+        formatter: new L.Routing.Formatter({
+            language: 'sp'
+        }),
+        waypoints: [
+            L.latLng(marcadorInicial.getLatLng()),
+            L.latLng(marcadorDestino.getLatLng())
+        ], createMarker: function () {
+            return null;
+        },
+    }).addTo(map);
 
 
 
@@ -257,7 +267,11 @@ function ponerubicacion()
         navigator.geolocation.getCurrentPosition(function (position) {
             xcomputer = position.coords.latitude;
             ycomputer = position.coords.longitude;
-            marcadorInicial = L.marker([position.coords.latitude, position.coords.longitude]).addTo(map);
+            icono = L.icon({
+                iconUrl: "recursos/iconos/iconos mapa/persona.ico",
+                iconSize: [50, 50] // size of the icon          
+            });
+            marcadorInicial = L.marker([position.coords.latitude.toString(), position.coords.longitude.toString()], {icon: icono}).bindPopup("Mi ubicación o punto de partida").addTo(centrosMedicos).addTo(map);
         });
     } else
     {
@@ -281,7 +295,14 @@ function onMapClick(e)
         iconSize: [50, 50] // size of the icon          
     });
     marcadorInicial = L.marker([e.latlng.lat.toString(), e.latlng.lng.toString()], {icon: icono}).bindPopup("Mi ubicación o punto de partida").addTo(centrosMedicos).addTo(map);
-    ;
+    if (marcadorInicial === undefined) {
+
+    } else
+    {
+        formarRuta(idGlobal);
+    }
+
+
 
 }
 map.on('dblclick', onMapClick);
