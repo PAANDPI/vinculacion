@@ -46,7 +46,6 @@ public class LugarDAO {
     public boolean update() {
         String coordenadasX = lugar.getCoordenadaX() + "";
         String coordenadasY = lugar.getCoordenadaY() + "";
-
         String sql = String.format("SELECT editarLugar(%d, %d, '%s', '%s', %s, %s, '%s', true);",
                 lugar.getIdLugar(), lugar.getIdCiudad(), lugar.getLugar(), lugar.getDescripcion(),
                 coordenadasX.replace(",", "."), coordenadasY.replace(",", "."), lugar.getEtiqueta());

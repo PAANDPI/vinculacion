@@ -93,6 +93,41 @@ $(document).ready(function () {
         Limpiar();
 
     });
+    $('#btn_modUbicacion').click(function (e) {
+        var Lugar = $("#txt-nombreLugar").val();
+        var Descripcion = $("#txt-descripcionLugar").val();
+        var coordenadaX = $("#txt-coordenadaX").val();
+        var coordenadaY = $("#txt-coordenadaY").val();
+        var etiquete = $("#txt-etiqueta").val();
+        var idCiudad = $("#cmb-canton").val();
+        var Estado = 'true';
+        var datos = {"idUbicacion": idmodUbicacion,
+            "IdCiudad": idCiudad,
+            "Lugar": Lugar,
+            "Descripcion": Descripcion,
+            "CoordenadaX": coordenadaX,
+            "CoordenadaY": coordenadaY,
+            "Estado": Estado,
+            "Etiquete": etiquete,
+            "accion": "3"};
+        $.ajax({
+            method: "POST",
+            url: 'LugarSrv',
+            data: datos,
+            success: function (data)
+            {
+                console.log(data);
+                Limpiar();
+                 swal("La ubicacion a sido Modificada con exito", {
+                        icon: "success",
+                    });
+                tbl_Lugares();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
     $('#btn_guarda_lugar').click(function (e) {
 
         var Lugar = $("#txt-nombreLugar").val();
@@ -108,11 +143,11 @@ $(document).ready(function () {
             "Estado": Estado,
             "Etiquete": etiquete,
             "accion": "1"};
-            
+
         if (Lugar.length > 0 && Descripcion.length > 0 && coordenadaX.length > 0 &&
-                coordenadaY.length > 0 && etiquete.length > 0 && (Ciudad+"").length > 0)
+                coordenadaY.length > 0 && etiquete.length > 0 && (Ciudad + "").length > 0)
         {
-           
+
             if (validarExistenciaLugares())
             {
                 $.ajax({
@@ -134,8 +169,8 @@ $(document).ready(function () {
             {
                 alerta("Ya se encuentra registrado un lugar con el mismo nombre", "info");
             }
-            
-            
+
+
         } else {
             alerta("Llene todo los campos", "info");
         }
@@ -168,18 +203,15 @@ function  validarExistenciaLugares()
     }
     return true;
 }
-var anteriorr="";
+var anteriorr = "";
+var idmodUbicacion, idCiudad;
 function seleccionarUbicacion(idub) {
-    
-    
-      if (anteriorr.length > 0) {
+    if (anteriorr.length > 0) {
         var btnAux = document.getElementById("cardLugares" + anteriorr);
         btnAux.className = "card cajas"
     }
-        document.getElementById("cardLugares" + idub).className = "card text-white cajas bg-primary"
-
-    
-    var idProv, idCiudad;
+    document.getElementById("cardLugares" + idub).className = "card text-white cajas bg-primary"
+    var idProv;
     for (var x of jsonUbicaciones) {
         if (idub == x.idlugar) {
             idlugar = x.idlugar;
@@ -200,8 +232,8 @@ function seleccionarUbicacion(idub) {
                     idCiudad = ciudad;
                 }
             }
-
-            $('#cmb-canton').prop('selectedIndex', idCiudad);
+            idmodUbicacion = idub;
+            $('#cmb-canton').val(idCiudad);
             $('#txt-nombreLugar').val(x.lugar);
             $('#txt-descripcionLugar').val(x.descripcion);
             $('#txt-coordenadaX').val(x.coordendax);
@@ -212,7 +244,7 @@ function seleccionarUbicacion(idub) {
             $('#btn_cancelarUbica').show("2000");
         }
     }
-    anteriorr=idub+"";
+    anteriorr = idub + "";
 }
 function eliminiarUbicacion(id) {
     // console.log(id);
@@ -255,7 +287,7 @@ function tbl_Lugares()
         success: function (data) {
             var htmlTabla = ``;
             jsonUbicaciones = data.Lugar;
-             document.getElementById("caounLugares").innerHTML= jsonUbicaciones.length;
+            document.getElementById("caounLugares").innerHTML = jsonUbicaciones.length;
             for (var i = 0; i < jsonUbicaciones.length; i++) {
                 // console.log(jsonUbicaciones[i].lugar);
                 htmlTabla += `<tr>

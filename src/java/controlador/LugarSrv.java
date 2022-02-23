@@ -1,7 +1,7 @@
-
 package controlador;
 
 import accesoDatos.LugarDAO;
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -102,7 +102,7 @@ public class LugarSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
                 if (lugarDao.insert()) {
-                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"codigo\":200\n";
                     retorno += lugarDao.getLugarJSON();
                     response.setStatus(response.SC_OK);
                     //response.sendRedirect("index.jsp");
@@ -126,6 +126,36 @@ public class LugarSrv extends HttpServlet {
                 } else {
                     retorno += "\"codigo\":400,\n";
                     retorno += "\"mensaje\": \"" + lugarD.getMessage() + "\"\n";
+                    response.setStatus(response.SC_BAD_REQUEST);
+                }
+                retorno += "}";
+                out.write(retorno);
+            }
+        } else if (accion.equals("3")) {
+            String IdUbicacion =request.getParameter("idUbicacion");
+            String IdCiudad = request.getParameter("IdCiudad");
+            String Nonmbrelugar = request.getParameter("Lugar");
+            String Descripcion = request.getParameter("Descripcion");
+            String CoordenadaX = request.getParameter("CoordenadaX");
+            String CoordenadaY = request.getParameter("CoordenadaY");
+            String etiquetas = request.getParameter("Etiquete");
+            String Estado = request.getParameter("Estado");
+            Lugar lugar = new Lugar();
+            lugar.setIdLugar(Integer.parseInt(IdUbicacion));
+            lugar.setIdCiudad(Integer.parseInt(IdCiudad));
+            lugar.setLugar(Nonmbrelugar);
+            lugar.setDescripcion(Descripcion);
+            lugar.setCoordenadaX(Double.parseDouble(CoordenadaX));
+            lugar.setCoordenadaY(Double.parseDouble(CoordenadaY));
+            lugar.setEtiqueta(etiquetas);
+            LugarDAO lugarDao = new LugarDAO(lugar);
+            try (PrintWriter out = response.getWriter()) {
+                String retorno = "{\n\t";
+                if (lugarDao.update()) {
+                    retorno += "\"codigo\":200\n";
+                } else {
+                    retorno += "\"codigo\":400,\n";
+                    retorno += "\"mensaje\": \"" + lugarDao.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
                 }
                 retorno += "}";
