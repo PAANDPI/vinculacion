@@ -28,6 +28,11 @@ async function Main() {
 
 
 }
+function verArchivo(ruta) {
+    var ruta2 = jsonRecursos.Recurso[ruta].ruta;
+    var rutaOficial = ruta2;
+    window.open(rutaOficial, null);
+}
 function tbl_recursos()
 {
     $.ajax({
@@ -102,7 +107,7 @@ function tbl_recursos()
                                                             <div class="col-lg-12 pl-3">     
                                                                 <button onclick="seleccionarRecurso(${idrecurso})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
                                                                 <button onclick="eliminarRecurso(${idrecurso})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
-                                                                <button onclick="verArchivo(${idrecurso})" type="button" class="btn btn-success btn-sm bi bi-journals"> Ver archivo</button>
+                                                                <a href="${ruta}"  class="btn btn-success btn-sm bi bi-journals"> Ver archivo</a>
                                                             </div>        
                                                         </div>
                                                  </div>                                                                                               
@@ -150,6 +155,7 @@ $(document).ready(function () {
     });
     $('#btn_modificarRecurso').click(function () {
         var ruta = base64;
+        console.log(base64);
         var idcategoriarecurso = document.getElementById("cmb-categoria").value;
         var iddiscapacidad = document.getElementById("cmb-discapacidad").value;
         var recurso = document.getElementById("txtRecurso").value;
@@ -221,6 +227,7 @@ function guardarRecurso() {
     var checkArchivo = document.getElementById("checkArchivo").checked;
     var checkEnlace = document.getElementById("checkEnlace").checked;
     var datosM;
+     console.log(base64);
     if (checkArchivo) {
         datos =
                 {"idcategoriarecurso": idcategoriarecurso,

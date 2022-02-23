@@ -32,11 +32,12 @@ function tbl_recursos()
         url: "RecursoSrv",
         data: {"accion": 1},
         success: function (data) {
-
+           
             jsonRecursos = data;
             var htmlTabla = ``;
             for (var i = 0; i < jsonRecursos.Recurso.length; i++)
             {
+                
                 var idrecurso = jsonRecursos.Recurso[i].idrecurso;
                 var idcategoriarecurso = jsonRecursos.Recurso[i].idcategoriarecurso;
                 var categoriarecurso = jsonRecursos.Recurso[i].categoriarecurso;
@@ -60,7 +61,7 @@ function tbl_recursos()
                                             <p class="card-text text-justify">${descripcion}</p>
                                             <div><b>Discapacidad:</b> ${discapacidad}</div>
                                             <div><b>Tipo de recurso:</b> ${categoriarecurso}</div>                                           
-                                            <a  href="${ruta}"  class="btn btn-sm btn-info  mt-5">Abri enlace de jugar</a>
+                                            <a href="${ruta}"  class="btn btn-sm btn-info  mt-5">Abri enlace de jugar</a>
                                         </div>
                                 </div> `;
 
@@ -101,9 +102,25 @@ function tbl_recursos()
                     }
                 } else if (categoriarecurso === "PDF")
                 {
-                    if (estado)
+                    if (estado == "true")//archivo de la pc
                     {
                         url = `recursos/iconos/iconos recuros/archivo.png`;
+                        htmlTabla += ` 
+                                    <div class="card sombras2">
+                                    <img class="card-img-top" src="recursos/imagenes/PDF.png" alt="Card image cap"/>                                                             
+                                    <div class="card-body">                                            
+                                            <h5 class="card-title">${recurso} <img class="float-right " src="${url}" width="35"/></h5>
+                                            <p class="card-text">${descripcion}</p>
+                                            <h6>Discapacidad: ${discapacidad}</h6>
+                                            <h6>Tipo de recurso: ${categoriarecurso}</h6>                                           
+                                           <button onclick="Open(${i})" class="btn btn-sm btn-success">Ver imagen</button>
+                                        </div>
+                                   
+                                </div>
+                                   `;
+                    }else
+                    {
+                         url = `recursos/iconos/iconos recuros/archivo.png`;
                         htmlTabla += ` 
                                     <div class="card sombras2">
                                     <img class="card-img-top" src="recursos/imagenes/PDF.png" alt="Card image cap"/>                                                             
@@ -123,13 +140,12 @@ function tbl_recursos()
                     if (estado == "true") //archivo de la pc
                     {
                         url = `recursos/iconos/iconos recuros/imagen.png`;
-                        var ruta = jsonRecursos.Recurso[i].ruta.replace("file;///", "");
-                        var rutaVector = ruta.split("/");
-                        var nombre = rutaVector[rutaVector.length - 1];
+                          var ruta = jsonRecursos.Recurso[i].ruta;
+
 
                         htmlTabla += `  
                                             <div class="card sombras2">
-                                                <img class="card-img-top" src="http://localhost:8090/yuyapuy/recursosDiscapacidades/${nombre}" alt="Card image cap">
+                                                <img class="card-img-top" src="${ruta}" alt="Card image cap">
                                                 <div class="card-body">
 
                                                     <h5 class="card-title">${recurso} <img class="float-right " src="${url}" width="35"/></h5>
@@ -220,10 +236,10 @@ function tbl_recursos()
     });
 }
 function Open(ruta) {
-    var ruta = jsonRecursos.Recurso[ruta].ruta.replace("file;///", "");
-    var rutaVector = ruta.split("/");
-    var nombre = rutaVector[rutaVector.length - 1];
-    var rutaOficial = "http://localhost:8090/yuyapuy/recursosDiscapacidades/" + nombre;
+    var ruta2 = jsonRecursos.Recurso[ruta].ruta;
+//    var rutaVector = ruta.split("/");
+//    var nombre = rutaVector[rutaVector.length - 1];
+    var rutaOficial = ruta2;
     window.open(rutaOficial, null);
 }
 function tbl_recursos_parametros()

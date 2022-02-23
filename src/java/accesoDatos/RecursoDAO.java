@@ -44,7 +44,7 @@ public class RecursoDAO {
 
             indx1 = dato.indexOf(",") + 1;
             base64 = dato.substring(indx1);
-            indx1 = relativePath.indexOf("yuyapuy");
+            indx1 = relativePath.indexOf("vinculacion");
             relativePath = relativePath.substring(0, indx1);
             relativePath += "files\\yuyapuy\\";
             String nombreArchivo = "recursosDiscapacidades/" + recurso.getRecurso() + tipoArchivo;
