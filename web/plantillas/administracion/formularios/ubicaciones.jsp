@@ -10,7 +10,7 @@
                     <div class="row ">
                         <nav class="nav ml-4">
                             <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco " id="btn_guarda_lugar">  Guardar</a>  
-                            <a id="btn_modUbicacion" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modifica</a>   
+                            <a id="btn_modUbicacion" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar</a>   
                              <a id="btn_cancelarUbica" class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Cancelar</a>
 
                         </nav>

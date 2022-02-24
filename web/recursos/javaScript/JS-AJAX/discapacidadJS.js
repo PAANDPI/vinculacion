@@ -36,7 +36,7 @@ $(document).ready(function () {
                     },
                     error: function (error) {
                         console.log(error);
-                        alerta("Algo salio mal" + error, "error");
+                        alerta("Algo salió mal" + error, "error");
                     }
                 });
             }else 
@@ -358,9 +358,9 @@ function seleccionarDiscapacidad(idDiscapacidad)
               
                 html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  ">                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
-                             <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene coneptos</h3>                            
+                             <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene conceptos</h3>                            
                              <hr style="border: 1px  solid">
-                             <p>La discapacidad seleccionada no contiene ningún concepto o no se pudo cargar los conceptos esta discapacidad</p>
+                             <p>La discapacidad seleccionada no contiene ningún concepto o no se pudo cargar la información</p>
                             </div> 
                         </div>`;
                 contenedor.innerHTML = html;

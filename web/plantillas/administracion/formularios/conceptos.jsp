@@ -53,9 +53,9 @@
                             <div class="alert  alert-info m-auto" style="width: 50%">    
                                 <span class="bi bi-info-circle-fill" style="font-size: 25px"> Precaución</span>
                                 <hr style="border: 1px  solid">
-                                <h4>Selecciones una discapacidad para poder ver los conceptos</h4>                                   
+                                <h4>Seleccione una discapacidad para poder ver los conceptos</h4>                                   
                                 <p>Para poder mostrar los conceptos de las discapacidades primero debe seleccionar una discapacidad
-                                    entra la tabla de discapacidades</p>
+                                    entre a la tabla de discapacidades</p>
                             </div>                                                                                
                         </div>
                     </div>   

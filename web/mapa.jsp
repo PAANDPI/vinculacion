@@ -56,11 +56,11 @@
                                         <div id="informacionContenedor" class="col-lg-12">
                                             <div class="alert alert-warning" role="alert">
                                                 <h6 class="alert-heading">¿Cómo marcar el punto de destino?</h6>
-                                                <p style="text-align: justify">Marque el lugarde incio en el mapa o directamente presionar el boton <b class="bi bi-hand-index-fill"> Buscar ubicacion</b> </p>                                       
+                                                <p style="text-align: justify">Marque el lugar de incio en el mapa o directamente presionar el boton <b class="bi bi-hand-index-fill"> Buscar ubicación</b> </p>                                       
                                             </div>                                    
                                         </div> 
                                         <div class="col-lg-12 mt-2"> 
-                                            <button onclick="ponerubicacion()" style="border-radius: 50px;" class="btn btn-sm btn-warning  font-weight-bold float-left">Buscar ubicacion  <span class="bi bi-hand-index-fill"></span></button>
+                                            <button onclick="ponerubicacion()" style="border-radius: 50px;" class="btn btn-sm btn-warning  font-weight-bold float-left">Buscar ubicación  <span class="bi bi-hand-index-fill"></span></button>
                                             <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Menú <span class="bi bi-arrow-left"></span></a>
                                         </div>
                                     </div>    
