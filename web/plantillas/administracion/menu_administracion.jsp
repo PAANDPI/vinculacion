@@ -20,13 +20,13 @@
                 <a id="btnUbicaciones" class="btn nav-link blanco pb-1 efector_barra bi bi-compass " href="#">  Ubicaciones</a>
             </li>
             <li class="nav-item">
-                <a id="btnControl-de-usuarios" class="btn nav-link blanco pb-1 efector_barra bi bi-people " href="#">  Control de usuario</a>
+                <a id="btnControl-de-usuarios" class="btn nav-link blanco pb-1 efector_barra bi bi-people " href="#">  Control de usuarios</a>
             </li>
             <li class="nav-item">
                 <a id="btnRecursos" class=" btn nav-link blanco pb-1 efector_barra  bi bi-archive " href="#">  Recursos </a>
             </li>
             <li class="nav-item">
-                <a id="btnCuenta" class=" btn nav-link blanco pb-1 efector_barra  bi bi-person-lines-fill" href="#">  My cuenta </a>
+                <a id="btnCuenta" class=" btn nav-link blanco pb-1 efector_barra  bi bi-person-lines-fill" href="#">  Mi cuenta </a>
             </li>
 
             <li class="nav-item " >

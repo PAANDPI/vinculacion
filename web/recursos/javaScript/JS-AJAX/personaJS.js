@@ -1,21 +1,9 @@
 var jsonPersonas;
 var idPersona;
-$(document).ready(function () {
+var anterior="";
 
-    $("#buscadorPersonas").keyup(function () {
-        _this = this;
-        // Show only matching TR, hide rest of them
-        $.each($("#tblPersonas tbody tr"), function () {
-            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                $(this).hide();
-            else
-                $(this).show();
-        });
-    });
-
-    listadeUsuarios();
-    function listadeUsuarios()
-    {
+ listadeUsuarios();
+ function listadeUsuarios(){
         $.ajax({
             method: "GET",
             url: "PersonaSrv",
@@ -88,8 +76,17 @@ $(document).ready(function () {
             }
         });
     }
-
-
+$(document).ready(function () {   
+    $("#buscadorPersonas").keyup(function () {
+        _this = this;
+        // Show only matching TR, hide rest of them
+        $.each($("#tblPersonas tbody tr"), function () {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                $(this).hide();
+            else
+                $(this).show();
+        });
+    });   
     $('#btnCerrarSession').on('click', function () {
 
         var datos = {"accion": "5"};
@@ -190,12 +187,10 @@ $(document).ready(function () {
         }
 
     });
-    function alerta(texto, icono)
-    {
-        swal({text: texto, icon: icono});
+    function alerta(texto, icono){
+        Swal.fire({text: texto, icon: icono});
     }
-    function limpiar()
-    {
+    function limpiar(){
         $('#txtNombre').val('');
         $('#txtApellido').val('');
         $('#cmbGenero').val('');
@@ -271,8 +266,7 @@ $(document).ready(function () {
     });
 });
 
-function  validarExistenciaUsuario()
-{
+function  validarExistenciaUsuario(){
 
     for (var i = 0; i < jsonPersonas.Persona.length; i++)
     {
@@ -286,8 +280,7 @@ function  validarExistenciaUsuario()
     }
     return true;
 }
-function  validarExistenciaEmail()
-{
+function  validarExistenciaEmail(){
     for (var i = 0; i < jsonPersonas.Persona.length; i++)
     {
         var correo = jsonPersonas.Persona[i].correo;
@@ -300,7 +293,6 @@ function  validarExistenciaEmail()
     }
     return true;
 }
-var anterior="";
 function btnEditPersona(aux) {
     
        if (anterior.length > 0) {
@@ -319,13 +311,7 @@ function btnEditPersona(aux) {
             $('#txtNombreUsuario').val(x.usuario);
             $('#cmbCantones').prop('selectedIndex', x.idciudad);
             $('#txtCorreo').val(x.correo);
-
-
             $('#contenedorClaves').hide("slow");
-//            $('#txtContrasenia').hide("slow");
-//            $('#txtConfirmarContrasenia').hide("slow");
-
-
             $('#administradorCheck').attr('checked', x.estado);
             $('#btnGuardarUsuario').hide("slow");
             $('#btn_modificarUsuario').show("2000");
@@ -336,16 +322,18 @@ function btnEditPersona(aux) {
     
 }
 function deletePersona(id) {
-    console.log(id);
-    var dato = {"idpersona": id, "accion": "4"}
-    swal({
-        title: "¿Desea Eliminar esta Persona?",
-        //text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true
-    }).then((willDelete) => {
-        if (willDelete) {
+ 
+    var dato = {"idpersona": id, "accion": "4"};
+      Swal.fire({
+        title: '¿Desea Eliminar esta Persona?',
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: 'No',
+        denyButtonText: `Si`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({text: "Eliminación cancelada", icon: "info"});
+        } else if (result.isDenied) {
             $.ajax({
                 method: "POST",
                 url: 'PersonaSrv',
@@ -353,17 +341,18 @@ function deletePersona(id) {
                 success: function (data)
                 {
                     console.log(data);
-                    swal("La persona a sido eliminada correctamente", {
-                        icon: "success"});
+                    Swal.fire("La persona a sido eliminada correctamente", {icon: "success"});
                     listadeUsuarios();
                 },
                 error: function (error) {
                     console.log(error);
                 }
             });
-        } else {
-            //swal("Your imaginary file is safe!");
+           
         }
     });
+  
+    
+    
 }
 

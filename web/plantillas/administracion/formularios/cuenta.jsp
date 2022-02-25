@@ -33,7 +33,7 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label class="font-weight-bold">Correo Electrónico</label>
+                            <label class="font-weight-bold">Correo electrónico</label>
                             <input  class="form-control form-control-sm bloqueo" disabled type="text" id="txtMi_Correo" >
                         </div> 
                         <div class="form-group col-md-6">

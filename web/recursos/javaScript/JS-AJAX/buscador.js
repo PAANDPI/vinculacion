@@ -141,5 +141,5 @@ $(document).ready(function ()
 
 function alerta(texto, icono)
 {
-    swal({text: texto, icon: icono});
+    Swal.fire({text: texto, icon: icono});
 }

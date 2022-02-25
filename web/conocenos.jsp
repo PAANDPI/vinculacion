@@ -41,7 +41,7 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav m-auto align-content-center">
                         <li class="nav-item ">
-                            <a class="nav-link btn mr-3 botones mt-3  p-1 blanco" href="conocenos.jsp"><span></span>  ¿Cuál es nuestro proposito?  </a>
+                            <a class="nav-link btn mr-3 botones mt-3  p-1 blanco" href="conocenos.jsp"><span></span>  ¿Cuál es nuestro propósito?  </a>
                         </li>
                         <li class="nav-item "> 
                             <a class="nav-link btn mr-3 botones mt-3  p-1 blanco"  href="colaboradores.jsp"> <span ></span> Colaboradores </a>

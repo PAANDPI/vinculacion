@@ -36,7 +36,7 @@
 
         <%@include  file="plantillas/menu.jsp" %>     
 
-        <div class="degradado mb-3 sombra">
+        <div class="degradado mb-3 sombra" >
             <div  class="container blanco encabezado">
                 <div class="row flex-column-reverse flex-lg-row justify-content-center">
                     <div class="col-lg-6 col-sm-12 col-xm-12 p-5 centrar_objeto ">                        

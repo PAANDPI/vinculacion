@@ -179,7 +179,28 @@ public class DiscapacidadDAO {
         json += "]";
         return json;
     }
+       public String getCantidadVinculacion() {
+        String json = "\"Discapacidad\" : [";
 
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * from vwdiscapacidadCantidad");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"recursos\" : \"" + result.getInt("recursos") + "\",\n";
+                    json += "\t\t\t\"conceptos\" : \"" + result.getInt("conceptos") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
     public void lista2JSON() {
         json = "\"Discapacidad\" : [";
 

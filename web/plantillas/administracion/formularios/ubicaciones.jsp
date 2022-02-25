@@ -1,3 +1,4 @@
+   <script src="recursos/javaScript/JS-AJAX/ubicacionJS.js" type="text/javascript"></script>
 <div id="formulario-ubicaciones" class="col-lg-12"> 
     <div class="row">
         <div class="col-lg-5 justify-content-center p-3">
@@ -10,7 +11,7 @@
                     <div class="row ">
                         <nav class="nav ml-4">
                             <a class="btn btn-l efecto_guardar  bi bi-save-fill blanco " id="btn_guarda_lugar">  Guardar</a>  
-                            <a id="btn_modUbicacion" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modifica</a>   
+                            <a id="btn_modUbicacion" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar</a>   
                              <a id="btn_cancelarUbica" class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> Cancelar</a>
 
                         </nav>
@@ -19,41 +20,41 @@
                 <div class="p-4 barra-colores " style="height: 100vh;max-height: 70vh;overflow-y: auto; background:white; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
 
                     <div class="form-group">
-                        <label class="font-weight-bold ">Seleccionar provincia</label>
+                        <label class="font-weight-bold ">Seleccionar provincia *</label>
                         <select  class=" form-control form-control-sm" id="cmb-provincia" >
 
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Seleccionar cantón</label>
+                        <label class="font-weight-bold">Seleccionar cantón *</label>
                         <select  class=" form-control form-control-sm" id="cmb-canton">
                             <option disabled selected hidden>-- Seleccione Cantón --</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Nombre del lugar</label>
-                        <input  class="form-control form-control-sm" type="text" id="txt-nombreLugar" >
+                        <label class="font-weight-bold">Nombre del lugar *</label>
+                        <input  class="form-control form-control-sm" maxlength="75" placeholder="Limite de 75 caracteres para el nombre del lugar" type="text" id="txt-nombreLugar" >
                     </div>    
                     <div class="form-group">
-                        <label class="font-weight-bold">Descripción</label>
+                        <label class="font-weight-bold">Descripción *</label>
                         <textarea  style="height: 100px" class="form-control form-control-sm" type="text" id="txt-descripcionLugar"></textarea>                                                                    
                     </div>  
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label class="font-weight-bold">Longitud</label>
-                            <input  class="form-control form-control-sm" type="text" id="txt-coordenadaX" >
+                            <label class="font-weight-bold">Longitud *</label>
+                            <input  class="form-control form-control-sm" type="number" id="txt-coordenadaX" >
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="font-weight-bold">Latitud</label>
-                            <input  class="form-control form-control-sm" type="text" id="txt-coordenadaY" >
+                            <label class="font-weight-bold">Latitud *</label>
+                            <input  class="form-control form-control-sm" type="number" id="txt-coordenadaY" >
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="font-weight-bold bi bi-info-circle" style=""> Seleccionador</label>
+                            <label class="font-weight-bold bi bi-info-circle" style=""> Mapa</label>
                             <button type="button" class="btn btn-sm btn-success  bi bi-geo-alt " data-toggle="modal" data-target="#exampleModal2" > Buscar en mapa</button>
                         </div>
                     </div> 
                     <div class="form-group">
-                        <label class="font-weight-bold">Etiqueta</label>
+                        <label class="font-weight-bold">Tipo de institución *</label>
                         <select  class=" form-control form-control-sm" id="txt-etiqueta" > >
                             <option value="FUNDACIONES">FUNDACIONES</option>
                             <option value="PATRONATOS">PATRONATOS</option>

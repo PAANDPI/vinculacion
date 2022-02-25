@@ -50,21 +50,21 @@ $('#btnMiInformacion').click(function () {
             url: "PersonaSrv",
             data: datos,
             success: function (data) {
-                if (document.getElementById("txtMi_Contrasenia").value.length >= 6 && document.getElementById("txtMi_ConfirmarContrasenia").value.length  >= 6)
+                if (document.getElementById("txtMi_Contrasenia").value.length >= 6 && document.getElementById("txtMi_ConfirmarContrasenia").value.length >= 6)
                 {
                     if (document.getElementById("txtMi_Contrasenia").value === document.getElementById("txtMi_ConfirmarContrasenia").value)
                     {
                         validador = true;
                         modificarclave(validador);
-                       
+
                     } else
                     {
-                        swal("Confirmación erronea", "La nueva contraseña no pudo ser confirmada", "info");
+                        Swal.fire("Confirmación erronea", "La nueva contraseña no pudo ser confirmada", "info");
                         validador = false;
                     }
                 } else
                 {
-                    swal("La nueva contraseña debe tener una logintud mayor 6 caracteres", "info");
+                    Swal.fire("La nueva contraseña debe tener una logintud mayor 6 caracteres", "info");
                     validador = false;
                 }
 
@@ -75,13 +75,13 @@ $('#btnMiInformacion').click(function () {
             error: function (error) {
 
                 mensaje = error;
-                swal("La contraseña antigua no es correcta", mensaje.responseJSON.mensaje, "error");
+                Swal.fire("La contraseña antigua no es correcta", mensaje.responseJSON.mensaje, "error");
 
             }
         });
     } else
     {
-        swal("Ingrese la antigua contraseña", "info");
+        Swal.fire("Ingrese la antigua contraseña", "info");
     }
 
 
@@ -101,26 +101,18 @@ function modificarclave(validation)
             method: "POST",
             url: "PersonaSrv",
             data: datos,
-            success: function (data) { 
-                 swal("La contraseña fue modificada correctamente, será redirigido al login.", {
-                buttons: {
-                 
-                    si: {
-                        text: "Entendido",
-                        value: "Si",
-                        className: "btn btn-success",
-                    }
-                }
-            })
-                    .then((value) => {
-                        switch (value) {
-                            case "Si":
-                                  window.location.href = "login.jsp";
-                                break;                          
-                            default:
-                        }
-                    });
-             
+            success: function (data) {
+
+                Swal.fire({
+                    title: 'La contraseña fue modificada correctamente, será redirigido al login.',
+                    confirmButtonText: 'Eniento',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                       window.location.href = "login.jsp";
+                    } 
+                });
+
+
             },
             error: function (error, ex) {
                 console.log(error);

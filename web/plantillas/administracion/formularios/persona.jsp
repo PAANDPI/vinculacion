@@ -1,3 +1,4 @@
+ <script src="recursos/javaScript/JS-AJAX/personaJS.js" type="text/javascript"></script>
 <div id="formulario-persona" class="col-lg-12"> 
     <div class="row ">
         <div class="col-lg-5 justify-content-center p-3 ">
@@ -18,21 +19,21 @@
                 <div class="p-4 barra-colores"  style="height: 100vh;max-height: 75vh;overflow-y: auto; background:white; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px" >                                                               
                     
                     <div class="form-group">
-                        <label class="font-weight-bold">Nombre</label>
-                        <input  id="txtNombre" class="form-control form-control-sm" type="text">
+                        <label class="font-weight-bold">Nombre *</label>
+                        <input  id="txtNombre" maxlength="20" class="form-control form-control-sm" placeholder="Limite de 20 caracteres para el nombre" type="text">
                     </div>    
                     <div class="form-group">
-                        <label class="font-weight-bold">Apellido</label>
-                        <input id="txtApellido" class="form-control form-control-sm" type="text">
+                        <label class="font-weight-bold">Apellido *</label>
+                        <input id="txtApellido" maxlength="" class="form-control form-control-sm" placeholder="Limite de 20 caracteres para el apellido" type="text">
                     </div> 
                     <div class="form-group">
-                        <label class="font-weight-bold" >Ciudad</label>
+                        <label class="font-weight-bold" >Ciudad *</label>
                         <select selected="selected" id="cmbCantones"  class="form-control form-control-sm">
 
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Género</label>
+                        <label class="font-weight-bold">Seleccione un género *</label>
                         <select  class=" form-control form-control-sm" id="cmbGenero">
                             <option value="Femenino " style="font-size: 16px">Femenino</option>
                             <option value="Masculino" style="font-size: 16px">Masculino</option>
@@ -40,18 +41,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Correo Electrónico</label>
-                        <input  class="form-control form-control-sm" type="text" id="txtCorreo" >
+                        <label class="font-weight-bold">Correo Electrónico *</label>
+                        <input  class="form-control form-control-sm" maxlength="50" type="text" placeholder="Limite de 50 caracteres para el correo" id="txtCorreo" >
                     </div>                  
                     <div class="form-group">
                         <label class="font-weight-bold">Nombre de usuario</label>
-                        <input id="txtNombreUsuario" class="form-control form-control-sm" type="text"  >
+                        <input id="txtNombreUsuario"  maxlength="25"class="form-control form-control-sm"  placeholder="Limite de 25 caracteres para el nombre de usuario" type="text"  >
                     </div> 
                     <div id="contenedorClaves" class="form-group">
                         <label class="font-weight-bold" >Contraseña</label>
-                        <input  class="form-control form-control-sm" type="password" id="txtContrasenia" >
+                        <input  class="form-control form-control-sm" maxlength="30"  placeholder="Limite de 80 caracteres para la contraseña" type="password" id="txtContrasenia" >
                         <label class="font-weight-bold">Confirmar contraseña</label>
-                        <input  class="form-control form-control-sm" type="password" id="txtConfirmarContrasenia" >
+                        <input  class="form-control form-control-sm" maxlength="30"  type="password" id="txtConfirmarContrasenia" >
                     </div>                     
                     <hr>  
                     <div class="form-check">

@@ -58,18 +58,19 @@ public class DiscapacidadSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
         Discapacidad discapacidad = new Discapacidad();
         DiscapacidadDAO discapacidadDAO = new DiscapacidadDAO(discapacidad);
-        try (PrintWriter out = response.getWriter()) {
-            String retorno = "{\n\t";
-            /* TODO output your page here. You may use following sample code. */
-            retorno += "\"codigo\":200,\n";
-            retorno += discapacidadDAO.getVW2JSON();
-            retorno += "\n}";
-            out.write(retorno);
-            //processRequest(request, response);
-        }
+        try (PrintWriter out = response.getWriter())
+            {
+                String retorno = "{\n\t";                
+                retorno += "\"codigo\":200,\n";
+                retorno += discapacidadDAO.getVW2JSON();
+                retorno += "\n}";
+                out.write(retorno);
+                //processRequest(request, response);
+            }
     }
 
     /**

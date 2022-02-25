@@ -180,12 +180,12 @@ public class PersonaSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 /* TODO output your page here. You may use following sample code. */
                 if (PDao.delete()) {
-                    retorno += "\"codigo\":200,\n";
+//                    retorno += "\"codigo\":200,\n";
 //                    retorno += personaDAO.getPersonaJSON();
                     response.setStatus(response.SC_OK);
                     //response.sendRedirect("index.jsp");
                 } else {
-                    retorno += "\"codigo\":400,\n";
+//                    retorno += "\"codigo\":400,\n";
 //                    retorno += "\"mensaje\": \"" + personaDAO.getMessage() + "\"\n";
                     response.setStatus(response.SC_BAD_REQUEST);
                 }

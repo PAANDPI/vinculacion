@@ -348,14 +348,17 @@ function traerCategoriaRecurso() {
 function eliminarRecurso(x) {
     console.log(x);
     datos = {"idrecurso": x, "accion": 3};
-    swal({
+   
+      Swal.fire({
         title: "¿Desea Eliminar este Recurso?",
-        //text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true
-    }).then((willDelete) => {
-        if (willDelete) {
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: 'No',
+        denyButtonText: `Si`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({text: "Eliminación cancelada", icon: "info"});
+        } else if (result.isDenied) {
             $.ajax({
                 method: "POST",
                 url: "RecursoSrv",
@@ -368,10 +371,11 @@ function eliminarRecurso(x) {
                     alerta("Algo salio mal al Eliminar el archivo", "error");
                 }
             });
-        } else {
-//swal("Your imaginary file is safe!");
+           
         }
     });
+  
+   
 }
 var modRecurso = false;
 var idRecursoMod;
