@@ -247,24 +247,27 @@ function seleccionarUbicacion(idub) {
     anteriorr = idub + "";
 }
 function eliminiarUbicacion(id) {
-    // console.log(id);
+    
+    
     var dato = {"idlugar": id, "accion": "2"}
-    swal({
+      Swal.fire({
         title: "¿Desea Eliminar ubicación?",
-        //text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-    }).then((willDelete) => {
-        if (willDelete) {
-            $.ajax({
+        icon: 'warning',
+        showDenyButton: true,
+        confirmButtonText: 'No',
+        denyButtonText: `Si`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({text: "Eliminación cancelada", icon: "info"});
+        } else if (result.isDenied) {
+           $.ajax({
                 method: "POST",
                 url: 'LugarSrv',
                 data: dato,
                 success: function (data)
                 {
                     console.log(data);
-                    swal("La ubicacion a sido eliminada", {
+                    Swal.fire("La ubicacion a sido eliminada", {
                         icon: "success",
                     });
                     tbl_Lugares();
@@ -273,11 +276,10 @@ function eliminiarUbicacion(id) {
                     console.log(error);
                 }
             });
-
-        } else {
-            //swal("Your imaginary file is safe!");
+           
         }
     });
+             
 }
 function tbl_Lugares()
 {

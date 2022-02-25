@@ -237,8 +237,6 @@ function tbl_recursos()
 }
 function Open(ruta) {
     var ruta2 = jsonRecursos.Recurso[ruta].ruta;
-//    var rutaVector = ruta.split("/");
-//    var nombre = rutaVector[rutaVector.length - 1];
     var rutaOficial = ruta2;
     window.open(rutaOficial, null);
 }

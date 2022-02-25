@@ -451,4 +451,3 @@ function resultado() {
     document.getElementById("resu").innerHTML = aux;
     return aux;
 }
-
