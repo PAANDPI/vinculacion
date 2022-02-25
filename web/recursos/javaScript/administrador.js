@@ -27,6 +27,7 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
         $('#formulario-Mi-información').hide();
+          $('#formulario-recursos').hide();
     });
 
     $("#btnUbicaciones").click(function () {

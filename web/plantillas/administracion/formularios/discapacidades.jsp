@@ -10,8 +10,7 @@
                         
                         </select>
                         <label for="txtNombreDiscapacidad">Nombre discapacidad</label>
-                        <input id="txtNombreDiscapacidad" type="text" maxlength="50" class="form-control" placeholder="Nombre de la discapacidad">
-                     
+                        <input id="txtNombreDiscapacidad" type="text" maxlength="50" class="form-control"  placeholder="Limite de 50 caracteres para el nombre de la discapacidad">                        
                         <hr>
                     </div>
                     <div class="modal-footer">

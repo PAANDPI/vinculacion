@@ -1,5 +1,14 @@
 $(document).ready(function () {
-
+    
+    $('#btnLimpiarFormulario').click(function (e) {
+        $('#descripcion').Editor('setText', "");
+         document.getElementById("resu").innerHTML="";
+        $('#etiquetas').val('');
+        $('#txttitulo').val('');
+        $('#cmb-discapacidad').val("0");
+    });
+    
+    
     $('#descripcion').Editor();
 
     $('#btn-enviar').click(function (e) {

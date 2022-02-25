@@ -49,6 +49,10 @@
         <servlet-name>Rutas</servlet-name>
         <servlet-class>controlador.Rutas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resporteSrv</servlet-name>
+        <servlet-class>controlador.resporteSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -92,6 +96,10 @@
     <servlet-mapping>
         <servlet-name>Rutas</servlet-name>
         <url-pattern>/Rutas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resporteSrv</servlet-name>
+        <url-pattern>/resporteSrv</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

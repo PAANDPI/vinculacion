@@ -41,7 +41,7 @@
         </div>
         <div class="caja_informacion">
              <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">    
-                   <img class="imgInicio" src="recursos/imagenes/002-folder.png" alt=""/>
+                 <img class="imgInicio"  src="recursos/imagenes/002-folder.png" alt=""/>
              </div>
           
             <h5 class="font-weight-bold text-center m">Recursos</h5>

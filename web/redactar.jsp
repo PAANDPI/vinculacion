@@ -45,7 +45,7 @@
             <div class="container">
                 <div class="col-lg-10">
                     <a id="btnGuardarConcepto" style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-archive-fill bnt_sobre" href="#">  Guardar</a>
-                    <a style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-eraser-fill bnt_sobre" href="#">  Limpiar</a>
+                    <a id="btnLimpiarFormulario" style="padding: 10px; font-size: 15px" class="btn btn-sm blanco bi bi-eraser-fill bnt_sobre" href="#">  Limpiar</a>
                     <div class="btn-group">
                         <button type="button" class="btn color_base blanco dropdown-toggle bi bi-border-all" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Plantillas  <span class="caret"></span>

@@ -1,12 +1,14 @@
 var jsonCategoria;
 var jsonDiscapacidades;
 var jsonConceptos;
+var jsonInformacionExtraDiscapacidades;
 var nConceptos = 0;
 var IdDiscapacidad = -1;
 
 
 $(document).ready(function () {
 
+    informacionExtreDiscapacidad();
     cargarCategoriaDiscapacidades();
     cargarDiscapacidades();
     $('#btnGuardarDiscapacidad').on('click', function () {
@@ -15,7 +17,7 @@ $(document).ready(function () {
 
         if (idCategoriaDiscapacidad.length > 0 && nombreDiscapacidad.length > 0)
         {
-            
+
             if (validarExistenciaDiscapacidades())
             {
                 if (IdDiscapacidad > 0) {
@@ -39,13 +41,13 @@ $(document).ready(function () {
                         alerta("Algo salió mal" + error, "error");
                     }
                 });
-            }else 
+            } else
             {
-                  alerta("Esta discapacidad ya esta registrada", "info");
+                alerta("Esta discapacidad ya esta registrada", "info");
             }
         } else
         {
-                  alerta("Llene todo los campos", "info");
+            alerta("Llene todo los campos", "info");
         }
     });
     $("#btnClickCerrar").click(function (e) {
@@ -113,8 +115,14 @@ $(document).ready(function () {
         });
     });
 });
+
+
+
+
+
 function  validarExistenciaDiscapacidades()
 {
+
     var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
     for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
     {
@@ -140,12 +148,7 @@ function modificarDiscapacidad(idDis) {
         }
     }
 }
-
-
-
-
-function cargarCategoriaDiscapacidades()
-{
+function cargarCategoriaDiscapacidades() {
     $.ajax({
         method: "GET",
         url: "CategoriaDiscapacidadSrv",
@@ -168,8 +171,7 @@ function cargarCategoriaDiscapacidades()
         }
     });
 }
-function cargarDiscapacidades()
-{
+function cargarDiscapacidades() {
 
     $.ajax({
         method: "GET",
@@ -178,7 +180,7 @@ function cargarDiscapacidades()
             jsonDiscapacidades = JSON.parse(data);
             var htmlTabla = ``;
             var cmbDiscapacidades = `<option value="" selected disabled hidden></option>`;
-            document.getElementById("caounDiscapacidades").innerHTML=jsonDiscapacidades.Discapacidad.length;
+            document.getElementById("caounDiscapacidades").innerHTML = jsonDiscapacidades.Discapacidad.length;
             for (var i = 0; i < jsonDiscapacidades.Discapacidad.length; i++)
             {
                 var idDiscapacidad = jsonDiscapacidades.Discapacidad[i].iddiscapacidad;
@@ -213,53 +215,94 @@ function cargarDiscapacidades()
 
 
 }
-function eliminarDiscapacidad(idDiscapacidad)
-{
-    swal("¿Esta seguro querer eliminar esta discapacidad?", {
-        buttons: {
-            cancel: "Cancelar",
-            si: {
-                text: "Sí",
-                value: "Si",
-                className: "btn btn-success",
-            },
-            no: {
-                text: "No",
-                value: "No",
-                className: "btn btn-warning",
-            }
+function  informacionExtreDiscapacidad() {
+
+    $.ajax({
+        method: "GET",
+        url: "resporteSrv",
+        success: function (data) {
+            jsonInformacionExtraDiscapacidades = JSON.parse(data);
+
+        },
+        error: function (error) {
+
         }
-    })
-            .then((value) => {
-                switch (value) {
+    });
 
-                    case "Si":
-                        $.ajax({
-                            method: "POST",
-                            url: "DiscapacidadSrv",
-                            data: {"idDiscapacidad": idDiscapacidad, "accion": "2"},
-                            success: function (data) {
 
-                                swal({text: "Discapacidad eliminada", icon: "success"});
-                                cargarDiscapacidades();
-                            },
-                            error: function (error) {
-                                console.log(error);
+}
+function eliminarDiscapacidad(idDiscapacidad) {
+    for (var i = 0; i < jsonInformacionExtraDiscapacidades.Discapacidad.length; i++)
+    {
+        if (jsonInformacionExtraDiscapacidades.Discapacidad[i].iddiscapacidad === idDiscapacidad)
+        {
+            var Nrecurso = jsonInformacionExtraDiscapacidades.Discapacidad[i].recursos;
+            var Nconceptos = jsonInformacionExtraDiscapacidades.Discapacidad[i].conceptos;
 
-                                swal({text: "No se pudo eliminar la discapacidad", icon: "error"});
+            if (Nrecurso == "0" && Nconceptos == "0")
+            {
 
-                            }
-                        });
-                        break;
+                Swal.fire({
+                    title: 'Do you want to save the changes?',
+                    showDenyButton: true,
+                    confirmButtonText: 'No',
+                    denyButtonText: `Si`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                         Swal.fire({text: "Eliminación cancelada", icon: "info"});
+                    } else if (result.isDenied) {
+                         $.ajax({
+                                        method: "POST",
+                                        url: "DiscapacidadSrv",
+                                        data: {"idDiscapacidad": idDiscapacidad, "accion": "2"},
+                                        success: function (data) {
 
-                    case "No":
-                        swal({text: "Eliminación cancelada", icon: "info"});
-                        break;
+                                            Swal.fire({text: "Discapacidad eliminada", icon: "success"});
+                                            cargarDiscapacidades();
+                                        },
+                                        error: function (error) {
+                                            console.log(error);
 
-                    default:
+                                            Swal.fire({text: "No se pudo eliminar la discapacidad", icon: "error"});
 
-                }
-            });
+                                        }
+                                    });
+                       
+                    }
+                });
+               
+
+            } else
+            {
+                var html = `<div style="max-width: 100%" class="row justify-content-center align-content-center">
+                            <div class="col-12">
+                             <div class="alert alert-danger" role="alert">
+                                   No puede eliminar esta discapacidad debido a que tiene elemento vinculado
+                                  </div>       
+                           </div>
+                            <div class="col-lg-6 col-sm-6 col-6">
+                                    <img width="100"   src="recursos/imagenes/002-folder.png" alt=""/>
+                                          <h5 class="font-weight-bold text-center">${Nrecurso}</h5>
+                            </div>
+                            <div class="col-lg-6 col-sm-6 col-6">
+                                     <img width="100"  src="recursos/imagenes/004-programmer.png" alt=""/> 
+                                          <h5 class="font-weight-bold text-center">${Nconceptos}</h5>
+                           </div>                                    
+                      </div>`;
+                Swal.fire({
+                    title: '<h6>No se puede eliminar este elemento</h6>',
+                    html: html,
+                    showCloseButton: true,
+                    confirmButtonText: '<i class="fa fa-thumbs-up"></i> Entendido!',
+                });
+            }
+
+
+        
+
+        }
+    }
+
 
 }
 function navegacionConceptos(n)
@@ -328,15 +371,15 @@ function seleccionarDiscapacidad(idDiscapacidad)
         url: "ConceptoSrv",
         data: {"busqueda": idDiscapacidad, "tipobusqueda": "1"},
         success: function (data) {
-            
-                 
-                  
+
+
+
             try {
-                jsonConceptos = JSON.parse(data.replace(/\n/g,""));        
+                jsonConceptos = JSON.parse(data.replace(/\n/g, ""));
                 var titulo = jsonConceptos.Concepto[0].discapacidad;
                 var descripcion = jsonConceptos.Concepto[0].descripcion;
                 var idConcepto = jsonConceptos.Concepto[0].idconcepto;
-                
+
                 html = `<div class="card col-lg-12" style="width:100%; height: 75vh; background:white; border-radius: 10px; overflow-y:auto;">
                             <div  class="card-body" style="height: 80vh; overflow-y:auto; ">
                                 <div id="contenedoDescripcion" style="zoom:100%" class="card-text">${descripcion}</div>                              
@@ -355,7 +398,7 @@ function seleccionarDiscapacidad(idDiscapacidad)
                 numero.innerHTML = jsonConceptos.Concepto.length;
             } catch (e)
             {
-              
+
                 html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  ">                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
                              <h3 class="bi bi-exclamation-triangle-fill" style="font-size: 25px"> No contiene conceptos</h3>                            

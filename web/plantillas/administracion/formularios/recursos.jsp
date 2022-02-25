@@ -60,7 +60,7 @@
 
                     <div class="mb-3">
                         <label class="font-weight-bold">Nombre del recurso: </label>
-                        <input type="text" class="form-control form-control-sm" id="txtRecurso">
+                        <input type="text" class="form-control form-control-sm" maxlength="25" placeholder="Limite de 75 caracteres para el nombre del recurso" id="txtRecurso">
                     </div>
                     <div class="form-group">
                         <label class="font-weight-bold">Descripción</label>

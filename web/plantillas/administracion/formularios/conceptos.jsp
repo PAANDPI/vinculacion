@@ -41,8 +41,7 @@
                         <button onclick="navegacionConceptos(-1)" type="button" class="btn btn-sm btn-success"><span class="bi bi-caret-left-fill"></span> Anterior</button>
                         <button onclick="navegacionConceptos(1)" type="button" class="btn btn-sm btn-success">Siguiente <span class="bi bi-caret-right-fill"></span></button>
                     </div> 
-                    <a  id="btnAnadirConcepto" class="btn btn-sm color_base rounded bi bi-plus-circle-dotted blanco float-right  mb-3 mr-3"> Añadir concepto</a> 
-                    <!--<a href="redactar.jsp" class="btn btn-sm color_base rounded bi bi-plus-circle-dotted blanco float-right  mb-3 mr-3"> Añadir concepto</a>--> 
+                    <a  id="btnAnadirConcepto" class="btn btn-sm color_base rounded bi bi-plus-circle-dotted blanco float-right  mb-3 mr-3"> Añadir concepto</a>                  
                 </div>              
             </div>
             <div class="row ">
