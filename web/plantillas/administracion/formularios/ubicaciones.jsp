@@ -1,3 +1,4 @@
+   <script src="recursos/javaScript/JS-AJAX/ubicacionJS.js" type="text/javascript"></script>
 <div id="formulario-ubicaciones" class="col-lg-12"> 
     <div class="row">
         <div class="col-lg-5 justify-content-center p-3">

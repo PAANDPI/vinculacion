@@ -21,9 +21,8 @@
         <script src="recursos/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="recursos/javaScript/administrador.js" type="text/javascript"></script>
         <script src="recursos/javaScript/JS-AJAX/discapacidadJS.js" type="text/javascript"></script>
-        <script src="recursos/javaScript/JS-AJAX/pais.js" type="text/javascript"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="recursos/javaScript/JS-AJAX/ubicacionJS.js" type="text/javascript"></script>
+        <script src="recursos/javaScript/JS-AJAX/pais.js" type="text/javascript"></script>       
+     
        
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
