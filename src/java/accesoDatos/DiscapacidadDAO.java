@@ -184,7 +184,7 @@ public class DiscapacidadDAO {
 
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * from discapacidadCantidad");
+                ResultSet result = conex.returnQuery("SELECT * from vwdiscapacidadCantidad");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
