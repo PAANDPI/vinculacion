@@ -49,6 +49,10 @@
         <servlet-name>Rutas</servlet-name>
         <servlet-class>controlador.Rutas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>reporteSrv</servlet-name>
+        <servlet-class>controlador.reporteSrv</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -93,17 +97,18 @@
         <servlet-name>Rutas</servlet-name>
         <url-pattern>/Rutas</url-pattern>
     </servlet-mapping>
-    
     <context-param>
         <param-name>dirUploadFiles</param-name>
         <param-value>/archivos</param-value>
     </context-param>
-    
     <context-param>
         <param-name>maxFilesSize</param-name>
         <param-value>307200</param-value>
     </context-param>
-    
+    <servlet-mapping>
+        <servlet-name>reporteSrv</servlet-name>
+        <url-pattern>/reporteSrv</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

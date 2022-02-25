@@ -195,7 +195,7 @@ function informacionExtreDiscapacidad() {
 
     $.ajax({
         method: "GET",
-        url: "resporteSrv",
+        url: "reporteSrv",
         success: function (data) {
             jsonInformacionExtraDiscapacidades = JSON.parse(data);
 

@@ -201,6 +201,7 @@ public class DiscapacidadDAO {
         json += "]";
         return json;
     }
+       
     public void lista2JSON() {
         json = "\"Discapacidad\" : [";
 

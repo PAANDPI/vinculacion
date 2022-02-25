@@ -18,7 +18,7 @@ import model.Discapacidad;
  *
  * @author User
  */
-public class resporteSrv extends HttpServlet {
+public class reporteSrv extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class resporteSrv extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet resporteSrv</title>");            
+            out.println("<title>Servlet reporteSrv</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet resporteSrv at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet reporteSrv at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,15 +58,14 @@ public class resporteSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         
-        response.setContentType("text/html;charset=UTF-8");
+         response.setContentType("text/html;charset=UTF-8");
         Discapacidad discapacidad = new Discapacidad();
         DiscapacidadDAO discapacidadDAO = new DiscapacidadDAO(discapacidad);
         try (PrintWriter out = response.getWriter())
             {
                 String retorno = "{\n\t";                
                 retorno += "\"codigo\":200,\n";
-                retorno += discapacidadDAO.getCantidadVinculacion();
+               retorno += discapacidadDAO.getCantidadVinculacion();
                 retorno += "\n}";
                 out.write(retorno);
                
