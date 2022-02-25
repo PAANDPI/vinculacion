@@ -93,12 +93,24 @@
         <servlet-name>Rutas</servlet-name>
         <url-pattern>/Rutas</url-pattern>
     </servlet-mapping>
+    
+    <context-param>
+        <param-name>dirUploadFiles</param-name>
+        <param-value>/archivos</param-value>
+    </context-param>
+    
+    <context-param>
+        <param-name>maxFilesSize</param-name>
+        <param-value>307200</param-value>
+    </context-param>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
+        <welcome-file>index2.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

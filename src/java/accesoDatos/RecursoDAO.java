@@ -1,13 +1,15 @@
 package accesoDatos;
 
+import com.oreilly.servlet.multipart.FilePart;
+import com.oreilly.servlet.multipart.MultipartParser;
+import com.oreilly.servlet.multipart.ParamPart;
+import com.oreilly.servlet.multipart.Part;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.DatatypeConverter;
 import model.Recurso;
 
 /**
@@ -20,7 +22,9 @@ public class RecursoDAO {
     private List<Recurso> recursoList;
 
     private Conexion conex;
-    private String json, relativePath, host;
+    private String json, relativePath, host, conext;
+
+    FilePart filePart;
 
     public RecursoDAO() {
         conex = new Conexion();
@@ -34,21 +38,7 @@ public class RecursoDAO {
 
     public boolean guardarArchivo() {
         try {
-            //relativePath;
-            String tipoArchivo, base64, dato = recurso.getRuta();
-
-            int indx1 = dato.indexOf("/") + 1;
-            int indx2 = dato.indexOf(";");
-
-            tipoArchivo = "." + dato.substring(indx1, indx2);
-
-            indx1 = dato.indexOf(",") + 1;
-            base64 = dato.substring(indx1);
-            indx1 = relativePath.indexOf("vinculacion");
-            relativePath = relativePath.substring(0, indx1);
-            relativePath += "files\\yuyapuy\\";
-            String nombreArchivo = "recursosDiscapacidades/" + recurso.getRecurso() + tipoArchivo;
-            File directorio = new File(relativePath + "/recursosDiscapacidades/");
+            File directorio = new File(relativePath + "recursosDiscapacidades/");
             if (!directorio.exists()) {
                 if (directorio.mkdirs()) {
                     System.out.println("Directorio creado");
@@ -56,18 +46,29 @@ public class RecursoDAO {
                     System.out.println("Error al crear directorio");
                 }
             }
+            String nombreArchivo = "recursosDiscapacidades/" + recurso.getRecurso() + System.currentTimeMillis();
+            String tipoArchivo;
+            int indx = filePart.getFileName().lastIndexOf(".");
+            tipoArchivo = filePart.getFileName().substring(indx);
+            nombreArchivo += tipoArchivo;
             String pathArchivo = relativePath + nombreArchivo;
-            System.out.println("Ruta: " + pathArchivo);
-            byte[] dataBytes = DatatypeConverter.parseBase64Binary(base64);
-            FileOutputStream out = new FileOutputStream(pathArchivo);
-            out.write(dataBytes);
-            out.close();
-            String rutaBD = host + "/files/yuyapuy/" + nombreArchivo;
+            directorio = new File(pathArchivo);
+            filePart.writeTo(directorio);
+
+            /*String pathArchivo = relativePath + nombreArchivo;
+                    System.out.println("Ruta: " + pathArchivo);
+                    byte[] dataBytes = DatatypeConverter.parseBase64Binary(base64);
+                    FileOutputStream out = new FileOutputStream(pathArchivo);
+                    out.write(dataBytes);
+                    out.close();*/
+            String rutaBD = host + "/files" + conext + "/" + nombreArchivo;
             recurso.setRuta(rutaBD);
+
             return true;
         } catch (IOException e) {
             conex.setMessage(e.getMessage());
         }
+
         return false;
     }
 
@@ -326,6 +327,22 @@ public class RecursoDAO {
 
     public void setHost(String host) {
         this.host = host;
+    }
+
+    public String getConext() {
+        return conext;
+    }
+
+    public void setConext(String conext) {
+        this.conext = conext;
+    }
+
+    public FilePart getFilePart() {
+        return filePart;
+    }
+
+    public void setFilePart(FilePart filePart) {
+        this.filePart = filePart;
     }
 
 }

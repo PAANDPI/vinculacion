@@ -134,9 +134,9 @@ $(document).ready(function () {
         if (tipo_archivo == "Archivos")
         {
             $("#checkArchivo").attr("disabled", false);
-            $("#checkArchivo").attr("disabled", false); 
-            $("#formFile").attr("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"); 
-            
+            $("#checkArchivo").attr("disabled", false);
+            $("#formFile").attr("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
         } else if (tipo_archivo == "Videos")
         {
             $("#checkEnlace").click();
@@ -144,9 +144,9 @@ $(document).ready(function () {
         } else if (tipo_archivo == "Imagenes")
         {
             $("#checkArchivo").attr("disabled", false);
-            $("#checkArchivo").attr("disabled", false);    
-            $("#formFile").attr("accept", ".jpg,.jpeg,.png"); 
-            
+            $("#checkArchivo").attr("disabled", false);
+            $("#formFile").attr("accept", ".jpg,.jpeg,.png");
+
         } else if (tipo_archivo == "Juegos")
         {
             $("#checkEnlace").click();
@@ -155,8 +155,8 @@ $(document).ready(function () {
         {
             $("#checkArchivo").attr("disabled", false);
             $("#checkArchivo").attr("disabled", false);
-             $("#formFile").attr("accept", ".pdf"); 
-             
+            $("#formFile").attr("accept", ".pdf");
+
         } else if (tipo_archivo == "Audio")
         {
             $("#checkEnlace").click();
@@ -165,7 +165,7 @@ $(document).ready(function () {
         {
             $("#checkEnlace").click();
             $("#checkArchivo").attr("disabled", true);
-           
+
         }
     });
 
@@ -212,7 +212,7 @@ $(document).ready(function () {
                         "estado": "true",
                         "accion": 4,
                         "ruta": ruta,
-                        "host": window.location.host
+                        "host": window.location.protocol + '//' + window.location.host
                     };
         } else if (checkEnlace) {
             datos =
@@ -276,7 +276,7 @@ function guardarRecurso() {
                     "estado": "true",
                     "accion": 1,
                     "ruta": ruta,
-                    "host": window.location.host
+                    "host": window.location.protocol + '//' + window.location.host
                 };
     } else if (checkEnlace) {
         datos =

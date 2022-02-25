@@ -1,7 +1,6 @@
 package controlador;
 
 import accesoDatos.LugarDAO;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
