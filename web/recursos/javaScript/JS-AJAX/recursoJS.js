@@ -201,30 +201,58 @@ $(document).ready(function () {
         var etiquetas = document.getElementById("txt-etiquetaa").value;
         var checkArchivo = document.getElementById("checkArchivo").checked;
         var checkEnlace = document.getElementById("checkEnlace").checked;
+        var ruta = '';
+        var frmData = new FormData();
         var datosM;
         if (checkArchivo) {
-            datos =
-                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
-                        "iddiscapacidad": iddiscapacidad,
-                        "recurso": recurso,
-                        "descripcion": descripcion,
-                        "etiquetas": etiquetas,
-                        "estado": "true",
-                        "accion": 4,
-                        "ruta": ruta,
-                        "host": window.location.protocol + '//' + window.location.host
-                    };
+//            datos =
+//                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
+//                        "iddiscapacidad": iddiscapacidad,
+//                        "recurso": recurso,
+//                        "descripcion": descripcion,
+//                        "etiquetas": etiquetas,
+//                        "estado": "true",
+//                        "accion": 4,
+//                        "ruta": ruta,
+//                        "host": window.location.protocol + '//' + window.location.host
+//                    };
+
+            ruta = document.querySelector('#formFile').files[0]
+
+            frmData.append('idrecurso', idRecursoMod);
+            frmData.append('idcategoriarecurso', idcategoriarecurso);
+            frmData.append('iddiscapacidad', iddiscapacidad);
+            frmData.append('recurso', recurso);
+            frmData.append('descripcion', descripcion);
+            frmData.append('etiquetas', etiquetas);
+            frmData.append('estado', true);
+            frmData.append('accion', 4);
+            frmData.append('host', window.location.protocol + '//' + window.location.host);
+            frmData.append('archivo', file);
+
         } else if (checkEnlace) {
-            datos =
-                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
-                        "iddiscapacidad": iddiscapacidad,
-                        "recurso": recurso,
-                        "descripcion": descripcion,
-                        "etiquetas": etiquetas,
-                        "estado": "false",
-                        "accion": 5,
-                        "ruta": document.getElementById("txtEnlace").value
-                    };
+//            datos =
+//                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
+//                        "iddiscapacidad": iddiscapacidad,
+//                        "recurso": recurso,
+//                        "descripcion": descripcion,
+//                        "etiquetas": etiquetas,
+//                        "estado": "false",
+//                        "accion": 5,
+//                        "ruta": document.getElementById("txtEnlace").value
+//                    };
+            ruta = document.getElementById("txtEnlace").value;
+
+            frmData.append('idrecurso', idRecursoMod);
+            frmData.append('idcategoriarecurso', idcategoriarecurso);
+            frmData.append('iddiscapacidad', iddiscapacidad);
+            frmData.append('recurso', recurso);
+            frmData.append('descripcion', descripcion);
+            frmData.append('etiquetas', etiquetas);
+            frmData.append('estado', false);
+            frmData.append('accion', 5);
+            frmData.append('ruta', ruta);
+
         }
         if (datos.idrecurso.length > 0 &&
                 datos.idcategoriarecurso.length > 0 &&
@@ -254,6 +282,7 @@ $(document).ready(function () {
 
     });
 });
+
 function guardarRecurso() {
 
     var ruta = base64;
@@ -264,46 +293,66 @@ function guardarRecurso() {
     var etiquetas = document.getElementById("txt-etiquetaa").value;
     var checkArchivo = document.getElementById("checkArchivo").checked;
     var checkEnlace = document.getElementById("checkEnlace").checked;
+    var ruta;
     var datosM;
+    var frmData = new FormData();
     console.log(base64);
     if (checkArchivo) {
-        datos =
-                {"idcategoriarecurso": idcategoriarecurso,
-                    "iddiscapacidad": iddiscapacidad,
-                    "recurso": recurso,
-                    "descripcion": descripcion,
-                    "etiquetas": etiquetas,
-                    "estado": "true",
-                    "accion": 1,
-                    "ruta": ruta,
-                    "host": window.location.protocol + '//' + window.location.host
-                };
-    } else if (checkEnlace) {
-        datos =
-                {"idcategoriarecurso": idcategoriarecurso,
-                    "iddiscapacidad": iddiscapacidad,
-                    "recurso": recurso,
-                    "descripcion": descripcion,
-                    "etiquetas": etiquetas,
-                    "estado": "false",
-                    "accion": 2,
-                    "ruta": document.getElementById("txtEnlace").value
-                };
-    }
-    if (
-            datos.idcategoriarecurso.length > 0 &&
-            datos.iddiscapacidad.length > 0 &&
-            datos.recurso.length > 0 &&
-            datos.descripcion.length > 0 &&
-            datos.etiquetas.length > 0 &&
-            datos.ruta.length > 0
-            )
-    {
+        /*datos =
+         {"idcategoriarecurso": idcategoriarecurso,
+         "iddiscapacidad": iddiscapacidad,
+         "recurso": recurso,
+         "descripcion": descripcion,
+         "etiquetas": etiquetas,
+         "estado": "true",
+         "accion": 1,
+         "ruta": ruta,
+         "host": window.location.protocol + '//' + window.location.host
+         };*/
+        ruta = document.querySelector('#formFile').files[0]
 
+        frmData.append('idcategoriarecurso', idcategoriarecurso);
+        frmData.append('iddiscapacidad', iddiscapacidad);
+        frmData.append('recurso', recurso);
+        frmData.append('descripcion', descripcion);
+        frmData.append('etiquetas', etiquetas);
+        frmData.append('estado', true);
+        frmData.append('accion', 1);
+        frmData.append('host', window.location.protocol + '//' + window.location.host);
+        frmData.append('ruta', ruta);
+
+    } else if (checkEnlace) {
+        /*datos =
+         {"idcategoriarecurso": idcategoriarecurso,
+         "iddiscapacidad": iddiscapacidad,
+         "recurso": recurso,
+         "descripcion": descripcion,
+         "etiquetas": etiquetas,
+         "estado": "false",
+         "accion": 2,
+         "ruta": document.getElementById("txtEnlace").value
+         };*/
+        ruta = document.getElementById("txtEnlace").value;
+        frmData.append('idcategoriarecurso', idcategoriarecurso);
+        frmData.append('iddiscapacidad', iddiscapacidad);
+        frmData.append('recurso', recurso);
+        frmData.append('descripcion', descripcion);
+        frmData.append('etiquetas', etiquetas);
+        frmData.append('estado', false);
+        frmData.append('accion', 2);
+        frmData.append('ruta', ruta);
+    }
+
+    if (ruta && idcategoriarecurso.length > 0 &&
+            iddiscapacidad.length > 0 && recurso.length > 0 &&
+            descripcion.length > 0 && etiquetas.length > 0)
+    {
         $.ajax({
             method: "POST",
             url: "RecursoSrv",
-            data: datos,
+            data: frmData,
+            processData: false,
+            contentType: false,
             success: function (data) {
                 alerta("Archivo guardado con exito", "success");
                 tbl_recursos();
@@ -347,9 +396,8 @@ function traerCategoriaRecurso() {
 }
 function eliminarRecurso(x) {
     console.log(x);
-    datos = {"idrecurso": x, "accion": 3};
-   
-      Swal.fire({
+    //datos = {"idrecurso": x, "accion": 3};
+    Swal.fire({
         title: "¿Desea Eliminar este Recurso?",
         icon: 'warning',
         showDenyButton: true,
@@ -359,10 +407,16 @@ function eliminarRecurso(x) {
         if (result.isConfirmed) {
             Swal.fire({text: "Eliminación cancelada", icon: "info"});
         } else if (result.isDenied) {
+            var frmData = new FormData();
+            frmData.append('idrecurso', x);
+            frmData.append('accion', 3);
+
             $.ajax({
                 method: "POST",
                 url: "RecursoSrv",
-                data: datos,
+                data: frmData,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     alerta("Archivo Eliminado con exito", "success");
                     tbl_recursos();
@@ -371,11 +425,8 @@ function eliminarRecurso(x) {
                     alerta("Algo salio mal al Eliminar el archivo", "error");
                 }
             });
-           
         }
     });
-  
-   
 }
 var modRecurso = false;
 var idRecursoMod;
@@ -418,3 +469,22 @@ function BotonCancelar() {
     $('#btn_cancelarRecurso').hide("slow");
     $('#btn_modificarRecurso').hide("slow");
 }
+
+/*
+ $('#frm').submit(function (e) {
+ e.preventDefault();
+ var frmData = new FormData(document.getElementById('frm'));
+ frmData.append('host', window.location.protocol + '//' + window.location.host);
+ frmData.append('accion', 1);
+ $.ajax({
+ url: "RecursoSrv",
+ type: "POST",
+ data: frmData,
+ processData: false,
+ contentType: false,
+ success: function (data) {
+ alert("ok");
+ console.log(data);
+ }
+ }); //end ajax
+ });*/

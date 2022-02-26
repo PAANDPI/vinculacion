@@ -10,12 +10,11 @@ import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.MultipartParser;
 import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -67,50 +66,60 @@ public class RecursoSrv extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int accion = Integer.parseInt(request.getParameter("accion"));
-        if (accion == 1) {
-            RecursoDAO recursoDAO = new RecursoDAO();
-            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-            System.out.println("Ruta: " + recursoDAO.getRelativePath());
-
-            response.setContentType("text/json;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                String retorno = "{\n\t";
-                retorno += "\"codigo\":200,\n";
-                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
-                retorno += recursoDAO.getVW2JSON();
-                retorno += "\n}";
-                out.write(retorno);
+        switch (accion) {
+            case 1: {
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSON();
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
             }
-        } else if (accion == 2) {
-            int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
-            String discapacidad = request.getParameter("txtDiscapacidad");
-            RecursoDAO recursoDAO = new RecursoDAO();
-            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-            System.out.println("Ruta: " + recursoDAO.getRelativePath());
-            response.setContentType("text/json;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                String retorno = "{\n\t";
-                retorno += "\"codigo\":200,\n";
-                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
-                retorno += recursoDAO.getVW2JSON(idCategoria, discapacidad);
-                retorno += "\n}";
-                out.write(retorno);
+            case 2: {
+                int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
+                String discapacidad = request.getParameter("txtDiscapacidad");
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSON(idCategoria, discapacidad);
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
             }
-        } else if (accion == 3) {
-            RecursoDAO recursoDAO = new RecursoDAO();
-            recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-            System.out.println("Ruta: " + recursoDAO.getRelativePath());
-            response.setContentType("text/json;charset=UTF-8");
-            try (PrintWriter out = response.getWriter()) {
-                String retorno = "{\n\t";
-                retorno += "\"codigo\":200,\n";
-                retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
-                retorno += recursoDAO.getVW2JSONENLACES();
-                retorno += "\n}";
-                out.write(retorno);
+            case 3: {
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSONENLACES();
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
             }
+            default:
+                break;
         }
     }
+
+    FilePart filePart;
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -150,49 +159,34 @@ public class RecursoSrv extends HttpServlet {
         }*/
         MultipartParser multipartParser = new MultipartParser(request, (1024 * 1024 * 20));
         multipartParser.setEncoding("UTF-8");
-
-        HttpServletRequest request2 = request;
-        int accion = Integer.parseInt(getParam(request2, "accion"));
+        HashMap map = multiPart2HashMap(multipartParser);
+        int accion = Integer.parseInt(map.get("accion").toString());
         switch (accion) {
             case 1: {
                 Recurso recurso = new Recurso();
-                Part part;
-                ParamPart paramPart;
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                //recurso.setIdCategoriaRecurso(Integer.parseInt(paramPart.getStringValue()));
+                recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
 
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                //recurso.setIdDiscapacidad(Integer.parseInt(paramPart.getStringValue()));
+                recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
+                recurso.setDescripcion(map.get("descripcion").toString());
 
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                //recurso.setRecurso(paramPart.getStringValue()));
+                recurso.setEtiquetas(map.get("etiquetas").toString());
 
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                recurso.setDescripcion(paramPart.getStringValue());
-
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                recurso.setEtiquetas(paramPart.getStringValue());
-
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                recurso.setRuta(paramPart.getStringValue());
-
+                recurso.setRecurso(map.get("recurso").toString());
+                recurso.setEstado(true);
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
-                part = multipartParser.readNextPart();
-                FilePart filePart = (FilePart) part;
-                recursoDAO.setFilePart(filePart);
 
-                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                String relativePath = getServletContext().getRealPath("").replace("\\", "/");
+                String context = (getServletContext().getContextPath());
+                int indx1 = relativePath.indexOf(context);
+                relativePath = relativePath.substring(0, indx1);
+                relativePath += "/files" + context + "/";
+                recursoDAO.setRelativePath(relativePath);
                 System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                recursoDAO.setConext(context);
 
-                part = multipartParser.readNextPart();
-                paramPart = (ParamPart) part;
-                recursoDAO.setHost(paramPart.getStringValue());
+                recursoDAO.setFilePart(getFilePart());
+
+                recursoDAO.setHost(map.get("host").toString());
                 response.setContentType("text/json;charset=UTF-8");
                 try (PrintWriter out = response.getWriter()) {
                     String retorno = "{\n\t";
@@ -209,12 +203,13 @@ public class RecursoSrv extends HttpServlet {
 
             case 2: {
                 Recurso recurso = new Recurso();
-                recurso.setIdCategoriaRecurso(Integer.parseInt(getParam(request, "idcategoriarecurso")));
-                recurso.setIdDiscapacidad(Integer.parseInt(getParam(request, "iddiscapacidad")));
-                recurso.setRecurso(getParam(request, "recurso"));
-                recurso.setDescripcion(getParam(request, "descripcion"));
-                recurso.setEtiquetas(getParam(request, "etiquetas"));
-                recurso.setRuta(getParam(request, "ruta"));
+
+                recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
+                recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
+                recurso.setDescripcion(map.get("descripcion").toString());
+
+                recurso.setEtiquetas(map.get("etiquetas").toString());
+
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
                 recursoDAO.setRelativePath(getServletContext().getRealPath(""));
                 response.setContentType("text/json;charset=UTF-8");
@@ -233,7 +228,7 @@ public class RecursoSrv extends HttpServlet {
             }
             case 3: {
                 Recurso recurso = new Recurso();
-                recurso.setIdRecurso(Integer.parseInt(getParam(request, "idrecurso")));
+                recurso.setIdRecurso(Integer.parseInt(map.get("idrecurso").toString()));
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
                 response.setContentType("text/json;charset=UTF-8");
                 try (PrintWriter out = response.getWriter()) {
@@ -253,18 +248,27 @@ public class RecursoSrv extends HttpServlet {
             }
             case 4: {
                 Recurso recurso = new Recurso();
-                recurso.setRecurso(getParam(request, "recurso"));
-                recurso.setDescripcion(getParam(request, "descripcion"));
-                recurso.setEtiquetas(getParam(request, "etiquetas"));
+                recurso.setRecurso(map.get("recurso").toString());
+                recurso.setDescripcion(map.get("descripcion").toString());
+                recurso.setEtiquetas(map.get("etiquetas").toString());
                 recurso.setEstado(true);
-                recurso.setRuta(getParam(request, "ruta"));
-                recurso.setIdCategoriaRecurso(Integer.parseInt(getParam(request, "idcategoriarecurso")));
-                recurso.setIdDiscapacidad(Integer.parseInt(getParam(request, "iddiscapacidad")));
-                recurso.setIdRecurso(Integer.parseInt(getParam(request, "idrecurso")));
+                recurso.setRuta(map.get("ruta").toString());
+                recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
+                recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
+                recurso.setIdRecurso(Integer.parseInt(map.get("idrecurso").toString()));
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
-                recursoDAO.setFilePart(getFilePart(request));
-                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
-                recursoDAO.setHost(getParam(request, "host"));
+                
+                String relativePath = getServletContext().getRealPath("").replace("\\", "/");
+                String context = (getServletContext().getContextPath());
+                int indx1 = relativePath.indexOf(context);
+                relativePath = relativePath.substring(0, indx1);
+                relativePath += "/files" + context + "/";
+                recursoDAO.setRelativePath(relativePath);
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                recursoDAO.setConext(context);
+
+                recursoDAO.setHost(map.get("host").toString());
+                recursoDAO.setFilePart(getFilePart());
                 response.setContentType("text/json;charset=UTF-8");
                 try (PrintWriter out = response.getWriter()) {
                     String retorno = "{\n\t";
@@ -284,14 +288,14 @@ public class RecursoSrv extends HttpServlet {
             }
             case 5: {
                 Recurso recurso = new Recurso();
-                recurso.setRecurso(getParam(request, "recurso"));
-                recurso.setDescripcion(getParam(request, "descripcion"));
-                recurso.setEtiquetas(getParam(request, "etiquetas"));
+                recurso.setRecurso(map.get("recurso").toString());
+                recurso.setDescripcion(map.get("descripcion").toString());
+                recurso.setEtiquetas(map.get("etiquetas").toString());
                 recurso.setEstado(true);
-                recurso.setRuta(getParam(request, "ruta"));
-                recurso.setIdCategoriaRecurso(Integer.parseInt(getParam(request, "idcategoriarecurso")));
-                recurso.setIdDiscapacidad(Integer.parseInt(getParam(request, "iddiscapacidad")));
-                recurso.setIdRecurso(Integer.parseInt(getParam(request, "idrecurso")));
+                recurso.setRuta(map.get("ruta").toString());
+                recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
+                recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
+                recurso.setIdRecurso(Integer.parseInt(map.get("idrecurso").toString()));
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
                 recursoDAO.setRelativePath(getServletContext().getRealPath(""));
                 response.setContentType("text/json;charset=UTF-8");
@@ -328,32 +332,16 @@ public class RecursoSrv extends HttpServlet {
     protected void doPut(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Recurso recurso = new Recurso();
-        /*recurso.setIdCategoriaRecurso(Integer.parseInt(getParam(request, "idcategoriarecurso")));
-        recurso.setIdDiscapacidad(Integer.parseInt(getParam(request, "iddiscapacidad")));
-        recurso.setRecurso(getParam(request, "recurso"));
-        recurso.setDescripcion(getParam(request, "descripcion"));
-        recurso.setEtiquetas(getParam(request, "etiquetas"));*/
-        getServletContext().getInitParameter("");
-        RecursoDAO recursoDAO = new RecursoDAO(recurso);
-        String ruta = (getServletContext().getRealPath(""));
-        System.out.println("Ruta: " + recursoDAO.getRelativePath());
-        response.setContentType("text/json;charset=UTF-8");
-        RequestDispatcher dispatcher;
-        try (PrintWriter out = response.getWriter()) {
-            File directorio = new File(ruta);
-            MultipartParser multipartParser = new MultipartParser(request, (1024 * 1024 * 10));
-            Part part;
+        recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
+        recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
+        recurso.setRecurso(request.getParameter("recurso"));
+        recurso.setDescripcion(request.getParameter("descripcion"));
+        recurso.setEtiquetas(request.getParameter("etiquetas"));
 
-            while ((part = multipartParser.readNextPart()) != null) {
-                System.out.println(part.getName());
-                if (part.isParam()) {
-                    ParamPart paramPart = (ParamPart) part;
-                    System.out.println(paramPart.getStringValue());
-                } else if (part.isFile()) {
-                    FilePart filePart = (FilePart) part;
-                    filePart.writeTo(directorio);
-                }
-                /* String retorno = "{\n\t";
+        RecursoDAO recursoDAO = new RecursoDAO(recurso);
+        try (PrintWriter out = response.getWriter()) {
+
+            String retorno = "{\n\t";
             if (recursoDAO.insert()) {
                 retorno += "\"codigo\":200,\n";
                 retorno += recursoDAO.getRecursoJSON();
@@ -365,8 +353,7 @@ public class RecursoSrv extends HttpServlet {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             }
             retorno += "}";
-            out.write(retorno);*/
-            }
+            out.write(retorno);
         }
     }
 
@@ -402,47 +389,33 @@ public class RecursoSrv extends HttpServlet {
         }
     }
 
-    private String getParam(HttpServletRequest request, String name) {
+    private HashMap<String, String> multiPart2HashMap(MultipartParser multipartParser) {
+        HashMap<String, String> map = new HashMap<>();
         try {
-            MultipartParser multipartParser = new MultipartParser(request, (1024 * 1024 * 10));
-            multipartParser.setEncoding("UTF-8");
+            map = new HashMap<>();
             Part part;
 
             while ((part = multipartParser.readNextPart()) != null) {
                 if (part.isParam()) {
-                    if (part.getName().equals(name)) {
-                        ParamPart paramPart = (ParamPart) part;
-                        multipartParser = null;
-                        return paramPart.getStringValue();
-                    }
+                    ParamPart paramPart = (ParamPart) part;
+                    map.put(part.getName(), paramPart.getStringValue());
+                } else if (part.isFile()) {
+                    setFilePart((FilePart) part);
                 }
             }
-            multipartParser = null;
         } catch (IOException ex) {
             Logger.getLogger(RecursoSrv.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
-        return "";
+        return map;
     }
 
-    private FilePart getFilePart(HttpServletRequest request) {
-        try {
-            MultipartParser multipartParser = new MultipartParser(request, (1024 * 1024 * 10));
-            Part part;
+    private void setFilePart(FilePart filePart) {
+        this.filePart = filePart;
+    }
 
-            while ((part = multipartParser.readNextPart()) != null) {
-                if (part.isFile()) {
-                    FilePart filePart = (FilePart) part;
-                    multipartParser = null;
-                    return filePart;
-                }
-            }
-            multipartParser = null;
-        } catch (IOException ex) {
-            Logger.getLogger(RecursoSrv.class
-                    .getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
+    private FilePart getFilePart() {
+        return filePart;
     }
 
     /**
