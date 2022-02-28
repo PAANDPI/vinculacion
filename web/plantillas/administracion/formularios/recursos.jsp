@@ -10,7 +10,7 @@
                     </div> 
                     <div class="row">
                         <nav class="nav ml-4">
-                            <a id="btnGuardaRecurso" type="button" onclick="Main()" class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>                       
+                            <a id="btnGuardaRecurso" type="button" onclick="guardarRecurso() " class="btn btn-l efecto_guardar  bi bi-save-fill blanco "> Guardar</a>                       
                             <a id="btn_modificarRecurso" class="btn btn-l  efecto_modificar bi bi bi-pencil-fill blanco ">  Modificar </a>    
                             <a  id="btn_cancelarRecurso" class="btn btn-l efecto_limpiar  bi bi-eraser blanco "> cancelar </a>
                         </nav>
