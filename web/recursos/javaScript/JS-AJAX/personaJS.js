@@ -1,37 +1,37 @@
 var jsonPersonas;
 var idPersona;
-var anterior="";
-
- listadeUsuarios();
- function listadeUsuarios(){
-        $.ajax({
-            method: "GET",
-            url: "PersonaSrv",
-            success: function (data) {
-                jsonPersonas = data;
-                var htmlTabla = ``;
-                 document.getElementById("caounPersonas").innerHTML= jsonPersonas.Persona.length;
-                for (var i = 0; i < jsonPersonas.Persona.length; i++)
+var anterior = "";
+var seleccionado = "";
+listadeUsuarios();
+function listadeUsuarios() {
+    $.ajax({
+        method: "GET",
+        url: "PersonaSrv",
+        success: function (data) {
+            jsonPersonas = data;
+            var htmlTabla = ``;
+            document.getElementById("caounPersonas").innerHTML = jsonPersonas.Persona.length;
+            for (var i = 0; i < jsonPersonas.Persona.length; i++)
+            {
+                var idpersona = jsonPersonas.Persona[i].idpersona;
+                var idciudad = jsonPersonas.Persona[i].idciudad;
+                var nombre = jsonPersonas.Persona[i].nombre;
+                var apellido = jsonPersonas.Persona[i].apellido;
+                var genero = jsonPersonas.Persona[i].genero;
+                var usuario = jsonPersonas.Persona[i].usuario;
+                var correo = jsonPersonas.Persona[i].correo;
+                var clave = jsonPersonas.Persona[i].clave;
+                var administrador = jsonPersonas.Persona[i].administrador;
+                var estado = jsonPersonas.Persona[i].estado;
+                var ciudad = jsonPersonas.Persona[i].ciudad;
+                var url = ` recursos/iconos/admin.png`;
+                if (administrador)
                 {
-                    var idpersona = jsonPersonas.Persona[i].idpersona;
-                    var idciudad = jsonPersonas.Persona[i].idciudad;
-                    var nombre = jsonPersonas.Persona[i].nombre;
-                    var apellido = jsonPersonas.Persona[i].apellido;
-                    var genero = jsonPersonas.Persona[i].genero;
-                    var usuario = jsonPersonas.Persona[i].usuario;
-                    var correo = jsonPersonas.Persona[i].correo;
-                    var clave = jsonPersonas.Persona[i].clave;
-                    var administrador = jsonPersonas.Persona[i].administrador;
-                    var estado = jsonPersonas.Persona[i].estado;
-                    var ciudad = jsonPersonas.Persona[i].ciudad;
-                    var url = ` recursos/iconos/admin.png`;
-                    if (administrador)
-                    {
-                        url = `recursos/iconos/normal.png`;
-                    }
+                    url = `recursos/iconos/normal.png`;
+                }
 
 
-                    htmlTabla += `<tr>
+                htmlTabla += `<tr>
                                     <th>
                                         <div id="cardPersona${idpersona}" class="card" style="border: 1px solid #c4c4c4;  " role="alert">
                                                 <div class="card-header ">
@@ -65,18 +65,18 @@ var anterior="";
                                             </div>
                                      </th>
                                    `;
-                }
-                var tbl_personas = document.getElementById("tbl_personas");
-                tbl_personas.innerHTML = htmlTabla;
-                $('#btn_cancelar').hide();
-                $('#btn_modificarUsuario').hide();
-            },
-            error: function (error) {
-                console.log(error);
             }
-        });
-    }
-$(document).ready(function () {   
+            var tbl_personas = document.getElementById("tbl_personas");
+            tbl_personas.innerHTML = htmlTabla;
+            $('#btn_cancelar').hide();
+            $('#btn_modificarUsuario').hide();
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    });
+}
+$(document).ready(function () {
     $("#buscadorPersonas").keyup(function () {
         _this = this;
         // Show only matching TR, hide rest of them
@@ -86,7 +86,7 @@ $(document).ready(function () {
             else
                 $(this).show();
         });
-    });   
+    });
     $('#btnCerrarSession').on('click', function () {
 
         var datos = {"accion": "5"};
@@ -108,7 +108,6 @@ $(document).ready(function () {
         });
 
     });
-
     $('#btn_cancelar').click(function (e) {
         $('#btnGuardarUsuario').show("2000");
         $('#btn_cancelar').hide("slow");
@@ -187,10 +186,10 @@ $(document).ready(function () {
         }
 
     });
-    function alerta(texto, icono){
+    function alerta(texto, icono) {
         Swal.fire({text: texto, icon: icono});
     }
-    function limpiar(){
+    function limpiar() {
         $('#txtNombre').val('');
         $('#txtApellido').val('');
         $('#cmbGenero').val('');
@@ -228,34 +227,55 @@ $(document).ready(function () {
                 txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
         if (validor > 0)
         {
-//            if (validarExistenciaUsuario())
-//            {
-//                if (validarExistenciaEmail())
-//                {
+            if (seleccionado.txtCorreo != txtCorreo || seleccionado.txtNombreUsuario != txtNombreUsuario)
+            {
+                if (validarExistenciaUsuario())
+                {
+                    if (validarExistenciaEmail())
+                    {
 
-                    $.ajax({
-                        method: "POST",
-                        url: "PersonaSrv",
-                        data: datos,
-                        success: function (data) {
-                            alerta("Usuario Modificado correctamente:", "success");
-                            listadeUsuarios();
-                            limpiar();
-                        },
-                        error: function (error, ex) {
-                            console.log(error);
-                            console.log(ex);
-                            alerta("Algo salio mal:" + error, "error");
-                        }
-                    });
-//                } else
-//                {
-//                    alerta("Ya existe este correo", "info");
-//                }
-//            } else
-//            {
-//                alerta("Ya existe un usuario con este nombre", "info");
-//            }
+                        $.ajax({
+                            method: "POST",
+                            url: "PersonaSrv",
+                            data: datos,
+                            success: function (data) {
+                                alerta("Usuario Modificado correctamente:", "success");
+                                listadeUsuarios();
+                                limpiar();
+                            },
+                            error: function (error, ex) {
+                                console.log(error);
+                                console.log(ex);
+                                alerta("Algo salio mal:" + error, "error");
+                            }
+                        });
+                    } else
+                    {
+                        alerta("Ya existe este correo", "info");
+                    }
+                } else
+                {
+                    alerta("Ya existe un usuario con este nombre", "info");
+                }
+            } else
+            {
+                $.ajax({
+                    method: "POST",
+                    url: "PersonaSrv",
+                    data: datos,
+                    success: function (data) {
+                        alerta("Usuario Modificado correctamente:", "success");
+                        listadeUsuarios();
+                        limpiar();
+                    },
+                    error: function (error, ex) {
+                        console.log(error);
+                        console.log(ex);
+                        alerta("Algo salio mal:" + error, "error");
+                    }
+                });
+            }
+
 
 
         } else
@@ -266,7 +286,7 @@ $(document).ready(function () {
     });
 });
 
-function  validarExistenciaUsuario(){
+function  validarExistenciaUsuario() {
 
     for (var i = 0; i < jsonPersonas.Persona.length; i++)
     {
@@ -280,7 +300,7 @@ function  validarExistenciaUsuario(){
     }
     return true;
 }
-function  validarExistenciaEmail(){
+function  validarExistenciaEmail() {
     for (var i = 0; i < jsonPersonas.Persona.length; i++)
     {
         var correo = jsonPersonas.Persona[i].correo;
@@ -294,13 +314,14 @@ function  validarExistenciaEmail(){
     return true;
 }
 function btnEditPersona(aux) {
-    
-       if (anterior.length > 0) {
+
+
+    if (anterior.length > 0) {
         var btnAux = document.getElementById("cardPersona" + anterior);
         btnAux.className = "card"
     }
-        document.getElementById("cardPersona" + aux).className = "card text-white cajas bg-primary"
-    
+    document.getElementById("cardPersona" + aux).className = "card text-white cajas bg-primary"
+
     idPersona = aux;
     console.log(jsonPersonas.Persona);
     for (var x of jsonPersonas.Persona) {
@@ -318,13 +339,17 @@ function btnEditPersona(aux) {
             $('#btn_cancelar').show("2000");
         }
     }
-    anterior=aux+"";
-    
+    var txtCorreo = document.getElementById("txtCorreo").value;
+    var txtNombreUsuario = document.getElementById("txtNombreUsuario").value;
+    seleccionado = {"txtCorreo": txtCorreo, "txtNombreUsuario": txtNombreUsuario};
+
+    anterior = aux + "";
+
 }
 function deletePersona(id) {
- 
+
     var dato = {"idpersona": id, "accion": "4"};
-      Swal.fire({
+    Swal.fire({
         title: '¿Desea Eliminar esta Persona?',
         icon: 'warning',
         showDenyButton: true,
@@ -348,11 +373,11 @@ function deletePersona(id) {
                     console.log(error);
                 }
             });
-           
+
         }
     });
-  
-    
-    
+
+
+
 }
 
