@@ -1,11 +1,10 @@
 package accesoDatos;
 
 import com.oreilly.servlet.multipart.FilePart;
-import com.oreilly.servlet.multipart.MultipartParser;
-import com.oreilly.servlet.multipart.ParamPart;
-import com.oreilly.servlet.multipart.Part;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -22,9 +21,11 @@ public class RecursoDAO {
     private List<Recurso> recursoList;
 
     private Conexion conex;
-    private String json, relativePath, host, conext;
+    private String json, relativePath, host, context;
 
     FilePart filePart;
+    InputStream inputStream;
+    File file;
 
     public RecursoDAO() {
         conex = new Conexion();
@@ -38,7 +39,9 @@ public class RecursoDAO {
 
     public boolean guardarArchivo() {
         try {
-            File directorio = new File(relativePath + "recursosDiscapacidades/");
+            String carpeta = "recursosDiscapacidades/";
+            relativePath += carpeta;
+            File directorio = new File(relativePath);
             if (!directorio.exists()) {
                 if (directorio.mkdirs()) {
                     System.out.println("Directorio creado");
@@ -46,24 +49,42 @@ public class RecursoDAO {
                     System.out.println("Error al crear directorio");
                 }
             }
-            String nombreArchivo = "recursosDiscapacidades/" + recurso.getRecurso() + System.currentTimeMillis();
+            String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
             String tipoArchivo;
             int indx = filePart.getFileName().lastIndexOf(".");
             tipoArchivo = filePart.getFileName().substring(indx);
             nombreArchivo += tipoArchivo;
-            String pathArchivo = relativePath + nombreArchivo;
-            directorio = new File(pathArchivo);
+            //directorio = new File(pathArchivo);
             filePart.writeTo(directorio);
+            directorio = new File(relativePath + filePart.getFileName());
+            String pathArchivo = relativePath + nombreArchivo;
+            File newFile = new File(pathArchivo);
 
-            /*String pathArchivo = relativePath + nombreArchivo;
-                    System.out.println("Ruta: " + pathArchivo);
-                    byte[] dataBytes = DatatypeConverter.parseBase64Binary(base64);
-                    FileOutputStream out = new FileOutputStream(pathArchivo);
-                    out.write(dataBytes);
-                    out.close();*/
-            String rutaBD = host + "/files" + conext + "/" + nombreArchivo;
+            directorio.renameTo(newFile);
+
+            try {
+                FileOutputStream fileOutputStream = new FileOutputStream(pathArchivo);
+                byte[] buffer = new byte[6124];
+                int bulk;
+                while (true) {
+                    bulk = inputStream.read(buffer);
+                    if (bulk < 0) {
+                        break;
+                    }
+                    fileOutputStream.write(buffer, 0, bulk);
+                    fileOutputStream.flush();
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+
+            /*System.out.println("Ruta: " + pathArchivo);
+            FileOutputStream out = new FileOutputStream(pathArchivo);
+            out.write(data);
+            out.close();*/
+            String rutaBD = host + "/files" + context + "/" + carpeta + nombreArchivo;
             recurso.setRuta(rutaBD);
-
             return true;
         } catch (IOException e) {
             conex.setMessage(e.getMessage());
@@ -72,8 +93,34 @@ public class RecursoDAO {
         return false;
     }
 
+    public boolean renombrarArchivo() {
+        try {
+            String carpeta = "recursosDiscapacidades/";
+            relativePath += carpeta;
+            String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
+            String tipoArchivo;
+            int indx = file.getName().lastIndexOf(".");
+            tipoArchivo = file.getName().substring(indx);
+            nombreArchivo += tipoArchivo;
+            //directorio = new File(pathArchivo);
+            //filePart.writeTo(directorio);
+            //directorio = new File(relativePath + filePart.getFileName());
+            String pathArchivo = relativePath + nombreArchivo;
+            File newFile = new File(pathArchivo);
+
+            file.renameTo(newFile);
+            String rutaBD = host + "/files" + context + "/" + carpeta + nombreArchivo;
+            recurso.setRuta(rutaBD);
+            return true;
+        } catch (Exception e) {
+            conex.setMessage(e.getMessage());
+        }
+
+        return false;
+    }
+
     public boolean insert() {
-        if (guardarArchivo()) {
+        if (renombrarArchivo()) {
             //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
             String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s','%b');",
                     recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
@@ -101,7 +148,7 @@ public class RecursoDAO {
     }
 
     public boolean update() {
-        if (guardarArchivo()) {
+        if (renombrarArchivo()) {
             String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s');",
                     recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
                     recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.isEstado());
@@ -329,12 +376,12 @@ public class RecursoDAO {
         this.host = host;
     }
 
-    public String getConext() {
-        return conext;
+    public String getContext() {
+        return context;
     }
 
-    public void setConext(String conext) {
-        this.conext = conext;
+    public void setContext(String context) {
+        this.context = context;
     }
 
     public FilePart getFilePart() {
@@ -343,6 +390,22 @@ public class RecursoDAO {
 
     public void setFilePart(FilePart filePart) {
         this.filePart = filePart;
+    }
+
+    public InputStream getInputStream() {
+        return inputStream;
+    }
+
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
     }
 
 }

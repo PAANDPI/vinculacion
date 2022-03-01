@@ -10,7 +10,9 @@ import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.MultipartParser;
 import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.logging.Level;
@@ -26,6 +28,10 @@ import model.Recurso;
  * @author Arialdo
  */
 public class RecursoSrv extends HttpServlet {
+
+    FilePart filePart;
+    InputStream inputStream;
+    File file;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -119,8 +125,6 @@ public class RecursoSrv extends HttpServlet {
         }
     }
 
-    FilePart filePart;
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -175,6 +179,8 @@ public class RecursoSrv extends HttpServlet {
                 recurso.setEstado(true);
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
 
+                //String carpeta = "recursosDiscapacidades/";
+
                 String relativePath = getServletContext().getRealPath("").replace("\\", "/");
                 String context = (getServletContext().getContextPath());
                 int indx1 = relativePath.indexOf(context);
@@ -182,10 +188,22 @@ public class RecursoSrv extends HttpServlet {
                 relativePath += "/files" + context + "/";
                 recursoDAO.setRelativePath(relativePath);
                 System.out.println("Ruta: " + recursoDAO.getRelativePath());
-                recursoDAO.setConext(context);
+                recursoDAO.setContext(context);
 
-                recursoDAO.setFilePart(getFilePart());
+                /*String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
 
+                //recursoDAO.setFilePart(filePart);
+                //recursoDAO.setInputStream(inputStream);
+                String pathArchivo = relativePath + nombreArchivo;
+                File newFile = new File(pathArchivo);
+
+                file.renameTo(newFile);
+                recursoDAO.setFile(file);
+
+                String rutaBD = recursoDAO.getHost() + "/files" + context + "/" + carpeta + nombreArchivo;
+                recurso.setRuta(rutaBD);
+*/
+                recursoDAO.setFile(file);
                 recursoDAO.setHost(map.get("host").toString());
                 response.setContentType("text/json;charset=UTF-8");
                 try (PrintWriter out = response.getWriter()) {
@@ -257,7 +275,7 @@ public class RecursoSrv extends HttpServlet {
                 recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
                 recurso.setIdRecurso(Integer.parseInt(map.get("idrecurso").toString()));
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
-                
+
                 String relativePath = getServletContext().getRealPath("").replace("\\", "/");
                 String context = (getServletContext().getContextPath());
                 int indx1 = relativePath.indexOf(context);
@@ -265,10 +283,11 @@ public class RecursoSrv extends HttpServlet {
                 relativePath += "/files" + context + "/";
                 recursoDAO.setRelativePath(relativePath);
                 System.out.println("Ruta: " + recursoDAO.getRelativePath());
-                recursoDAO.setConext(context);
+                recursoDAO.setContext(context);
+                recursoDAO.setFile(file);
 
                 recursoDAO.setHost(map.get("host").toString());
-                recursoDAO.setFilePart(getFilePart());
+                recursoDAO.setFilePart(filePart);
                 response.setContentType("text/json;charset=UTF-8");
                 try (PrintWriter out = response.getWriter()) {
                     String retorno = "{\n\t";
@@ -400,7 +419,64 @@ public class RecursoSrv extends HttpServlet {
                     ParamPart paramPart = (ParamPart) part;
                     map.put(part.getName(), paramPart.getStringValue());
                 } else if (part.isFile()) {
-                    setFilePart((FilePart) part);
+                    filePart = (FilePart) part;
+                    /*inputStream = filePart.getInputStream();*/
+                    String relativePath = getServletContext().getRealPath("").replace("\\", "/");
+                    String context = (getServletContext().getContextPath());
+                    int indx1 = relativePath.indexOf(context);
+                    relativePath = relativePath.substring(0, indx1);
+                    relativePath += "/files" + context + "/recursosDiscapacidades/";
+                    file = new File(relativePath);
+                    System.out.println(file.getAbsolutePath());
+                    System.out.println(file.getAbsoluteFile());
+                    System.out.println(file.getPath());
+
+                    if (!file.exists()) {
+                        if (file.mkdirs()) {
+                            System.out.println("Directorio creado");
+                        } else {
+                            System.out.println("Error al crear directorio");
+                        }
+                    }
+
+                    filePart.writeTo(file);
+
+                    file = new File(relativePath + filePart.getFileName());
+
+                    //setFilePart((FilePart) part);
+
+                    /*try {
+                        File directorio = new File(relativePath + "recursosDiscapacidades/");
+                        if (!directorio.exists()) {
+                            if (directorio.mkdirs()) {
+                                System.out.println("Directorio creado");
+                            } else {
+                                System.out.println("Error al crear directorio");
+                            }
+                        }
+                        String nombreArchivo = "recursosDiscapacidades/" + recurso.getRecurso() + System.currentTimeMillis();
+                        String tipoArchivo;
+                        int indx = filePart.getFileName().lastIndexOf(".");
+                        tipoArchivo = filePart.getFileName().substring(indx);
+                        nombreArchivo += tipoArchivo;
+                        String pathArchivo = relativePath + nombreArchivo;
+                        directorio = new File(pathArchivo);
+                        filePart.writeTo(directorio);
+
+                        /*String pathArchivo = relativePath + nombreArchivo;
+                    System.out.println("Ruta: " + pathArchivo);
+                    byte[] dataBytes = DatatypeConverter.parseBase64Binary(base64);
+                    FileOutputStream out = new FileOutputStream(pathArchivo);
+                    out.write(dataBytes);
+                    out.close();*//*
+            String rutaBD = host + "/files" + conext + "/" + nombreArchivo;
+            recurso.setRuta(rutaBD);
+                
+                        return true;
+                    } catch (IOException e) {
+                        conex.setMessage(e.getMessage());
+                    }
+                     */
                 }
             }
         } catch (IOException ex) {
@@ -408,14 +484,6 @@ public class RecursoSrv extends HttpServlet {
                     .getName()).log(Level.SEVERE, null, ex);
         }
         return map;
-    }
-
-    private void setFilePart(FilePart filePart) {
-        this.filePart = filePart;
-    }
-
-    private FilePart getFilePart() {
-        return filePart;
     }
 
     /**
