@@ -120,6 +120,55 @@ public class RecursoSrv extends HttpServlet {
                 }
                 break;
             }
+             case 4: {
+                String discapacidad = request.getParameter("txtDiscapacidad");
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSONNombre(discapacidad);
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
+            }
+             case 5: {
+                String recurso = request.getParameter("txtDiscapacidad");
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSORecurso(recurso);
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
+            }
+              case 6: {
+                int idCategoria = Integer.parseInt(request.getParameter("cmbCategoria"));
+                String recurso = request.getParameter("txtDiscapacidad");
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSONFiltro(recurso,idCategoria);
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
+            }
             default:
                 break;
         }
@@ -169,18 +218,12 @@ public class RecursoSrv extends HttpServlet {
             case 1: {
                 Recurso recurso = new Recurso();
                 recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
-
                 recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
                 recurso.setDescripcion(map.get("descripcion").toString());
-
                 recurso.setEtiquetas(map.get("etiquetas").toString());
-
                 recurso.setRecurso(map.get("recurso").toString());
                 recurso.setEstado(true);
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
-
-                //String carpeta = "recursosDiscapacidades/";
-
                 String relativePath = getServletContext().getRealPath("").replace("\\", "/");
                 String context = (getServletContext().getContextPath());
                 int indx1 = relativePath.indexOf(context);
@@ -189,20 +232,6 @@ public class RecursoSrv extends HttpServlet {
                 recursoDAO.setRelativePath(relativePath);
                 System.out.println("Ruta: " + recursoDAO.getRelativePath());
                 recursoDAO.setContext(context);
-
-                /*String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
-
-                //recursoDAO.setFilePart(filePart);
-                //recursoDAO.setInputStream(inputStream);
-                String pathArchivo = relativePath + nombreArchivo;
-                File newFile = new File(pathArchivo);
-
-                file.renameTo(newFile);
-                recursoDAO.setFile(file);
-
-                String rutaBD = recursoDAO.getHost() + "/files" + context + "/" + carpeta + nombreArchivo;
-                recurso.setRuta(rutaBD);
-*/
                 recursoDAO.setFile(file);
                 recursoDAO.setHost(map.get("host").toString());
                 response.setContentType("text/json;charset=UTF-8");
@@ -270,7 +299,6 @@ public class RecursoSrv extends HttpServlet {
                 recurso.setDescripcion(map.get("descripcion").toString());
                 recurso.setEtiquetas(map.get("etiquetas").toString());
                 recurso.setEstado(true);
-                recurso.setRuta(map.get("ruta").toString());
                 recurso.setIdCategoriaRecurso(Integer.parseInt(map.get("idcategoriarecurso").toString()));
                 recurso.setIdDiscapacidad(Integer.parseInt(map.get("iddiscapacidad").toString()));
                 recurso.setIdRecurso(Integer.parseInt(map.get("idrecurso").toString()));

@@ -45,7 +45,7 @@
                             <a class="nav-link btn mr-3 botones  mt-3  p-1 blanco"  href="aplicaciones.jsp"> <span></span>  Otras aplicaciones </a>
                         </li> 
                          <li class="nav-item "> 
-                              <a class="nav-link btn mr-3 botones  mt-3  p-1 blanco"  href="enlaces.jsp"> <span></span>Recursos </a>
+                             <a class="nav-link btn mr-3 botones  mt-3  p-1 blanco"  href="recursos.jsp"> <span></span>Recursos </a>
                         </li>
                         <li class="nav-item "> 
                             <a class="nav-link btn mr-3 botones  mt-3  p-1 blanco"  href="capacitaciones.jsp"> <span></span>  Capacitaciones impartidas </a>

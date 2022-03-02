@@ -18,7 +18,7 @@ public class Conexion {
     private boolean state;
     private String message;
 
-    private String url = "jdbc:postgresql://190.15.134.7:8080/vinculacion";
+    private String url = "jdbc:postgresql://190.15.134.7:7070/vinculacion";
     private String usuario = "appdist";
     private String clave = "@Aplicaciones@Distribuidas@2021";
     /*private String usuario = "appdist";

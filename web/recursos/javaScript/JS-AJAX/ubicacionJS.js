@@ -326,9 +326,7 @@ function tbl_Lugares()
                                                     <button type="button" onclick="eliminiarUbicacion(${jsonUbicaciones[i].idlugar})" class="btn btn-danger btn-sm bi bi-trash"> Eliminar</button>  
 
                                                 </div>
-                                                   <div class="col-lg-2">
-                                                     <button style="border-radius: 70px 20px 70px 20px;" onclick="verUbicacion(${jsonUbicaciones[i].idlugar})" type="button" class="ti btn btn-success bi bi-compass btn-sm "> ver</button>
-                                                  </div>
+                                                   
                                               </div>
                                             </div>
                                           </div>

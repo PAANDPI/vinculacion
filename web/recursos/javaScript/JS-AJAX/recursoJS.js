@@ -55,28 +55,7 @@ function tbl_recursos()
                 var etiquetas = jsonRecursos.Recurso[i].etiquetas;
                 var estado = jsonRecursos.Recurso[i].estado;
                 var ruta = jsonRecursos.Recurso[i].ruta;
-                var url = `recursos/iconos/iconos recuros/archivo.png`;
-                if (categoriarecurso === "Archivos")
-                {
-                    url = `recursos/iconos/iconos recuros/archivo.png`;
-                } else if (categoriarecurso === "Videos")
-                {
-                    url = `recursos/iconos/iconos recuros/video.png`;
-                } else if (categoriarecurso === "musica")
-                {
-                    url = `recursos/iconos/iconos recuros/musica.png`;
-                } else if (categoriarecurso === "Imagenes")
-                {
-                    url = `recursos/iconos/iconos recuros/imagen.png`;
-                } else if (categoriarecurso === "Audio")
-                {
-                    url = `recursos/iconos/iconos recuros/audio.png`;
-                } else
-                {
-                    url = `recursos/iconos/iconos recuros/todo.png`;
-                }
-
-
+                var url = `https://img.icons8.com/color/48/000000/folder-invoices--v1.png`;
                 htmlTabla += `<tr>
                                     <th>
                                         <div  id="cardRecurso${idrecurso}" class="card" style="border: 1px solid #c4c4c4;  " role="alert">
@@ -90,16 +69,17 @@ function tbl_recursos()
                                                         <div class="row">
                                                                     <div class="col-lg-4">
                                                                          <h6><b>Categoria:</b> ${categoriarecurso}</h6>
-                                                                         <h6><b>Discapacidad:</b> ${discapacidad}</h6>
-                                                                         
+                                                                                                                                             
                                                                     </div>
                                                                     <div class="col-lg-4">
-                                                                        <h6><b>Estado:</b> ${estado}</h6> 
+                                                                         <h6><b>Discapacidad:</b> ${discapacidad}</h6>    
+                                                                    </div>
+                                                                    <div class="col-lg-4">
                                                                          <h6> <b>Etiquetas: </b> ${etiquetas}</h6>
                                                                     </div> 
                                                                         <div class="col-lg-12">
                                                                           <b>Descripción:</b>
-                                                                          <p>${descripcion}</p>
+                                                                          <p style="font-style: normal; font-weight:normal;" >${descripcion}</p>
                                                                         </div>
                                                         </div>
                                                         <hr>
@@ -193,7 +173,6 @@ $(document).ready(function () {
     });
     $('#btn_modificarRecurso').click(function () {
         var ruta = base64;
-        console.log(base64);
         var idcategoriarecurso = document.getElementById("cmb-categoria").value;
         var iddiscapacidad = document.getElementById("cmb-discapacidad").value;
         var recurso = document.getElementById("txtRecurso").value;
@@ -205,21 +184,11 @@ $(document).ready(function () {
         var frmData = new FormData();
         var datosM;
         if (checkArchivo) {
-//            datos =
-//                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
-//                        "iddiscapacidad": iddiscapacidad,
-//                        "recurso": recurso,
-//                        "descripcion": descripcion,
-//                        "etiquetas": etiquetas,
-//                        "estado": "true",
-//                        "accion": 4,
-//                        "ruta": ruta,
-//                        "host": window.location.protocol + '//' + window.location.host
-//                    };
 
             ruta = document.querySelector('#formFile').files[0]
 
             frmData.append('idrecurso', idRecursoMod);
+           
             frmData.append('idcategoriarecurso', idcategoriarecurso);
             frmData.append('iddiscapacidad', iddiscapacidad);
             frmData.append('recurso', recurso);
@@ -228,19 +197,11 @@ $(document).ready(function () {
             frmData.append('estado', true);
             frmData.append('accion', 4);
             frmData.append('host', window.location.protocol + '//' + window.location.host);
-            frmData.append('archivo', file);
+            frmData.append('ruta', ruta);
+
 
         } else if (checkEnlace) {
-//            datos =
-//                    {"idrecurso": idRecursoMod, "idcategoriarecurso": idcategoriarecurso,
-//                        "iddiscapacidad": iddiscapacidad,
-//                        "recurso": recurso,
-//                        "descripcion": descripcion,
-//                        "etiquetas": etiquetas,
-//                        "estado": "false",
-//                        "accion": 5,
-//                        "ruta": document.getElementById("txtEnlace").value
-//                    };
+
             ruta = document.getElementById("txtEnlace").value;
 
             frmData.append('idrecurso', idRecursoMod);
@@ -254,19 +215,17 @@ $(document).ready(function () {
             frmData.append('ruta', ruta);
 
         }
-        if (datos.idrecurso.length > 0 &&
-                datos.idcategoriarecurso.length > 0 &&
-                datos.iddiscapacidad.length > 0 &&
-                datos.recurso.length > 0 &&
-                datos.descripcion.length > 0 &&
-                datos.etiquetas.length > 0 &&
-                datos.ruta.length > 0
-                )
+        if (ruta && idcategoriarecurso.length > 0 && idRecursoMod.length &&
+                iddiscapacidad.length > 0 && recurso.length > 0 &&
+                descripcion.length > 0 && etiquetas.length > 0)
         {
+
             $.ajax({
                 method: "POST",
                 url: "RecursoSrv",
-                data: datos,
+                data: frmData,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     alerta("Archivo guardado con exito", "success");
                     tbl_recursos();
@@ -298,19 +257,7 @@ function guardarRecurso() {
     var frmData = new FormData();
     console.log(base64);
     if (checkArchivo) {
-        /*datos =
-         {"idcategoriarecurso": idcategoriarecurso,
-         "iddiscapacidad": iddiscapacidad,
-         "recurso": recurso,
-         "descripcion": descripcion,
-         "etiquetas": etiquetas,
-         "estado": "true",
-         "accion": 1,
-         "ruta": ruta,
-         "host": window.location.protocol + '//' + window.location.host
-         };*/
         ruta = document.querySelector('#formFile').files[0]
-
         frmData.append('idcategoriarecurso', idcategoriarecurso);
         frmData.append('iddiscapacidad', iddiscapacidad);
         frmData.append('recurso', recurso);
@@ -322,16 +269,6 @@ function guardarRecurso() {
         frmData.append('ruta', ruta);
 
     } else if (checkEnlace) {
-        /*datos =
-         {"idcategoriarecurso": idcategoriarecurso,
-         "iddiscapacidad": iddiscapacidad,
-         "recurso": recurso,
-         "descripcion": descripcion,
-         "etiquetas": etiquetas,
-         "estado": "false",
-         "accion": 2,
-         "ruta": document.getElementById("txtEnlace").value
-         };*/
         ruta = document.getElementById("txtEnlace").value;
         frmData.append('idcategoriarecurso', idcategoriarecurso);
         frmData.append('iddiscapacidad', iddiscapacidad);
@@ -431,10 +368,11 @@ function eliminarRecurso(x) {
 var modRecurso = false;
 var idRecursoMod;
 var anterio = "";
+var rutaSeleccionador="";
 function seleccionarRecurso(x) {
-
+    idRecursoMod = x;
     if (anterio.length > 0) {
-        var card = document.getElementById("cardRecurso" + x);
+        var card = document.getElementById("cardRecurso" + anterio);
         card.className = "card"
     }
     document.getElementById("cardRecurso" + x).className = "card text-white cajas bg-primary"
@@ -450,9 +388,11 @@ function seleccionarRecurso(x) {
             $('#txtRecurso').val(i.recurso);
             $('#txt-descripcionRecurso').val(i.descripcion);
             $('#txt-etiquetaa').val(i.etiquetas);
+           
             if (estado == "true") {
                 document.getElementById('checkArchivo').click();
-                $('#formFile').val(i.ruta);
+                 rutaSeleccionador= i.ruta;
+//                $('#formFile').val(i.ruta);
             } else {
                 document.getElementById('checkEnlace').click();
                 $('#txtEnlace').val(i.ruta);
@@ -470,21 +410,3 @@ function BotonCancelar() {
     $('#btn_modificarRecurso').hide("slow");
 }
 
-/*
- $('#frm').submit(function (e) {
- e.preventDefault();
- var frmData = new FormData(document.getElementById('frm'));
- frmData.append('host', window.location.protocol + '//' + window.location.host);
- frmData.append('accion', 1);
- $.ajax({
- url: "RecursoSrv",
- type: "POST",
- data: frmData,
- processData: false,
- contentType: false,
- success: function (data) {
- alert("ok");
- console.log(data);
- }
- }); //end ajax
- });*/

@@ -137,7 +137,7 @@ public class ConceptoDAO {
         if (conex.isState()) {
             try {
                  String sql = String.format("SELECT * FROM vwConcepto\n"
-                        + "WHERE Discapacidad ILIKE '%s%%';",
+                        + "where unaccent(UPPER(discapacidad)) LIKE unaccent(UPPER('%s%%'));",
                         discapacidad);
                 ResultSet result = conex.returnQuery(sql);
                 while (result.next()) {

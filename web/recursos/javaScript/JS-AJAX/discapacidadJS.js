@@ -5,7 +5,7 @@ var jsonInformacionExtraDiscapacidades;
 var nConceptos = 0;
 var IdDiscapacidad = -1;
 var anterio = "";
-var actual="";
+var actual = "";
 $(document).ready(function () {
 
     informacionExtreDiscapacidad();
@@ -14,7 +14,7 @@ $(document).ready(function () {
     $('#btnGuardarDiscapacidad').on('click', function () {
         var idCategoriaDiscapacidad = document.getElementById("cmbIdCategoriDiscapacidad").value;
         var nombreDiscapacidad = document.getElementById("txtNombreDiscapacidad").value;
-
+       
         if (idCategoriaDiscapacidad.length > 0 && nombreDiscapacidad.length > 0)
         {
 
@@ -329,7 +329,7 @@ function labelZoom() {
 }
 function seleccionarDiscapacidad(idDiscapacidad) {
 
-    actual=idDiscapacidad;
+    actual = idDiscapacidad;
 
     if (anterio.length > 0) {
         var btnAux = document.getElementById("d" + anterio);
@@ -367,7 +367,7 @@ function seleccionarDiscapacidad(idDiscapacidad) {
                                 </div>
                             </div>
                         </div>`;
-                
+
                 contenedor.innerHTML = html;
                 pag.innerHTML = 1;
                 numero.innerHTML = jsonConceptos.Concepto.length;
@@ -377,11 +377,11 @@ function seleccionarDiscapacidad(idDiscapacidad) {
 
             } catch (e)
             {
-                
+
                 $("#btnAnterio").attr("disabled", true);
-                $("#btnSiguiente").attr("disabled", true);                
+                $("#btnSiguiente").attr("disabled", true);
                 pag.innerHTML = "#";
-                numero.innerHTML = "#";                
+                numero.innerHTML = "#";
                 html = `<div class="card p-5 justify-content-center" style="width:100%; height: 80vh; overflow-y:auto;  ">  
                            
                             <div class="alert alert-danger m-auto" style="width: 50%">    
@@ -426,8 +426,8 @@ function eliminarConcepto(idConcepto) {
                 data: {"idconcepto": idConcepto, "accion": "3"},
                 success: function (data) {
 
-                  Swal.fire({text: "Concepto eliminado con exito", icon: "success"});
-                  seleccionarDiscapacidad(actual);
+                    Swal.fire({text: "Concepto eliminado con exito", icon: "success"});
+                    seleccionarDiscapacidad(actual);
                 },
                 error: function (error) {
                     console.log(error);
@@ -436,7 +436,7 @@ function eliminarConcepto(idConcepto) {
 
                 }
             });
-           
+
         }
     });
 

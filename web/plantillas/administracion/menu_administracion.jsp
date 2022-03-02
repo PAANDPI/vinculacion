@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg  navbar-dark bg-dark sombra1 color_base"   >
-    <a class="navbar-brand" style="position: relative; left: 10%" href="#">
-        <img class="p-0" width="55" height="50" src="recursos/imagenes/sin_letras.png" alt=""/>
+    <a class="navbar-brand font-weight-bold bi bi-paperclip" style="position: relative; left: 10%" href="../../index.jsp">        
+                  Administración Yuyapuy
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
             </li>
 
             <li class="nav-item " >
-                <button type="button" id="btnCerrarSession" class="btn nav-link blanco efector_barra bi bi-box-arrow-left" >   Salir</button>
+                <button type="button" id="btnCerrarSession" class="btn nav-link blanco efector_barra bi bi-box-arrow-left font-weight-bold" >   Salir</button>
             </li>
 
 

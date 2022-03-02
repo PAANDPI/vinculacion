@@ -54,7 +54,7 @@
             response.sendRedirect("login.jsp");
             }%>  
 
-    <body class="" style="background:#E2E2E5 ">        
+    <body class="" style="background:#E2E2E5;">        
         <%
             if (validador) { %> <%@include  file="plantillas/administracion/menu_administracion.jsp" %> <% } else {  %> 
         <%@include  file="plantillas/administracion/menu_noAdministrador.jsp"%>

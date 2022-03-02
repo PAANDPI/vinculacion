@@ -14,6 +14,7 @@
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
+         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Recursos</title>
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">        

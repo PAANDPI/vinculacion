@@ -102,12 +102,8 @@ public class RecursoDAO {
             int indx = file.getName().lastIndexOf(".");
             tipoArchivo = file.getName().substring(indx);
             nombreArchivo += tipoArchivo;
-            //directorio = new File(pathArchivo);
-            //filePart.writeTo(directorio);
-            //directorio = new File(relativePath + filePart.getFileName());
             String pathArchivo = relativePath + nombreArchivo;
             File newFile = new File(pathArchivo);
-
             file.renameTo(newFile);
             String rutaBD = host + "/files" + context + "/" + carpeta + nombreArchivo;
             recurso.setRuta(rutaBD);
@@ -120,8 +116,7 @@ public class RecursoDAO {
     }
 
     public boolean insert() {
-        if (renombrarArchivo()) {
-            //tutor.setIdTutor(Integer.parseInt(conex.getValue("SELECT COALESCE((MAX(idTutor)+1),1) FROM Tutor", 1)));
+        if (renombrarArchivo()) { 
             String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s','%b');",
                     recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
                     recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta(), Boolean.TRUE);
@@ -149,9 +144,9 @@ public class RecursoDAO {
 
     public boolean update() {
         if (renombrarArchivo()) {
-            String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s');",
+            String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s','%b');",
                     recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
-                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.isEstado());
+                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(),recurso.getRuta(), recurso.isEstado());
 
             if (conex.isState()) {
                 return conex.execute(sql);
@@ -240,7 +235,91 @@ public class RecursoDAO {
         json += "]";
         return json;
     }
-
+     public String getVW2JSONFiltro( String recurso,int idCategoriaRecurso) {
+        String json = "\"Recurso\" : [";
+        String a = "\\";
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso WHERE idcategoriarecurso=" + idCategoriaRecurso + " and recurso ILIKE '" + recurso + "%' ORDER by idrecurso desc;;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
+                    json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+     public String getVW2JSONNombre(String discapacidad) {
+        String json = "\"Recurso\" : [";
+        String a = "\\";
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso WHERE unaccent(UPPER(discapacidad)) LIKE unaccent(UPPER('" + discapacidad + "%')) ORDER by idrecurso desc;;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
+                    json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+    public String getVW2JSORecurso(String recurso) {
+        String json = "\"Recurso\" : [";
+        String a = "\\";
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso WHERE unaccent(UPPER(recurso)) LIKE unaccent(UPPER('" + recurso + "%')) ORDER by idrecurso desc;;");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
+                    json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                    json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+      
     public String getVW2JSON() {
         String json = "\"Recurso\" : [";
         String a = "\\";

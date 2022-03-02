@@ -143,7 +143,7 @@
         .setLatLng(e.latlng) // Sets the geographical point where the popup will open.
         .setContent("Has hecho click en la coordenada:<br> " +  e.latlng.lat.toString() + "," +  e.latlng.lng.toString()) // Sets the HTML content of the popup.
         .openOn(map); // Adds the popup to the map and closes the previous one. 
-         swal(e.latlng.lng.toString()+" "+e.latlng.lat.toString());
+         Swal.fire(e.latlng.lng.toString()+" "+e.latlng.lat.toString());
          btnCerrar_modal_mapa;
          document.getElementById("txt-coordenadaX").value=e.latlng.lat.toString();
          document.getElementById("txt-coordenadaY").value=e.latlng.lng.toString(); 
