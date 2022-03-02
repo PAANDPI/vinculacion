@@ -45,13 +45,13 @@
                         <input  class="form-control form-control-sm" maxlength="50" type="text" placeholder="Limite de 50 caracteres para el correo" id="txtCorreo" >
                     </div>                  
                     <div class="form-group">
-                        <label class="font-weight-bold">Nombre de usuario</label>
+                        <label class="font-weight-bold">Nombre de usuario *</label>
                         <input id="txtNombreUsuario"  maxlength="25"class="form-control form-control-sm"  placeholder="Limite de 25 caracteres para el nombre de usuario" type="text"  >
                     </div> 
                     <div id="contenedorClaves" class="form-group">
-                        <label class="font-weight-bold" >Contraseña</label>
+                        <label class="font-weight-bold" >Contraseña *</label>
                         <input  class="form-control form-control-sm" maxlength="30"  placeholder="Limite de 80 caracteres para la contraseña" type="password" id="txtContrasenia" >
-                        <label class="font-weight-bold">Confirmar contraseña</label>
+                        <label class="font-weight-bold">Confirmar contraseña *</label>
                         <input  class="form-control form-control-sm" maxlength="30"  type="password" id="txtConfirmarContrasenia" >
                     </div>                     
                     <hr>  

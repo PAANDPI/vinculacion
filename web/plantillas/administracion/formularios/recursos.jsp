@@ -19,19 +19,19 @@
                 <div class="p-4 barra-colores " style="height: 100vh;max-height: 75vh;overflow-y: auto; background:white; border: 1px solid #c4c4c4; border-radius: 0px 0px 10px 10px">
 
                     <div class="form-group">
-                        <label class="font-weight-bold">Seleccionar categoría</label>
+                        <label class="font-weight-bold">Seleccionar categoría *</label>
                         <select  class=" form-control form-control-sm" id="cmb-categoria">
                             <option style="font-size: 16px">Física</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Seleccionar discapacidad</label>
+                        <label class="font-weight-bold">Seleccionar discapacidad *</label>
                         <select  class=" form-control form-control-sm" id="cmb-discapacidad">
                         </select>
                     </div>
 
                     <div class="">     
-                        <label class="font-weight-bold">Seleccionar tipo de recurso</label>                        
+                        <label class="font-weight-bold">Seleccionar tipo de recurso *</label>                        
                     </div>
 
                     <fieldset>                    
@@ -46,11 +46,11 @@
                     </fieldset>
 
                     <div id="enlaceC" class="mb-3 mt-3">
-                        <label class="font-weight-bold">Enlace del recurso: </label>
+                        <label class="font-weight-bold">Enlace del recurso * </label>
                         <input type="text" class="form-control form-control-sm" id="txtEnlace">
                     </div>
                     <div id="fileC" class="mb-3 mt-3"> 
-                        <label class="font-weight-bold">Seleccione el archivo: </label>
+                        <label class="font-weight-bold">Seleccione el archivo * </label>
                         <div class="custom-file">
                             <input type="file" class=" " id="formFile" >
                             
@@ -59,15 +59,15 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="font-weight-bold">Nombre del recurso: </label>
+                        <label class="font-weight-bold">Nombre del recurso * </label>
                         <input type="text" class="form-control form-control-sm" maxlength="25" placeholder="Limite de 75 caracteres para el nombre del recurso" id="txtRecurso">
                     </div>
                     <div class="form-group">
-                        <label class="font-weight-bold">Descripción</label>
+                        <label class="font-weight-bold">Descripción *</label>
                         <textarea  style="height: 100px" class="form-control form-control-sm" type="text" id="txt-descripcionRecurso"></textarea>                                                                    
                     </div>  
                     <div class="form-group">
-                        <label class="font-weight-bold">Etiqueta</label>
+                        <label class="font-weight-bold">Etiqueta *</label>
                         <input  class="form-control form-control-sm" type="text" id="txt-etiquetaa" >
                     </div> 
 
