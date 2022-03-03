@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div class="col-lg-12" id="formulario-conceptos">
-    <div style="max-width: 100%"  class="row pl-4  pt-3 pb-3">
+    <div style="max-width: 100%"  class="row pl-4  pt-3 ">
         <div  class="col-lg-5 pl-2 pr-2">
             <div class="row">
                 <div class="col-lg-2">
@@ -53,7 +53,7 @@
             <div class="row ">
                 <div class="col-lg-12">
                     <div id="containerConceptos" class="barra-colores "
-                         style="height: 80vh;">                        
+                         style="height: auto;">                        
                         <div class="card p-5  justify-content-center" style="width:100%; height: 75vh; overflow-y:auto; background:white; border-radius: 10px; ">                                                     
                             <div class="alert  alert-info m-auto" style="width: 50%">    
                                 <span class="bi bi-info-circle-fill" style="font-size: 25px"> Precaución</span>

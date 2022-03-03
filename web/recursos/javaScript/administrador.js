@@ -27,7 +27,8 @@ $(document).ready(function () {
         $('#formulario-persona').hide();
         $('#formulario-ubicaciones').hide();
         $('#formulario-Mi-información').hide();
-          $('#formulario-recursos').hide();
+        $('#formulario-recursos').hide();
+        informacionExtreDiscapacidad();
     });
 
     $("#btnUbicaciones").click(function () {

@@ -236,12 +236,13 @@ function eliminarDiscapacidad(idDiscapacidad) {
                                 Swal.fire({text: "Discapacidad eliminada", icon: "success"});
 
                                 cargarDiscapacidades();
+                                
                                 informacionExtreDiscapacidad();
 
                             },
                             error: function (error) {
                                 console.log(error);
-
+                                informacionExtreDiscapacidad();
                                 Swal.fire({text: "No se pudo eliminar la discapacidad", icon: "error"});
 
                             }
@@ -428,10 +429,11 @@ function eliminarConcepto(idConcepto) {
 
                     Swal.fire({text: "Concepto eliminado con exito", icon: "success"});
                     seleccionarDiscapacidad(actual);
+                    informacionExtreDiscapacidad();
                 },
                 error: function (error) {
                     console.log(error);
-
+                    informacionExtreDiscapacidad();
                     Swal.fire({text: "No se pudo eliminar el concepto", icon: "error"});
 
                 }

@@ -90,6 +90,10 @@ $(document).ready(function () {
         $('#btn_guarda_lugar').show("2000");
         $('#btn_modUbicacion').hide();
         $('#btn_cancelarUbica').hide();
+        if (anteriorr.length > 0) {
+        var btnAux = document.getElementById("cardLugares" + anteriorr);
+        btnAux.className = "card cajas"
+    }
         Limpiar();
 
     });
@@ -118,10 +122,12 @@ $(document).ready(function () {
             {
                 console.log(data);
                 Limpiar();
-                 swal("La ubicacion a sido Modificada con exito", {
+                 Swal.fire("La ubicacion a sido Modificada con exito", {
                         icon: "success",
                     });
                 tbl_Lugares();
+                Limpiar();
+                 $('#btn_cancelarUbica').click();
             },
             error: function (error) {
                 console.log(error);
@@ -178,7 +184,7 @@ $(document).ready(function () {
 
 
 
-
+         tbl_Lugares();
 
 
 
@@ -210,7 +216,7 @@ function seleccionarUbicacion(idub) {
         var btnAux = document.getElementById("cardLugares" + anteriorr);
         btnAux.className = "card cajas"
     }
-    document.getElementById("cardLugares" + idub).className = "card text-white cajas bg-primary"
+    document.getElementById("cardLugares" + idub).className = "card text-white cajas bg-info"
     var idProv;
     for (var x of jsonUbicaciones) {
         if (idub == x.idlugar) {
@@ -270,10 +276,12 @@ function eliminiarUbicacion(id) {
                     Swal.fire("La ubicacion a sido eliminada", {
                         icon: "success",
                     });
+                    anteriorr = "";
                     tbl_Lugares();
                 },
                 error: function (error) {
                     console.log(error);
+                    tbl_Lugares();
                 }
             });
            

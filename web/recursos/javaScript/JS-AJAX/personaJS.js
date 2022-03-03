@@ -113,6 +113,10 @@ $(document).ready(function () {
         $('#btn_cancelar').hide("slow");
         $('#btn_modificarUsuario').hide("slow");
         $('#contenedorClaves').show("2000");
+        if (anterior.length > 0) {
+            var btnAux = document.getElementById("cardPersona" + anterior);
+            btnAux.className = "card";
+        }
         limpiar();
     });
     $('#btnGuardarUsuario').on('click', function () {
@@ -227,13 +231,41 @@ $(document).ready(function () {
                 txtCorreo.length * txtNombreUsuario.length * cmbCantones.length)
         if (validor > 0)
         {
-            if (seleccionado.txtCorreo != txtCorreo || seleccionado.txtNombreUsuario != txtNombreUsuario)
+            if (seleccionado.txtCorreo == txtCorreo && seleccionado.txtNombreUsuario == txtNombreUsuario)
             {
-                if (validarExistenciaUsuario())
-                {
-                    if (validarExistenciaEmail())
-                    {
+                 $.ajax({
+                            method: "POST",
+                            url: "PersonaSrv",
+                            data: datos,
+                            success: function (data) {
+                                alerta("Usuario Modificado correctamente:", "success");
+                                listadeUsuarios();
+                                limpiar();
+                                 $('#btn_cancelar').click()
+                            },
+                            error: function (error, ex) {
+                                console.log(error);
+                                console.log(ex);
+                                alerta("Algo salio mal:" + error, "error");
+                            }
+                        });
 
+            } else
+            {
+                var emailB = true;
+                var usuarioB = true;
+                if (seleccionado.txtCorreo != txtCorreo)
+                {
+                    emailB = validarExistenciaEmail()
+                }
+                if (seleccionado.txtNombreUsuario != txtNombreUsuario)
+                {
+                    usuarioB = validarExistenciaUsuario()
+                }
+                if (emailB)
+                {
+                    if (usuarioB)
+                    {
                         $.ajax({
                             method: "POST",
                             url: "PersonaSrv",
@@ -251,33 +283,13 @@ $(document).ready(function () {
                         });
                     } else
                     {
-                        alerta("Ya existe este correo", "info");
+                        alerta("usuario ya existe", "info")
                     }
                 } else
                 {
-                    alerta("Ya existe un usuario con este nombre", "info");
+                    alerta("email ya existe", "info")
                 }
-            } else
-            {
-                $.ajax({
-                    method: "POST",
-                    url: "PersonaSrv",
-                    data: datos,
-                    success: function (data) {
-                        alerta("Usuario Modificado correctamente:", "success");
-                        listadeUsuarios();
-                        limpiar();
-                    },
-                    error: function (error, ex) {
-                        console.log(error);
-                        console.log(ex);
-                        alerta("Algo salio mal:" + error, "error");
-                    }
-                });
             }
-
-
-
         } else
         {
             alerta("Complete todo los campos", "error");
@@ -320,7 +332,7 @@ function btnEditPersona(aux) {
         var btnAux = document.getElementById("cardPersona" + anterior);
         btnAux.className = "card"
     }
-    document.getElementById("cardPersona" + aux).className = "card text-white cajas bg-primary"
+    document.getElementById("cardPersona" + aux).className = "card text-white cajas bg-primary";
 
     idPersona = aux;
     console.log(jsonPersonas.Persona);
@@ -367,6 +379,7 @@ function deletePersona(id) {
                 {
                     console.log(data);
                     Swal.fire("La persona a sido eliminada correctamente", {icon: "success"});
+                    anterior="";
                     listadeUsuarios();
                 },
                 error: function (error) {

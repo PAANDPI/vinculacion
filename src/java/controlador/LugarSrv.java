@@ -122,6 +122,8 @@ public class LugarSrv extends HttpServlet {
                 String retorno = "{\n\t";
                 if (lugarD.delete()) {
                     retorno += "\"codigo\":200,\n";
+                    retorno += "\"mensaje\": \"" + lugarD.getMessage() + "\"\n";
+                    response.setStatus(response.SC_OK);
                 } else {
                     retorno += "\"codigo\":400,\n";
                     retorno += "\"mensaje\": \"" + lugarD.getMessage() + "\"\n";

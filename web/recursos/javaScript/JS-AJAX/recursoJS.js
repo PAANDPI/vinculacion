@@ -2,6 +2,7 @@ var formData;
 var base64;
 var jsonRecursos;
 tbl_recursos();
+BotonCancelar();
 const toBase64 = file => new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -102,6 +103,7 @@ function tbl_recursos()
             BotonCancelar();
         },
         error: function (error) {
+            document.getElementById("tbl_recursos").innerHTML="";
             console.log(error);
         }
     });
@@ -148,7 +150,6 @@ $(document).ready(function () {
 
         }
     });
-
     $("#buscadorRecursos").keyup(function () {
         _this = this;
         $.each($("#tblRecursos tbody tr"), function () {
@@ -230,6 +231,7 @@ $(document).ready(function () {
                     alerta("Archivo guardado con exito", "success");
                     tbl_recursos();
                     modRecurso = false;
+                    limpiar();
                 },
                 error: function (error) {
                     alerta("Algo salio mal al guardar el archivo", "error");
@@ -241,7 +243,20 @@ $(document).ready(function () {
 
     });
 });
-
+var html;
+traerCategoriaRecurso();
+var jsonCategoriaRecuros;
+var modRecurso = false;
+var idRecursoMod;
+var anterio = "";
+var rutaSeleccionador="";
+function limpiar() {      
+        $('#cmb-discapacidad').val('').prop('selectedIndex', 0);
+        $('#cmb-categoria').val('').prop('selectedIndex', 0);
+        $('#txtRecurso').val('');
+        $('#txt-descripcionRecurso').val('');
+        $('#txt-etiquetaa').val('');        
+    }
 function guardarRecurso() {
 
     var ruta = base64;
@@ -294,6 +309,7 @@ function guardarRecurso() {
                 alerta("Archivo guardado con exito", "success");
                 tbl_recursos();
                 modRecurso = false;
+                limpiar();
             },
             error: function (error) {
                 alerta("Algo salio mal al guardar el archivo", "error");
@@ -306,9 +322,6 @@ function guardarRecurso() {
 
 
 }
-var html;
-traerCategoriaRecurso();
-var jsonCategoriaRecuros;
 function traerCategoriaRecurso() {
 
     $.ajax({
@@ -357,18 +370,17 @@ function eliminarRecurso(x) {
                 success: function (data) {
                     alerta("Archivo Eliminado con exito", "success");
                     tbl_recursos();
+                    informacionExtreDiscapacidad();
+                    limpiar();
                 },
                 error: function (error) {
+                     tbl_recursos();
                     alerta("Algo salio mal al Eliminar el archivo", "error");
                 }
             });
         }
     });
 }
-var modRecurso = false;
-var idRecursoMod;
-var anterio = "";
-var rutaSeleccionador="";
 function seleccionarRecurso(x) {
     idRecursoMod = x;
     if (anterio.length > 0) {
