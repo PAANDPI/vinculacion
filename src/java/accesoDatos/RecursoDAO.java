@@ -1,8 +1,6 @@
 package accesoDatos;
 
-import com.oreilly.servlet.multipart.FilePart;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.ResultSet;
@@ -10,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Recurso;
+import jakarta.servlet.http.Part;
 
 /**
  *
@@ -23,7 +22,7 @@ public class RecursoDAO {
     private Conexion conex;
     private String json, relativePath, host, context;
 
-    FilePart filePart;
+    Part filePart;
     InputStream inputStream;
     File file;
 
@@ -51,18 +50,18 @@ public class RecursoDAO {
             }
             String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
             String tipoArchivo;
-            int indx = filePart.getFileName().lastIndexOf(".");
-            tipoArchivo = filePart.getFileName().substring(indx);
+            int indx = filePart.getContentType().lastIndexOf("/") + 1;
+            tipoArchivo = filePart.getName().substring(indx);
             nombreArchivo += tipoArchivo;
-            //directorio = new File(pathArchivo);
-            filePart.writeTo(directorio);
-            directorio = new File(relativePath + filePart.getFileName());
+            //directorio = new File(relativePath + filePart.getName());
             String pathArchivo = relativePath + nombreArchivo;
-            File newFile = new File(pathArchivo);
+            //directorio = new File(pathArchivo);
+            filePart.write(pathArchivo);
+            /*File newFile = new File(pathArchivo);
 
             directorio.renameTo(newFile);
 
-            try {
+            /*try {
                 FileOutputStream fileOutputStream = new FileOutputStream(pathArchivo);
                 byte[] buffer = new byte[6124];
                 int bulk;
@@ -116,7 +115,7 @@ public class RecursoDAO {
     }
 
     public boolean insert() {
-        if (renombrarArchivo()) { 
+        if (guardarArchivo()) {
             String sql = String.format("SELECT insertarrecurso(%d, %d, '%s','%s','%s','%s','%b');",
                     recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
                     recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta(), Boolean.TRUE);
@@ -146,7 +145,7 @@ public class RecursoDAO {
         if (renombrarArchivo()) {
             String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s','%b');",
                     recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
-                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(),recurso.getRuta(), recurso.isEstado());
+                    recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.getRuta(), recurso.isEstado());
 
             if (conex.isState()) {
                 return conex.execute(sql);
@@ -235,7 +234,8 @@ public class RecursoDAO {
         json += "]";
         return json;
     }
-     public String getVW2JSONFiltro( String recurso,int idCategoriaRecurso) {
+
+    public String getVW2JSONFiltro(String recurso, int idCategoriaRecurso) {
         String json = "\"Recurso\" : [";
         String a = "\\";
         if (conex.isState()) {
@@ -263,7 +263,8 @@ public class RecursoDAO {
         json += "]";
         return json;
     }
-     public String getVW2JSONNombre(String discapacidad) {
+
+    public String getVW2JSONNombre(String discapacidad) {
         String json = "\"Recurso\" : [";
         String a = "\\";
         if (conex.isState()) {
@@ -291,6 +292,7 @@ public class RecursoDAO {
         json += "]";
         return json;
     }
+
     public String getVW2JSORecurso(String recurso) {
         String json = "\"Recurso\" : [";
         String a = "\\";
@@ -319,7 +321,7 @@ public class RecursoDAO {
         json += "]";
         return json;
     }
-      
+
     public String getVW2JSON() {
         String json = "\"Recurso\" : [";
         String a = "\\";
@@ -463,11 +465,11 @@ public class RecursoDAO {
         this.context = context;
     }
 
-    public FilePart getFilePart() {
+    public Part getFilePart() {
         return filePart;
     }
 
-    public void setFilePart(FilePart filePart) {
+    public void setFilePart(Part filePart) {
         this.filePart = filePart;
     }
 
