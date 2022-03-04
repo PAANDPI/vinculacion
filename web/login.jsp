@@ -58,9 +58,13 @@
                             <div class="d-flex justify-content-center mt-3 ">
                                 <button id="btnIniciarSecion" type="button" name="button" class="btn btn-block login_btn" style="color: #fff">Iniciar Sesión</button>
                             </div>
-
+                                
+                            <div class="d-flex justify-content-center mt-3 ">
+                                <a href="index.jsp" style="border-radius: 50px;" class="btn btn-light btn-sm font-weight-bold float-right p-2"> <i class="bi bi-house-fill"></i>  Volver a menú</a>
+                            </div>
 
                         </form>
+                        
                     </div>
 
                     <div class="mt-4">

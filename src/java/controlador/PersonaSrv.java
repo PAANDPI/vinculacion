@@ -6,19 +6,24 @@
 package controlador;
 
 import accesoDatos.PersonaDAO;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Persona;
 
 /**
  *
  * @author Arialdo
  */
+@WebServlet(
+    name = "PersonaSrv", 
+    urlPatterns = {"/PersonaSrv"}
+)
 public class PersonaSrv extends HttpServlet {
 
     /**

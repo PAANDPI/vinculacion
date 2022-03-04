@@ -10,6 +10,7 @@ import com.oreilly.servlet.multipart.FilePart;
 import com.oreilly.servlet.multipart.MultipartParser;
 import com.oreilly.servlet.multipart.ParamPart;
 import com.oreilly.servlet.multipart.Part;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,16 +18,22 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 import model.Recurso;
 
 /**
  *
  * @author Arialdo
  */
+@WebServlet(
+    name = "RecursoSrv", 
+    urlPatterns = {"/ProvinciaSvr"}
+)
 public class RecursoSrv extends HttpServlet {
 
     FilePart filePart;
@@ -186,31 +193,7 @@ public class RecursoSrv extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        /*try (PrintWriter out = response.getWriter()) {
-            RecursoDAO recursoDAO = new RecursoDAO();
-
-            String relativePath = getServletContext().getRealPath("").replace("\\", "/");
-            String context = (getServletContext().getContextPath());
-            int indx1 = relativePath.indexOf(context);
-            relativePath = relativePath.substring(0, indx1);
-            relativePath += "/files" + context + "/";
-            recursoDAO.setRelativePath(relativePath);
-            System.out.println("Ruta: " + recursoDAO.getRelativePath());
-            recursoDAO.setConext(context);
-
-            
-
-            String retorno = "{\n\t";
-            if (recursoDAO.guardarArchivo()) {
-                response.setStatus(HttpServletResponse.SC_OK);
-            } else {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            }
-
-            retorno += "}";
-            out.write(retorno);
-        }*/
-        MultipartParser multipartParser = new MultipartParser(request, (1024 * 1024 * 20));
+        MultipartParser multipartParser = new MultipartParser((javax.servlet.http.HttpServletRequest) request, (1024 * 1024 * 20));
         multipartParser.setEncoding("UTF-8");
         HashMap map = multiPart2HashMap(multipartParser);
         int accion = Integer.parseInt(map.get("accion").toString());
@@ -240,6 +223,8 @@ public class RecursoSrv extends HttpServlet {
                     if (recursoDAO.insert()) {
                         response.setStatus(HttpServletResponse.SC_OK);
                     } else {
+                        retorno += "\"codigo\":400,\n";
+                        retorno += "\"mensaje\": \"" + recursoDAO.getMessage() + "\"\n";
                         response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                     }
                     retorno += "}";

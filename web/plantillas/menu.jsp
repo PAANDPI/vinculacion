@@ -11,23 +11,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto ">
             <li class="nav-item ">
-                <a class="nav-link btn mr-3 botones p-1" href="../yuyapuy/index.jsp"><span  class="bi bi-house"></span>  Inicio  </a>
+                <a class="nav-link btn mr-3 botones p-1 blanco" href="../yuyapuy/index.jsp"><span  class="bi bi-house"></span>  Inicio  </a>
+            </li>
+            
+            <li class="nav-item "> 
+                <a class="nav-link btn mr-3 botones p-1 blanco"  href="../yuyapuy/buscador.jsp"> <span class="bi bi-search"></span>  Buscador </a>
             </li>
             <li class="nav-item "> 
-                <a class="nav-link btn mr-3 botones p-1"  href="../yuyapuy/buscador.jsp"> <span class="bi bi-search"></span>  Buscador </a>
-            </li>
-            <li class="nav-item "> 
-                <a class="nav-link btn mr-3 botones p-1"  href="../yuyapuy/recursos.jsp"> <span class="bi bi-folder"></span>  Recursos </a>
+                <a class="nav-link btn mr-3 botones p-1 blanco"  href="../yuyapuy/recursos.jsp"> <span class="bi bi-folder"></span>  Recursos </a>
             </li> 
             <li class="nav-item "> 
-                <a class="nav-link btn mr-3 botones p-1"  href="../yuyapuy/mapa.jsp"> <span class="bi bi-compass"></span>  Mapa </a>
+                <a class="nav-link btn mr-3 botones p-1 blanco"  href="../yuyapuy/mapa.jsp"> <span class="bi bi-compass"></span>  Mapa </a>
             </li> 
-
             <li class="nav-item">
-                <a class="nav-link  btn mr-3 botones p-1"  href="../yuyapuy/conocenos.jsp"><span class="bi bi-people"></span>  Conócenos  </a>
+                <a class="nav-link  btn mr-3 botones p-1 blanco"  href="../yuyapuy/proposito.jsp"><span class="bi bi-info-circle"></span> Conoce yuyapuy  </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link  btn mr-3 botones p-1"  href="../yuyapuy/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
+                <a class="nav-link  btn mr-3 botones p-1 blanco"   href="../yuyapuy/conocenos.jsp"><span class="bi bi-people"></span>  Conócenos F&C  </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link  btn mr-3 botones p-1 blanco" style=" border-bottom: 2px solid #E26591;" href="../yuyapuy/login.jsp"><span class="bi bi-door-open "></span>  Identifícate </a>
             </li>
         </ul>               
     </div>

@@ -6,18 +6,23 @@
 package controlador;
 
 import accesoDatos.ConceptoDAO;
+import jakarta.servlet.annotation.WebServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import model.Concepto;
 
 /**
  *
  * @author USUARIO
  */
+@WebServlet(
+    name = "ConceptoSrv", 
+    urlPatterns = {"/ConceptoSrv"}
+)
 public class ConceptoSrv extends HttpServlet {
 
     /**

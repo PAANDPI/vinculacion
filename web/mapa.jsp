@@ -44,7 +44,9 @@
                             <button class="btn bi bi-caret-down-fill font-weight-bold blanco"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">                                
                                 Generador de ruta
                             </button>
-                            <a id="btnInforcion"  class=" float-right bi bi-info-circle p-2"></a>
+                           
+                            <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Volver a menú <i class="bi bi-house-fill"></i></a>
+
                         </h5>
                     </div>
 
@@ -61,7 +63,7 @@
                                         </div> 
                                         <div class="col-lg-12 mt-2"> 
                                             <button onclick="ponerubicacion()" style="border-radius: 50px;" class="btn btn-sm btn-warning  font-weight-bold float-left">Buscar ubicación  <span class="bi bi-hand-index-fill"></span></button>
-                                            <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Menú <span class="bi bi-arrow-left"></span></a>
+                                            <a id="btnInforcion"  class="bi bi-info-circle float-right font-weight-bold"></a>
                                         </div>
                                     </div>    
                                 </div>
@@ -134,7 +136,7 @@
         <div class="col-lg-12 m-0 p-0">
             <div id="map" style="width: 100%; height: 100vh;z-index: 1;" class=" "></div>  
         </div>
-
+        
     </div>
 
 </body>

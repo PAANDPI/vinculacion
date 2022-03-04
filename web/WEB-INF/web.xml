@@ -103,7 +103,7 @@
     </context-param>
     <context-param>
         <param-name>maxFilesSize</param-name>
-        <param-value>307200</param-value>
+        <param-value>4307200</param-value>
     </context-param>
     <servlet-mapping>
         <servlet-name>reporteSrv</servlet-name>
@@ -116,6 +116,6 @@
     </session-config>
     <welcome-file-list>
         <!--<welcome-file>index2.jsp</welcome-file>-->
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>conocenos.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

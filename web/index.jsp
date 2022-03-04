@@ -53,7 +53,7 @@
             </div>
         </div> 
         <div class="container headline mb-5">
-            <div class="row container" >
+<!--            <div class="row container" >
                 <div class="col-lg-12 ">
                     <label style="font-size: 45px" class="font-weight-bold ">Funciones de YUYAPUY </label> 
                     <p>YUYAPUY es un proyecto social con el objetivo de mantener informado a grupos de atención 
@@ -62,42 +62,10 @@
                         información disponible: </p>
 
                 </div>
-            </div>
-        </div>
-        
-       
-
+            </div>-->
+        </div>             
         <%@include file="plantillas/principal/servicios.jsp" %> 
 
-          <div class="container mb-5">
-                <h2 class="text-center mb-5 mt-5 pt-5 "  style="font-size: 50px;font-weight: bold;"><b>DESARROLLADORES</b> </h2>
-                <div class="row justify-content-center">               
-                    <div class=" mt-5 col-lg-2  ">
-
-                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/espin.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
-                        <label class="text-center font-weight-bold">Luis Miguel Espin Carrascos</label>
-
-                    </div> 
-                    <div class=" mt-5 col-lg-2 ">                       
-                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/ariel.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
-                        <label class="text-center font-weight-bold">Ariel Owaldo Fernández Loor</label>              
-                    </div>
-                    <div class="mt-5 col-lg-2 "> 
-                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Francisco.jpg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
-                        <label class="text-center font-weight-bold">Francisco Simpon Moreira García</label>
-                    </div>
-                    <div class="mt-5 col-lg-2 ">
-
-                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Michelle.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
-                        <label class="text-center font-weight-bold">Doris Michalle Solano Chico</label>
-
-                    </div>
-                    <div class="mt-5 col-lg-2"> 
-                        <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Dayana.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
-                        <label class="text-center font-weight-bold">Dayana Lizzet Velez Araujo </label>             
-                    </div>
-                </div>
-            </div>
         
         
         <%@include  file="plantillas/footer.jsp" %>  

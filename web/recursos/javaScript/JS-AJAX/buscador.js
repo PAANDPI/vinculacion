@@ -99,7 +99,7 @@ $(document).ready(function ()
                         $('#resultadosBusqueda').show(100);
                     } catch (e) {
                         Swal.fire({
-                            title: 'No se encontron resultados!',
+                            title: 'No se encontraron resultados!',
                             imageUrl: 'recursos/imagenes/No_resultados.gif',
                             imageWidth: 200,
                             imageHeight: 200,
