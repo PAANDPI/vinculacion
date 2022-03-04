@@ -50,8 +50,11 @@ public class RecursoDAO {
             }
             String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
             String tipoArchivo;
-            int indx = filePart.getContentType().lastIndexOf("/") + 1;
-            tipoArchivo = filePart.getName().substring(indx);
+            int indx = filePart.getSubmittedFileName().lastIndexOf(".");
+            System.out.println(filePart.getContentType());
+            System.out.println(filePart.getSubmittedFileName());
+            tipoArchivo = filePart.getSubmittedFileName().substring(indx);
+            
             nombreArchivo += tipoArchivo;
             //directorio = new File(relativePath + filePart.getName());
             String pathArchivo = relativePath + nombreArchivo;
