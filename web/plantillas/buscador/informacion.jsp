@@ -8,7 +8,7 @@
                 </div>
                 <h5 class="card-title">FÍSICA</h5>
                 <p class="card-text text-justify"><br>
-                    Se refiere a deficiencias corporales y/o viscerales, Puede ser adquirida, es decir causada por enfermedades, accidentes, violencia, desastres, etc.; congénita, originada en el embarazo; o genética, cuando ha sido heredada de padres a hijos.
+                    Se refiere a deficiencias corporales y/o viscerales, Puede ser adquirida; es decir causada por enfermedades, accidentes, violencia, desastres, congénita, originada en el embarazo; o heredada de padres a hijos.
                 </p>
             </div>
         </div>
@@ -22,7 +22,7 @@
                 </div>
                 <h5 class="card-title">INTELECTUAL</h5>
                 <p class="card-text text-justify"><br>
-                    Tiene dificultad para comprender ideas complejas, razonar, resolver problemas, tomar decisiones y desenvolverse en la vida diaria, lo cual influye en sus relaciones interpersonales y les convierte en personas fácilmente influenciables.
+                    La persona tiene dificultad para comprender ideas complejas, razonar, resolver problemas, tomar decisiones y desenvolverse en la vida diaria, lo cual influye en sus relaciones interpersonales y les convierte en personas fácilmente influenciables.
                 </p>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 </div>
                 <h5 class="card-title">VISUAL</h5>
                 <p class="card-text text-justify"><br>
-                Tienen esta discapacidad las personas que presentan ceguera o baja visión. En los dos casos se refiere a un alto grado de pérdida de visión, es decir que no ven absolutamente aún con el uso de lentes. No todas las personas con este tipo de discapacidad tienen el mismo grado de afectación. 
+                Tienen esta discapacidad las personas que presentan ceguera o baja visión. En los dos casos se refiere a un alto grado de pérdida de visión; es decir, que no ven absolutamente aún con el uso de lentes. No todas las personas con este tipo de discapacidad tienen el mismo grado de afectación. 
                 </p>
 
             </div>

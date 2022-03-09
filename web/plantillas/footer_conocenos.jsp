@@ -12,21 +12,18 @@
                     <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> (+593) 5 3702-220 Ext. 8039</li>
                     <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> Email: info@uteq.edu.ec</li>
                     <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> Quevedo - Los Ríos - Ecuador</li>
-                    <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> www.uteq.edu.ec</li>
+                    <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i><a class="blanco" href="https://www.uteq.edu.ec/" target="_blank"> www.uteq.edu.ec</a></li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-md-6 ">
-                <h5 class="blanco">Contacto</h5>
+            <div class="col-xs-12 col-md-6 pt-xl-2">
+                <h5 class="blanco ">Contacto</h5>
                 <ul style="list-style:none;" class="footer-links     ">
                     <li class="blanco mb-2"><b>Dirigido por:</b></li>
-                    <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Orlando Erazo (oerazo@uteq.edu.ec)</li>
+                    <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i><a class="btn p-0 m-0 blanco" target="_blank" href=" https://sites.google.com/a/uteq.edu.ec/oerazo/">Orlando Erazo (oerazo@uteq.edu.ec)</a> </li>
                     <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Mercedes Moreira (mmoreira@uteq.edu.ec)</li>
                     <li class="blanco mb-2"><b>Redes sociales:</b>
-                    <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" href="https://www.facebook.com/fycuteq"><i class="bi bi-facebook"></i>  Facebook</a></li>
-                    <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" href="https://youtube.com/playlist?list=PL2t9AygoxQ1u9Wjs_Im_CYUvK27DHk5Hq"><i class="bi bi-youtube"></i> Youtube</a></li>
-                    <!--                            <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Noticias</li>
-                                                <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Conócenos</li>
-                                                <li class="blanco mb-2"> <i class="bi bi-caret-right-fill"></i> Identifícate</li>-->
+                    <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" target="_blank" href="https://www.facebook.com/fycuteq"><i class="bi bi-facebook"></i>  Facebook</a></li>
+                    <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" target="_blank" href="https://youtube.com/playlist?list=PL2t9AygoxQ1u9Wjs_Im_CYUvK27DHk5Hq"><i class="bi bi-youtube"></i> Youtube</a></li>
                 </ul>
             </div>
 
@@ -39,7 +36,7 @@
                 </div>
             </div>
             <div class="col-xs-12 row justify-content-center col-md-12">
-                <a class=" blanco font-weight-bold" href="www.uteq.edu.ec"><i class="bi bi-caret-right-fill"></i> 
+                <a class=" blanco font-weight-bold" target="_blank" href="https://www.uteq.edu.ec/"><i class="bi bi-caret-right-fill"></i> 
                     Universidad Técnica Estatal de Quevedo - www.uteq.edu.ec <i class="bi bi-caret-left-fill"></i></a>                     
             </div>
             <div class="col-xs-12  col-md-12">

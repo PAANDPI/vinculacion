@@ -54,7 +54,7 @@ public class RecursoDAO {
             System.out.println(filePart.getContentType());
             System.out.println(filePart.getSubmittedFileName());
             tipoArchivo = filePart.getSubmittedFileName().substring(indx);
-            
+
             nombreArchivo += tipoArchivo;
             //directorio = new File(relativePath + filePart.getName());
             String pathArchivo = relativePath + nombreArchivo;
@@ -158,10 +158,10 @@ public class RecursoDAO {
     }
 
     public boolean updateEnlace() {
-        String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s');",
+        String sql = String.format("SELECT editarrecurso(%d,%d, %d, '%s','%s','%s','%s','%b');",
                 recurso.getIdRecurso(), recurso.getIdCategoriaRecurso(), recurso.getIdDiscapacidad(),
-                recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(), recurso.isEstado());
-
+                recurso.getRecurso(), recurso.getDescripcion(), recurso.getEtiquetas(),recurso.getRuta(), recurso.isEstado());
+        System.out.print(sql);
         if (conex.isState()) {
             return conex.execute(sql);
         }
@@ -222,7 +222,7 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
@@ -251,7 +251,7 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
@@ -280,7 +280,7 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
@@ -309,7 +309,42 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
+                    json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
+                    json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
+                    json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
+                }
+                json = json.substring(0, (json.length() - 1));//eliminamos la ultima coma
+                result.close();
+                conex.closeConnection();
+            } catch (SQLException ex) {
+                conex.setMessage(ex.getMessage());
+            }
+        }
+        json += "]";
+        return json;
+    }
+
+    public String getVW2JSOCategoria(int idCategoria) {
+        String json = "\"Recurso\" : [";
+        String a = "\\";
+        if (conex.isState()) {
+            try {
+                ResultSet result = conex.returnQuery(" SELECT r.idrecurso, r.idcategoriarecurso, cr.categoriarecurso, r.iddiscapacidad, d.discapacidad, \n"
+                        + " 	d.idcategoriadiscapacidad,\n"
+                        + "    r.recurso, r.descripcion, r.etiquetas, r.estado, r.ruta\n"
+                        + "   FROM recurso r\n"
+                        + "     JOIN categoriarecurso cr ON r.idcategoriarecurso = cr.idcategoriarecurso\n"
+                        + "     JOIN discapacidad d ON r.iddiscapacidad = d.iddiscapacidad WHERE d.idcategoriadiscapacidad='"+idCategoria+"';");
+                while (result.next()) {
+                    json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
+                    json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
+                    json += "\t\t\t\"categoriarecurso\" : \"" + result.getString("categoriarecurso") + "\",\n";
+                    json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
+                    json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
+                      json += "\t\t\t\"discapacidad\" : \"" + result.getString("idcategoriadiscapacidad") + "\",\n";
+                    json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
@@ -330,7 +365,7 @@ public class RecursoDAO {
         String a = "\\";
         if (conex.isState()) {
             try {
-                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso ORDER by idrecurso desc;;");
+                ResultSet result = conex.returnQuery("SELECT * FROM vwRecurso ORDER by idrecurso desc;");
                 while (result.next()) {
                     json += "\n\t\t{\n\t\t\"idrecurso\" : \"" + result.getInt("idrecurso") + "\",\n";
                     json += "\t\t\t\"idcategoriarecurso\" : \"" + result.getInt("idcategoriarecurso") + "\",\n";
@@ -338,7 +373,7 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";
@@ -367,7 +402,7 @@ public class RecursoDAO {
                     json += "\t\t\t\"iddiscapacidad\" : \"" + result.getInt("iddiscapacidad") + "\",\n";
                     json += "\t\t\t\"discapacidad\" : \"" + result.getString("discapacidad") + "\",\n";
                     json += "\t\t\t\"recurso\" : \"" + result.getString("recurso") + "\",\n";
-                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion") + "\",\n";
+                    json += "\t\t\t\"descripcion\" : \"" + result.getString("descripcion").replaceAll("\n", "") + "\",\n";
                     json += "\t\t\t\"etiquetas\" : \"" + result.getString("etiquetas") + "\",\n";
                     json += "\t\t\t\"estado\" : \"" + result.getBoolean("estado") + "\",\n";
                     json += "\t\t\t\"ruta\" : \"" + result.getString("ruta").replace(a, "/").replace("//", "/") + "\"\n\t\t},";

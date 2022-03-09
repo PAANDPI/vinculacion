@@ -23,6 +23,71 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>F&C - Participantes</title>
     </head>
+     <style>
+            .bn{
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                border-radius: 200px;
+            }
+            .caja-contenido
+            {
+                width: 60%; position: absolute; bottom: -76px; 
+            }
+            .contenidoconocenos
+            {
+                width: 100%;
+                height: 100vh;
+                background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+            }
+            #menu-conocenos{
+                background: #002C48 !important; z-index: 10;
+            }
+            .efe
+            {    
+                color: white;
+                height: auto;
+                border-radius: 10px;
+                background: rgba(185,487,458,0.1)!important;    
+                backdrop-filter:blur(5px)!important;
+
+            }
+            .bote:hover{
+                -webkit-animation: 2s bote 1;
+            }
+            @-webkit-keyframes bote{
+                20%, 50%, 80%{
+                    -webkit-transform: translateY(0);
+                }
+                40%{
+                    -webkit-transform: translateY(-10px);
+                    
+                }
+                65%{
+                    -webkit-transform: translateY(-10px);
+                   
+                }
+            }
+
+            .doble_click:hover{
+                -webkit-animation: 1s dobleclick 1;
+            }
+
+            @media screen and (max-width: 480px){
+                .caja-contenido
+                {
+                    width: 100%; position: absolute;top: 0px;border: 1px solid #000 
+                }
+                .contenidoconocenos
+                {
+                    width: 100%;                
+                    height: 200px;
+                    background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+                }
+                #menu-conocenos{
+                    background: #002C48 !important; 
+                }
+            }
+        </style>
     <style>
           .cajas
                     {
@@ -38,19 +103,26 @@
                     }
     </style>
     <body >
-        <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
-
-      <%@include  file="plantillas/menu_conocenos.jsp"%>
+    <%@include  file="plantillas/menu_conocenos.jsp"%>
+        <div class=" mb-5 contenidoconocenos   justify-content-center d-none d-sm-none d-md-flex" >   
                <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
                     <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>COLABORADORES</b></h1>
-                    <h2 class="text-center" style="color: #2F2F2F;">Instituciones colaboradoras.</h2>
+                    <h2 class="text-center" style="color: #2F2F2F;">Instituciones colaboradoras</h2>
                 </div>
             </div>
        </div> 
-    
-          <div class="row">
-                <div class="col-lg-12">                   
+        
+        <div class="mb-5 justify-content-center d-block d-sm-flex d-md-none"> 
+            <img class="w-100" src="recursos/imagenes/Sintítulo1.png" alt=""/>
+             <div class="row pr-5 pl-5 flex-column justify-content-center"   >
+                <h1 class="text-center"  style="font-size: 30px;font-weight: bold;"><b>COLABORADORES</b></h1>
+                <h2 class="text-center" style="color: #2F2F2F; font-size: 20px">Instituciones colaboradoras</h2>
+            </div>
+        </div>
+        
+         
+                                 
                     <div class="container">
                         <div class="row justify-content-center align-content-center">
 
@@ -65,7 +137,7 @@
                                     
                                     <div style="position: absolute; bottom: 10px"  class="card-body">
                                         <h6 class="card-title text-center">Fundación de y para personas con Síndrome de Down de Santo Domingo</h6>
-                                        <a href="https://www.facebook.com/FundacionDownSD" class="btn btn-block  btn-link" >Ir al sitio</a>
+                                        <a target="_blank" href="https://www.facebook.com/FundacionDownSD" class="btn btn-block  btn-link" >Ir al sitio</a>
                                     </div>                                                                        
                                 </div>
                         </div>
@@ -81,7 +153,7 @@
 
                                     <div style="position: absolute; bottom: 10px"  class="card-body">
                                         <h6 class="card-title text-center">Dirección de Gestión de Desarrollo Social del Gobierno Autónomo Descentralizado Municipal de Quevedo</h6>
-                                        <a href="https://www.facebook.com/Direcci%C3%B3n-de-Desarrollo-Social-GAD-Quevedo-475024629920635" class="btn btn-block  btn-link">Ir al sitio</a>
+                                        <a target="_blank" href="https://www.facebook.com/Direcci%C3%B3n-de-Desarrollo-Social-GAD-Quevedo-475024629920635" class="btn btn-block  btn-link">Ir al sitio</a>
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +169,7 @@
 
                                     <div style="position: absolute; bottom: 10px"  class="card-body">
                                         <h6  class="card-title text-center">Dirección de Desarrollo Comunitario y Gestión Social del Gobierno Autónomo Descentralizado Municipal de El Empalme</h6>
-                                        <a href="https://www.municipioelempalme.gob.ec/gad/" class="btn btn-block  btn-link">Ir al sitio</a>
+                                        <a target="_blank" href="https://www.municipioelempalme.gob.ec/gad/" class="btn btn-block  btn-link">Ir al sitio</a>
                                     </div>
                                 </div>
                             </div>
@@ -106,18 +178,17 @@
                                 <div class="card cajas"> 
                                     <div class="mt-3" style="display: flex; justify-content: center;align-items: center;height: auto; ">
                                         <div style="width: 80%; height: 150px; ">
-                                             <img style="object-fit: cover; object-position: center; width: 100%; height: 100%"   src="recursos/conocenos/La_esperanza.png" >
+                                            <img style="object-fit: cover; object-position: center; width: 100%; height: 100%"   src="recursos/conocenos/CX1TE_uG_400x400.jpg" >
                                         </div>                                       
                                     </div> 
 
                                     <div style="position: absolute; bottom: 10px" class="card-body">
                                         <h6 class="card-title text-center">Gobierno Autónomo Descentralizado Parroquial Rural La Esperanza</h6>                                     
-                                        <a href="https://laesperanza.gob.ec/" class="btn btn-block  btn-link">Ir al sitio</a>
+                                        <a target="_blank" href="https://laesperanza.gob.ec/" class="btn btn-block  btn-link">Ir al sitio</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>                   
-                    </div>
+                       
                 </div>
             </div>
           <%@include  file="plantillas/footer_conocenos.jsp"%>

@@ -32,25 +32,38 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-
+        
+        
 
     </head>
-    <body >   
+    <style>
+        .contenedoMapa
+             {
+                position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 500px;  
+             }
+         @media screen and (max-width: 480px){
+             .contenedoMapa
+             {
+                 position: absolute; left: 10px; bottom: 5px; z-index: 10; width: auto; 
+             }
+            }
+    </style>
+    <body>   
         <div class="row">
-            <div id="accordion" style="position: absolute; left: 10px; bottom: 5px; z-index: 10; width: 500px; ">
-                <div class="card" style="border-top-left-radius: 20px;border-top-right-radius: 20px">
+            <div id="accordion" style="">
+                <div class="card contenedoMapa" >
                     <div class="color_base blanco" style="width: 100%; height: auto; border-top-left-radius: 20px;border-top-right-radius: 20px" id="headingOne">
                         <h5 class="mb-0 p-4">
                             <button class="btn bi bi-caret-down-fill font-weight-bold blanco"  data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">                                
                                 Generador de ruta
                             </button>
                            
-                            <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Volver a menú <i class="bi bi-house-fill"></i></a>
+                            <a href="index.jsp" style="border-radius: 50px;" class="btn btn-sm color_base blanco font-weight-bold float-right">Volver al menú <i class="bi bi-house-fill"></i></a>
 
                         </h5>
                     </div>
 
-                    <div id="collapseOne" style="max-height: 70vh;overflow-x: hidden;  overflow-y: auto" class="collapse show barra-colores" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div id="collapseOne" style="max-height: 70vh;overflow-x: hidden;  overflow-y: auto" class="collapse  barra-colores" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="row">
                             <div class="col-lg-12" >
                                 <div class="form-group pl-4 pr-4 m-2">
@@ -132,9 +145,10 @@
                     </div>
                 </div>
             </div>
+           <div id="map" style="width: 100%; height: 100vh;z-index: 1;" class=" "></div>  
         </div>    
         <div class="col-lg-12 m-0 p-0">
-            <div id="map" style="width: 100%; height: 100vh;z-index: 1;" class=" "></div>  
+         
         </div>
         
     </div>

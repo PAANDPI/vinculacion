@@ -22,6 +22,71 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
         <title>F&C - aplicaciones</title>
         <style>
+            .bn{
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                border-radius: 200px;
+            }
+            .caja-contenido
+            {
+                width: 60%; position: absolute; bottom: -76px; 
+            }
+            .contenidoconocenos
+            {
+                width: 100%;
+                height: 100vh;
+                background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+            }
+            #menu-conocenos{
+                background: #002C48 !important; z-index: 10;
+            }
+            .efe
+            {    
+                color: white;
+                height: auto;
+                border-radius: 10px;
+                background: rgba(185,487,458,0.1)!important;    
+                backdrop-filter:blur(5px)!important;
+
+            }
+            .bote:hover{
+                -webkit-animation: 2s bote 1;
+            }
+            @-webkit-keyframes bote{
+                20%, 50%, 80%{
+                    -webkit-transform: translateY(0);
+                }
+                40%{
+                    -webkit-transform: translateY(-10px);
+
+                }
+                65%{
+                    -webkit-transform: translateY(-10px);
+
+                }
+            }
+
+            .doble_click:hover{
+                -webkit-animation: 1s dobleclick 1;
+            }
+
+            @media screen and (max-width: 480px){
+                .caja-contenido
+                {
+                    width: 100%; position: absolute;top: 0px;border: 1px solid #000 
+                }
+                .contenidoconocenos
+                {
+                    width: 100%;                
+                    height: 200px;
+                    background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+                }
+                #menu-conocenos{
+                    background: #002C48 !important; 
+                }
+            }
+        </style>
+        <style>
             .cajas
             {
                 width: 100%;
@@ -30,26 +95,28 @@
                 -webkit-transition: -webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
                 transition: transform .5s cubic-bezier(.19, 1, .22, 1);
                 transition: transform .5s cubic-bezier(.19, 1, .22, 1),-webkit-transform .5s cubic-bezier(.19, 1, .22, 1);
-                text-decoration: none; 
-
+                text-decoration: none;  
             }
         </style>
-    </head>
-    <body >
-        <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
-
-            <%@include  file="plantillas/menu_conocenos.jsp"%>   
-
+    <body>
+        <%@include  file="plantillas/menu_conocenos.jsp"%>
+        <div class=" mb-5 contenidoconocenos   justify-content-center d-none d-sm-none d-md-flex" >   
             <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 50px;font-weight: bold;"><b>OTRAS APLICACIONES DEL PROYECTO</b></h1> 
-                    <h2 class="text-center">Podemos observar otras aplicaciones desarrolladas </h2>
+                    <h1 class="text-center"  style="font-size: 30px;font-weight: bold;"><b>OTRAS APLICACIONES DEL PROYECTO</b></h1>
+                    <h2 class="text-center" style="color: #2F2F2F; font-size: 16px">Acontinuacion las aplicaciones desarrolladas </h2>
                 </div>
-            </div> 
+            </div>
+        </div> 
 
+        <div class="mb-5 justify-content-center d-block d-sm-flex d-md-none"> 
+            <img class="w-100" src="recursos/imagenes/Sintítulo1.png" alt=""/>
+            <div class="row pr-5 pl-5 flex-column justify-content-center"   >
+                <h1 class="text-center"  style="font-size: 30px;font-weight: bold;"><b>OTRAS APLICACIONES DEL PROYECTO</b></h1>
+                <h2 class="text-center" style="color: #2F2F2F; font-size: 20px">Podemos observar otras aplicaciones desarrolladas</h2>
+            </div>
+        </div>
 
-
-        </div>  
         <div class="container">
             <div class="row  align-content-center justify-content-center">
 
@@ -60,7 +127,11 @@
                             <h3 class="card-title">PetFriend21</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Germán Álvarez, Cristhian Briones, José Cordero, Paola Morales, Ingrid Ortiz, Suanny Tigselema</p>          
                         </div>
+                         <div class="card-footer row justify-content-center text-muted">
+                        <a href="index.jsp" class="btn btn-light font-weight-bold">Conocer PetFriend21</a>
                     </div>
+                    </div>
+                   
                 </div>
 
                 <div class="col-lg-6">
@@ -85,6 +156,9 @@
                             <h3 class="card-title">JIT (Juegos Interactivos para Todos)</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Steven Hurtado, Henry Pérez, John Pincay, Randy Rodríguez; José García, Jorge Molina, Aura Táquez</p>          
                         </div>
+                        <div class="card-footer row justify-content-center text-muted">
+                            <a href="index.jsp" class="btn btn-light font-weight-bold">Conocer JIT</a>
+                        </div>
                     </div>
                 </div>
 
@@ -95,6 +169,9 @@
                         <div class="card-body p-5">
                             <h3 class="card-title">Money Game</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Kevin Cheves, Josimar Galarza, Miguel Suárez, Victor Zapata</p>          
+                        </div>
+                        <div class="card-footer row justify-content-center text-muted">
+                            <a href="index.jsp" class="btn btn-light font-weight-bold">Conocer Money Game</a>
                         </div>
                     </div>
                 </div>
@@ -109,6 +186,9 @@
                             <h3 class="card-title">ToLan</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Cristhian Burbano, Rubén Jaya, Daniela Moreira, Bryan Zambrano</p>          
                         </div>
+                        <div class="card-footer row justify-content-center text-muted">
+                            <a href="index.jsp" class="btn btn-light font-weight-bold">Conocer ToLan</a>
+                        </div>
                     </div>
                 </div>
 
@@ -116,8 +196,11 @@
                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
                         <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/ob_K1W3XLQc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                         
                         <div class="card-body p-5">
-                            <h3 class="card-title">Juguetes???</h3>
+                            <h3 class="card-title">Pukllana</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Victor Romero, Tyrone Tocta, Janer Torrales</p>          
+                        </div>
+                         <div class="card-footer row justify-content-center text-muted">
+                            <a href="index.jsp" class="btn btn-light font-weight-bold">Conocer Pukllana</a>
                         </div>
                     </div>
                 </div>
@@ -131,48 +214,6 @@
 
 
         </div>
-        <div class="mt-5" style="background: rgb(50,113,129);
-             background: linear-gradient(262deg, rgba(50,113,129,1) 62%, rgba(65,140,159,1) 100%);"  >  
-            <div class="container p-4">
-                <div class="row mt-5">    
-
-                    <div class="col-sm-12 col-md-6">
-                        <h5 class="font-weight-bold blanco">Información</h5>
-                        <ul  class="nav list-group ">
-                            <li class="b blanco nav-item mb-2" ><i class="bi bi-caret-right-fill"></i> © 2021 Universidad Técnica Estatal de Quevedo</li>
-                            <li class="blanco nav-item mb-2"  ><i class="bi bi-caret-right-fill"></i> Campus "Ingeniero Manuel Agustín Haz Álvarez"</li>
-                            <li class="blanco nav-item mb-2" ><i class="bi bi-caret-right-fill"></i> Av. Quito km. 1 1/2 vía a Santo Domingo de los Tsáchilas</li>
-                            <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> (+593) 5 3702-220 Ext. 8039</li>
-                            <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> Email: info@uteq.edu.ec</li>
-                            <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> Quevedo - Los Ríos - Ecuador</li>
-                            <li class="blanco mb-2" ><i class="bi bi-caret-right-fill"></i> www.uteq.edu.ec</li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-md-6 ">
-                        <h5 class="blanco">Contacto</h5>
-                        <ul style="list-style:none;" class="footer-links     ">
-                            <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Orlando Erazo (oerazo@uteq.edu.ec)</li>
-                            <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Mercedes Moreira (mmoreira@uteq.edu.ec)</li>
-                            <li class="blanco mb-2"><b>Redes sociales:</b>
-                            <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" href="https://www.facebook.com/fycuteq"><i class="bi bi-facebook"></i>  Facebook</a></li>
-                            <li class="blanco mb-2"><a class="btn p-0 m-0 blanco" href="https://youtube.com/playlist?list=PL2t9AygoxQ1u9Wjs_Im_CYUvK27DHk5Hq"><i class="bi bi-youtube"></i> Youtube</a></li>
-                            <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Noticias</li>
-                            <li class="blanco mb-2"><i class="bi bi-caret-right-fill"></i> Conócenos</li>
-                            <li class="blanco mb-2"> <i class="bi bi-caret-right-fill"></i> Identifícate</li>
-                        </ul>
-                    </div>
-
-                    <div class="col-xs-12 col-md-12 ">
-                        <div class="row flex-row mt-5 justify-content-center">
-                            <img style="width: 150px" class="rounded-circle m-3" src="recursos/conocenos/descarga.jfif"/>
-                            <img style="width: 150px" class="rounded-circle m-3" src="recursos/conocenos/logo_vinculacion.png" alt=""/>
-                            <img style="width: 150px" class="rounded-circle m-3" src="recursos/conocenos/Logo_F_C.png" alt=""/>                           
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>               
-        </div> 
+     <%@include  file="plantillas/footer_conocenos.jsp"%>
     </body>
 </html>

@@ -15,6 +15,7 @@
 
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
 
         <!--Iconos-->
@@ -44,7 +45,7 @@
             </div>
 
             <h5 class="text-center mb-5 mt-5 pt-2 "  style="font-size: 25px;font-weight: bold;">
-                <b>OBJETIVOS DE YUYAPUY</b>
+               
             </h5>
             <div class="row justify-content-center">   
                 <div class="col-lg-4">
@@ -80,29 +81,29 @@
             </h5>
 
         </div>
-        <div class="row justify-content-center">               
-            <div class=" mt-5 col-lg-2 col-sm-12  ">
+        <div class="row d-flex justify-content-center">               
+            <div class=" d-flex flex-column  mt-5  col-lg-2 col-sm-12">
 
-                <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/espin.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
-                <label class="text-center font-weight-bold">Luis Miguel Espin Carrascos</label>
+                <img class="rounded-circle bn m-auto" src="recursos/conocenos/colaboradores/espin.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);">
+                <label class=" text-center font-weight-bold">Luis Miguel Espin Carrascos</label>
 
             </div> 
-            <div class=" mt-5 col-lg-2 col-sm-12">                       
-                <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/ariel.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
+            <div class=" d-flex flex-column  mt-5  col-lg-2 col-sm-12 ">                       
+                <img class="rounded-circle bn m-auto" src="recursos/conocenos/colaboradores/ariel.png" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); ">
                 <label class="text-center font-weight-bold">Ariel Owaldo Fernández Loor</label>              
             </div>
-            <div class="mt-5 col-lg-2 col-sm-12"> 
-                <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Francisco.jpg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
-                <label class="text-center font-weight-bold">Francisco Simpon Moreira García</label>
+            <div class="d-flex flex-column  mt-5  col-lg-2 col-sm-12 "> 
+                <img class="rounded-circle bn m-auto" src="recursos/conocenos/colaboradores/Francisco.jpg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
+                <label class="text-center font-weight-bold">Francisco Simón Moreira García</label>
             </div>
-            <div class="mt-5 col-lg-2 col-sm-12">
+            <div class="d-flex flex-column  mt-5  col-lg-2 col-sm-12 ">
 
-                <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Michelle.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
-                <label class="text-center font-weight-bold">Doris Michalle Solano Chico</label>
+                <img class="rounded-circle bn m-auto" src="recursos/conocenos/colaboradores/Michelle.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%); "><br>
+                <label class="text-center font-weight-bold">Doris Michelle Solano Chico</label>
 
             </div>
-            <div class="mt-5 col-lg-2 col-sm-12"> 
-                <img class="rounded-circle bn" src="recursos/conocenos/colaboradores/Dayana.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
+            <div class="d-flex flex-column  mt-5  col-lg-2 col-sm-12 "> 
+                <img class="rounded-circle bn m-auto" src="recursos/conocenos/colaboradores/Dayana.jpeg" style="width: 150px; height: 150px;  box-shadow: 0 8px 40px -16px rgb(12 22 44 / 100%);"><br>
                 <label class="text-center font-weight-bold">Dayana Lizzet Velez Araujo </label>             
             </div>
         </div>

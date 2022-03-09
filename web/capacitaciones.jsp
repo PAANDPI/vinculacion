@@ -21,6 +21,71 @@
         <!--Iconos-->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">    
        <title>F&C - Capacitaciones</title>
+            <style>
+            .bn{
+                -webkit-filter: grayscale(100%);
+                filter: grayscale(100%);
+                border-radius: 200px;
+            }
+            .caja-contenido
+            {
+                width: 60%; position: absolute; bottom: -76px; 
+            }
+            .contenidoconocenos
+            {
+                width: 100%;
+                height: 100vh;
+                background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+            }
+            #menu-conocenos{
+                background: #002C48 !important; z-index: 10;
+            }
+            .efe
+            {    
+                color: white;
+                height: auto;
+                border-radius: 10px;
+                background: rgba(185,487,458,0.1)!important;    
+                backdrop-filter:blur(5px)!important;
+
+            }
+            .bote:hover{
+                -webkit-animation: 2s bote 1;
+            }
+            @-webkit-keyframes bote{
+                20%, 50%, 80%{
+                    -webkit-transform: translateY(0);
+                }
+                40%{
+                    -webkit-transform: translateY(-10px);
+
+                }
+                65%{
+                    -webkit-transform: translateY(-10px);
+
+                }
+            }
+
+            .doble_click:hover{
+                -webkit-animation: 1s dobleclick 1;
+            }
+
+            @media screen and (max-width: 480px){
+                .caja-contenido
+                {
+                    width: 100%; position: absolute;top: 0px;border: 1px solid #000 
+                }
+                .contenidoconocenos
+                {
+                    width: 100%;                
+                    height: 200px;
+                    background: #fff url(recursos/imagenes/Sintítulo1.png) center center/cover no-repeat; 
+                }
+                #menu-conocenos{
+                    background: #002C48 !important; 
+                }
+            }
+        </style>
         <style>
             .bn{
                 -webkit-filter: grayscale(100%);
@@ -42,27 +107,33 @@
         </style>
     </head>
     <body >
-        <div class="mb-5" style="width: 100%; height: 100vh; background: #fff url(recursos/imagenes/Sintítulo-1.png) center center/cover no-repeat; ">
-
+        
         <%@include  file="plantillas/menu_conocenos.jsp"%>
-
-            <div  style="width: 100%; position: absolute; bottom: 10px;">
+        <div class=" mb-2 contenidoconocenos   justify-content-center d-none d-sm-none d-md-flex" >   
+               <div  style="width: 100%; position: absolute; bottom: 10px;">
                 <div class="row pr-5 pl-5 flex-column justify-content-center"   >
-                    <h1 class="text-center"  style="font-size: 70px;font-weight: bold;"><b>CAPACITACIONES IMPARTIDAS</b></h1>                  
+                    <h1 class="text-center"  style="font-size: 30px;font-weight: bold;"><b>CAPACITACIONES IMPARTIDAS</b></h1>
                 </div>
             </div>
+       </div> 
+        
+        <div class="mb-2 justify-content-center d-block d-sm-flex d-md-none"> 
+            <img class="w-100" src="recursos/imagenes/Sintítulo1.png" alt=""/>
+             <div class="row pr-5 pl-5 flex-column justify-content-center"   >
+                <h1 class="text-center"  style="font-size: 30px;font-weight: bold;"><b>CAPACITACIONES IMPARTIDAS</b></h1> 
+            </div>
+        </div>
 
-        </div> 
 
 
         <div class="container">
-            <div class="row mb-5 mt-5 pt-5 pb-3">
+            <div class="row mb-5  pt-1 pb-3">
                
-                <div class="col-lg-7 mt-5">
+                <div class="col-lg-7 mt-2">
                     <iframe class="video" src="https://www.youtube.com/embed/QryXeEbbRGo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     
                 </div>
-                <div class="col-lg-5 mt-5">
+                <div class="col-lg-5 mt-2">
                     <h3> 1.	Creación de recursos interactivos para necesidades educativas especiales</h3><br>
                     <p>
                         <b> Dirigido a: </b><br>

@@ -31,8 +31,8 @@ async function Main() {
 }
 function verArchivo(ruta) {
     var ruta2 = jsonRecursos.Recurso[ruta].ruta;
-    var rutaOficial = ruta2;
-    window.open(rutaOficial, null);
+    var rutaDefinitiva=ruta2.replace(`http:/`,`http://`)
+    window.open(rutaDefinitiva, null);
 }
 function tbl_recursos()
 {
@@ -88,7 +88,7 @@ function tbl_recursos()
                                                             <div class="col-lg-12 pl-3">     
                                                                 <button onclick="seleccionarRecurso(${idrecurso})" type="button" class="btn btn-info btn-sm bi bi-pencil-fill"> Seleccionar</button>
                                                                 <button onclick="eliminarRecurso(${idrecurso})" type="button" class="btn btn-danger btn-sm bi bi-person-dash-fill"> Eliminar</button>
-                                                                <a href="${ruta}"  class="btn btn-success btn-sm bi bi-journals"> Ver archivo</a>
+                                                                <a  onclick="verArchivo(${i})"  class="btn btn-success blanco btn-sm bi bi-journals"> Ver archivo</a>
                                                             </div>        
                                                         </div>
                                                  </div>                                                                                               
@@ -113,42 +113,36 @@ $(document).ready(function () {
 
     $('#cmb-categoria').change(function () {
         var tipo_archivo = $('select[id="cmb-categoria"] option:selected').text();
-        if (tipo_archivo == "Archivos")
+        if (tipo_archivo == "Archivo")
         {
             $("#checkArchivo").attr("disabled", false);
             $("#checkArchivo").attr("disabled", false);
-            $("#formFile").attr("accept", ".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+            $("#formFile").attr("accept", ".doc,.pdf,.docx");
 
-        } else if (tipo_archivo == "Videos")
+        } else if (tipo_archivo == "Video")
         {
             $("#checkEnlace").click();
             $("#checkArchivo").attr("disabled", true);
-        } else if (tipo_archivo == "Imagenes")
+        } else if (tipo_archivo == "Imagen")
         {
             $("#checkArchivo").attr("disabled", false);
             $("#checkArchivo").attr("disabled", false);
-            $("#formFile").attr("accept", ".jpg,.jpeg,.png");
+            $("#formFile").attr("accept", ".jpg,.jpeg,.png, image/gif");
 
         } else if (tipo_archivo == "Juegos")
         {
             $("#checkEnlace").click();
             $("#checkArchivo").attr("disabled", true);
-        } else if (tipo_archivo == "PDF")
-        {
-            $("#checkArchivo").attr("disabled", false);
-            $("#checkArchivo").attr("disabled", false);
-            $("#formFile").attr("accept", ".pdf");
-
-        } else if (tipo_archivo == "Audio")
+        }else if (tipo_archivo == "Audio")
         {
             $("#checkEnlace").click();
             $("#checkArchivo").attr("disabled", true);
-        } else if (tipo_archivo == "Musica")
+        } 
+        else if (tipo_archivo == "Pagína")
         {
             $("#checkEnlace").click();
             $("#checkArchivo").attr("disabled", true);
-
-        }
+        } 
     });
     $("#buscadorRecursos").keyup(function () {
         _this = this;
@@ -188,8 +182,7 @@ $(document).ready(function () {
 
             ruta = document.querySelector('#formFile').files[0]
 
-            frmData.append('idrecurso', idRecursoMod);
-           
+            frmData.append('idrecurso', idRecursoMod);           
             frmData.append('idcategoriarecurso', idcategoriarecurso);
             frmData.append('iddiscapacidad', iddiscapacidad);
             frmData.append('recurso', recurso);
@@ -243,6 +236,7 @@ $(document).ready(function () {
 
     });
 });
+
 var html;
 traerCategoriaRecurso();
 var jsonCategoriaRecuros;

@@ -168,6 +168,22 @@ public class RecursoSrv extends HttpServlet {
                 }
                 break;
             }
+             case 7: {
+                int idCategoriaDiscapacidad = Integer.parseInt(request.getParameter("cmbCategoriaDiscapacidad"));
+                RecursoDAO recursoDAO = new RecursoDAO();
+                recursoDAO.setRelativePath(getServletContext().getRealPath(""));
+                System.out.println("Ruta: " + recursoDAO.getRelativePath());
+                response.setContentType("text/json;charset=UTF-8");
+                try (PrintWriter out = response.getWriter()) {
+                    String retorno = "{\n\t";
+                    retorno += "\"codigo\":200,\n";
+                    retorno += "\"ruta\":\"" + recursoDAO.getRelativePath().replace("\\", "/") + "\",\n";
+                    retorno += recursoDAO.getVW2JSOCategoria(idCategoriaDiscapacidad);
+                    retorno += "\n}";
+                    out.write(retorno);
+                }
+                break;
+            }
             default:
                 break;
         }
@@ -232,9 +248,9 @@ public class RecursoSrv extends HttpServlet {
                 recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
                 recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
                 recurso.setDescripcion(request.getParameter("descripcion"));
-
+                recurso.setRecurso(request.getParameter("recurso"));
                 recurso.setEtiquetas(request.getParameter("etiquetas"));
-
+                recurso.setRuta(request.getParameter("ruta"));
                 RecursoDAO recursoDAO = new RecursoDAO(recurso);
                 recursoDAO.setRelativePath(getServletContext().getRealPath(""));
                 response.setContentType("text/json;charset=UTF-8");
@@ -319,7 +335,7 @@ public class RecursoSrv extends HttpServlet {
                 recurso.setRecurso(request.getParameter("recurso"));
                 recurso.setDescripcion(request.getParameter("descripcion"));
                 recurso.setEtiquetas(request.getParameter("etiquetas"));
-                recurso.setEstado(true);
+                recurso.setEstado(false);
                 recurso.setRuta(request.getParameter("ruta"));
                 recurso.setIdCategoriaRecurso(Integer.parseInt(request.getParameter("idcategoriarecurso")));
                 recurso.setIdDiscapacidad(Integer.parseInt(request.getParameter("iddiscapacidad")));
