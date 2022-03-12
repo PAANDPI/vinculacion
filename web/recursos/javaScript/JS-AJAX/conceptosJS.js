@@ -199,7 +199,7 @@ $(document).ready(function () {
 
 function alerta(texto, icono)
 {
-    Swal.fire({text: texto, icon: icono});
+    swal({text: texto, icon: icono});
 }
 
 function resultado()

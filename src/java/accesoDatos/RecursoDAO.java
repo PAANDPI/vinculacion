@@ -51,40 +51,10 @@ public class RecursoDAO {
             String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
             String tipoArchivo;
             int indx = filePart.getSubmittedFileName().lastIndexOf(".");
-            System.out.println(filePart.getContentType());
-            System.out.println(filePart.getSubmittedFileName());
             tipoArchivo = filePart.getSubmittedFileName().substring(indx);
-
             nombreArchivo += tipoArchivo;
-            //directorio = new File(relativePath + filePart.getName());
-            String pathArchivo = relativePath + nombreArchivo;
-            //directorio = new File(pathArchivo);
+            String pathArchivo = relativePath + nombreArchivo;;
             filePart.write(pathArchivo);
-            /*File newFile = new File(pathArchivo);
-
-            directorio.renameTo(newFile);
-
-            /*try {
-                FileOutputStream fileOutputStream = new FileOutputStream(pathArchivo);
-                byte[] buffer = new byte[6124];
-                int bulk;
-                while (true) {
-                    bulk = inputStream.read(buffer);
-                    if (bulk < 0) {
-                        break;
-                    }
-                    fileOutputStream.write(buffer, 0, bulk);
-                    fileOutputStream.flush();
-                }
-
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-            }
-
-            /*System.out.println("Ruta: " + pathArchivo);
-            FileOutputStream out = new FileOutputStream(pathArchivo);
-            out.write(data);
-            out.close();*/
             String rutaBD = host + "/files" + context + "/" + carpeta + nombreArchivo;
             recurso.setRuta(rutaBD);
             return true;
@@ -101,12 +71,13 @@ public class RecursoDAO {
             relativePath += carpeta;
             String nombreArchivo = recurso.getRecurso() + System.currentTimeMillis();
             String tipoArchivo;
-            int indx = file.getName().lastIndexOf(".");
-            tipoArchivo = file.getName().substring(indx);
+            int indx =  filePart.getSubmittedFileName().lastIndexOf(".");
+            tipoArchivo = filePart.getSubmittedFileName().substring(indx);
             nombreArchivo += tipoArchivo;
             String pathArchivo = relativePath + nombreArchivo;
-            File newFile = new File(pathArchivo);
-            file.renameTo(newFile);
+//          File newFile = new File(pathArchivo);
+//          file.renameTo(pathArchivo);
+            filePart.write(pathArchivo);
             String rutaBD = host + "/files" + context + "/" + carpeta + nombreArchivo;
             recurso.setRuta(rutaBD);
             return true;

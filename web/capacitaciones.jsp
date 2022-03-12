@@ -149,7 +149,7 @@
                    
                 </div>
                 <div class="col-lg-5 mt-5">
-                    <h3> Uso de herramientas para la creación de recursos interactivos</h3><br>
+                    <h3>2.  Uso de herramientas para la creación de recursos interactivos</h3><br>
                     <p>
                         <b> Dirigido a: </b><br>
                         Técnicos de discapacidad de la Dirección de Desarrollo Comunitario y Gestión Social del Gobierno Autónomo Descentralizado Municipal de El Empalme.<br>

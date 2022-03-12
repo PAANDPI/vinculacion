@@ -150,7 +150,7 @@
 
                 <div class="col-lg-6">
                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
-                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/e-6H1tB-WVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/hV7gAbRzZMU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                         <div class="card-body p-5">
                             <h3 class="card-title">JIT (Juegos Interactivos para Todos)</h3>
@@ -165,7 +165,7 @@
 
                 <div class="col-lg-6">
                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
-                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/OE-XvL6q9Y4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                               
+                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/LnqHQpwc0sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                               
                         <div class="card-body p-5">
                             <h3 class="card-title">Money Game</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Kevin Cheves, Josimar Galarza, Miguel Suárez, Victor Zapata</p>          

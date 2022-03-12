@@ -148,7 +148,7 @@
                         <div class=" efe pr-3 pl-3 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4); 
                              box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4);">
                             <a href="aplicaciones.jsp" target="_blank" class="font-weight-bold blanco text-justify ">
-                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_respaldo.png" alt=""/>
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo v2.png" alt=""/>
                                 Money Game </a>
                         </div>                            
 
