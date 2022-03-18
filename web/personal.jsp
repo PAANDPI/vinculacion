@@ -158,7 +158,7 @@
             <div class="row justify-content-center">
                 <div class=" text-center col-lg-12  ">
                     <h1 class="mb-1 text-center"  style="font-size: 150%;font-weight: bold;"><b>ESTUDIANTES:</b></h1>
-                    <h1  class="mb-5 text-center" style="font-size: 100%;"><b>Primer periodo académico 2021-2022:</b></h1>
+                    <h1  class="mb-5 text-center" style="font-size: 100%;"><b>Segundo  periodo académico 2021-2022:</b></h1>
                 </div>
 
 
@@ -192,7 +192,7 @@
         <div class="container">
             <div class="row align-content-center justify-content-center">
                 <div class=" text-center col-lg-12  ">
-                    <h1 class="mb-5 mt-5"  style="font-size: 100%;"><b>Segundo periodo académico 2021-2022:</b></h1>
+                    <h1 class="mb-5 mt-5"  style="font-size: 100%;"><b>Primer periodo académico 2021-2022:</b></h1>
                 </div>
                 <div class="m-3 mb-4 text-center col-lg-2 ">Bryan Mendoza</div>
                 <div class="m-3 mb-4 text-center col-lg-2 ">Cristhian Briones </div>

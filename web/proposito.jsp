@@ -15,7 +15,7 @@
 
         <link href="recursos/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <link href="recursos/estilos/estilos.css" rel="stylesheet" type="text/css"/>
 
         <!--Iconos-->
@@ -45,7 +45,7 @@
             </div>
 
             <h5 class="text-center mb-5 mt-5 pt-2 "  style="font-size: 25px;font-weight: bold;">
-               
+
             </h5>
             <div class="row justify-content-center">   
                 <div class="col-lg-4">
@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold text-center">BUSCADOR YUYAPUY</h5>
                             <p class="card-text text-center">Permite a las personas acceder a información sobre las discapacidades</p>
-                           
+
                         </div>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold text-center">RECURSOS YUYAPUY</h5>
                             <p class="card-text text-center">Compartir recurso y contenido informatico y educativo sobre discapacidades</p>
-                        
+
                         </div>
                     </div>
                 </div>
@@ -71,16 +71,24 @@
                         <div class="card-body">
                             <h5 class="card-title font-weight-bold text-center">MAPA YUYAPUY</h5>
                             <p class="card-text text-center">Publicar ubicaciones y lugares para personas con discapacidades</p>
-                          
+
                         </div>
                     </div>
                 </div>
             </div>
-            <h5 class="text-center mb-5 mt-5 pt-5 "  style="font-size: 25px;font-weight: bold;">
-                <b>DESARROLLADORES</b>
-            </h5>
-
         </div>
+        
+        <h5 class="text-center mb-5 mt-5 pt-5 "  style="font-size: 25px;font-weight: bold;">
+                <b>TUTORIAL YUYAPUY</b>
+        </h5> 
+        
+        <div class="row d-flex justify-content-center">
+            <iframe width="560" height="315" class="rounded" src="https://www.youtube.com/embed/e4NTYAKg9OU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div> 
+        
+        <h5 class="text-center mb-5 mt-5 pt-5 "  style="font-size: 25px;font-weight: bold;">
+            <b>DESARROLLADORES</b>
+        </h5>
         <div class="row d-flex justify-content-center">               
             <div class=" d-flex flex-column  mt-5  col-lg-2 col-sm-12">
 

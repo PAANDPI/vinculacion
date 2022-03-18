@@ -136,11 +136,17 @@ function seleccionCategoria(seleccion, id, cmbCategoriaDiscapacidad) {
                
                     htmlPoner(data);
                     $("#cantidad").html("Resultado de esta categoría:  " +data.Recurso.length);
-                 
+                    if(data.Recurso.length==0)
+                    {
+                        var tbl_recursos = document.getElementById("tbl_recursos");
+                        tbl_recursos.innerHTML = ""; 
+                    }
             },
             error: function (error) {
                 console.log(error);
                 $("#cantidad").html("Resultado de esta categoría: 0");
+                var tbl_recursos = document.getElementById("tbl_recursos");
+                        tbl_recursos.innerHTML = ""; 
                
                
             }
@@ -203,7 +209,9 @@ function tbl_recursos() {
             })
         },
         error: function (error) {
-            Swal.fire("No se encontraron recursos de este tipo")
+            Swal.fire("No se encontraron recursos de este tipo");
+             var tbl_recursos = document.getElementById("tbl_recursos");
+                tbl_recursos.innerHTML = "";
         }
     });
 }
@@ -346,7 +354,7 @@ function htmlPoner(data) {
                                             <p class="card-text text-justify">${descripcion}</p>
                                             <div><b>Discapacidad:</b> ${discapacidad}</div>
                                             <div><b>Tipo de recurso:</b> ${categoriarecurso}</div>  
-                                            <button onclick="Open(${i})"  class="btn btn-sm btn-info">Abri enlace de jugar</button>                                            
+                                            <button onclick="Open(${i})"  class="btn btn-sm btn-info">Abri enlace</button>                                            
                                         </div>
                                 </div> `;
 
@@ -420,7 +428,7 @@ function htmlPoner(data) {
                                             <p class="card-text text-justify">${descripcion}</p>
                                             <div><b>Discapacidad:</b> ${discapacidad}</div>
                                             <div><b>Tipo de recurso:</b> ${categoriarecurso}</div>                                           
-                                            <a  href="${ruta}"  class="btn btn-sm btn-info  mt-5">Ver pagína</a>
+                                            <a  href="${ruta}"  class="btn btn-sm btn-info  mt-5">Ver página</a>
                                         </div>
                                 </div> `;
             }

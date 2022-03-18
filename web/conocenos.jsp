@@ -125,7 +125,7 @@
 
                         <div class=" efe pr-3 pl-3 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4); 
                              box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4);">
-                            <a href="index.jsp" target="_blank" class="font-weight-bold blanco text-justify ">
+                            <a href="http://fyc.uteq.edu.ec:8080/jit/" target="_blank" class="font-weight-bold blanco text-justify ">
                                 <img style="width: 40px; height: 40px" class="rounded-circle" src="recursos/imagenes/JIT.PNG" alt=""/>
                                 JIT (Juegos)
                             </a>
@@ -136,9 +136,9 @@
 
                         <div class=" efe pr-3 pl-3 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4); 
                              box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4);">
-                            <a href="index.jsp" target="_blank" class="font-weight-bold blanco text-justify ">
+                            <a href="http://fyc.uteq.edu.ec:3000/" target="_blank" class="font-weight-bold blanco text-justify ">
                                 <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/micro.png" alt=""/>
-                                Pukllana
+                                Titopi
                             </a>
                         </div>                            
 
@@ -158,7 +158,7 @@
                         <div class=" efe pr-3 pl-3 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4); 
                              box-shadow: inset 2px 1px 22px -2px rgba(255,255,255,0.4);">
                             <a href="aplicaciones.jsp" target="_blank" class="font-weight-bold blanco text-justify ">
-                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_respaldo002.png" alt=""/>
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/logo_tulang.png" alt=""/>
                                 ToLan
                             </a>
                         </div>                            
@@ -193,58 +193,56 @@
             <div class="container">
                 <h2 class="text-center font-weight-boldN"><b>HERRAMIENTAS  F&C</b></h2>
                 <div class="row d-flex pl-3 pr-3 flex-wrap mt-2 justify-content-center">
+
                     <div style="width: auto" class=" m-1 p-0">
-
-                        <div class=" efe pr-1 pl-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img class="" style="width: 50px; height: 50px; " src="recursos/imagenes/PetFriend21.PNG" alt=""/>
-                        </div>                            
-
+                        <a href="aplicaciones.jsp" target="_blank">
+                            <div class=" efe pr-1 pl-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img class="" style="width: 50px; height: 50px; " src="recursos/imagenes/PetFriend21.PNG" alt=""/>
+                            </div>   
+                        </a>                                                 
                     </div>
                     <div style="width: auto" class=" m-1 p-0">
-
-                        <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_colorido.png" alt=""/>
-
-                        </div>                            
-
+                        <a href="index.jsp" target="_blank">
+                            <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_colorido.png" alt=""/>
+                            </div>                            
+                        </a> 
                     </div>
                     <div style="width: auto" class="m-1 p-0">
-
-                        <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img style="width: 40px; height: 40px" class="rounded-circle" src="recursos/imagenes/JIT.PNG" alt=""/>
-
-                        </div>                            
+                        <a href="http://fyc.uteq.edu.ec:8080/jit/" target="_blank">
+                            <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img style="width: 40px; height: 40px" class="rounded-circle" src="recursos/imagenes/JIT.PNG" alt=""/>
+                            </div>  
+                        </a>
+                    </div>
+                    <div style="width: auto" class=" m-1 p-0">
+                        <a href="http://fyc.uteq.edu.ec:3000/" target="_blank">
+                            <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/micro.png" alt=""/>
+                            </div> 
+                        </a>                                                   
+                    </div>
+                    <div style="width: auto" class=" m-1 p-0">
+                        <a href="aplicaciones.jsp" target="_blank">
+                            <div class=" efe pr-2 pl-2 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo v2.png" alt=""/>
+                            </div>                            
+                        </a>
 
                     </div>
                     <div style="width: auto" class=" m-1 p-0">
+                        <a href="aplicaciones.jsp" target="_blank">
+                            <div class=" efe pr-2 pl-2 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
+                                 box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
+                                <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/logo_tulang.png"  alt=""/>
 
-                        <div class=" efe pr-2 pl-2 pt-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/micro.png" alt=""/>
-
-                        </div>                            
-
-                    </div>
-                    <div style="width: auto" class=" m-1 p-0">
-
-                        <div class=" efe pr-2 pl-2 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_respaldo.png" alt=""/>
-
-                        </div>                            
-
-                    </div>
-                    <div style="width: auto" class=" m-1 p-0">
-
-                        <div class=" efe pr-2 pl-2 pt-1 pb-1 bote" style="height: 50px;-webkit-box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4); 
-                             box-shadow: inset 2px 1px 22px -2px rgba(0,0,0,0.4);">
-                            <img style="width: 40px; height: 40px; background: white" class="rounded-circle" src="recursos/imagenes/Logo_respaldo002.png" alt=""/>
-
-                        </div>                            
-
+                            </div>                            
+                        </a>
                     </div>
 
                 </div>
@@ -282,23 +280,44 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/1.png" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/2.png" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/3.png" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/4.png" alt="First slide">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
                             <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/Juegos.png" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
-<!--                                <h5>YUYAPUY</h5>
-                                <p>...</p>-->
                             </div>
                         </div>
                         <div class="carousel-item ">
                             <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/Musica.png" alt="Second slide">
                         </div>
-                         <div class="carousel-item ">
-                             <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/Imagenes.png" alt="Second slide">
-                        </div>
-                         <div class="carousel-item ">
-                             <img class="d-block w-100" style="border-radius: 50px" src="recursos/imagenes/Videos.png" alt="Second slide">
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/Imagenes.png" alt="Second slide">
                         </div>
                         <div class="carousel-item ">
-                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/PDF.png" alt="Third slide">
+                            <img class="d-block w-100" style="border-radius: 50px" src="recursos/imagenes/Videos.png" alt="Second slide">
+                        </div>
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/pagina.png" alt="Third slide">
+                        </div>
+                        <div class="carousel-item ">
+                            <img class="d-block w-100 " style="border-radius: 50px" src="recursos/imagenes/Archivo.png" alt="Third slide">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
