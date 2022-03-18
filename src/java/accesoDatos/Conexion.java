@@ -17,13 +17,17 @@ public class Conexion {
     private ResultSet result;
     private boolean state;
     private String message;
-
-    private String url = "jdbc:postgresql://190.15.134.7:7070/yuyapuy";
-    private String usuario = "appdist";
-    private String clave = "@Aplicaciones@Distribuidas@2021";
-    /*private String usuario = "appdist";
-    private String clave = "@Aplicaciones@Distribuidas@2021";*/
+    
+    
+    private String url = "jdbc:postgresql://10.1.1.89:5432/yuyapuy";
+    private String usuario = "yuyapuy"; 
+    private String clave = "yuyapuy_passw@rd";
     private String classForName = "org.postgresql.Driver";
+    
+//    private String url = "jdbc:postgresql://190.15.134.7:7070/yuyapuy";
+//    private String usuario = "appdist";
+//    private String clave = "@Aplicaciones@Distribuidas@2021";
+//    private String classForName = "org.postgresql.Driver";
 
     public Conexion() {
         state = true;

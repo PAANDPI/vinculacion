@@ -196,8 +196,8 @@
 
                 <div class="col-lg-6">
                     <div class="card  cajas mt-1 mb-3" style="width: 560px"> 
-                        <img style="width: 300px; height: 300px; margin: 0px auto" class="p-3" src="recursos/imagenes/micro.png" alt=""/>
-                        <!--<iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/fOW8Y09GVek" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->                         
+                        <!--<img style="width: 300px; height: 300px; margin: 0px auto" class="p-3" src="recursos/imagenes/micro.png" alt=""/>-->
+                        <iframe width="560" height="315" style=" border-top-left-radius: 50px; border-top-right-radius: 50px;" src="https://www.youtube.com/embed/n2uF0TKKwUI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                         
                         <div class="card-body p-5">
                             <h3 class="card-title">Titopi</h3>
                             <p class="card-text"><b>Desarrolladores:</b> Victor Romero, Tyrone Tocta, Janer Torrales</p>          
